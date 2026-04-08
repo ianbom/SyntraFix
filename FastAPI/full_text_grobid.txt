@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="id">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">PENERAPAN 5R (RINGKAS, RAPI, RESIK, RAWAT, RAJIN) DI PT. PERTAMINA DPPU ADI SUMARMO BOYOLALI PUBLIKASI ILMIAH Disusun sebagai salah satu syarat menyelesaikan Program Studi Strata I pada Jurusan</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+							<persName><forename type="first">Dan</forename><surname>Kesehatan</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Kerja</forename><surname>Keselamatan</surname></persName>
+						</author>
+						<author>
+							<persName><forename type="first">Ilmu</forename><surname>Fakultas</surname></persName>
+						</author>
+						<author>
+							<persName><surname>Kesehatan</surname></persName>
+						</author>
+						<title level="a" type="main">PENERAPAN 5R (RINGKAS, RAPI, RESIK, RAWAT, RAJIN) DI PT. PERTAMINA DPPU ADI SUMARMO BOYOLALI PUBLIKASI ILMIAH Disusun sebagai salah satu syarat menyelesaikan Program Studi Strata I pada Jurusan</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">887A879CB7D8BEAF720A546F0297459F</idno>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.8.2" ident="GROBID" when="2026-03-10T16:23+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<label type="revision">a91ee48</label>
+					<label type="parameters">startPage=-1, endPage=-1, consolidateCitations=0, consolidateHeader=0, consolidateFunders=0, includeRawAffiliations=false, includeRawCitations=false, includeRawCopyrights=false, generateTeiIds=false, generateTeiCoordinates=[], sentenceSegmentation=false, flavor=null</label>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<textClass>
+				<keywords>5R implementation</keywords>
+			</textClass>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Program 5R merupakan budaya tentang bagaimana seseorang memperlakukan tempat kerjanya secara benar. Bila tempat kerja tertata rapi, bersih, dan tertib, maka kemudahan bekerja perorangan dapat diciptakan, dan dengan demikian 4 bidang sasaran pokok industri, yaitu efisiensi, produktivitas, kualitas, dan termasuk keselamatan dan kesehatan kerja yang akan dapat lebih mudah dicapai. Tujuan penelitian ini adalah untuk mengetahui tentang propram penerapan standar 5R pada area PT. Pertamina (Persero) DPPU Adi Sumarmo Boyolali. Metode penelitian ini dilaksanakan secara kualitatif deskriptif berdasarkan observasi dan wawancara, kemudian di analisis dan dievaluasi menggunakan teknik analisa data, dan menyesuaikan dengan penerapan standar 5R di PT. Pertamina (Persero) DPPU Adi Sumarmo Boyolali. Hasil penelitian menunjukan bahwa pemahaman karyawan terhadap program 5R secara keseluruhan sudah berjalan tetapi belum maksimal. Dalam penerapan program 5R, terdapat dua R yang belum diterapkan dengan baik dari hasil observasi dalam penelitian ini, yaitu Resik dan Rapi. Para subjek penelitian dalam pengamatan peneliti terlihat belum adanya penataan barang-barang yang sudah tidak terpakai dan belum adanya label pada rak penyimpanan di gudang 1, pembuangan puntung rokok yang masih sembarangan, kerapian area kantor setelah bekerja, dan pengisian checlist toilet yang masih belum dilakukan secara rutin.</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="id">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.">PENDAHULUAN</head><p>Penggunaan teknologi maju tidak dapat dielakkan, terutama pada era industrialisasi yang ditandai adanya proses mekanisasi, elektrifikasi, dan modernisasi serta transformasi globalisasi.</p><p>Dalam keadaan demikian penggunaan mesin-mesin, pesawat, instalasi, dan bahan-bahan berbahaya akan terus meningkat sesuai kebutuhan industrialisasi. Hal tersebut disamping memberikan kemudahan bagi suatu proses produksi, tentunya efek samping yang tidak dielakkan adalah bertambahnya jumlah dan ragam sumber bahaya bagi pengguna teknologi itu sendiri contohnya seperti faktor lingkungan kerja yang tidak memenuhi syarat Keselamatan dan Kesehatan Kerja (K3), proses kerja tidak aman, dan sistem kerja yang semakin komplek dan modern dapat menjadi ancaman tersendiri bagi keselamatan dan kesehatan pekerja <ref type="bibr" target="#b26">(Tarwaka, 2014)</ref>.</p><p>Keselamatan dan Kesehatan Kerja (K3) adalah semua kondisi dan faktor yang dapat berdampak pada keselamatan dan kesehatan kerja tenaga kerja maupun orang lain (kontraktor, pemasok, pengunjung dan tamu) di tempat kerja. Dengan demikian jelas bahwa keselamatan kerja adalah sarana utama untuk mencegah terjadinya kecelakaan kerja yang dapat menimbulkan kerugian berupa luka atau cidera, cacat atau kematian, kerugian harta benda, dan kerusakan mesin atau peralatan dan lingkungan kerja secara luas <ref type="bibr">(OHSAS 18001:2007)</ref>.</p><p>Aspek keselamatan dankesehatan kerja yang sering disebut K3 menjadi solusi untama untuk melindungi aset-aset perusahaan yang sangat berharga. Salah satu aspek keselamatan dan kesehatan kerja yang harus diperhatikan adalah kecelakaan kerja. Kecelakaan kerja dapat terjadi karena 2 penyebab yaitu tindakan manusia yang tidak memenuhi keselamatan (unsafe human act) PT. Pertamina DPPU Adi Sumarmo telah melakukan usaha untuk mencegah terjadinya kecelakaan kerja, salah satunya dengan penerapan K3 berupa menjaga kerapian lingkungan kerja yang baik dan sistematis tetapi masih ada kegiatan penempatan material-material yang ada di lingkungan kerja yang kurang rapi, bersih, terawat, dan teratur yang akan menimbulkan kecelakaan kerja. Hasil studi pendahuluan melalui pengamatan dan observasi terlihat kondisi peralatan kerja yang masih kurang tertata rapi seperti terlihat pada lampiran 3 gambar 1, penempatan alat kerja tidak sesuai label seperti terlihat pada lampiran 3 gambar 2, lantai cor diatas bak penguras kolam ikan rusak sehingga beresiko tersandung dan jatuh seperti terlihat pada lampiran 3 gambar 3, kondisi toilet yang rusak tetapi tidak adanya perbaikan.</p><formula xml:id="formula_0">dan</formula><p>Melalui wawancara yang dilakukan kepada tenaga kerja menyatakan bahwa para karyawan kurang mengetahui tentang program 5R tetapi dari PT. Pertamina sudah melaksanakannya walaupun belum maksimal padahal disana sudah terdapat unit Health Safety Environment (HSE) yang bertugas mengawasi dan memeriksa keadaan lingkungan kerja agar sesuai ketentuan prinsip K3. Berdasarkan kondisi tersebut maka peneliti tertarik melakukan penelitian mengenai "Penerapan 5R (Ringkas, Rapi, Resik, Rawat, Rajin) di PT. Pertamina DPPU Adi Sumarmo Boyolali". 2. METODE Jenis dan rancangan penelitian ini adalah kualitatif dengan pendekatan critical incidents yaitu bertujuan untuk menggali informasi tentang penerapan program 5R (Ringkas, Rapi, Resik, Rajin) di PT. Pertamina DPPU Adi Sumarmo Boyolali. Penelitian ini dilaksanakan pada bulan November 2017 di wilayah kerja PT. Pertamina DPPU Adi Sumarmo Boyolali. 3. HASIL DAN PEMBAHASAN Berdasarkan hasil observasi, wawancara, dan ikut terlibat dalam kegiatan K3 di PT. Pertamina DPPU Adi Sumarmo Boyolali didapatkan bahwa perusahaan ini merupakan sebuah perusahaan yang bergerak di bidang jasa penyediaan bahan bakar avtur untuk pesawat terbang di Bandara Adi Sumarmo Boyolali yang pada setiap tempat kerja dan proses kerjanya menimbulkan sumber bahaya, yang mana sumber bahaya tersebut menimbulkan potensi bahaya yang dapat mengakibatkan terjadinya kecelakaan kerja. 3.1. Penerapan Ringkas Penulis Berdasarkan hasil wawancara terkait penerapan ringkas di PT. Pertamina DPPU Adi Sumarmo sudah berjalan tetapi belum seluruhnya menerapkan. Ini ditunjukkan dengan dibuatnya 5 gudang dengan jenis yang berbeda yaitu gudang alat, gudang ban, gudang arsip, gudang B3 dan gudang terbuka, hal ini dibuat agar mempermudah penyimpanan serta penataan barang yang sudah tidak terpakai. Penyimpanan di PT. Pertamina DPPU Adi Sumarmo lebih banyak pada arsip dan ban refuller karena tugas mereka sebagai pelaksana penyedia bahan bakar avtur pesawat. Penelitian yang sama pernah dilakukan oleh Dian (2013), menyatakan hasil audit penerapan ringkas di PT. Dan Liris Sukoharjo berkategori baik dengan terdapat 3 temuan yang tidak sesuai. Penelitian yang sama juga dilakukan oleh Okye (2013), menyatakan hasil audit penerapan ringkas di PT. Mega Andalan Kalasan hanya 1 temuan yang belum sesuai dengan ketentuan dari penerapan resik. Hal ini menunjukkan bahwa setiap perusahaan pasti kurang maksimal dalam penerapan resik karena terpecahnya fokus karyawan antara penerapan K3 dengan pekerjaan yang harus diseleseikan. Penyelesaian kendala resik tersebut salah satunya dengan di buatnya unit yang khusus menangani K3 sehingga pelaksanaannya lebih maksimal. Peran dan akuntabilitas staf/karyawan unit teknik/HSE PT. Pertamina DPPU Adi Sumarmo melakukan pengecekan alat-alat kerja secara menyeluruh sesuai jadwal yang sudah dibuat serta ketika alat tersebut bisa diperbaiki apabila tidak bisa langsung melaporkan ke aviation region semarang untuk diganti yang baru. Barang elektronik yang rusak proses pergantiannya langsung dikirim ke aviation region, biasanya dalam waktu 1 hari sudah ada gantinya. Sedangkan untuk non elektronik biasanya prosesnya barang yang tidak terpakai diletakkan digudang dan segera order barang sesuai jenis dan jumlah yang diperlukan. Penerapan ringkas di PT. Pertamina DPPU Adi Sumarmo juga ditunjukkan dengan bentuk kerjasama dengan pihak ketiga dalam pengelolaan barang-barang yang tidak terpakai. Hal ini dibuktikan yaitu untuk pengelolaan ban refuller PT. Pertamina DPPU Adi Sumarmo adalah membuat kontrak payung dengan perusahaan penyedia ban. Kontrak payung ini salah satunya berisi apabila ban yang dibeli sudah rusak/kondisi tidak layak pakai maka PT. Pertamina DPPU Adi Sumarmo mempunyai hak mengembalikan ke perusahaan penyedia ban. Untuk pengelolaan limbah B3 PT. Pertamina DPPU Adi Sumarmo bekerjasama dengan pihak ketiga dalam pembuangan limbah B3, pembuangan limbah dilakukan ketika sudah penuh di gudang B3 maka dari pihak PT. Pertamina DPPU Adi Sumarmo menghubungi pihak ketiga untuk mengambil limbah. Menumbuhkan kesadaran penerapan ringkas ditempat kerja dapat dilakukan dengan cara menumbuhkan rasa memiliki dengan fasilitas kerja sehingga apabila ada kerusakan atau ada barang yang sudah tidak layak pakai maka akan segera diganti yang baru karena itu demi kebaikan bersama. Hal ini sesuai dengan Pemenakertrans No. Per.01/MEN/1980 pasal 6 yang menyebutkan "Kebersihan dan kerapihan di tempat kerja harus dijaga sehingga bahan-bahan yang berserakan, bahan-bahan bangunan, peralatan dan alat-alat kerja tidak merintangi dan menimbulkan kecelakaan". Sedangkan dalam penerapan kategori ringkas terdapat temuan yang belum sesuai yaitu walaupun barang yang tidak terpakai sudah diletakkan digudang tetapi digudang 1 penempatannya masih belum tertata selain itu ada puntung rokok di dalam selokan yang belum dibersihkan, maka hal ini belum sesuai dengan Pemenakertrans No. Per.01/MEN/1980 pasal 6 yang menyebutkan "Kebersihan dan kerapihan di tempat kerja harus dijaga sehingga bahan-bahan yang berserakan, bahan-bahan bangunan, peralatan dan alat-alat kerja tidak merintangi dan menimbulkan kecelakaan". 3.2. Penerapan Rapi Berdasarkan hasil wawancara terkait penerapan rapi di PT. Pertamina DPPU Adi Sumarmo belum sepenuhnya dilaksanakan oleh semua karyawan lebih fokus dengan jobdisk yang harus dilakukan pada saat itu daripada memikirkan soal kerapian tempat kerja, selain itu dengan adanya OB bisa membantu karyawan dalam menata lingkungan kerjanya walaupun tidak bisa maksimal. Hal tersebut dikarenakan OB tidak tahu peletakan berkas dan alat kerja, sehingga tuganya hanya mengelap meja menata barang sebisanya. Penelitian yang sama pernah dilakukan oleh Dian (2013), menyatakan hasil audit penerapan rapi di PT. Dan Liris Sukoharjo berkategori observasi dengan terdapat 8 temuan yang tidak sesuai. Penelitian yang sama juga dilakukan oleh Rahman (2014), menyatakan hasil audit penerapan rapi di PT. Alba Unggul Metal masih ada temuan yang belum sesuai dengan ketentuan dari penerapan rapi. Hal ini menunjukkan bahwa setiap perusahaan pasti kurang maksimal dalam penerapan resik karena terpecahnya fokus karyawan antara penerapan K3 dengan pekerjaan yang harus diseleseikan dan tidak adanya teladan dari atasan dalam memaksimalkan penerapan rapi. Penyelesaian kendala rapi tersebut salah satunya dengan di buatnya unit yang khusus menangani K3 sehingga pelaksanaannya lebih maksimal dan reward dan punishment untuk memotivasi karyawan. Hasil observasi dan wawancara menunjukkan tidak disediakan loker kerja untuk karyawan selain unit teknik sehingga peralatan kerja biasanya diletakkan di laci meja. Loker yang disediakan dari perusahaan adalah loker pribadi untuk semua karyawan. Hasil observasi menunjukkan untuk area terbatas sudah menunjukkan penerapan kerapian di beberapa tempat ketika bekerja sampai selesei bekerja, Hal ini sesuai dengan Pemenakertrans No. Per.01/MEN/1980 pasal 6 yang menyebutkan "Kebersihan dan kerapihan di tempat kerja harus dijaga sehingga bahan-bahan yang berserakan, bahan-bahan bangunan, peralatan dan alat-alat kerja tidak merintangi dan menimbulkan kecelakaan". Area kantor belum sepenuhnya dilakukan penerapan kerapian oleh beberapa karyawan dari ketika bekerja sampai selesei bekerja hal ini ditunjukkan berkas kantor/alat kantor ada yang tidak dikembalikan ke tempatnya semula sehingga OB yang harus merapikannya. Peletakkan alat kerja juga sudah disediakan rak tetapi ada beberapa rak yang tidak adanya label sehingga hanya ditumpuk menjadi satu. Hal ini tidak sesuai dengan Pemenakertrans No. Per.01/MEN/1980 pasal 6 yang menyebutkan "Kebersihan dan kerapihan di tempat kerja harus dijaga sehingga bahan-bahan yang berserakan, bahan-bahan bangunan, peralatan dan alat-alat kerja tidak merintangi dan menimbulkan kecelakaan". 3.3. Penerapan Resik Berdasarkan hasil wawancara terkait penerapan resik di PT. Pertamina DPPU Adi Sumarmo diketahui disana telah menerapkan resik tetapi belum seluruhnya. Hal ini ditunjukkan untuk ruang terbatas lingkungan kerja dan kondisi alat kerja yang sudah tertata dan bersih. Kondisi kantor juga sudah disediakan checklist kebersihan toilet sudah disediakan dan diisi sesuai kondisi toilet pada hari tersebut selain itu untuk pembersihan refuller dilakukan setiap hari pada pagi hari agar selalu bersih ketika proses pengisian avtur dibandara. Penelitian yang sama pernah dilakukan oleh Gunawan (2011), menyatakan hasil audit penerapan resik di PT. Pertamina (Persero) Refinery Unit IV Cilacap berkategori baik dengan terdapat 1 temuan resik yaitu tidak pernahnya dilakukan pembersihan alat kerja setelah dipakai. Penelitian yang sama juga dilakukan oleh (2014), menyatakan hasil audit penerapan resik di PT. INKA (Persero) Madiun menunjukkan kategori baik sesuai dengan ketentuan dari penerapan resik. Hal ini menunjukkan bahwa setiap perusahaan pasti kurang maksimal dalam penerapan resik karena terpecahnya fokus karyawan antara penerapan K3 dengan pekerjaan yang harus diseleseikan. Penyelesaian kendala resik tersebut salah satunya dengan di buatnya unit yang khusus menangani K3 sehingga pelaksanaannya lebih maksimal dan reward dan punishment untuk memotivasi karyawan. Dari hasil observasi dan wawancara diketahui bahwa jumlah dan kondisi alat kebersihan disana sudah baik dan cukup jumlahnya, selain itu walaupun tidak ada tempat khusus/loker untuk meletakkan peralatan kebersihan tetapi OB telah meletakkan alat kebersihan pada titik-titik tertentu yang dekat dengan area kerja dan kondisi tertata rapi sehingga memudahkan dalam pengambilan alat kebersihan. Dalam wawancara juga diketahui bahwa jadwal untuk petugas kebersihan yaitu OB dan babat rumput sudah terjadwal dengan fleksibel jadi ketika ada salah satu yang ijin teman yang lain sudah ada yang menggantikan tugasnya sehingga petugas kebersihan tidak pernah kewalahan dalam menjaga kebersihan lingkungan PT. Pertamina DPPU Adi Sumarmo. Petugas OB dan babat rumput juga telah mempunyai SOP tugasnya yang telah tercantum dalam kontrak kerja, selain itu juga dari pihak Pertamina juga memberikan SOP yang harus dipatuhi sehingga keamanan petugas kebersihan dan lingkungan kerja pertamina bisa terjaga. Penerapan metode 5R kategori Resik tersebut dapat mencegah terjadinya potensi bahaya seperti tersandung, terjatuh, tertusuk paku, dan potensi bahaya kebakaran. Hal ini sesuai dengan Peraturan Pemerintah Nomor 50 Tahun 2012 tentang penerapan SMK3 Lampiran II 6.2.1 yang berbunyi; "Dilakukan pengawasan untuk menjamin bahwa setiap pekerjaan dilaksanakan dengan aman dan mengikuti prosedur dan petunjuk kerja yang telah ditentukan" dan juga sesuai dengan OHSAS 18001 : 2007 klausul 4.5.1 Pemantauan dan Pengukuran Kinerja yang berisi "Organisasi harus membuat, menerapkan dan memelihara prosedur untuk memantau dan mengukur kinerja K3 secara teratur." Sedangkan dalam penerapan kategori resik terdapat temuan yang belum sesuai yaitu adanya puntung rokok di dalam selokan yang belum dibersihkan dan pencatatan checklist toilet yang pengisiannya belum teratur. Hal ini tidak sesuai dengan Pemenakertrans No. Per.01/MEN/1980 pasal 6 yang menyebutkan "Kebersihan dan kerapihan di tempat kerja harus dijaga sehingga bahanbahan yang berserakan, bahan-bahan bangunan, peralatan dan alat-alat kerja tidak merintangi dan menimbulkan kecelakaan". 3.4. Penerapan Rawat Berdasarkan hasil wawancara terkait penerapan rawat di PT. Pertamina DPPU Adi Sumarmo diketahui sudah hal ini dibuktikan dengan banyaknya checklist untuk peninjauan alat kerja di ruang terbatas dan jadwal maintenance yang dibuat oleh teknik dan dilaksanakan oleh teknik untuk memastikan seluruh peralatan kerja terutama yang berhubungan dengan penyediaan dan pengiriman bahan bakar avtur dalam kondisi semaksimal mungkin. Penelitian yang sama pernah dilakukan oleh Dian (2013), menyatakan hasil audit penerapan rawat di PT. Dan Liris Sukoharjo berkategori baik dengan terdapat 3 temuan yang tidak sesuai. Penelitian yang sama juga dilakukan oleh Okye (2013), menyatakan hasil audit penerapan rawat di PT. Mega Andalan Kalasan dengan kategori baik karena telah sesuai dengan ketentuan dari penerapan rawat. Hasil kedua penelitian ini menunjukkan bahwa sudah baiknya penerapan rawat. Hal ini menunjukkan bahwa setiap perusahaan lebih fokus terhadap pekerjaan dan hal yang menunjang pekerjaannya seperti perawatan alat kerja. Penyelesaian kendala rawat tersebut salah satunya dengan di buatnya unit yang khusus menangani K3 yang bekerja sama dengan teknik sehingga pelaksanaannya lebih maksimal dan reward dan punishment untuk memotivasi karyawan. Standar dalam perawatan alat kerja di PT. Pertamina DPPU Adi Sumarmo adalah TKO (Tata Kerja Organisasi) yaitu pedoman kerja yang di buat oleh Aviation Pusat sebagai petunjuk dalam bekerja agar sesuai standar kerja Aviation Pusat. TKO ini kemudian di telaah lalu di kembangkan ditiap-tiap cabang sesuai dengan lingkup kerja yang dilaksanakan. Perawatan alat kerja di PT. Pertamina DPPU Adi Sumarmo telah terjadwal dan terorganisir oleh seluruh karyawan dengan dibuatnya jadwal secara continue yaitu per daily, weekly, monthly, dan yearly. Jadwal tersebut di buat oleh unit teknik dan ditempel di papan pengumuman dan unit teknik sehingga memudahkan dalam kontrol serta pelaksanaannya. Hal tersebut di upayakan untuk meminimalisir kerusakan alat kerja sehingga pengiriman bahan bakar avtur dapat berjalan sesuai jadwal yang ditentukan. Hal ini sesuai dengan OHSAS 18001 : 2007 klausul 4.5.1 Pemantauan dan Pengukuran Kinerja yang berisi "Organisasi harus membuat, menerapkan dan memelihara prosedur untuk memantau dan mengukur kinerja K3 secara teratur." 3.5. Penerapan Rajin Berdasarkan hasil wawancara diketahui bahwa di PT. Pertamina DPPU Adi Sumarmo sudah melaksanakan 4R (ringkas, rapi, resik, rawat) tetapi belum seluruhnya, sehingga terdapat beberapa kekurangan yang menyebabkan belum maksimalnya penerapan 5R di tempat kerja hal ini ditunjukkan dengan belum adanya training tentang 5R, inspeksi 5R, dan safety talk/rapat khusus tentang 5R. Hal ini belum sesuai dengan OHSAS 18001 : 2007 klausul 4.5.1 Pemantauan dan Pengukuran Kinerja yang berisi "Organisasi harus membuat, menerapkan dan memelihara prosedur untuk memantau dan mengukur kinerja K3 secara teratur." Penelitian yang sama pernah dilakukan oleh Dian (2013), menyatakan hasil audit penerapan rajin di PT. Dan Liris Sukoharjo berkategori baik dengan terdapat 8 temuan yang tidak sesuai. Penelitian yang sama juga dilakukan oleh Amalina (2007), menyatakan hasil audit penerapan rajin di PT. SMELTING Gresik terdapat temuan yang belum sesuai dengan ketentuan dari penerapan rajin. Hal ini menunjukkan kurangnya pengawasan dan kesadaran akan pentingnya penerapan 5R menyebabkan sulitnya penerapan rajin ditempat kerja. Penyelesaian kendala rajin tersebut salah satunya dengan di buatnya unit yang khusus menangani K3, adanya komunikasi antara atasan dan bawahan tentang pentingnya 5R sehingga pelaksanaannya lebih maksimal dan reward dan punishment untuk memotivasi karyawan. Untuk kerapian gudang masih belum terlihat di gudang 1 (gudang peralatan) dan gudang 2 (gudang ban) hal ini ditunjukkan dengan peralatan kerja yang tidak tertata rapi dan tidak adanya label pada rak kerja sehingga susah dalaam mencari barang. Aviation Region Semarang dalam inspeksinya juga menemukan kekurangan digudang maka dari OH (Operation Head) berkoordinir dengan unit teknik dalam upaya mengadakan evaluasi dan melakukan usaha perbaikan yaitu merencanakan pembuatan rak di gudang dalam upaya penerapan rapi. Pelaksanaan 5R di Pertamina sudah dilakukan tapi belum sepenuhnya berjalan karena beberapa alasan, seperti: (1) Banyaknya kegiatan di PT. Pertamina DPPU Adi Sumarmo sehingga menyebabkan pelaksanaan 5R belum seluruhnya terlaksana; (2) Ada beberapa karyawan di PT.</p><p>Pertamina DPPU Adi Sumarmo yang agak malas sehingga menyebabkan kemalasan pegawai lain;</p><p>(3) Belum adanya rasa memiliki dan tanggungjawab atas pekerjaan sehingga menyebabkan adanya rasa tidak peduli akan lingkungan (fokus terhadap pekerjaannya); (4) Evaluasi ada tapi dalam pelaksanaan evaluasi tidak berkelanjutan. </p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><figDesc>keadaan lingkungan yang tidak aman (unsafe condition) (Heinrich dalam<ref type="bibr" target="#b16">Puspitasari 2014)</ref>.Penanganan yang baik perlu dilakukan untuk pencegahan terhadap kecelakaan. Salah satu langkah pencegahan kecelakaan di industri adalah penerapan 5R agar membuat lingkungan kerja menjadi aman dan nyaman. PT. Pertamina (Persero) DPPU Adi Sumarmo (Pertamina Aviation) adalah pemasar dan penyedia bahan bakar penerbangan dan bensin penerbangan dengan jaringan global yang berada di wilayah bandara Adi Sumarmo Boyolali. Pertamina Aviation telah berkomitmen untuk menyediakan bahan bakar avtur yang berkualitas dari bandara utama ke remote landasan untuk mendukung pertumbuhan industry dimana mempunyai banyak risiko terjadinya kecelakaan akibat alat-alat berat dan bahan yang digunakan rentan akan terbakar, selain itu potensi bahaya seperti terjepit, terpukul, tersandung, terlindas dan sebagainya sangat mungkin terjadi.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>4 . 2</head><label>42</label><figDesc>PT. Pertamina DPPU Adi Sumarmo Boyolali sudah melaksanakan ketentuan 5R dalam kegiatannya disetiap harinya dengan penerapan ringkas, rapi, rajin sudah berjalan tetapi belum maksimal dan untuk resik dan rapi sudah bagus tetapi masih perlu perbaikan. Penerapan 5R ditunjang dengan penyediaan gudang yang cukup baik kondisinya, beberapa SOP tentang kebersihan serta perawatan alat kerja terutama yang berhubungan dengan kegiatan penyediaan bahan bakar pesawat terbang sudah dilaksanakan secara teratur dan terjadwal. yang masih perlu diperbaiki adalah penataan barang-barang yang sudah tidak terpakai dan belum adanya label pada rak penyimpanan di gudang 1, pembuangan puntung rokok yang masih sembarangan, kerapian area kantor setelah bekerja, dan pengisian checlist toilet yang masih belum dilakukan secara rutin.Sikap karyawan yang di wakilkan dari 3 informan adalah ada setuju dan ada yang belum sepenuhnya setuju. Hal ini mungkin dikarenakan tingkat kepahaman tentang konsep 5R berbeda di setiap informan dan belum mengetahuinya fungsi serta manfaat apabila pelaksanakan tersebut diterapkan di PT. Pertamina DPPU Adi Sumarmo. 4.3 Dari hasil wawancara menunjukkan tingkat pengetahuan karyawan dengan konsep 5R juga belum baik, hal ini dikarenakan belum adanya training tentang 5R serta safety talk dan rapat yang membahas tentang penerapan 5R di PT. Pertamina DPPU Adi Sumarmo.</figDesc></figure>
+		</body>
+		<back>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Rasa tanggungjawab setiap karyawan yang berbeda terutama tentang penerapan 5R sehingga kadang ada karyawan yang malas sehingga membuat rasa malas karyawan lain</title>
+		<author>
+			<persName><forename type="first">Dian</forename><surname>Daftar Pustaka Absari</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Mutia</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Penerapan Standar 5R Pada Area Produksi Konveksi 4 Di PT Dan Liris Sukoharjo. Skripsi. Fakultas Kedokteran Universitas Sebelas Maret</title>
+		<imprint>
+			<publisher>Suakara</publisher>
+			<date type="published" when="2013">2013</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<monogr>
+		<author>
+			<persName><forename type="first">K3</forename><surname>Artikel</surname></persName>
+		</author>
+		<ptr target="https://budayak3.wordpress.com" />
+		<title level="m">Tak sekedar Mengenali Bahaya dan risiko di tempat kerja</title>
+		<imprint>
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<monogr>
+		<title level="m" type="main">Green Company-Pedoman Pengelolaan Lingkungan Keselamatan &amp; Kesehatan Kerja. Jakarta: PT</title>
+		<author>
+			<persName><forename type="first">Nazir</forename><surname>Ahmad</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2002">2002</date>
+			<publisher>Astra International Tbk</publisher>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<monogr>
+		<author>
+			<persName><forename type="first">Rizma</forename><surname>Amalina</surname></persName>
+		</author>
+		<title level="m">Pemahaman Dan Penerapan Budaya 5S Pada Karyawan PT Smelting Gresik. Skripsi. Universitas Muhammadiyah</title>
+		<meeting><address><addrLine>Malang</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2007">2007</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Implementasi Seiri, Seiton, Seiso, Seiketsu, Shitsuke Bagian Maintenance Partisipatori Pabrik Crumb-Rubber PT. Bintang Gasing Persada</title>
+		<author>
+			<persName><forename type="first">Malik</forename><surname>Bimayu</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Jurnal</title>
+		<imprint>
+			<date type="published" when="2015">2015</date>
+		</imprint>
+		<respStmt>
+			<orgName>Fakultas Teknik Universitas Bina Darma. Palembang</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Gambaran Penerapan Metode 5R sebagai Upaya Pencegahan Kecelakaan Kerja di PT. Tata Mulia Nusantara Indah Project Gallery West Jakarta Barat. Skripsi</title>
+		<author>
+			<persName><forename type="first">Arda</forename><surname>Chanaloka</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Chanaloka</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Fakultas Kedokteran Universitas Sebelas Maret</title>
+		<meeting><address><addrLine>Surakarta</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2015">2015</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Undang Undang No. 50 tahun 2012 tentang Penerapan Sistem Manajemen Keselamatan dan Kesehatan Kerja</title>
+		<author>
+			<persName><forename type="first">Departemen</forename><surname>Tenaga Kerja</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">I</forename></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Kajarta: Depnaker RI</title>
+		<imprint>
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<monogr>
+		<author>
+			<persName><forename type="first">Departemen</forename><surname>Tenaga Kerja</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">I</forename></persName>
+		</author>
+		<title level="m">Undang Undang No. 01 tahun 1970 tentang keselamatan Kerja. Kajarta: Depnaker RI</title>
+		<imprint>
+			<date type="published" when="1980">1980</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<monogr>
+		<title level="m" type="main">Penerapan 5S di Tempat Kerja: Pendekatan Langkah-Langkah Praktis</title>
+		<author>
+			<persName><forename type="first">H</forename><surname>Hirano</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2002">2002</date>
+			<publisher>ALIH BAHASA (Paulus A. Setiawan</publisher>
+		</imprint>
+	</monogr>
+	<note>Penerjemah</note>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<monogr>
+		<author>
+			<persName><forename type="first">K</forename><surname>Jahja</surname></persName>
+		</author>
+		<title level="m">5R Dasar Membangun Industri Kelas Dunia, Edisi Keempat. Jakarta: PQM Consultans</title>
+		<imprint>
+			<date type="published" when="2000">2000</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<monogr>
+		<author>
+			<persName><forename type="first">Kristanto</forename><surname>Jahja</surname></persName>
+		</author>
+		<title level="m">Seri Budaya Unggulan 5R (Ringkas, Rapi,Resik, Rawat,Rajin), 3th ed. Jakarta: Productivity and Quality Management Consultans</title>
+		<imprint>
+			<date type="published" when="2009">2009</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Laporan Khusus Penerapan SMK3 Bagi Tenaga Kerja Kontraktor Di PT Asahimas Chemical Cilegon</title>
+		<author>
+			<persName><forename type="first">Fahrul</forename><surname>Kurniawan</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Jurnal</title>
+		<imprint>
+			<date type="published" when="2007">2007</date>
+		</imprint>
+		<respStmt>
+			<orgName>Fakultas Kedokteran Universitas Sebelas Maret. Surakarta</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<monogr>
+		<title/>
+		<author>
+			<persName><forename type="first">I</forename><forename type="middle">A</forename><surname>Muharromah</surname></persName>
+		</author>
+		<editor>Budaya 5 R Sebagai Budaya Kerja Di PKTN. Kemitraan Teknologi Nuklir. Teknoekonomi Issn</editor>
+		<imprint>
+			<date type="published" when="1978">2012. 1978-2918</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title/>
+	</analytic>
+	<monogr>
+		<title level="j">OHSAS</title>
+		<imprint>
+			<biblScope unit="volume">18001</biblScope>
+			<date type="published" when="2007">2007. 2007</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<monogr>
+		<author>
+			<persName><forename type="first">Takasi</forename><surname>Osada</surname></persName>
+		</author>
+		<title level="m">Sikap Kerja 5S Cetakan Ketiga</title>
+		<meeting><address><addrLine>Jakarta</addrLine></address></meeting>
+		<imprint>
+			<publisher>PPM</publisher>
+			<date type="published" when="2000">2000</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<monogr>
+		<author>
+			<persName><forename type="first">Takasi</forename><surname>Osada</surname></persName>
+		</author>
+		<title level="m">Sikap Kerja 5S. Jakarta: PPM</title>
+		<imprint>
+			<date type="published" when="2004">2004</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<monogr>
+		<title level="m" type="main">Penerapan Manajemen Tata Graha 5R (House keeping) sebagai Upaya Pencegahan Kecelakaan Kerja di Bagian Gudang Induk PT. Inka (Persero) Madiun. Skripsi</title>
+		<author>
+			<persName><forename type="first">Ervin</forename><surname>Puspitasari</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Putri</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2014">2014</date>
+		</imprint>
+		<respStmt>
+			<orgName>Fakultas Kedokteran Universitas Sebelas Maret. Suakara</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<monogr>
+		<title level="m" type="main">Sistem Manajemen Keselamatan dan Kesehatan Kerja OHSAS 18001</title>
+		<author>
+			<persName><forename type="first">Soehatman</forename><surname>Ramli</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2010">2010</date>
+			<publisher>Dian Rakyat</publisher>
+			<pubPlace>Jakarta</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">Evaluasi Penerapan Metode 5R Dalam Peningkatan Produktivitas Pembuatan Radiator Body Protector (Studi Kasus di PT. Alba Unggul Metal)</title>
+		<author>
+			<persName><forename type="first">Saepul</forename><surname>Rohman</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Jurnal. Institut Teknologi Nasional</title>
+		<imprint>
+			<date type="published" when="2014">2014</date>
+			<pubPlace>Bandung</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<monogr>
+		<author>
+			<persName><forename type="first">Okye</forename><surname>Sandika</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Dian</surname></persName>
+		</author>
+		<title level="m">Implementasi Budaya 5R (Ringkas, Rapi, Rawat, dan Rajin) Di Unit Machinery And Tool (UMT) PT Mega Andalan Kalasan. Skripsi. Fakultas keguruan dan Ilmu Pendidikan Universitas Sebelas Maret</title>
+		<imprint>
+			<publisher>Surakara</publisher>
+			<date type="published" when="2013">2013</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<monogr>
+		<author>
+			<persName><surname>Sugiyono</surname></persName>
+		</author>
+		<title level="m">Statistika Untuk Penelitian</title>
+		<meeting><address><addrLine>Bandung</addrLine></address></meeting>
+		<imprint>
+			<publisher>Alfabeta</publisher>
+			<date type="published" when="2013">2013</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<monogr>
+		<title level="m" type="main">Metode Penelitian Kombinasi (Mixed Methods)</title>
+		<author>
+			<persName><surname>Sugiyono</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2014">2014</date>
+			<publisher>Alfabeta</publisher>
+			<pubPlace>Bandung</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<monogr>
+		<title level="m" type="main">Analisis Penerapan Program 5R (Ringkas, Rapi, Resik, Rawat Dan Rajin) Dalam Keselamatan Dan Kesehatan Kerja (K3) Karyawan (Studi Kasus Pada Pt Pertamina (Persero) Refinery Unit Iv Cilacap Fungsi Helath, Safety And Environment Tahun</title>
+		<author>
+			<persName><forename type="first">I</forename><forename type="middle">G</forename><surname>Suteja</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">T</forename><surname>Sipayung</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2011">2011. 2011</date>
+			<pubPlace>Bandung</pubPlace>
+		</imprint>
+		<respStmt>
+			<orgName>Universitas Telkom</orgName>
+		</respStmt>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<author>
+			<persName><forename type="first">Chandra ; S (</forename><surname>Suwondo</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Seiri</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Seiton</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Seiso</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Seiketsu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">)</forename><surname>Shitsuke</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Di Indonesia</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Penerapan Budaya Kerja Unggulan 5</title>
+		<imprint>
+			<date type="published" when="2012">2012</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<monogr>
+		<title level="m">Ergonomi Untuk Keselamatan, Kesehatan Kerja</title>
+		<meeting><address><addrLine>Surakarta</addrLine></address></meeting>
+		<imprint>
+			<publisher>Uniba Press</publisher>
+			<date type="published" when="2004">2004</date>
+		</imprint>
+	</monogr>
+	<note>Tarwaka dkk</note>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<monogr>
+		<title level="m" type="main">Dasar-Dasar Keselamatan Kerja Serta Pencegahan Kecelakaan di Tempat Kerja</title>
+		<author>
+			<persName><surname>Tarwaka</surname></persName>
+		</author>
+		<imprint>
+			<date type="published" when="2012">2012</date>
+			<publisher>Harapan Press</publisher>
+			<pubPlace>Surakarta</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<analytic>
+		<title level="a" type="main">Manajemen dan Implementasi K3 di Tempat Kerja</title>
+		<author>
+			<persName><surname>Tarwaka</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Buku Keselamatan dan Kesehatan Kerja (K3)</title>
+		<meeting><address><addrLine>Surakarta</addrLine></address></meeting>
+		<imprint>
+			<publisher>Harapan Press</publisher>
+			<date type="published" when="2014">2014</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>
+
+=====================================
