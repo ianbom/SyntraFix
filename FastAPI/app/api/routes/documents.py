@@ -11,6 +11,7 @@ from app.schemas.document import (
     DocumentResponse,
     DocumentListItem,
     DocumentListResponse,
+    DocumentDetailResponse,
     DocumentUpdate,
     DocumentTypeEnum,
     ProcessingMonitorItem,
@@ -19,6 +20,7 @@ from app.schemas.document import (
 )
 from app.services.document import (
     get_document_download_url,
+    get_document_detail_data,
     delete_document_file,
     FileValidator,
     MinIOStorage
@@ -117,7 +119,10 @@ async def upload_document(
     
     The document will be:
     1. Validated and stored in MinIO (instant)
-    2. Processed in background by Celery worker (GROBID, LLM, embeddings)
+    2. Processed in background by Celery pipeline:
+       - GROBID metadata + structure extraction
+       - PyMuPDF text/table/image extraction
+       - Smart chunking + question generation + embeddings
     
     Returns immediately with processing_status='processing'.
     Use GET /documents/{id}/status to poll for completion.
@@ -159,7 +164,7 @@ async def upload_document(
                     document.processing_progress,
                     document.processing_status,
                 ),
-                "message": "Document uploaded, processing started...",
+                "message": "Document uploaded, pipeline processing started...",
                 "document_id": document.id,
             },
             client_id
@@ -323,6 +328,15 @@ async def get_document(
     return _build_document_response(document, chunk_count)
 
 
+@router.get("/{document_id}/detail", response_model=DocumentDetailResponse)
+async def get_document_detail(
+    document_id: int,
+    db: Session = Depends(get_db)
+):
+    """Get complete detail data from documents + document_chunks tables."""
+    return get_document_detail_data(db, document_id)
+
+
 @router.patch("/{document_id}", response_model=DocumentResponse)
 async def update_document(
     document_id: int,
@@ -411,7 +425,7 @@ async def upload_documents_bulk(
     
     Each document will be:
     1. Validated and stored in MinIO (instant)
-    2. Processed in background by Celery worker (GROBID, LLM, embeddings)
+    2. Processed in background by Celery pipeline (GROBID + PyMuPDF + chunking/embedding)
     
     Returns immediately with document IDs and processing_status='processing'.
     Use GET /documents/{id}/status to poll for completion.

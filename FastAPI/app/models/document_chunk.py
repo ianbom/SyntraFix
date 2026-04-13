@@ -15,6 +15,7 @@ class ChunkType(str, enum.Enum):
     ABSTRACT = "abstract"
     PARAGRAPH = "paragraph"
     TABLE = "table"
+    IMAGE = "image"
     REFERENCE = "reference"
 
 

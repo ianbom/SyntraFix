@@ -51,6 +51,7 @@ CREATE TYPE public.chunktype AS ENUM (
     'ABSTRACT',
     'PARAGRAPH',
     'TABLE',
+    'IMAGE',
     'REFERENCE'
 );
 

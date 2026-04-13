@@ -1,60 +1,308 @@
-Strategi Meningkatkan Hasil Produksi Padi Sawah untuk Kesejahteraan dan Perekonomian Masyarakat Desa di Banten
+Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application SETIAWARDHANA , (Member, IEEE), IWAN KURNIANTO WIBOWO , AND NIZHAR ACHMAD HUSEIN BERNARDT
 
-Authors: Wardhatul Laila, Naili Mafaaza, KaylaAlisha Ramdhani, AbiBayu Ermawan, Aliudin Aliudin, Jl Raya, Palka No, Km, Kec Sindangsari, Kota Pabuaran, Serang, Banten, Usaha Tani, Padi Sawah, Strategi, W Astuti, Badan Pusat, Statistik, Badan Pusat, Statistik, Badan Pusat, Statistik, Badan Pusat, Statistik Kabupaten, Serang, MR Fadli, Pemerintah Provinsi, Banten, S Sukarman, FA Guampe, JS Akbar, R Rulanggi
+Authors: Politeknik Elektronika, Negeri Surabaya, JG Melo, F Martins, L Cavalcanti, R Fernandes, V Araújo, R Joaquim, JG Monteiro, E Barros, ST Kempers, AF A Ribeiro, AC C Lopes, TA Ribeiro, NS S M Pereira, GT Lopes, AF M Ribeiro, S Setiawardhana, R Dikairono, D Purwanto, TA Sardjono, S Setiawardhana, WA Nasrulloh, BS B Dewantara, IK Wibowo, S.-T Kao, M.-T Ho, JA Vicente-Martínez, M Márquez-Olivera, A García-Aliaga, V Hernández-Herrera, K Anwar, MA Haq, IKurnianto Wibowo, MM Bachtiar, DP Suwandi, IK Wibowo, MM Bachtiar, IH Tambunan, D Silaen, F Michael, BA Sihotang, KG Sitanggang, RA Fatekha, BS B Dewantara, H Oktavianto, A Firasanti, A Sujatmiko, A Fahrurozi, EA Z Hamidi, MA Ismail, D Purwanto, A Arifin, V Tadic, A Toth, Z Vizvari, M Klincsik, Z Sari, P Sarcevic, J Sarosi, I Biro, L.-F Tu, Q Peng, A Abdelsalam, M Mansour, J Porras, A Happonen, L Göncz, A Majdik, S Susanto, JA Ricardo Silitonga, R Analia, ER Jamzuri, DS Pamungkas, M Bordado, D Silveria, G Laureano, R Deepa, E Tamilselvan, ES Abrar, S Sampath, B Tian, D Zhang, C Zhang, X Luo, K Quan, Y Liu, M Esfandiarpour, SM Mirshabani, EM Miandoab, Int, Mach, Y Feng, W Su, S Liu, W Lu, S Setiawardhana, BS B Dewantara, AT Huda, AH Z Ilahi, FP Nurmaida, SN Hamida, C Ryando, ZD M Fasya, R Farkh, MT Quasim, K Al, S Jaloud, ST Alhuwaimel, Siddiqui, C Yukawa, T Oda, N Saito, A Hirata, K Toyoshima, K Katayama, X Zhao, L Wang, Y Zhang, X Han, M Deveci, M Parmar, I Ćirić, N Ivačko, S Lalić, V Nejković, M Milošević, D Stojiljković, D Jevtić
 
-Abstract: The agricultural sector is one of the most important sectors. The majority of rice paddies serve as the main food commodity consumed by the community, making rice farming the majority in the agricultural sector. However, there are challenges in production such as low agricultural efficiency, limited access to resources, and dependence on traditional techniques. Therefore, strategies are needed to improve rice production that can impact the welfare and economy of farmers. The goal of this research is to analyze the condition of rice farming in Banten, specifically in Ciruas. It aims to identify the problems affecting production as well as the efforts that have been made by the government previously. Additionally, the research will provide strategies that are appropriate for increasing production yields and improving the welfare and economy of farmers. In this study, a qualitative research method was used with SWOT analysis method, along with data collection through primary data in the form of interviews and secondary data in the form of a Literature Review. The results showed that rice production in Banten declined to 298.84 thousand hectares and 1.52 million tons of GKG in 2024, but Ciruas District remains a rice granary despite facing many problems such as pests, low selling prices, drought, and extreme weather. Although various efforts have been made, such as training, provision of equipment, and water pumps, a SWOT analysis is needed to evaluate the effectiveness of strategies and plan alternative actions to improve farmers' production yields. Thus, through the SWOT analysis method, it is hoped that paddy field production will increase sustainably, thereby supporting food security and the economic welfare of rural communities in Banten and Ciruas District.
+Abstract: EEPIS Robot Soccer On Wheeled (ERSOW) is a wheeled soccer robot team competing in the Indonesian Wheeled Soccer Robot Contest. The ERSOW goalkeeper robot currently faces a challenge in responding to incoming balls due to delays in image processing, leading to slow movement responses. This delay can be mitigated by implementing a prediction system. By predicting the ball's trajectory, the robot can make timely movements to block shots effectively. This research designs a prediction system using the ZED stereo camera to enhance the goalkeeper robot's responsiveness in preventing goals. The research identifies the ball's position during airborne and ground states using the ZED camera. RGB-D readings are processed with Deep Learning methods to train on ball data and extract 3D object information from the dataset. The ball detection system is tested in three scenarios: right, center, and left positions relative to the robot. Accuracy evaluation is conducted three times for ball coordinates on the X, Y, and Z axes, resulting in X-, Y-, and Z-axis accuracy values of 90%, 80.77%, and 100%, respectively, with a ≤ 5 cm error tolerance. These results allow accurate determination of the ball's X, Y, and Z positions. The ball position data is then trained using Convolutional Neural Networks (CNN) to predict the ball's arrival position for the goalkeeper robot. Evaluation results show an overall accuracy of 70%, with an F1-score of 76% for the left position, 39% for the center position, and 84% for the right position.
 
-Keywords: Farming, Rice Paddies, Strategy, Production
+Keywords: Ball position prediction, ZED camera, deep learning, convolutional neural network, ERSOW goalkeeper robot
 
-LATAR BELAKANG
+I. INTRODUCTION
 
-Indonesia dikenal sebagai negara Indonesia disebut sebagai negara dengan sektor pertanian sebagai mayoritas dalam mata pencaharian masyarakat di Indonesia. Dalam sektor pertanian menjadi suatu sektor terpenting dalam kehidupan masyarakat Indonesia, khususnya pada usaha tani pada lahan sawah. Hal itu, dikarenakan usaha tani pada lahan sawah pada sektor pertanian memiliki banyak manfaat, seperti untuk meningkatkan ketahanan pada sektor pangan, untuk meningkatkan kesejahteraan hidup para petani, serta untuk menjaga kelestarian dalam lingkungan hidup. Selain menjadi salah satu bagian penting dari penyediaan kebutuhan pangan serta membantu dalam mempertahankan dan mengembangkan pembangunan dalam hal ketahanan pangan, usahatani lahan sawah pada sektor pertanian juga menjadi bagian penting dalam membantu menopang pembangunan perekonomian terutama dalam pembangunan perekonomian masyarakat daerah. Indonesia memiliki keberagaman komoditas yang dapat diterapkan dalam menjalankan usaha tani lahan sawah. Salah satu komoditas pertanian yang yang paling umum diterapkan dalam usaha tani lahan sawah adalah komoditas tanaman padi.
+EEPIS Robot Soccer On Wheeled (ERSOW) is one of the robotics teams at Politeknik Elektronika Negeri Surabaya. In addition, the ERSOW team participated in an international level competition in the field of robotics, the Middle Size League Robot Soccer, initiated by the Robocup Federation [1], [2]. The goal of these events, which center on wheeled robot soccer matches, is to build a robot soccer squad that can play independently and compete against the 2050 world champion human soccer team. In the research, The associate editor coordinating the review of this manuscript and approving it for publication was Yongming Li .
 
-Tanaman padi merupakan komoditas terpenting dalam kehidupan manusia. Padi menjadi tanaman utama di pertanian dan dunia. Kebutuhan komsumsi padi sangat tinggi karena padi merupakan tanaman pangan pokok yang dikonsumsi oleh masyarakat setiap hari, khusus nya di Indonesia. Berdasarkan data BPS (2023), luas panen komoditas tanaman padi di Indonesia diprediksi mencapai sekitar 10,20 juta hektar dengan hasil produksi pada komoditas beras di tahun 2023 diperkirakan mencapai sebesar 30,90 juta ton atau diperkirakan sekitar 53,63 juta ton untuk Gabah Kering Giling (GKG). Melalui perkiraan tersebut, jika dikonversikan dapat menjadi beras untuk dikonsumsi oleh penduduk.
+this soccer robot has implemented an autonomous system that requires the robot to be able to adapt to the surrounding environment and coordinate with other robots without any human intervention [3]. This research is a continuation of previous research, namely creating a ball position estimation system with a neural network [4], creating a wheeled soccer robot navigation system and creating a ball position prediction system based on a stereo minor camera and neural network [5]. There are many research topics on wheeled soccer robots developed such as in the field of computer vision, namely ball detection [6], [7], [8] goal detection [9], [10], detection of enemy robots and friend robots [11], and its localization [12], [13]. The ERSOW robot has been created with a number of basic soccer skills, such as finding the ball, dribbling the ball, avoiding robots from opponents, passing the ball to robot friends, timing to kick the ball into the goal, and so on. ERSOW has several robots, each of which has its own task, such as an attacking robot whose job is to score goals and contribute to the team's attack, a midfielder robot whose job is to help the team's defense, which has the ability to take the ball from the opponent and ward off the opponent's attack, and a goalkeeper robot whose job is to guard the team's goal from the opponent's attack and prevent goals from happening. The goalkeeper robot must have fast reflexes, good reaction speed, and the ability to ward off the ball with high accuracy. This research was conducted to improve the robot's ability to detect and predict the position of the ball. Better robot capabilities can increase the chances of winning in the competition. Predicting the position of the ball is needed so that the goalkeeper robot's ability can run optimally. With ball prediction, the goalkeeper robot will know the position of the direction of the ball's movement. The current problem is that the ERSOW goalkeeper robot still has obstacles in the robot's vision in detecting the ball with extreme light changes that can affect the ball prediction data during a soccer match. Previous research on object detection with Zed cameras has been conducted to see the performance and perspective of the camera, the effect of the camera polarizer and the measurement of the depth of the camera's distance from the object [14]. Research on estimating the distance between the camera and the object has also been carried out using a monocular camera [15]. Based on previous research, the ERSOW team wanted to create and implement a ball position detection system using the ZED camera because the camera has several advantages, namely, the image processing stage can be done inside the camera itself. The system created in this study is needed to increase the ability to detect the ball with the ability to detect the ball with changing lighting changes during the match. The detection ability is equipped with the ability to predict the position of the ball so as not to lose information. The contributions of this research are as follows:
 
-Usaha tani terhadap komoditas tanaman padi padi menjadi usaha tani yang paling umum dalam sektor pertanian. Selain berguna sebagai penyedia pangan, usahatani pada komoditas padi berguna untuk memberikan keuntungan secara finansial kepada para petani.
+• Proposing a system for predicting the position of the ball using the ZED camera because the ZED camera has the ability to detect ball objects with extreme lighting conditions on the Goalkeeper Robot Application.
 
-Dengan adanya peran tersebut, Usaha pertanian pada komoditas padi memiliki makna dan peranan yang sangat penting dalam mendukung kehidupan dan kesejahteraan. Hal ini tidak hanya bagi para petani, tetapi juga bagi masyarakat secara keseluruhan. Dikarenakan usaha tani pada komoditas padi yang bersifat umum dalam sektor pertanian, sebagian besar wilayah memiliki potensi untuk melakukannya. Banten merupakan salah satu dari wilayah yang memiliki potensi untuk dapat mengembangkan usaha tani pada tanaman padi. Usaha tani pada tanaman padi sawah di desa-desa Banten secara umum menunjukkan dinamika yang kompleks, dengan terdapat beberapa aspek positif. Total produksi padi pada tahun 2024 diprediksi mencapai sebesar 1,52 juta ton Gabah Kering Giling (GKG), atau adanya penurunan mencapai e-  sebesar 162,14 ribu ton Gabah Kering Giling (GKG) (sekitar 9,61 persen) dibandingkan dengan tahun 2023 yaitu sebesar 1,69 juta ton GKG. Hasil produksi padi terendah pada tahun 2024 diprediksi terjadi pada bulan Januari. Sementara itu, hasil produksi `tanaman padi tertinggi pada tahun 2023 terjadi pada bulan Maret. Meskipun demikian, produksi beras Banten diperkirakan akan meningkat sebesar 73,91 ton pada bulan Maret 2025, meningkat dari 32,27 ton pada bulan Februari. Adanya peningkatan hasil panen tersebut, dikarenakan adanya bantuan program pemerintah pelatihan pada para petani.
+• Proposing a system for predicting the ball's arrival position relative to the robot keeper using CNN. By accurately predicting the ball's trajectory, the robot keeper can better position itself to block incoming balls, thereby increasing its defensive capabilities. CNN was chosen because it can learn features automatically and is easy to integrate with low computing specifications in real-time. The best system performance is obtained by comparing several variations of the CNN method.
 
-Sektor pertanian di Provinsi Banten merupakan sektor non-basis, salah satu penyebabnya adalah tingginya pengalihan fungsi lahan pertanian di kawasan perkotaan untuk pembangunan perumahan, pusat perbelanjaan, dan gedung-gedung pemerintahan. Berdasarkan data dari BPS Provinsi Banten (2011), pengalihan lahan terjadi secara signifikan di daerah Kabupaten Tangerang, Kabupaten Serang, dan Kota Cilegon yang dikenal sebagai wilayah industri. Selain faktor tersebut, kurang optimalnya program pemerintah, minimnya penggunaan fasilitas kelompok tani, serta menurunnya keinginan masyarakat untuk berprofesi sebagai petani karena beralih ke sektor perdagangan dan jasa, semakin memperburuk kondisi pertanian atau usaha tani di wilayah ini. Di sisi lain, adanya usaha tani memiliki peranan krusial dalam ekonomi Indonesia, memberikan mata pencaharian bagi jutaan petani, dan memenuhi kebutuhan pangan bagi penduduk.
+The following sections make up the next section of this paper: The design and use of the wheeled goalkeeping robot created by the ERSOW team is covered in general in Section II. Section III presents the system design and development of the proposed method in the form of ball object detection and ball position prediction. The experiments to collect the datasets and the processing techniques are presented in Section IV. Furthermore, Section IV also contains the results of the object detection and ball position prediction experiments which are then summarized in the conclusion in Section V.
 
-Namun, terdapat tantangan utama yang dihadapi dalam produksi tanaman padi, yaitu rendahnya efisiensi pertanian. Hal ini disebabkan oleh kurangnya penerapan teknologi pertanian modern, akses yang terbatas terhadap sumber daya seperti benih berkualitas, pupuk, dan pestisida, serta ketergantungan pada teknik tradisional. Masalah ini semakin rumit dengan adanya perubahan kondisi strategis di luar sektor pertanian yang berdampak pada peningkatan produksi, terutama untuk tanaman pangan seperti padi. Permasalahan utama dalam usaha peningkatan hasil padi meliputi bertambahnya kebutuhan beras seiring dengan pertumbuhan populasi, terbatasnya pasokan beras global, dan kecenderungan kenaikan harga bahan pangan.
+II. RELATED WORK A. CAMERA MODE
 
-Maka dari itu, diperlukan usaha yang lebih intensif untuk menangani berbagai tantangan tersebut demi memenuhi kebutuhan pangan yang terus meningkat.
+Research on 3D sensors and stereo cameras has been widely developed, including the complexity of depth data accuracy from the ZED stereo camera [16]. This study designed and conducted an experiment in an office environment to determine camera depth error and depth estimation using four images of different distances and resolutions. The 3D detection method using the ZED 2 stereo camera is able to integrate stereo vision and artificial intelligence where the accuracy and consistency of depth are set in the camera parameters [17]. Integration of stereo cameras with Tiny-YOLO for distance measurement and object detection coordination system on the BarelangFC Robot with the concept of combining stereo vision data with object detection algorithms [18]. This system uses Tiny-YOLO for real-time object detection and is equipped with accurate distance measurements facilitated by the ZED stereo camera [17]. An innovative approach to change detection in spatial context utilizing stereo vision is presented in the study Object-Based Change Detection Algorithm with a Spatial AI Stereo Camera. This algorithm leverages detailed depth and spatial data provided by AI-enhanced stereo cameras to detect and analyze changes in the environment, proving useful for environmental monitoring and surveillance applications. Table 1 shows the relationship with previous research developments by researchers.
 
-Berdasarkan penjelasan di atas, adanya permasalahan berupa tantangan yang menghambat pada peningkatan produksi tanaman padi dapat menjadi masalah serius jika tidak ditangani. Selain berdampak pada ketidaktersediaan bahan pangan yang cukup, tantangan tersebut juga dapat berdampak rendahnya tingkat kesejahteraan dan perekonomian masyarakat daerah. Sektor pertanian memiliki kontribusi pada peningkatan kesejahteraan ekonomi masyarakat. Adanya peningkatan produktivitas pada pertanian juga berdampak pada
+B. BALL DETECTION
 
-Strategi Meningkatkan Hasil Produksi Padi Sawah untuk Kesejahteraan dan Perekonomian Masyarakat Desa di Banten 222 BOTANI -VOLUME. 2 NOMOR. 2 MEI 2025
+Research on computer vision for accurate and fast ball detection is conducted by comparing the performance of two detection methods based on convolutional neural networks. Testing techniques are specifically designed for the accuracy and response speed of the system that has been created [20]. Previous research has created a ball detection and tracking system for the Soccer Humanoid League Kidsize using the You Only Look Once (YOLO) method based on an embedded system [19]. Other researchers improved the detection accuracy of high-speed moving balls on sports fields with the YOLOv8 algorithm because it can operate quickly and accurately [21], [22], [23]. Researchers have also created a Robot Operating System (ROS) that combines lidar, IMU, camera, and YOLO algorithm so that the robot can pick up the ball. The robot has the ability to adapt so that it can position and map the dynamic environment [24].
 
-meningkatkan pendapatan bagi petani. Kesejahteraan petani meningkat dikarenakan hasil panen yang melimpah serta dapat dibeli dengan harga yang sesuai. Para petani dapat memiliki kemampuan finansial yang lebih meningkat, sehingga memungkinkan mereka untuk mengembangkan usaha sampingan atau berinvestasi kembali dalam bisnis pertanian mereka.
+TABLE 1. The proposed system with related works.
 
-Oleh karena itu, dibutuhkan suatu solusi guna menyelesaikan tantangan tersebut berupa strategi dalam meningkatkan produksi terutama pada tanaman padi sawah sebagai tanaman pangan utama. Dengan adanya peningkatan hasil produksi dengan kualitas yang baik pada tanaman padi sawah, maka juga dapat berdampak pada kesejahteraan dan perekonomian masyarakat desa khusus nya pada wilayah Banten.
+C. TRACKING AND PREDICTION
 
-Dengan demikian, penulis melakukan penelitian dengan judul "Strategi Meningkatkan
+Several studies have developed many CNN methods or convolutional neural networks for object prediction applications such as balls, humans, and others. CNN can also be used for object detection and position prediction in three-dimensional environments because of its ability to extract complex visual features from image data taken from the camera. The CNN method is able to process image data in two dimensions, such as applications for detecting the position of the ball in real-time for goalkeeper robots [4], [5], [25]. The CNN method is also used for several mobile robot-vision applications [26], [27] such as service robots or collaboration of several industrial robots [28], [29]. This research aims to build a combination of ZED camera devices with CNN methods that have been used in previous research to detect and predict the position of the ball in the goal area. This model scenario is to be able to reach all lighting conditions with a camera that has artificial intelligence features. The CNN model as an intelligence feature is added so that the system can predict the position of the ball with a ZED camera that has features that can overcome changes in light intensity levels.
 
-Hasil Produksi Padi Sawah Untuk Kesejahteraan Dan Perekonomian Masyarakat Desa Di
+III. HARDWARE AND SOFTWARE ARCHITECTURE
 
-Banten". Fokus utama penelitian ini adalah untuk memberikan strategi untuk meningkatkan hasil produksi tanaman padi sawah agar dapat berdampak pada meningkatkan kesejahteraan hidup petani serta perekonomian masyarakat daerah, khususnya di wilayah Banten.
+The process of system completion involves multiple stages that are intended to accomplish the objectives of the research.
 
-METODE PENELITIAN
+Every phase is meticulously organized to guarantee that every facet of the investigation is appropriately handled and carried out. When the ZED camera on the goalkeeper robot detects the ball, the first step is to determine whether the ball is detected or not. If the ball is not detected, the process of capturing images and analysis will be repeated continuously until the ball is successfully detected by the camera. Once the ball is detected, information about the ball's position is sent to the goalkeeper robot for further processing. Fig. 1 shows the overall robot system where the camera is useful for obtaining information about the ball on the field. At this stage, the goalkeeper robot will examine the information it receives from the ZED camera using a prediction algorithm. This algorithm aims to estimate the ball's position based on the images and data captured by the camera. Machine learning techniques, in particular Convolutional Neural Networks (CNN), are used in the prediction process. These networks have been trained with a dataset that contains a variety of probable ball placements.
 
-Penelitian ini menggunakan metode kualitatif dengan pendekatan Literature Review dan wawancara mendalam. Pendekatan ini bertujuan untuk memahami fenomena sosial dari sudut pandang partisipan secara mendalam. Studi literatur dilakukan untuk mengkaji berbagai penelitian terdahulu yang relevan, menjalin hubungan dengan teori yang ada, serta mengisi kekosongan dari riset sebelumnya. Sementara itu, wawancara dilakukan untuk memperoleh data primer secara langsung dari narasumber yang memiliki pengetahuan atau pengalaman terkait, guna memperkuat validitas dan memperluas pemahaman atas temuan dari studi literatur.
+The predicted ball position is then classified into one of three main categories: left, center, or right. This classification helps the robot understand more specifically where the ball is likely to move. Consequently, the goalkeeper robot can respond more quickly and accurately to block the ball. Based on this prediction, the robot will take appropriate action, such as moving left, right, or staying in the center, to block the ball and prevent a goal. This process of detecting, analyzing, and predicting the ball's position is a crucial part of the goalkeeper robot's defense system in robot soccer. By utilizing the ZED camera technology and advanced machine learning algorithms, this system is designed to enhance the speed and accuracy of the robot's response to the ball's movement, thereby increasing the chances of successfully blocking goals from the opposing team.
 
-Lokasi penelitian dipilih secara purposive, yaitu di Kecamatan Ciruas, Kabupaten Serang, Provinsi Banten, yang dikenal sebagai sentra produksi padi. Teknik pengumpulan data mencakup data primer melalui wawancara dengan petani dan koordinator penyuluh pertanian, serta data sekunder dari literatur ilmiah terpercaya dalam rentang tahun 2020-2025. Data dianalisis menggunakan pendekatan SWOT (Strengths, Weaknesses, Opportunities, Threats) untuk mengidentifikasi kekuatan, kelemahan, peluang, dan ancaman yang mempengaruhi kegiatan usaha tani padi di wilayah tersebut. Metode ini dirancang untuk menghasilkan analisis strategis yang dapat digunakan dalam upaya peningkatan kesejahteraan petani dan ketahanan pangan daerah.
+A. HARDWARE ARCHITECTURE Fig. 2 shows the hardware architecture of the ERSOW team goalkeeper robot. This architecture includes key components such as the ZED 2i Camera and mini-PC. The ZED 2i Camera serves as the robot's vision system, providing the visual data required for navigation and object detection. The mini-PC acts as the brain of the system, effectively analyzing the information from the camera and directing the robot's motions. The combination of these two components allows the robot goalkeeper to operate with high precision and reliability in robotic soccer matches. The ZED Stereo camera, manufactured by Stereolabs, is the first sensor to offer depth awareness both indoors and outdoors across larger distances (up to 20 meters). The ZED 2i Stereo camera is a device that attempts to replicate human vision. Due to the approximately 65mm horizontal separation between human eyes, each eye sees a situation slightly differently. Using two lenses can provide 3D information of an observed scene, allowing developers to add 3D depth information to robotics navigation, skeleton tracking, object detection, position tracking and mapping, and other applications. Via a USB 3.0 interface, the output data is high-resolution side-by-side color video. The ZED program on the host computer uses the two synchronized left and right video streams in this movie to create a depth map of the scene. The camera records a distance value (Z, in metric units) for every pixel (X, Y) in the picture, measured from the left lens's back to the scene object, and saves it in the depth map. Fig. 3 shows that the depth map captured by the ZED camera stores a distance value (Z) for each pixel (X, Y) in the image. These distance values are expressed in metric units (e.g. meters) and are calculated from the back of the camera's left eye to the objects in the scene. Such depth maps cannot be displayed directly because they are encoded in a 32-bit format.
 
-e-ISSN: 3046-5494; p-ISSN: 3046-5508; Hal 219-229 3. HASIL DAN PEMBAHASAN Letak Geografis dan Luas Wilayah Provinsi Banten Provinsi Banten terletak di Pulau Jawa dan sebelumnya merupakan bagian dari Provinsi Jawa Barat. Namun, sejak disahkannya Undang-Undang Nomor 23 Tahun 2000, Banten resmi menjadi provinsi tersendiri dengan pusat pemerintahan di Kota Serang. Berdasarkan Undang-Undang Nomor 3 Tahun 2000, luas wilayah Banten awalnya tercatat sebesar 8.651,20 km². Akan tetapi, data terbaru dari Permendagri Nomor 72 Tahun 2019 menyebutkan bahwa luas wilayah administrasi Provinsi Banten menjadi 9.662,92 km². Secara geografis, Banten berada di antara 5º7'50" hingga 7º1'11" Lintang Selatan dan 105º1'11" hingga 106º7'12" Bujur Timur. Provinsi ini terdiri dari empat kota dan empat kabupaten, dengan total 154 kecamatan, 262 kelurahan, dan 1.273 desa. Adapun batas-batas wilayah Provinsi Banten adalah: a. Sebelah utara berbatasan dengan Laut Jawa b. Sebelah timur berbatasan dengan DKI Jakarta dan Jawa Barat c. Sebelah selatan berbatasan dengan Samudra Hindia d. Sebelah barat berbatasan dengan Selat Sunda Letak Geografis dan Luas Wilayah Kecamatan Ciruas, Serang, Banten Kecamatan Ciruas terletak di bagian timur Kabupaten Serang, Provinsi Banten, dengan luas wilayah sekitar 34,49 km². Desa terluas di Kecamatan Ciruas adalah Desa Pulo, yang mencakup 4,89 km² atau sekitar 14,18% dari total wilayah kecamatan. Sementara itu, desa dengan luas terkecil adalah Desa Citerep yang hanya memiliki luas 1,09 km², atau sekitar 2,16% dari total wilayah Kecamatan Ciruas. 1) Wilayah Kecamatan Ciruas berbatasan dengan: 2) Kecamatan Pontang di sebelah utara 3) Kecamatan Lebakwangi di sebelah timur 4) Kecamatan Kragilan di sebelah selatan 5) Kota Serang di sebelah barat Kondisi Pertanian Tanaman Padi Provinsi Banten Berdasarkan Survei KSA, puncak panen padi pada tahun 2024 berbeda dari tahun sebelumnya, yakni terjadi pada bulan April dengan luas panen mencapai 63,09 ribu hektare. Sepanjang bulan Januari hingga September 2024, realisasi panen padi tercatat mencapai 266,04 ribu hektare, atau mengalami penurunan sekitar 19,51 ribu hektare (6,83 persen) dibanding periode yang sama tahun 2023. Sedangkan itu, Potensi panen pada bulan Oktober hingga Desember 2024 diperkirakan mencapai sebesar 32,80 ribu hektar. Secara total, luas panen padi Strategi Meningkatkan Hasil Produksi Padi Sawah untuk Kesejahteraan dan Perekonomian Masyarakat Desa di Banten 224 BOTANI -VOLUME. 2 NOMOR. 2 MEI 2025 pada tahun 2024 diproyeksikan mencapai 298,84 ribu hektare, mengalami penurunan sekitar 12,36 ribu hektar (3,97 persen) dibandingkan 2023. Produksi padi tertinggi di Provinsi Banten diperkirakan mencapai sekitar 1,36 juta ton GKG dari bulan Januari hingga September 2024, atau mengalami penurunan sebesar 191,05 ribu ton GKG (12,31%) dibandingkan 1,55 juta ton GKG dari bulan Januari hingga September pada tahun 2023. Dengan demikian, total produksi padi pada tahun 2024 diperkirakan mencapai sebesar 1,52 juta ton GKG, atau mengalami penurunan sebanyak 162,14 ribu ton GKG (9,61%) dibandingkan dengan tahun 2023 yang telah mencapai sebesar 1,69 juta ton GKG. Kondisi Pertanian Tanaman Padi Kecamatan Ciruas, Serang, Banten Kondisi sektor pertanian di Kecamatan Ciruas, Kota Serang, Banten ini terkenal sebagai daerah lumbung padi. Luas wilayah pertanian di di Kecamatan Ciruas, Kota Serang, Banten diperkirakan mencapai sekitar lebih dari 2.000 ha dengan mayoritas komoditas tanaman yang ditanam adalah tanaman padi sawah. Mayoritas komoditas tanaman padi sawah ini juga diperkirakan mencapai sekitar diatas 90 persen dibandingkan dengan komoditas tanaman lainnya. Luas lahan tanaman padi sawah diperkirakan mencapai sekitar 2.400 hektare.
+In order to display this depth map, an 8-bit monochrome (grayscale) representation with values between 0 and 255 is required, where a value of 255 represents the closest possible depth distance and a value of 0 represents the furthest possible depth distance.
 
-Permasalahan Yang Dapat Memengaruhi Hasil Produksi
+B. SOFTWARE ARCHITECTURE
 
-Pertanian menjadi Salah satu sektor utama yang mendukung kehidupan masyarakat di e-ISSN: 3046-5494; p-ISSN: 3046-5508; Hal 219-229 Kekuatan (Strengths) 1. Tersedianya sejumlah kelompok tani yang mengayomi usaha tani padi 2. Tersedianya sejumlah program yang telah tersusun serta dapat dilakukan untuk membantu para petani dalam usaha tani padi secara lebih optimal 3. Keadaan sarana dan prasarana yang relatif memadai dan dapat dimanfaatkan oleh petani dalam mengelola usaha tani padi Kelemahan (Weakness) 1. Minimnya pengetahuan dan keterampilan Sumber Daya Manusia (SDM) 2. Terdapat ahli fungsi lahan 3. Usia Petani yang semakin menua 4. Kapabilitas penyuluh yang minim Peluang (Opportunities) 1. Sistem pemasaran yang mudah 2. Permintaan yang signifikan pada masyarakat sekitar 3. Memperoleh bantuan subsidi dari pemerintah Ancaman (Threats) 1. Hama dan penyakit yang sulit untuk diatasi 2. Faktor iklim yang tak menentu Melalui analisis SWOT penulis dapat meluncurkan dan memberikan strategi alternatif yang bisa dilakukan upaya melakukan usaha tani padi menggunakan matriks SWOT di antaranya yaitu : IFAS EFAS Kekuatan (Strengths) Kelemahan (Weakness) Peluang (Opportunities) 1. Mengoptimalkan program yang ada dengan meningkatkan daya pengurus dan kelompok tani di Banten 2. Melaksanakan peninjauan terhadap hasil program yang telah diterapkan sebagai dasar untuk perbaikan dan perencanaan di periode berikutnya 3. Memaksimalkan pemanfaatan subsidi sarana produksi yang diberikan oleh pemerintah guna mendorong motivasi petani dalam meningkatkan hasil produksi pertanian 4. Mengembangkan fungsi lumbung padi tidak hanya sebagai tempat penyimpanan, tetapi juga sebagai aset produktif yang dapat dimanfaatkan untuk mendukung kegiatan usaha dan peningkatan ekonomi petani. 1. Mendorong peningkatan kapasitas petani dan pelaku usaha melalui penyuluhan serta fasilitasi dalam pengelolaan pertanian 2. Menjalin kemitraan strategis dengan instansi terkait dan pemangku kepentingan lainnya guna mendukung pelaksanaan program secara optimal Ancaman (Threats) 1. Optimalisasi pemanfaatan lahan yang sesuai untuk budidaya padi dilakukan bersamaan dengan upaya penanganan variabilitas musim dan curah hujan melalui perbaikan sistem irigasi yang terencana dan berkelanjutan 2. Meningkatkan tingkat adopsi teknologi agar proses produksi pertanian dapat berjalan dengan lebih efisien dan optimal. 3. memanfaatkan pengetahuan dan pengalaman petani dalam menghadapi serangan hama dan penyakit untuk mengatasi permasalahan tersebut dan memastikan kelancaran proses produksi pertanian. 1. Meminimalisasi alih fungsi lahan khususnya sawah dengan irigasi teknis 2. Mengakses dan memanfaatkan layanan lembaga keuangan sebagai sumber permodalan dalam kegiatan usaha tani Strategi Meningkatkan Hasil Produksi Padi Sawah untuk Kesejahteraan dan Perekonomian Masyarakat Desa di Banten 228 BOTANI -VOLUME. 2 NOMOR. 2 MEI 2025 4. KESIMPULAN Berdasarkan hasil dan pembahasan di atas dapat disimpulkan bahwa wilayah ini memiliki potensi agraris yang sangat besar. Provinsi Banten dengan luas wilayah sekitar 9.662,92 km² memiliki wilayah strategis yang didukung oleh keberadaan Kabupaten Serang dan Kecamatan Ciruas sebagai salah satu sentra pertanian padi utama. Kecamatan Ciruas dikenal sebagai lumbung padi, dengan dominasi lahan pertanian padi sawah seluas lebih dari 2.000 hektare. Meskipun terdapat potensi yang besar, produksi padi di wilayah ini mengalami penurunan akibat beberapa faktor seperti kemarau panjang, serangan hama, dan fluktuasi harga jual.
+This research uses the ROS system because it has the ability to integrate camera sensors with artificial intelligence methods and several other combined sensors in the robot. Fig. 4 shows the basic communication system for accessing the ZED camera on the robot. Image information is acquired over time and processed in real-time.  The prediction system that has been created using the CNN algorithm tries to change the layer parameter model to get the best results in classifying the position of the predicted direction of the ball. The dataset was collected as shown in Fig. 6. The CNN design used is as in Fig. 7 and equations ( 4) to (9). Convolutional Neural Network (CNN) is a type of artificial neural network specifically designed to process two-dimensional grid-shaped data, such as images. The convolution layer, pooling layer, and fully connected layer are the three primary hierarchical layers of a CNN. The central component of a CNN is the convolution layer, where different visual elements like edges, textures, and patterns are detected by applying filters or kernels to the input. A feature map reflecting the position of a certain feature in the original image is produced by the convolution layer's filters scanning the entire input. The way that neurons in the human brain react to visual stimuli is comparable to this mechanism.
 
-Untuk mengatasi berbagai tantangan tersebut, telah dilakukan berbagai strategi oleh pemerintah dan kelompok tani, seperti pemberian bantuan alat pertanian, penyediaan pompa air, peningkatan kapasitas petani, serta pengendalian organisme pengganggu tanaman (OPT). Selain itu, analisis SWOT juga digunakan untuk merumuskan strategi pengembangan yang lebih tepat sasaran, seperti optimalisasi pemanfaatan lahan, adopsi teknologi modern, serta peningkatan peran kelompok tani. Meskipun demikian, keberhasilan dari strategi ini masih bergantung pada faktor dukungan berkelanjutan, akses terhadap teknologi, serta peningkatan kemampuan sumber daya manusia pertanian di tingkat lokal.
+The pooling layer, which comes after the convolution layer, is meant to combine key information and lower the dimensionality of the feature map. Max pooling, which chooses the maximum value within each condensed area of the feature map, is a frequently used kind of pooling. This lessens the number of parameters that must be computed and increases the model's resistance to slight variations in the input features' locations.
 
-UCAPAN TERIMA KASIH
+CNNs typically have multiple sets of successive convolution and pooling layers, which allow the network to detect increasingly complex features at each layer. Early layers may detect simple edges and lines, while deeper layers may detect more complex objects, such as specific shapes and patterns.
 
-Terima kasih kepada aparat desa, instansi pertanian setempat, serta rekan-rekan akademisi yang turut memberikan masukan dan kritik konstruktif demi kesempurnaan tulisan ini. Semoga jurnal ini dapat memberikan kontribusi nyata bagi peningkatan hasil produksi padi sawah dan membawa dampak positif terhadap kesejahteraan serta perekonomian masyarakat desa di Banten. Ardi. (2025). Pertanian di Indonesia: Tantangan dan peluang untuk masa depan. FAPERTA UMA. https://pertanian.uma.ac.id/2025/01/02/pertanian-di-indonesia-tantangan-dan- peluang-untuk-masa-depan/
+The final input is supplied into the fully connected layer after passing through several convolution and pooling layers. Every neuron in this layer is connected to every other neuron in the layer before it, enabling the network to compile the features that were taken out of the earlier levels and come to a conclusion. An activation function that aids in the final classification, such as ReLU (Rectified Linear Unit) or Softmax, typically follows this completely connected layer.
 
-DAFTAR REFERENSI
+This study designs and implements appropriate parameter values in each layer of the CNN used. Previous researchers have created several methods for artificial intelligence that have been tried to be implemented on the ERSOW robot. These methods are Label Propagation, Extra Tree Classifier, Ridge Classifier, Linear SVC, Passive Aggressive Classifier, AdaBoost, Label Spreading, Nearest Centroid, GaussianNB, and Dummy Classifier
 
-Alfiah
+IV. METHODOLOGY
+
+The diagram of the dataset creation and ball position prediction process illustrates the sequential steps involved in capturing images from the goalkeeper robot's camera, labeling images, creating a dataset directory, and training the YOLO model. The process continues with activating the camera, loading the deep learning model, reading RGB-depth images, extracting coordinates, and collecting ball position data. The dataset is then created and used to train the CNN model, which predicts ball positions, leading to the final prediction output.
+
+The process begins with image capture using a ZED 2i camera mounted on the robot goalkeeper. These images are then stored in the dataset directory for the labeling process. The labeling process is done to mark the position of the ball in each image, which is then used to train the object detection model using YOLO (You Only Look Once).
+
+Once the object detection model is trained, it is loaded into the system for the ball detection process. The system uses RGB images and depth information from the ZED 2i camera to detect and identify the position of the ball in X, Y, and Z coordinates. This information is then extracted from the images processed by the system.
+
+With the camera active, the system continuously reads the position of the ball and performs detection using the trained deep learning model. The detected ball position data is then collected and stored for use in the ball prediction training process.
+
+The ball prediction training process is performed using a Convolutional Neural Network (CNN). The ball position data that has been collected from the detection process is used to train the ball prediction model. The purpose of this training is to generate a model that can estimate the ball's arrival position based on previous position data, allowing the robot goalkeeper to react faster and more accurately.
+
+Once the ball prediction model is trained, it is implemented in the robot goalkeeper system. The system was then tested to evaluate the performance of ball position detection and prediction. The tests were conducted with three different scenarios: when the ball is on the right, center, and left side of the robot.
+
+A. LIMITATIONS OF THE METHOD
+
+While the methodology employed in this study shows promising results in improving the accuracy of ball position prediction, several limitations need to be addressed:
+
+Lighting Sensitivity: The ZED 2i camera and the CNN-based model show sensitivity to extreme lighting conditions, such as very bright or low-light environments. Under these conditions, the quality of image data is reduced, which can negatively impact the accuracy of ball detection and position prediction.
+
+High-Speed Ball Detection: The current model struggles to maintain accuracy when the ball is moving at high speeds. This indicates that the dataset used for training might not fully represent the range of ball speeds encountered in real soccer scenarios, leading to less reliable predictions in high-velocity situations.
+
+Overfitting in Training: During the training phase, overfitting was observed, particularly between epoch 41 and 60. Although the model performs well on the training data, its performance on unseen validation data fluctuated, indicating that the model may have learned patterns specific to the training set but may not generalize well to new data.
+
+Camera Dependence: The system is heavily reliant on the quality of RGB and depth data from the ZED 2i camera. Any issues with camera calibration or environmental interference could degrade the accuracy of the position prediction. Furthermore, the system's performance could be impacted by noise or limitations in the depth measurement at certain distances.
+
+1) BALL DETECTION TRAINING a: CAPTURE IMAGE FROM CAMERA OF THE GOALKEEPER ROBOT
+
+The image data capture process was carried out using ZED 2i cameras mounted on the center and front sides of the robot goalkeeper. This strategic placement ensures optimal visual coverage of the pitch and ball, allowing the camera to record information with high accuracy. This camera position is important to ensure the image data covers various aspects of the game, both when the ball is on the field and in the air.
+
+b: LABEL THE IMAGE
+
+Once the image is captured, the next step is to label the image. Image labeling is done by marking the object to be detected, in this case, the ball. This process is important to provide the data required by the model to learn to recognize objects.
+
+c: CREATE DATASET
+
+This dataset will be fed into the object detection model in order to train it. In order for the model to detect objects in various situations, the dataset should include various positions and lighting conditions. This includes variations in the camera's angle of view, the distance between the camera and the object, and the intensity and direction of light. By including images in bright, dim, shadowed, and shadowless conditions, the model will be more robust and able to recognize objects with high accuracy in diverse realworld conditions. This variation ensures that the model does not rely solely on specific visual patterns, but can generalize to new situations that may be encountered during actual operations.
+
+d: TRAIN YOLO MODEL
+
+At this stage, the YOLOv8 (You Only Look Once version 8) model is trained using the prepared dataset. YOLOv8 is the latest version of an object detection method that is renowned for its efficiency and speed. In the training process, the model will learn to recognize and detect various objects in pre-labeled images. This training involves optimizing a loss function designed to minimize the difference between the model's predictions and the ground truth labels. The loss function in YOLOv8 takes into account errors in prediction of bounding box position, bounding box size, and object classification. The training process is performed using backpropagation and stochastic gradient descent techniques to update the model weights until it reaches the desired level of accuracy. The trained model is then evaluated to ensure high object detection performance on previously unseen test images. The innovations in YOLOv8 enable improved detection accuracy and speed, making it a highly effective tool in various object recognition applications.
+
+2) BALL DETECTION a: ACTIVE THE CAMERA
+
+The ball detection process begins by activating the camera attached to the robot goalkeeper. This camera is tasked with capturing images and videos of the robot's surroundings with high resolution and sufficient image capture rate for real-time applications. Camera activation is an important first step to ensure that the system can acquire the visual data required for the subsequent detection and analysis steps.
+
+b: LOAD THE MODEL
+
+Once the camera is activated, a pre-trained ball detection model using the YOLO (You Only Look Once) algorithm is loaded into the system. The YOLO model is designed to analyze images and videos captured by the camera efficiently and quickly. YOLO works by dividing images into grids and processing them in a single stage to detect objects, including balls, with high accuracy. This process involves extracting visual features from the image which are then processed by the YOLO model to recognize patterns corresponding to the characteristics of the ball. The use of YOLO enables object detection in real-time, which is crucial for robotic applications that require quick responses.
+
+c: READ RGB & DEPTH IMAGES
+
+The camera then captures images in RGB (Red, Green, Blue) format that provide rich color information as well as depth images that provide information about the distance of each pixel in the image from the camera. Depth images are very important as they allow the system to determine the distance of the object from the camera with high accuracy, which is critical information for figuring out the three-dimensional (3D) position of the ball. The combination of RGB and depth data allows the system to not only detect the ball but also measure its distance precisely, which is essential for trajectory calculation and ball motion prediction.
+
+d: EXTRACT COORDINATES (X, Y, Z)
+
+Using the RGB image and depth, the system then extracts the coordinates of the ball in three dimensions (x, y, z). These coordinates indicate the position of the sphere relative to the camera. The formula for calculating the depth z in real-world coordinates can be expressed as equations (1) to (3).
+
+where:
+
+• f is the focal length of the camera,
+
+• B is the distance between the two camera lenses(baseline),
+
+• d is the horizontal shift between the left and right images (disparity)
+
+The formula for calculating the coordinates x and y in the real world are:
+
+where:
+
+• u and v are the coordinates of pixels in the image,
+
+• c x and c y is the coordinate of the image center,
+
+• f x and f y is the focal length in pixel units.
+
+3) BALL ARRIVAL PREDICTION TRAINING a: COLLECT DATA
+
+The dataset creation process starts with data capture, where the robot goalkeeper is placed in the goal area, and the ball is kicked from three different directions. Data was recorded using a ZED camera to learn various ball movement patterns and match situations. Capturing data from different angles and conditions ensures the accuracy of the ball movement prediction by the system, as shown in Fig. 6. The process of capturing and processing data to predict the position of the ball in the goal area. Sample data is taken from three initial positions of the ball, namely (x1, y1), (x2, y1), and (x3, y1), and rolled to three waypoints: left, center, and right, with sampling every 20 milliseconds. The ball's routes as it moved from different spots on the field toward the goal were tracked and analyzed to forecast its next location, which was divided into three categories: left, center, and right.
+
+b: CREATE DATASET
+
+The ball position data that has been collected is then processed and made into a structured dataset. This dataset will be used as input to train the ball prediction model. To ensure the model can make predictions with high accuracy, the dataset should include various scenarios, such as ball movement at different speeds, different shooting angles, and varying environmental conditions. The data also needs to be tagged with time information to enable dynamic analysis of the ball movement. Dataset creation involves a process of data cleaning, tagging, and splitting the data into training and testing sets, with a total of 450 training data points and 180 testing data points, to ensure the resulting model can generalize to new situations that may be encountered during a match. Variation in the dataset is essential to improve the model's ability to predict ball position accurately and responsively.
+
+c: TRAINING CNN MODEL
+
+The Convolutional Neural Network (CNN) model is trained using the prepared dataset. CNN is a type of deep neural network that is highly effective for the analysis and processing of visual data such as images and videos. In this context, CNN is used to predict the position of the ball based on the position data that has been collected during the training session. The training process involves adjusting the weights of the model through the backpropagation technique to minimize the prediction error. The Fig. 7 is a sequential model of the CNN architecture for ball position prediction. A sequential model is a series of layers that are processed sequentially from input to output. The given model consists of several types of layers: Conv1D, AveragePooling1D, Dropout, MaxPooling1D, Flatten, and Dense. The operation process is in equations ( 4) to (9).
+
+1. Conv1D Layer
+
+• Function: Filtering the input signal using a filter.
+
+• Operation:
+
+where y is the input, w is the filter weight, b is the bias, and * is the convolution operation.
+
+• Output: Filtered signal.
+
+AveragePooling1D layer
+
+• Function: Reduces the dimensionality of the signal by averaging the values within a specific window.
+
+• Operation:
+
+where y is pooling window size.
+
+• Output: A signal whose size is smaller than the average value of the pooling window.
+
+Dropout layer
+
+• Function: Prevent overfitting by randomly disabling some units (neurons) during training.
+
+• Operation:
+
+where m(t) is a mask containing zero or one, determined randomly.
+
+• Output: A signal for which some units are disabled.
+
+MaxPooling1D layer
+
+• Function: Reduces the dimensionality of the signal by taking the maximum value within a specific window.
+
+• Operation:
+
+where k is the size of the pooling window.
+
+• Output: A signal whose size is smaller than the maximum value of the pooling window.
+
+Flatten layer
+
+• Function: Converts multi-dimensional signals into onedimensional (1D) signals.
+
+• Output: 1D signal. 6. Dense (Fully Connected) layer
+
+• Function: Linearly combine all the signal features and apply an activation function.
+
+• Operation:
+
+where x is the input, σ is the activation function, w is the weight matrix, and b is the bias vector.
+
+• Output: The signal that has been transformed by the dense layer.
+
+i) TRANSFORMATION STEPS IN THE MODEL
+
+Here is the complete sequence of transformations that occur to the input signal as it passes through each layer in the model: 1. Conv1D 1:
+
+• Input: (None, 10, 512)
+
+• Output: (None, 10, 512)
+
+• Convolution operation with a certain filter size. 2. AveragePooling1D 1:
+
+• Input: (None, 10, 512)
+
+• Output: (None, 5, 512)
+
+• Takes the average of every two consecutive values, halving the length of the signal. The model takes an input signal, operates it through multiple layers of convolution, pooling, dropout, and finally dense layers to produce the output. Each layer has specific functions that help in extracting important features from the signal and finally make predictions based on those features.
+
+To train the CNN, a loss function is used which measures the difference between the model's prediction and the true value. The loss function used is the Mean Squared Error (MSE), which can be expressed by the following formula:
+
+where:
+
+• ŷi is the model prediction for the i-th sample,
+
+• y i is the actual value for the i-th sample,
+
+• N is total number of samples in the dataset.
+
+During the training phase, the model weights are updated using the average square of the difference between the predicted and actual values, which is computed using this loss function. By minimizing this loss value, the CNN model is expected to improve its prediction accuracy of the ball position.
+
+4) BALL ARRIVAL PREDICTION a: INPUT BALL POSITION
+
+The system is input into the prediction model. This position includes the coordinates of the moving ball. This data is obtained from cameras and sensors that monitor the ball's movement in real-time. This coordinate information is then used by the prediction model to calculate the ball's next trajectory.
+
+b: POSITION PREDICTION
+
+The prediction model then analyzes the ball position input and predicts the future direction and position of the ball. This prediction helps the robot goalkeeper determine the movements to be made to prevent the ball from entering the goal. The position prediction can be expressed by equation (10).
+
+where:
+
+• p(t) is the predicted position of the ball at time t,
+
+• p (t -1) , p (t -2) , . . . , p(tn) is the position of the ball at the previous time, which is used as input for the prediction function.
+
+c: PREDICTION OUTPUT
+
+The result of the ball arrival position prediction is output. This information is used by the goalkeeping robot control system to take appropriate actions in blocking the ball. This output allows the robot to respond quickly and accurately to the movement of the ball, optimizing the chances of stopping a shot from entering the goal. The robot control system then executes the calculated motion based on the prediction, moving the robot to the ideal position to make the save.
+
+The following is the pseudocode of the ball arrival position prediction system.
+
+V. EXPERIMENT RESULTS
+
+This chapter discusses the results of the dataset that has been created as well as the results of the Convolutional Neural Network (CNN) testing that has been carried out. In this research, we produced a comprehensive dataset specifically designed for applications involving wheeled soccer goalkeeper robots. The dataset includes a variety of scenarios capturing different ball movements, speeds, shooting angles, and environmental conditions to ensure robustness and versatility.
+
+The development, implementation, and compilation processes in this study were performed on a system with the specifications listed in Table 2. These specifications include various hardware components such as high-performance CPUs, GPUs, and adequate RAM, as well as software components including operating systems, deep learning frameworks, and data processing libraries. The choice of hardware and software was critical to achieve optimal performance, enabling efficient handling of complex algorithms and large volumes of data during the development, testing, and evaluation phases.
+
+Using the right hardware ensured fast processing times and the ability to run intensive computations necessary for training deep learning models. Meanwhile, the selection of appropriate software provided the tools needed for data preprocessing, model training, and evaluation. For instance, the use of deep learning frameworks like TensorFlow facilitated the construction and training of the CNN model, while data processing libraries such as NumPy and Pandas were essential for managing and manipulating the dataset.
+
+TABLE 2. Computer specification.  The model's overall accuracy is approximately 98.02%, calculated as follows by equations ( 11) to (14).
+
+Precision, measuring the proportion of correct ball predictions out of all ball predictions, is very high at 99.75%:
+
+Recall, or sensitivity, measuring the proportion of correctly identified balls out of all actual balls, is also high at 98.26%:
+
+The F1 Score, the harmonic mean of precision and recall, is around 99.00%:
+
+These metrics indicate that the model has high performance in detecting balls, although it struggles with correctly identifying the background.  TABLE 3. Comparisons results of the proposed system with related works. measures the model's performance on a separate dataset. A large gap between these two lines may indicate overfitting.
+
+At epochs 0 to 20, training accuracy jumps significantly followed by a similar increase in validation accuracy. At epochs 21 to 40, there is a slight increase in training accuracy with a short period of decline before rising again, while validation accuracy rises significantly and then falls sharply before rising again. At epochs 41 to 60, both graphs show steady fluctuations. At epochs 61 to 80, the fluctuation pattern continued on both graphs. At the last epochs, 81 to 100, there is a significant drop in training accuracy followed immediately by a rapid rise, while validation accuracy shows a continuous up and down trend with no apparent stability. Testing was conducted to evaluate the performance of the trained model. Table 3 presents the performance report of the proposed model, a CNN-based machine learning model, in classifying test data into three categories: ''right,'' ''left,'' and ''center.'' With 180 test samples, the model achieved an overall accuracy of 70%, indicating that 70% of its predictions were correct. Table 3 shows the result of proposed method and other comparison models. From the performance evaluation results of the CNN prediction model for ball position, it was found that the model performed well for the prediction of the ''right'' and ''left'' classes, with F1-score of 0.84 and 0.76 respectively, indicating that the model was quite reliable in classifying both classes. However, the model performance for the ''center'' class showed a significant decrease, with an F1-score of only 0.39. This suggests either an imbalance in the data or a complexity in the ball movement pattern at the center that is difficult for the model to identify.
+
+These findings show that while the CNN model is effective for most scenarios, there are areas that require improvement, especially in predicting the ''center'' class. One of the future development plans is to improve the data distribution by rebalancing the dataset so that the ''center'' class has more training examples. In addition, more complex models will be developed using other deep learning techniques, such as integration with Long Short-Term Memory (LSTM) to better capture temporal patterns in ball movement.
+
+For the future, some other approaches that can be developed include the use of data augmentation to generate more variations of the ball position in the ''center'' class, as well as further tuning the CNN architecture to reduce the overfitting phenomenon detected in some epochs during training. The use of attention mechanisms can also be implemented to help the model focus on key features of the ball movement, so as to improve prediction accuracy, especially in the ''center'' class which tends to be less accurate.
+
+With this further development, it is expected that the ball position prediction model is not only more accurate in the ''right'' and ''left'' classes, but can also provide better performance on ball prediction in the ''center'' class, so as to improve the overall ability of robot goalkeepers in capturing balls from various positions.
+
+VI. CONCLUSION
+
+Based on the results of the testing and analysis conducted, the YOLOv8 model effectively recognizes ball objects on the field and detects them in real-time. The developed system successfully determines the ball's position with an accuracy of 90.24% for the x-coordinate, 80.77% for the y-coordinate, and 100% for the z-coordinate within the ZED camera frame, with an error tolerance of ≤ 5 cm. Ball detection tests using deep learning showed an accuracy of 100% at distances up to 300 cm. Additionally, data training for ball position prediction using the Convolutional Neural Network (CNN) architecture resulted in a prediction accuracy of 70%. The f1-scores for each output category were 76% for the left position, 39% for the center position, and 84% for the right position. These findings indicate that the developed model is capable of detecting and determining the ball's position with high accuracy, although there is room for improvement in predicting the center position.
+
+FIGURE 1 .
+
+FIGURE 2 .
+
+FIGURE 3 .
+
+FIGURE 4 .
+
+FIGURE 5 .
+
+FIGURE 6 .
+
+FIGURE 7 .
+
+3 . 5 .
+
+Algorithm 1
+
+FIGURE 8 .
+
+B
+
+FIGURE 9 .
+
+For more information, see https://creativecommons.org/licenses/by/4.0/
+
+VOLUME 13, 2025
+
+VOLUME 13, 2025
 =====================================

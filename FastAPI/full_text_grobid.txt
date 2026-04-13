@@ -6,94 +6,56 @@ xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.co
 	<teiHeader xml:lang="en">
 		<fileDesc>
 			<titleStmt>
-				<title level="a" type="main">Strategi Meningkatkan Hasil Produksi Padi Sawah untuk Kesejahteraan dan Perekonomian Masyarakat Desa di Banten</title>
+				<title level="a" type="main">Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application SETIAWARDHANA , (Member, IEEE), IWAN KURNIANTO WIBOWO , AND NIZHAR ACHMAD HUSEIN BERNARDT</title>
 			</titleStmt>
 			<publicationStmt>
 				<publisher/>
-				<availability  status="unknown">
-					<licence/>
-				</availability>
-				<date type="published" when="2025">Mei 31, 2025</date>
+				<availability status="unknown"><licence/></availability>
 			</publicationStmt>
 			<sourceDesc>
 				<biblStruct>
 					<analytic>
 						<author>
-							<persName><forename type="first">Wardhatul</forename><surname>Laila</surname></persName>
+							<persName><forename type="first">Politeknik</forename><surname>Elektronika</surname></persName>
 						</author>
 						<author>
-							<persName><forename type="first">Naili</forename><surname>Mafaaza</surname></persName>
-						</author>
-						<author>
-							<persName><forename type="first">Kayla</forename><forename type="middle">Alisha</forename><surname>Ramdhani</surname></persName>
-						</author>
-						<author>
-							<persName><forename type="first">Abi</forename><forename type="middle">Bayu</forename><surname>Ermawan</surname></persName>
-						</author>
-						<author role="corresp">
-							<persName><forename type="first">Aliudin</forename><surname>Aliudin</surname></persName>
-							<email>aliudin@untirta.ac.id</email>
-						</author>
-						<author>
-							<persName><forename type="first">Jl</forename><surname>Raya</surname></persName>
-						</author>
-						<author>
-							<persName><forename type="first">Palka</forename><surname>No</surname></persName>
-						</author>
-						<author>
-							<persName><surname>Km</surname></persName>
-						</author>
-						<author>
-							<persName><forename type="first">Kec</forename><surname>Sindangsari</surname></persName>
-						</author>
-						<author>
-							<persName><forename type="first">Kota</forename><surname>Pabuaran</surname></persName>
-						</author>
-						<author>
-							<persName><surname>Serang</surname></persName>
-						</author>
-						<author>
-							<persName><surname>Banten</surname></persName>
-						</author>
-						<author>
-							<persName><forename type="first">Usaha</forename><surname>Tani</surname></persName>
-						</author>
-						<author>
-							<persName><forename type="first">Padi</forename><surname>Sawah</surname></persName>
-						</author>
-						<author>
-							<persName><roleName>Produksi.</roleName><surname>Strategi</surname></persName>
+							<persName><forename type="first">Negeri</forename><surname>Surabaya</surname></persName>
 						</author>
 						<author>
 							<affiliation key="aff0">
-								<orgName type="institution">Universitas Sultan Ageng Tirtayasa</orgName>
+								<orgName type="department">PENS</orgName>
+								<orgName type="institution">Politeknik Elektronika Negeri Surabaya</orgName>
 								<address>
-									<addrLine>1-5 Program Studi Agribisnis Fakultas Pertanian</addrLine>
+									<postCode>60111</postCode>
+									<settlement>Surabaya</settlement>
+									<country key="ID">Indonesia</country>
 								</address>
 							</affiliation>
 						</author>
 						<author>
 							<affiliation key="aff1">
-								<orgName type="department">Desa di Banten</orgName>
-								<orgName type="institution">Strategi Meningkatkan Hasil Produksi Padi Sawah untuk Kesejahteraan dan Perekonomian Masyarakat</orgName>
+								<orgName type="department">Ministry of Higher Education, Science and Technology</orgName>
+								<address>
+									<country key="ID">Indonesia</country>
+								</address>
 							</affiliation>
 						</author>
-						<title level="a" type="main">Strategi Meningkatkan Hasil Produksi Padi Sawah untuk Kesejahteraan dan Perekonomian Masyarakat Desa di Banten</title>
+						<title level="a" type="main">Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application SETIAWARDHANA , (Member, IEEE), IWAN KURNIANTO WIBOWO , AND NIZHAR ACHMAD HUSEIN BERNARDT</title>
 					</analytic>
 					<monogr>
 						<imprint>
-							<date type="published" when="2025">Mei 31, 2025</date>
+							<date/>
 						</imprint>
 					</monogr>
-					<idno type="MD5">C97D8BB606C300B2DAEC99124CF2F4A2</idno>
-					<idno type="DOI">10.62951/botani.v2i2.349</idno>
-					<note type="submission">Received: April 07, 2025; Revised: Mei 05, 2025; Accepted: Mei 19, 2025;</note>
+					<idno type="MD5">6A8951F53668D4F193C364925CAA4E84</idno>
+					<idno type="DOI">10.1109/ACCESS.2025.3546346</idno>
+					<note type="submission">Received 29 January 2025, accepted 22 February 2025, date of publication 27 February 2025, date of current version 12 March 2025.</note>
 				</biblStruct>
 			</sourceDesc>
 		</fileDesc>
 		<encodingDesc>
 			<appInfo>
-				<application version="0.8.2" ident="GROBID" when="2026-04-13T04:00+0000">
+				<application version="0.8.2" ident="GROBID" when="2026-04-13T10:51+0000">
 					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
 					<label type="revision">a91ee48</label>
 					<label type="parameters">startPage=-1, endPage=-1, consolidateCitations=0, consolidateHeader=0, consolidateFunders=0, includeRawAffiliations=false, includeRawCitations=false, includeRawCopyrights=false, generateTeiIds=false, generateTeiCoordinates=[], sentenceSegmentation=false, flavor=null</label>
@@ -104,191 +66,914 @@ xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.co
 		<profileDesc>
 			<textClass>
 				<keywords>
-					<term>Farming</term>
-					<term>Rice Paddies</term>
-					<term>Strategy</term>
-					<term>Production</term>
+					<term>Ball position prediction</term>
+					<term>ZED camera</term>
+					<term>deep learning</term>
+					<term>convolutional neural network</term>
+					<term>ERSOW goalkeeper robot</term>
 				</keywords>
 			</textClass>
 			<abstract>
-<div xmlns="http://www.tei-c.org/ns/1.0"><p>The agricultural sector is one of the most important sectors. The majority of rice paddies serve as the main food commodity consumed by the community, making rice farming the majority in the agricultural sector. However, there are challenges in production such as low agricultural efficiency, limited access to resources, and dependence on traditional techniques. Therefore, strategies are needed to improve rice production that can impact the welfare and economy of farmers. The goal of this research is to analyze the condition of rice farming in Banten, specifically in Ciruas. It aims to identify the problems affecting production as well as the efforts that have been made by the government previously. Additionally, the research will provide strategies that are appropriate for increasing production yields and improving the welfare and economy of farmers. In this study, a qualitative research method was used with SWOT analysis method, along with data collection through primary data in the form of interviews and secondary data in the form of a Literature Review. The results showed that rice production in Banten declined to 298.84 thousand hectares and 1.52 million tons of GKG in 2024, but Ciruas District remains a rice granary despite facing many problems such as pests, low selling prices, drought, and extreme weather. Although various efforts have been made, such as training, provision of equipment, and water pumps, a SWOT analysis is needed to evaluate the effectiveness of strategies and plan alternative actions to improve farmers' production yields. Thus, through the SWOT analysis method, it is hoped that paddy field production will increase sustainably, thereby supporting food security and the economic welfare of rural communities in Banten and Ciruas District.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>EEPIS Robot Soccer On Wheeled (ERSOW) is a wheeled soccer robot team competing in the Indonesian Wheeled Soccer Robot Contest. The ERSOW goalkeeper robot currently faces a challenge in responding to incoming balls due to delays in image processing, leading to slow movement responses. This delay can be mitigated by implementing a prediction system. By predicting the ball's trajectory, the robot can make timely movements to block shots effectively. This research designs a prediction system using the ZED stereo camera to enhance the goalkeeper robot's responsiveness in preventing goals. The research identifies the ball's position during airborne and ground states using the ZED camera. RGB-D readings are processed with Deep Learning methods to train on ball data and extract 3D object information from the dataset. The ball detection system is tested in three scenarios: right, center, and left positions relative to the robot. Accuracy evaluation is conducted three times for ball coordinates on the X, Y, and Z axes, resulting in X-, Y-, and Z-axis accuracy values of 90%, 80.77%, and 100%, respectively, with a ≤ 5 cm error tolerance. These results allow accurate determination of the ball's X, Y, and Z positions. The ball position data is then trained using Convolutional Neural Networks (CNN) to predict the ball's arrival position for the goalkeeper robot. Evaluation results show an overall accuracy of 70%, with an F1-score of 76% for the left position, 39% for the center position, and 84% for the right position.</p></div>
 			</abstract>
 		</profileDesc>
 	</teiHeader>
 	<text xml:lang="en">
 		<body>
-<div xmlns="http://www.tei-c.org/ns/1.0"><head n="1.">LATAR BELAKANG</head><p>Indonesia dikenal sebagai negara Indonesia disebut sebagai negara dengan sektor pertanian sebagai mayoritas dalam mata pencaharian masyarakat di Indonesia. Dalam sektor pertanian menjadi suatu sektor terpenting dalam kehidupan masyarakat Indonesia, khususnya pada usaha tani pada lahan sawah. Hal itu, dikarenakan usaha tani pada lahan sawah pada sektor pertanian memiliki banyak manfaat, seperti untuk meningkatkan ketahanan pada sektor pangan, untuk meningkatkan kesejahteraan hidup para petani, serta untuk menjaga kelestarian dalam lingkungan hidup. Selain menjadi salah satu bagian penting dari penyediaan kebutuhan pangan serta membantu dalam mempertahankan dan mengembangkan pembangunan dalam hal ketahanan pangan, usahatani lahan sawah pada sektor pertanian juga menjadi bagian penting dalam membantu menopang pembangunan perekonomian terutama dalam pembangunan perekonomian masyarakat daerah. Indonesia memiliki keberagaman komoditas yang dapat diterapkan dalam menjalankan usaha tani lahan sawah. Salah satu komoditas pertanian yang yang paling umum diterapkan dalam usaha tani lahan sawah adalah komoditas tanaman padi.</p><p>Tanaman padi merupakan komoditas terpenting dalam kehidupan manusia. Padi menjadi tanaman utama di pertanian dan dunia. Kebutuhan komsumsi padi sangat tinggi karena padi merupakan tanaman pangan pokok yang dikonsumsi oleh masyarakat setiap hari, khusus nya di Indonesia. Berdasarkan data BPS (2023), luas panen komoditas tanaman padi di Indonesia diprediksi mencapai sekitar 10,20 juta hektar dengan hasil produksi pada komoditas beras di tahun 2023 diperkirakan mencapai sebesar 30,90 juta ton atau diperkirakan sekitar 53,63 juta ton untuk Gabah Kering Giling (GKG). Melalui perkiraan tersebut, jika dikonversikan dapat menjadi beras untuk dikonsumsi oleh penduduk.</p><p>Usaha tani terhadap komoditas tanaman padi padi menjadi usaha tani yang paling umum dalam sektor pertanian. Selain berguna sebagai penyedia pangan, usahatani pada komoditas padi berguna untuk memberikan keuntungan secara finansial kepada para petani.</p><p>Dengan adanya peran tersebut, Usaha pertanian pada komoditas padi memiliki makna dan peranan yang sangat penting dalam mendukung kehidupan dan kesejahteraan. Hal ini tidak hanya bagi para petani, tetapi juga bagi masyarakat secara keseluruhan. Dikarenakan usaha tani pada komoditas padi yang bersifat umum dalam sektor pertanian, sebagian besar wilayah memiliki potensi untuk melakukannya. Banten merupakan salah satu dari wilayah yang memiliki potensi untuk dapat mengembangkan usaha tani pada tanaman padi. Usaha tani pada tanaman padi sawah di desa-desa Banten secara umum menunjukkan dinamika yang kompleks, dengan terdapat beberapa aspek positif. Total produksi padi pada tahun 2024 diprediksi mencapai sebesar 1,52 juta ton Gabah Kering Giling (GKG), atau adanya penurunan mencapai e-  sebesar 162,14 ribu ton Gabah Kering Giling (GKG) (sekitar 9,61 persen) dibandingkan dengan tahun 2023 yaitu sebesar 1,69 juta ton GKG. Hasil produksi padi terendah pada tahun 2024 diprediksi terjadi pada bulan Januari. Sementara itu, hasil produksi `tanaman padi tertinggi pada tahun 2023 terjadi pada bulan Maret. Meskipun demikian, produksi beras Banten diperkirakan akan meningkat sebesar 73,91 ton pada bulan Maret 2025, meningkat dari 32,27 ton pada bulan Februari. Adanya peningkatan hasil panen tersebut, dikarenakan adanya bantuan program pemerintah pelatihan pada para petani.</p><p>Sektor pertanian di Provinsi Banten merupakan sektor non-basis, salah satu penyebabnya adalah tingginya pengalihan fungsi lahan pertanian di kawasan perkotaan untuk pembangunan perumahan, pusat perbelanjaan, dan gedung-gedung pemerintahan. Berdasarkan data dari <ref type="bibr">BPS Provinsi Banten (2011)</ref>, pengalihan lahan terjadi secara signifikan di daerah Kabupaten Tangerang, Kabupaten Serang, dan Kota Cilegon yang dikenal sebagai wilayah industri. Selain faktor tersebut, kurang optimalnya program pemerintah, minimnya penggunaan fasilitas kelompok tani, serta menurunnya keinginan masyarakat untuk berprofesi sebagai petani karena beralih ke sektor perdagangan dan jasa, semakin memperburuk kondisi pertanian atau usaha tani di wilayah ini. Di sisi lain, adanya usaha tani memiliki peranan krusial dalam ekonomi Indonesia, memberikan mata pencaharian bagi jutaan petani, dan memenuhi kebutuhan pangan bagi penduduk.</p><p>Namun, terdapat tantangan utama yang dihadapi dalam produksi tanaman padi, yaitu rendahnya efisiensi pertanian. Hal ini disebabkan oleh kurangnya penerapan teknologi pertanian modern, akses yang terbatas terhadap sumber daya seperti benih berkualitas, pupuk, dan pestisida, serta ketergantungan pada teknik tradisional. Masalah ini semakin rumit dengan adanya perubahan kondisi strategis di luar sektor pertanian yang berdampak pada peningkatan produksi, terutama untuk tanaman pangan seperti padi. Permasalahan utama dalam usaha peningkatan hasil padi meliputi bertambahnya kebutuhan beras seiring dengan pertumbuhan populasi, terbatasnya pasokan beras global, dan kecenderungan kenaikan harga bahan pangan.</p><p>Maka dari itu, diperlukan usaha yang lebih intensif untuk menangani berbagai tantangan tersebut demi memenuhi kebutuhan pangan yang terus meningkat.</p><p>Berdasarkan penjelasan di atas, adanya permasalahan berupa tantangan yang menghambat pada peningkatan produksi tanaman padi dapat menjadi masalah serius jika tidak ditangani. Selain berdampak pada ketidaktersediaan bahan pangan yang cukup, tantangan tersebut juga dapat berdampak rendahnya tingkat kesejahteraan dan perekonomian masyarakat daerah. Sektor pertanian memiliki kontribusi pada peningkatan kesejahteraan ekonomi masyarakat. Adanya peningkatan produktivitas pada pertanian juga berdampak pada</p><p>Strategi Meningkatkan Hasil Produksi Padi Sawah untuk Kesejahteraan dan Perekonomian Masyarakat Desa di Banten 222 BOTANI -VOLUME. 2 NOMOR. 2 MEI 2025</p><p>meningkatkan pendapatan bagi petani. Kesejahteraan petani meningkat dikarenakan hasil panen yang melimpah serta dapat dibeli dengan harga yang sesuai. Para petani dapat memiliki kemampuan finansial yang lebih meningkat, sehingga memungkinkan mereka untuk mengembangkan usaha sampingan atau berinvestasi kembali dalam bisnis pertanian mereka.</p><p>Oleh karena itu, dibutuhkan suatu solusi guna menyelesaikan tantangan tersebut berupa strategi dalam meningkatkan produksi terutama pada tanaman padi sawah sebagai tanaman pangan utama. Dengan adanya peningkatan hasil produksi dengan kualitas yang baik pada tanaman padi sawah, maka juga dapat berdampak pada kesejahteraan dan perekonomian masyarakat desa khusus nya pada wilayah Banten.</p></div>
-<div xmlns="http://www.tei-c.org/ns/1.0"><head>Dengan demikian, penulis melakukan penelitian dengan judul "Strategi Meningkatkan</head><p>Hasil Produksi Padi Sawah Untuk Kesejahteraan Dan Perekonomian Masyarakat Desa Di</p><p>Banten". Fokus utama penelitian ini adalah untuk memberikan strategi untuk meningkatkan hasil produksi tanaman padi sawah agar dapat berdampak pada meningkatkan kesejahteraan hidup petani serta perekonomian masyarakat daerah, khususnya di wilayah Banten.</p></div>
-<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.">METODE PENELITIAN</head><p>Penelitian ini menggunakan metode kualitatif dengan pendekatan Literature Review dan wawancara mendalam. Pendekatan ini bertujuan untuk memahami fenomena sosial dari sudut pandang partisipan secara mendalam. Studi literatur dilakukan untuk mengkaji berbagai penelitian terdahulu yang relevan, menjalin hubungan dengan teori yang ada, serta mengisi kekosongan dari riset sebelumnya. Sementara itu, wawancara dilakukan untuk memperoleh data primer secara langsung dari narasumber yang memiliki pengetahuan atau pengalaman terkait, guna memperkuat validitas dan memperluas pemahaman atas temuan dari studi literatur.</p><p>Lokasi penelitian dipilih secara purposive, yaitu di Kecamatan Ciruas, Kabupaten Serang, Provinsi Banten, yang dikenal sebagai sentra produksi padi. Teknik pengumpulan data mencakup data primer melalui wawancara dengan petani dan koordinator penyuluh pertanian, serta data sekunder dari literatur ilmiah terpercaya dalam rentang tahun 2020-2025. Data dianalisis menggunakan pendekatan SWOT (Strengths, Weaknesses, Opportunities, Threats) untuk mengidentifikasi kekuatan, kelemahan, peluang, dan ancaman yang mempengaruhi kegiatan usaha tani padi di wilayah tersebut. Metode ini dirancang untuk menghasilkan analisis strategis yang dapat digunakan dalam upaya peningkatan kesejahteraan petani dan ketahanan pangan daerah.</p><p>e-ISSN: 3046-5494; p-ISSN: 3046-5508; Hal 219-229 3. HASIL DAN PEMBAHASAN Letak Geografis dan Luas Wilayah Provinsi Banten Provinsi Banten terletak di Pulau Jawa dan sebelumnya merupakan bagian dari Provinsi Jawa Barat. Namun, sejak disahkannya Undang-Undang Nomor 23 Tahun 2000, Banten resmi menjadi provinsi tersendiri dengan pusat pemerintahan di Kota Serang. Berdasarkan Undang-Undang Nomor 3 Tahun 2000, luas wilayah Banten awalnya tercatat sebesar 8.651,20 km². Akan tetapi, data terbaru dari Permendagri Nomor 72 Tahun 2019 menyebutkan bahwa luas wilayah administrasi Provinsi Banten menjadi 9.662,92 km². Secara geografis, Banten berada di antara 5º7'50" hingga 7º1'11" Lintang Selatan dan 105º1'11" hingga 106º7'12" Bujur Timur. Provinsi ini terdiri dari empat kota dan empat kabupaten, dengan total 154 kecamatan, 262 kelurahan, dan 1.273 desa. Adapun batas-batas wilayah Provinsi Banten adalah: a. Sebelah utara berbatasan dengan Laut Jawa b. Sebelah timur berbatasan dengan DKI Jakarta dan Jawa Barat c. Sebelah selatan berbatasan dengan Samudra Hindia d. Sebelah barat berbatasan dengan Selat Sunda Letak Geografis dan Luas Wilayah Kecamatan Ciruas, Serang, Banten Kecamatan Ciruas terletak di bagian timur Kabupaten Serang, Provinsi Banten, dengan luas wilayah sekitar 34,49 km². Desa terluas di Kecamatan Ciruas adalah Desa Pulo, yang mencakup 4,89 km² atau sekitar 14,18% dari total wilayah kecamatan. Sementara itu, desa dengan luas terkecil adalah Desa Citerep yang hanya memiliki luas 1,09 km², atau sekitar 2,16% dari total wilayah Kecamatan Ciruas. 1) Wilayah Kecamatan Ciruas berbatasan dengan: 2) Kecamatan Pontang di sebelah utara 3) Kecamatan Lebakwangi di sebelah timur 4) Kecamatan Kragilan di sebelah selatan 5) Kota Serang di sebelah barat Kondisi Pertanian Tanaman Padi Provinsi Banten Berdasarkan Survei KSA, puncak panen padi pada tahun 2024 berbeda dari tahun sebelumnya, yakni terjadi pada bulan April dengan luas panen mencapai 63,09 ribu hektare. Sepanjang bulan Januari hingga September 2024, realisasi panen padi tercatat mencapai 266,04 ribu hektare, atau mengalami penurunan sekitar 19,51 ribu hektare (6,83 persen) dibanding periode yang sama tahun 2023. Sedangkan itu, Potensi panen pada bulan Oktober hingga Desember 2024 diperkirakan mencapai sebesar 32,80 ribu hektar. Secara total, luas panen padi Strategi Meningkatkan Hasil Produksi Padi Sawah untuk Kesejahteraan dan Perekonomian Masyarakat Desa di Banten 224 BOTANI -VOLUME. 2 NOMOR. 2 MEI 2025 pada tahun 2024 diproyeksikan mencapai 298,84 ribu hektare, mengalami penurunan sekitar 12,36 ribu hektar (3,97 persen) dibandingkan 2023. Produksi padi tertinggi di Provinsi Banten diperkirakan mencapai sekitar 1,36 juta ton GKG dari bulan Januari hingga September 2024, atau mengalami penurunan sebesar 191,05 ribu ton GKG (12,31%) dibandingkan 1,55 juta ton GKG dari bulan Januari hingga September pada tahun 2023. Dengan demikian, total produksi padi pada tahun 2024 diperkirakan mencapai sebesar 1,52 juta ton GKG, atau mengalami penurunan sebanyak 162,14 ribu ton GKG (9,61%) dibandingkan dengan tahun 2023 yang telah mencapai sebesar 1,69 juta ton GKG. Kondisi Pertanian Tanaman Padi Kecamatan Ciruas, Serang, Banten Kondisi sektor pertanian di Kecamatan Ciruas, Kota Serang, Banten ini terkenal sebagai daerah lumbung padi. Luas wilayah pertanian di di Kecamatan Ciruas, Kota Serang, Banten diperkirakan mencapai sekitar lebih dari 2.000 ha dengan mayoritas komoditas tanaman yang ditanam adalah tanaman padi sawah. Mayoritas komoditas tanaman padi sawah ini juga diperkirakan mencapai sekitar diatas 90 persen dibandingkan dengan komoditas tanaman lainnya. Luas lahan tanaman padi sawah diperkirakan mencapai sekitar 2.400 hektare.</p></div>
-<div xmlns="http://www.tei-c.org/ns/1.0"><head>Permasalahan Yang Dapat Memengaruhi Hasil Produksi</head><p>Pertanian menjadi Salah satu sektor utama yang mendukung kehidupan masyarakat di e-ISSN: 3046-5494; p-ISSN: 3046-5508; Hal 219-229 Kekuatan (Strengths) 1. Tersedianya sejumlah kelompok tani yang mengayomi usaha tani padi 2. Tersedianya sejumlah program yang telah tersusun serta dapat dilakukan untuk membantu para petani dalam usaha tani padi secara lebih optimal 3. Keadaan sarana dan prasarana yang relatif memadai dan dapat dimanfaatkan oleh petani dalam mengelola usaha tani padi Kelemahan (Weakness) 1. Minimnya pengetahuan dan keterampilan Sumber Daya Manusia (SDM) 2. Terdapat ahli fungsi lahan 3. Usia Petani yang semakin menua 4. Kapabilitas penyuluh yang minim Peluang (Opportunities) 1. Sistem pemasaran yang mudah 2. Permintaan yang signifikan pada masyarakat sekitar 3. Memperoleh bantuan subsidi dari pemerintah Ancaman (Threats) 1. Hama dan penyakit yang sulit untuk diatasi 2. Faktor iklim yang tak menentu Melalui analisis SWOT penulis dapat meluncurkan dan memberikan strategi alternatif yang bisa dilakukan upaya melakukan usaha tani padi menggunakan matriks SWOT di antaranya yaitu : IFAS EFAS Kekuatan (Strengths) Kelemahan (Weakness) Peluang (Opportunities) 1. Mengoptimalkan program yang ada dengan meningkatkan daya pengurus dan kelompok tani di Banten 2. Melaksanakan peninjauan terhadap hasil program yang telah diterapkan sebagai dasar untuk perbaikan dan perencanaan di periode berikutnya 3. Memaksimalkan pemanfaatan subsidi sarana produksi yang diberikan oleh pemerintah guna mendorong motivasi petani dalam meningkatkan hasil produksi pertanian 4. Mengembangkan fungsi lumbung padi tidak hanya sebagai tempat penyimpanan, tetapi juga sebagai aset produktif yang dapat dimanfaatkan untuk mendukung kegiatan usaha dan peningkatan ekonomi petani. 1. Mendorong peningkatan kapasitas petani dan pelaku usaha melalui penyuluhan serta fasilitasi dalam pengelolaan pertanian 2. Menjalin kemitraan strategis dengan instansi terkait dan pemangku kepentingan lainnya guna mendukung pelaksanaan program secara optimal Ancaman (Threats) 1. Optimalisasi pemanfaatan lahan yang sesuai untuk budidaya padi dilakukan bersamaan dengan upaya penanganan variabilitas musim dan curah hujan melalui perbaikan sistem irigasi yang terencana dan berkelanjutan 2. Meningkatkan tingkat adopsi teknologi agar proses produksi pertanian dapat berjalan dengan lebih efisien dan optimal. 3. memanfaatkan pengetahuan dan pengalaman petani dalam menghadapi serangan hama dan penyakit untuk mengatasi permasalahan tersebut dan memastikan kelancaran proses produksi pertanian. 1. Meminimalisasi alih fungsi lahan khususnya sawah dengan irigasi teknis 2. Mengakses dan memanfaatkan layanan lembaga keuangan sebagai sumber permodalan dalam kegiatan usaha tani Strategi Meningkatkan Hasil Produksi Padi Sawah untuk Kesejahteraan dan Perekonomian Masyarakat Desa di Banten 228 BOTANI -VOLUME. 2 NOMOR. 2 MEI 2025 4. KESIMPULAN Berdasarkan hasil dan pembahasan di atas dapat disimpulkan bahwa wilayah ini memiliki potensi agraris yang sangat besar. Provinsi Banten dengan luas wilayah sekitar 9.662,92 km² memiliki wilayah strategis yang didukung oleh keberadaan Kabupaten Serang dan Kecamatan Ciruas sebagai salah satu sentra pertanian padi utama. Kecamatan Ciruas dikenal sebagai lumbung padi, dengan dominasi lahan pertanian padi sawah seluas lebih dari 2.000 hektare. Meskipun terdapat potensi yang besar, produksi padi di wilayah ini mengalami penurunan akibat beberapa faktor seperti kemarau panjang, serangan hama, dan fluktuasi harga jual.</p><p>Untuk mengatasi berbagai tantangan tersebut, telah dilakukan berbagai strategi oleh pemerintah dan kelompok tani, seperti pemberian bantuan alat pertanian, penyediaan pompa air, peningkatan kapasitas petani, serta pengendalian organisme pengganggu tanaman (OPT). Selain itu, analisis SWOT juga digunakan untuk merumuskan strategi pengembangan yang lebih tepat sasaran, seperti optimalisasi pemanfaatan lahan, adopsi teknologi modern, serta peningkatan peran kelompok tani. Meskipun demikian, keberhasilan dari strategi ini masih bergantung pada faktor dukungan berkelanjutan, akses terhadap teknologi, serta peningkatan kemampuan sumber daya manusia pertanian di tingkat lokal.</p></div>
-<div xmlns="http://www.tei-c.org/ns/1.0"><head>UCAPAN TERIMA KASIH</head><p>Terima kasih kepada aparat desa, instansi pertanian setempat, serta rekan-rekan akademisi yang turut memberikan masukan dan kritik konstruktif demi kesempurnaan tulisan ini. Semoga jurnal ini dapat memberikan kontribusi nyata bagi peningkatan hasil produksi padi sawah dan membawa dampak positif terhadap kesejahteraan serta perekonomian masyarakat desa di Banten. Ardi. (2025). Pertanian di Indonesia: Tantangan dan peluang untuk masa depan. FAPERTA UMA. <ref type="url" target="https://pertanian.uma.ac.id/2025/01/02/pertanian-di-indonesia-tantangan-dan-peluang-untuk-masa-depan/">https://pertanian.uma.ac.id/2025/01/02/pertanian-di-indonesia-tantangan-dan- peluang-untuk-masa-depan/</ref> </p></div>
-<div xmlns="http://www.tei-c.org/ns/1.0"><head>DAFTAR REFERENSI</head></div>
-<div xmlns="http://www.tei-c.org/ns/1.0"><head>Alfiah</head></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><figDesc>berbagai daerah di Indonesia, termasuk Provinsi Banten. Provinsi Banten sendiri memiliki potensi agraris yang cukup besar dan memiliki beragam komoditas pertanian yang memberikan kehidupan bagi penduduknya. Salah satu wilayah di Provinsi Banten yang memiliki peluang dalam bidang pertanian, khususnya dalam pengembangan tanaman padi sawah adalah Kecamatan Ciruas yang terletak di Kabupaten Serang, Banten.Kecamatan Ciruas menjadi salah satu pusat pertanian dengan mayoritas komoditas tanaman padi sawah di Provinsi Banten. Meskipun memiliki area yang luas dan tenaga kerja yang memadai, masih terdapat beberapa permasalahan yang dapat berdampak pada hasil produksi, kesejahteraan, serta perekonomian para petani. Beberapa masalah yang terjadi adalah sebagai berikut. a) Hasil produksi tanaman padi belum dapat dianggap maksimal. Hal ini dikarenakan tiap varietas padi memiliki perbedaan untuk mencapai produksi maksimal. Namun, di Ciruas sendiri hasil produksi dapat dikategorikan cukup tinggi karena hasil produksi tanaman padi dapat mencapai sekitar diatas 6 ton. e-ISSN: 3046-5494; p-ISSN: 3046-5508; Hal 219-229 b) Terdapat tantangan pertanian berupa kemarau panjang yang disebabkan oleh el nino sekitar tahun 2023 hingga tahun 2024. Adanya tantangan pertanian berupa kemarau panjang sangat berdampak terhadap hasil produksi tanaman padi yang dihasilkan. c) Terdapat permasalahan berupa adanya hama atau penyakit. Adanya hama dan penyakit dapat berdampak buruk pada tanaman pertanian. Hal ini dapat menyebabkan produk pertanian yang dihasilkan memiliki kualitas produk yang rendah atau jauh dari stadarisasi pasar. d) Permasalahan berupa harga jual. Seringkali para petani mendapatkan harga jual yang tidak memenuhi harapan mereka. Hal ini tentu dapat berdampak pada ketidakseimbangan ekonomi atau tingkat peningkatan perekonomian para petani. e) Adanya permasalahan terhadap cuaca. Jika terjadi musim kemarau, maka cuaca akan menyebabkan kekeringan. Dikarenakan adanya kekeringan tersebut, dapat berdampak pada berkurangnya debit air di bendungan. Hal ini tentu saja akan mempengaruhi saluran irigasi yang digunakan untuk mengairi sawah para petani.Strategi Untuk Meningkatkan Hasil Produksi PadiPertanian merupakan salah satu penggerak ekonomi masyarakat di pedesaan termasuk wilayah Kecamatan Ciruas. Dalam menghadapi berbagai tantangan seperti perubahan iklim, keterbatasan lahan, fluktuasi harga pertanian dibutuhkan strategi yang tepat guna meningkatkan produktivitas dan kesejahteraan para petani. Pertanian terus dimodernisasi oleh pemerintah daerah dan kelompok lain melalui berbagai cara, termasuk penguatan kapasitas petani dan penggunaan teknologi dan sarana produksi. Penyediaan teknologi budidaya dan informasi kepada petani secara langsung di lapangan adalah salah satu langkah awal yang menjadi fokus utama. Untuk mendukung pertumbahan sektor pertanian, pemerintah telah menjalankan beberapa program berikut.Informasi tentang teknologi pertanian terbaru diberikan kepada para petani di desa pertanian di Banten. Penyuluh pertanian lapangan (PPL) dan kelompok tani terlibat dalam sosialisasi melalui penyuluhan. Informasi yang diberikan termasuk metode tanam jajar legowo, pemilihan varietas unggul, dan penggunaan pestisida dan pupuk yang efektif. Tujuan dari strategi ini adalah agar petani dapat mengadopsi teknologi yang sesuai dengan kondisi lahan mereka sehingga mereka dapat meningkatkan hasil panen mereka. Karena tidak semua petani dapat mengikuti pelatihan secara teratur dan intensif, hasilnya masih terbatas Di beberapa lokasi lahan pertanian, pemerintah desa bersama dinas terkait telah menyediakan mesin pompa air untuk mengatasi kekurangan air, terutama selama musim kemarau. Bantuan pompa air ini mulai berjalan pada akhir tahun 2023. Di mana pada saat itu Strategi Meningkatkan Hasil Produksi Padi Sawah untuk Kesejahteraan dan Perekonomian Masyarakat Desa di Banten 226 BOTANI -VOLUME. 2 NOMOR. 2 MEI 2025 musim kemarau terjadi dalam kurun waktu cukup panjang. Pompa air ini sangat membantu menyediakan air untuk sawah, terutama bagi sawah yang berada di area tadah hujan atau jauh dari saluran irigasi utama. Selain itu, alat pertanian seperti traktor tangan (juga disebut traktor tangan) dan mesin panen kombinasi telah disediakan untuk mengatasi keterbatasan tenaga kerja dan mempercepat proses budidaya padi. Mengolah dan memanen padi dengan cepat dan efisien sangat mudah dengan alat-alat ini. Untuk mengoptimalkan siklus tanam, strategi mekanisasi ini bertujuan untuk mengurangi beban kerja petani dan mempercepat waktu tanam dan panen. Karena jumlah unit yang terbatas dan biaya operasional yang cukup tinggi bagi petani kecil, kebanyakan petani tidak mungkin menggunakan atau mengakses alat-alat tersebut. Untuk mengatasi gangguan organisme pengganggu tanaman (OPT), telah digunakan strategi pengendalian yang melibatkan kehadiran petugas yang bertanggung jawab untuk mengendalikan organisme pengganggu tanaman (POPT). Selama musim tanam, petugas ini rutin memantau lapangan dan merespon laporan serangan hama atau penyakit dari petani. Gerakan pengendalian massal secara terpadu dilakukan jika diperlukan. Strategi ini dianggap cukup responsif untuk melindungi tanaman dari kerusakan yang dapat mengurangi hasil produksi. Secara keseluruhan, rencana yang telah digunakan menunjukkan upaya nyata untuk meningkatkan produksi padi di desa Banten. Namun, ada tantangan yang terkait dengan keberhasilan setiap strategi, termasuk aksesibilitas, distribusi bantuan, dan kelangsungan dukungan. Akibatnya, analisis SWOT sangat diperlukan untuk menilai kekuatan, kelemahan, peluang, dan ancaman (SWOT) dari strategi yang sudah ada. Dengan demikian, strategi baru dapat dibuat yang lebih sesuai dengan kebutuhan petani dan meningkatkan kesejahteraan ekonomi masyarakat. Strategi Meningkatkan Kegiatan Usaha Tani Padi Sawah Menggunakan Analisis SWOT Dalam mengembangkan usaha tani padi sawah perlu mengetahui dan memperhatikan beberapa faktor, seperti faktor internal dan faktor eksternal melalui penggunaan analisis SWOT agar dapat menentukan strategi yang tepat demi meningkatkan kesejahteraan dan perekonomian desa, khususnya di Banten. Setelah melakukan wawancara dan melakukan Study Literature, faktor internal dan faktor eksternal yang diperoleh melalui metode SWOT yang bisa diperoleh dan digambarkan yaitu :</figDesc></figure>
-<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><figDesc>, O.,Saepudin, E. A., Al Nabillah, F., Taniah, I., Panisah, I., &amp; Suminar, R. (2024).Analisis kritis terhadap sektor pertanian di Provinsi Banten dalam kesejahteraan petani.Journal of Multidisciplinary Inquiry in Science, Technology and Educational Research, 1(2), 230-233.</figDesc></figure>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>I. INTRODUCTION</head><p>EEPIS Robot Soccer On Wheeled (ERSOW) is one of the robotics teams at Politeknik Elektronika Negeri Surabaya. In addition, the ERSOW team participated in an international level competition in the field of robotics, the Middle Size League Robot Soccer, initiated by the Robocup Federation <ref type="bibr" target="#b0">[1]</ref>, <ref type="bibr" target="#b1">[2]</ref>. The goal of these events, which center on wheeled robot soccer matches, is to build a robot soccer squad that can play independently and compete against the 2050 world champion human soccer team. In the research, The associate editor coordinating the review of this manuscript and approving it for publication was Yongming Li .</p><p>this soccer robot has implemented an autonomous system that requires the robot to be able to adapt to the surrounding environment and coordinate with other robots without any human intervention <ref type="bibr" target="#b2">[3]</ref>. This research is a continuation of previous research, namely creating a ball position estimation system with a neural network <ref type="bibr" target="#b3">[4]</ref>, creating a wheeled soccer robot navigation system and creating a ball position prediction system based on a stereo minor camera and neural network <ref type="bibr" target="#b4">[5]</ref>. There are many research topics on wheeled soccer robots developed such as in the field of computer vision, namely ball detection <ref type="bibr" target="#b5">[6]</ref>, <ref type="bibr" target="#b6">[7]</ref>, <ref type="bibr" target="#b7">[8]</ref> goal detection <ref type="bibr" target="#b8">[9]</ref>, <ref type="bibr" target="#b9">[10]</ref>, detection of enemy robots and friend robots <ref type="bibr" target="#b10">[11]</ref>, and its localization <ref type="bibr" target="#b11">[12]</ref>, <ref type="bibr" target="#b12">[13]</ref>. The ERSOW robot has been created with a number of basic soccer skills, such as finding the ball, dribbling the ball, avoiding robots from opponents, passing the ball to robot friends, timing to kick the ball into the goal, and so on. ERSOW has several robots, each of which has its own task, such as an attacking robot whose job is to score goals and contribute to the team's attack, a midfielder robot whose job is to help the team's defense, which has the ability to take the ball from the opponent and ward off the opponent's attack, and a goalkeeper robot whose job is to guard the team's goal from the opponent's attack and prevent goals from happening. The goalkeeper robot must have fast reflexes, good reaction speed, and the ability to ward off the ball with high accuracy. This research was conducted to improve the robot's ability to detect and predict the position of the ball. Better robot capabilities can increase the chances of winning in the competition. Predicting the position of the ball is needed so that the goalkeeper robot's ability can run optimally. With ball prediction, the goalkeeper robot will know the position of the direction of the ball's movement. The current problem is that the ERSOW goalkeeper robot still has obstacles in the robot's vision in detecting the ball with extreme light changes that can affect the ball prediction data during a soccer match. Previous research on object detection with Zed cameras has been conducted to see the performance and perspective of the camera, the effect of the camera polarizer and the measurement of the depth of the camera's distance from the object <ref type="bibr" target="#b13">[14]</ref>. Research on estimating the distance between the camera and the object has also been carried out using a monocular camera <ref type="bibr" target="#b14">[15]</ref>. Based on previous research, the ERSOW team wanted to create and implement a ball position detection system using the ZED camera because the camera has several advantages, namely, the image processing stage can be done inside the camera itself. The system created in this study is needed to increase the ability to detect the ball with the ability to detect the ball with changing lighting changes during the match. The detection ability is equipped with the ability to predict the position of the ball so as not to lose information. The contributions of this research are as follows:</p><p>• Proposing a system for predicting the position of the ball using the ZED camera because the ZED camera has the ability to detect ball objects with extreme lighting conditions on the Goalkeeper Robot Application.</p><p>• Proposing a system for predicting the ball's arrival position relative to the robot keeper using CNN. By accurately predicting the ball's trajectory, the robot keeper can better position itself to block incoming balls, thereby increasing its defensive capabilities. CNN was chosen because it can learn features automatically and is easy to integrate with low computing specifications in real-time. The best system performance is obtained by comparing several variations of the CNN method.</p><p>The following sections make up the next section of this paper: The design and use of the wheeled goalkeeping robot created by the ERSOW team is covered in general in Section II. Section III presents the system design and development of the proposed method in the form of ball object detection and ball position prediction. The experiments to collect the datasets and the processing techniques are presented in Section IV. Furthermore, Section IV also contains the results of the object detection and ball position prediction experiments which are then summarized in the conclusion in Section V.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>II. RELATED WORK A. CAMERA MODE</head><p>Research on 3D sensors and stereo cameras has been widely developed, including the complexity of depth data accuracy from the ZED stereo camera <ref type="bibr" target="#b15">[16]</ref>. This study designed and conducted an experiment in an office environment to determine camera depth error and depth estimation using four images of different distances and resolutions. The 3D detection method using the ZED 2 stereo camera is able to integrate stereo vision and artificial intelligence where the accuracy and consistency of depth are set in the camera parameters <ref type="bibr" target="#b16">[17]</ref>. Integration of stereo cameras with Tiny-YOLO for distance measurement and object detection coordination system on the BarelangFC Robot with the concept of combining stereo vision data with object detection algorithms <ref type="bibr" target="#b17">[18]</ref>. This system uses Tiny-YOLO for real-time object detection and is equipped with accurate distance measurements facilitated by the ZED stereo camera <ref type="bibr" target="#b16">[17]</ref>. An innovative approach to change detection in spatial context utilizing stereo vision is presented in the study Object-Based Change Detection Algorithm with a Spatial AI Stereo Camera. This algorithm leverages detailed depth and spatial data provided by AI-enhanced stereo cameras to detect and analyze changes in the environment, proving useful for environmental monitoring and surveillance applications. Table <ref type="table">1</ref> shows the relationship with previous research developments by researchers.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>B. BALL DETECTION</head><p>Research on computer vision for accurate and fast ball detection is conducted by comparing the performance of two detection methods based on convolutional neural networks. Testing techniques are specifically designed for the accuracy and response speed of the system that has been created <ref type="bibr" target="#b19">[20]</ref>. Previous research has created a ball detection and tracking system for the Soccer Humanoid League Kidsize using the You Only Look Once (YOLO) method based on an embedded system <ref type="bibr" target="#b18">[19]</ref>. Other researchers improved the detection accuracy of high-speed moving balls on sports fields with the YOLOv8 algorithm because it can operate quickly and accurately <ref type="bibr" target="#b20">[21]</ref>, <ref type="bibr" target="#b21">[22]</ref>, <ref type="bibr" target="#b22">[23]</ref>. Researchers have also created a Robot Operating System (ROS) that combines lidar, IMU, camera, and YOLO algorithm so that the robot can pick up the ball. The robot has the ability to adapt so that it can position and map the dynamic environment <ref type="bibr" target="#b24">[24]</ref>.</p><p>TABLE 1. The proposed system with related works.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>C. TRACKING AND PREDICTION</head><p>Several studies have developed many CNN methods or convolutional neural networks for object prediction applications such as balls, humans, and others. CNN can also be used for object detection and position prediction in three-dimensional environments because of its ability to extract complex visual features from image data taken from the camera. The CNN method is able to process image data in two dimensions, such as applications for detecting the position of the ball in real-time for goalkeeper robots <ref type="bibr" target="#b3">[4]</ref>, <ref type="bibr" target="#b4">[5]</ref>, <ref type="bibr" target="#b25">[25]</ref>. The CNN method is also used for several mobile robot-vision applications <ref type="bibr" target="#b26">[26]</ref>, <ref type="bibr" target="#b27">[27]</ref> such as service robots or collaboration of several industrial robots <ref type="bibr" target="#b28">[28]</ref>, <ref type="bibr" target="#b29">[29]</ref>. This research aims to build a combination of ZED camera devices with CNN methods that have been used in previous research to detect and predict the position of the ball in the goal area. This model scenario is to be able to reach all lighting conditions with a camera that has artificial intelligence features. The CNN model as an intelligence feature is added so that the system can predict the position of the ball with a ZED camera that has features that can overcome changes in light intensity levels.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>III. HARDWARE AND SOFTWARE ARCHITECTURE</head><p>The process of system completion involves multiple stages that are intended to accomplish the objectives of the research.</p><p>Every phase is meticulously organized to guarantee that every facet of the investigation is appropriately handled and carried out. When the ZED camera on the goalkeeper robot detects the ball, the first step is to determine whether the ball is detected or not. If the ball is not detected, the process of capturing images and analysis will be repeated continuously until the ball is successfully detected by the camera. Once the ball is detected, information about the ball's position is sent to the goalkeeper robot for further processing. Fig. <ref type="figure" target="#fig_0">1</ref> shows the overall robot system where the camera is useful for obtaining information about the ball on the field. At this stage, the goalkeeper robot will examine the information it receives from the ZED camera using a prediction algorithm. This algorithm aims to estimate the ball's position based on the images and data captured by the camera. Machine learning techniques, in particular Convolutional Neural Networks (CNN), are used in the prediction process. These networks have been trained with a dataset that contains a variety of probable ball placements.</p><p>The predicted ball position is then classified into one of three main categories: left, center, or right. This classification helps the robot understand more specifically where the ball is likely to move. Consequently, the goalkeeper robot can respond more quickly and accurately to block the ball. Based on this prediction, the robot will take appropriate action, such as moving left, right, or staying in the center, to block the ball and prevent a goal. This process of detecting, analyzing, and predicting the ball's position is a crucial part of the goalkeeper robot's defense system in robot soccer. By utilizing the ZED camera technology and advanced machine learning algorithms, this system is designed to enhance the speed and accuracy of the robot's response to the ball's movement, thereby increasing the chances of successfully blocking goals from the opposing team.</p><p>A. HARDWARE ARCHITECTURE Fig. <ref type="figure" target="#fig_1">2</ref> shows the hardware architecture of the ERSOW team goalkeeper robot. This architecture includes key components such as the ZED 2i Camera and mini-PC. The ZED 2i Camera serves as the robot's vision system, providing the visual data required for navigation and object detection. The mini-PC acts as the brain of the system, effectively analyzing the information from the camera and directing the robot's motions. The combination of these two components allows the robot goalkeeper to operate with high precision and reliability in robotic soccer matches. The ZED Stereo camera, manufactured by Stereolabs, is the first sensor to offer depth awareness both indoors and outdoors across larger distances (up to 20 meters). The ZED 2i Stereo camera is a device that attempts to replicate human vision. Due to the approximately 65mm horizontal separation between human eyes, each eye sees a situation slightly differently. Using two lenses can provide 3D information of an observed scene, allowing developers to add 3D depth information to robotics navigation, skeleton tracking, object detection, position tracking and mapping, and other applications. Via a USB 3.0 interface, the output data is high-resolution side-by-side color video. The ZED program on the host computer uses the two synchronized left and right video streams in this movie to create a depth map of the scene. The camera records a distance value (Z, in metric units) for every pixel (X, Y) in the picture, measured from the left lens's back to the scene object, and saves it in the depth map. Fig. <ref type="figure" target="#fig_2">3</ref> shows that the depth map captured by the ZED camera stores a distance value (Z) for each pixel (X, Y) in the image. These distance values are expressed in metric units (e.g. meters) and are calculated from the back of the camera's left eye to the objects in the scene. Such depth maps cannot be displayed directly because they are encoded in a 32-bit format.</p><p>In order to display this depth map, an 8-bit monochrome (grayscale) representation with values between 0 and 255 is required, where a value of 255 represents the closest possible depth distance and a value of 0 represents the furthest possible depth distance.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>B. SOFTWARE ARCHITECTURE</head><p>This research uses the ROS system because it has the ability to integrate camera sensors with artificial intelligence methods and several other combined sensors in the robot. Fig. <ref type="figure" target="#fig_3">4</ref> shows the basic communication system for accessing the ZED camera on the robot. Image information is acquired over time and processed in real-time.  The prediction system that has been created using the CNN algorithm tries to change the layer parameter model to get the best results in classifying the position of the predicted direction of the ball. The dataset was collected as shown in Fig. <ref type="figure" target="#fig_5">6</ref>. The CNN design used is as in Fig. <ref type="figure" target="#fig_6">7</ref> and equations ( <ref type="formula" target="#formula_2">4</ref>) to <ref type="bibr" target="#b8">(9)</ref>. Convolutional Neural Network (CNN) is a type of artificial neural network specifically designed to process two-dimensional grid-shaped data, such as images. The convolution layer, pooling layer, and fully connected layer are the three primary hierarchical layers of a CNN. The central component of a CNN is the convolution layer, where different visual elements like edges, textures, and patterns are detected by applying filters or kernels to the input. A feature map reflecting the position of a certain feature in the original image is produced by the convolution layer's filters scanning the entire input. The way that neurons in the human brain react to visual stimuli is comparable to this mechanism.</p><p>The pooling layer, which comes after the convolution layer, is meant to combine key information and lower the dimensionality of the feature map. Max pooling, which chooses the maximum value within each condensed area of the feature map, is a frequently used kind of pooling. This lessens the number of parameters that must be computed and increases the model's resistance to slight variations in the input features' locations.</p><p>CNNs typically have multiple sets of successive convolution and pooling layers, which allow the network to detect increasingly complex features at each layer. Early layers may detect simple edges and lines, while deeper layers may detect more complex objects, such as specific shapes and patterns.</p><p>The final input is supplied into the fully connected layer after passing through several convolution and pooling layers. Every neuron in this layer is connected to every other neuron in the layer before it, enabling the network to compile the features that were taken out of the earlier levels and come to a conclusion. An activation function that aids in the final classification, such as ReLU (Rectified Linear Unit) or Softmax, typically follows this completely connected layer.</p><p>This study designs and implements appropriate parameter values in each layer of the CNN used. Previous researchers have created several methods for artificial intelligence that have been tried to be implemented on the ERSOW robot. These methods are Label Propagation, Extra Tree Classifier, Ridge Classifier, Linear SVC, Passive Aggressive Classifier, AdaBoost, Label Spreading, Nearest Centroid, GaussianNB, and Dummy Classifier</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>IV. METHODOLOGY</head><p>The diagram of the dataset creation and ball position prediction process illustrates the sequential steps involved in capturing images from the goalkeeper robot's camera, labeling images, creating a dataset directory, and training the YOLO model. The process continues with activating the camera, loading the deep learning model, reading RGB-depth images, extracting coordinates, and collecting ball position data. The dataset is then created and used to train the CNN model, which predicts ball positions, leading to the final prediction output.</p><p>The process begins with image capture using a ZED 2i camera mounted on the robot goalkeeper. These images are then stored in the dataset directory for the labeling process. The labeling process is done to mark the position of the ball in each image, which is then used to train the object detection model using YOLO (You Only Look Once).</p><p>Once the object detection model is trained, it is loaded into the system for the ball detection process. The system uses RGB images and depth information from the ZED 2i camera to detect and identify the position of the ball in X, Y, and Z coordinates. This information is then extracted from the images processed by the system.</p><p>With the camera active, the system continuously reads the position of the ball and performs detection using the trained deep learning model. The detected ball position data is then collected and stored for use in the ball prediction training process.</p><p>The ball prediction training process is performed using a Convolutional Neural Network (CNN). The ball position data that has been collected from the detection process is used to train the ball prediction model. The purpose of this training is to generate a model that can estimate the ball's arrival position based on previous position data, allowing the robot goalkeeper to react faster and more accurately.</p><p>Once the ball prediction model is trained, it is implemented in the robot goalkeeper system. The system was then tested to evaluate the performance of ball position detection and prediction. The tests were conducted with three different scenarios: when the ball is on the right, center, and left side of the robot.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A. LIMITATIONS OF THE METHOD</head><p>While the methodology employed in this study shows promising results in improving the accuracy of ball position prediction, several limitations need to be addressed:</p><p>Lighting Sensitivity: The ZED 2i camera and the CNN-based model show sensitivity to extreme lighting conditions, such as very bright or low-light environments. Under these conditions, the quality of image data is reduced, which can negatively impact the accuracy of ball detection and position prediction.</p><p>High-Speed Ball Detection: The current model struggles to maintain accuracy when the ball is moving at high speeds. This indicates that the dataset used for training might not fully represent the range of ball speeds encountered in real soccer scenarios, leading to less reliable predictions in high-velocity situations.</p><p>Overfitting in Training: During the training phase, overfitting was observed, particularly between epoch 41 and 60. Although the model performs well on the training data, its performance on unseen validation data fluctuated, indicating that the model may have learned patterns specific to the training set but may not generalize well to new data.</p><p>Camera Dependence: The system is heavily reliant on the quality of RGB and depth data from the ZED 2i camera. Any issues with camera calibration or environmental interference could degrade the accuracy of the position prediction. Furthermore, the system's performance could be impacted by noise or limitations in the depth measurement at certain distances.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>1) BALL DETECTION TRAINING a: CAPTURE IMAGE FROM CAMERA OF THE GOALKEEPER ROBOT</head><p>The image data capture process was carried out using ZED 2i cameras mounted on the center and front sides of the robot goalkeeper. This strategic placement ensures optimal visual coverage of the pitch and ball, allowing the camera to record information with high accuracy. This camera position is important to ensure the image data covers various aspects of the game, both when the ball is on the field and in the air.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>b: LABEL THE IMAGE</head><p>Once the image is captured, the next step is to label the image. Image labeling is done by marking the object to be detected, in this case, the ball. This process is important to provide the data required by the model to learn to recognize objects.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>c: CREATE DATASET</head><p>This dataset will be fed into the object detection model in order to train it. In order for the model to detect objects in various situations, the dataset should include various positions and lighting conditions. This includes variations in the camera's angle of view, the distance between the camera and the object, and the intensity and direction of light. By including images in bright, dim, shadowed, and shadowless conditions, the model will be more robust and able to recognize objects with high accuracy in diverse realworld conditions. This variation ensures that the model does not rely solely on specific visual patterns, but can generalize to new situations that may be encountered during actual operations.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>d: TRAIN YOLO MODEL</head><p>At this stage, the YOLOv8 (You Only Look Once version 8) model is trained using the prepared dataset. YOLOv8 is the latest version of an object detection method that is renowned for its efficiency and speed. In the training process, the model will learn to recognize and detect various objects in pre-labeled images. This training involves optimizing a loss function designed to minimize the difference between the model's predictions and the ground truth labels. The loss function in YOLOv8 takes into account errors in prediction of bounding box position, bounding box size, and object classification. The training process is performed using backpropagation and stochastic gradient descent techniques to update the model weights until it reaches the desired level of accuracy. The trained model is then evaluated to ensure high object detection performance on previously unseen test images. The innovations in YOLOv8 enable improved detection accuracy and speed, making it a highly effective tool in various object recognition applications.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>2) BALL DETECTION a: ACTIVE THE CAMERA</head><p>The ball detection process begins by activating the camera attached to the robot goalkeeper. This camera is tasked with capturing images and videos of the robot's surroundings with high resolution and sufficient image capture rate for real-time applications. Camera activation is an important first step to ensure that the system can acquire the visual data required for the subsequent detection and analysis steps.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>b: LOAD THE MODEL</head><p>Once the camera is activated, a pre-trained ball detection model using the YOLO (You Only Look Once) algorithm is loaded into the system. The YOLO model is designed to analyze images and videos captured by the camera efficiently and quickly. YOLO works by dividing images into grids and processing them in a single stage to detect objects, including balls, with high accuracy. This process involves extracting visual features from the image which are then processed by the YOLO model to recognize patterns corresponding to the characteristics of the ball. The use of YOLO enables object detection in real-time, which is crucial for robotic applications that require quick responses.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>c: READ RGB &amp; DEPTH IMAGES</head><p>The camera then captures images in RGB (Red, Green, Blue) format that provide rich color information as well as depth images that provide information about the distance of each pixel in the image from the camera. Depth images are very important as they allow the system to determine the distance of the object from the camera with high accuracy, which is critical information for figuring out the three-dimensional (3D) position of the ball. The combination of RGB and depth data allows the system to not only detect the ball but also measure its distance precisely, which is essential for trajectory calculation and ball motion prediction.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>d: EXTRACT COORDINATES (X, Y, Z)</head><p>Using the RGB image and depth, the system then extracts the coordinates of the ball in three dimensions (x, y, z). These coordinates indicate the position of the sphere relative to the camera. The formula for calculating the depth z in real-world coordinates can be expressed as equations (1) to <ref type="bibr" target="#b2">(3)</ref>.</p><formula xml:id="formula_0">z = f × B d (1)</formula><p>where:</p><p>• f is the focal length of the camera,</p><p>• B is the distance between the two camera lenses(baseline),</p><p>• d is the horizontal shift between the left and right images (disparity)</p><p>The formula for calculating the coordinates x and y in the real world are:</p><formula xml:id="formula_1">x = (u -c x ) × z f z (2) y = (v -c y ) × z f y (3)</formula><p>where:</p><p>• u and v are the coordinates of pixels in the image,</p><p>• c x and c y is the coordinate of the image center,</p><p>• f x and f y is the focal length in pixel units.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>3) BALL ARRIVAL PREDICTION TRAINING a: COLLECT DATA</head><p>The dataset creation process starts with data capture, where the robot goalkeeper is placed in the goal area, and the ball is kicked from three different directions. Data was recorded using a ZED camera to learn various ball movement patterns and match situations. Capturing data from different angles and conditions ensures the accuracy of the ball movement prediction by the system, as shown in Fig. <ref type="figure" target="#fig_5">6</ref>. The process of capturing and processing data to predict the position of the ball in the goal area. Sample data is taken from three initial positions of the ball, namely (x1, y1), (x2, y1), and (x3, y1), and rolled to three waypoints: left, center, and right, with sampling every 20 milliseconds. The ball's routes as it moved from different spots on the field toward the goal were tracked and analyzed to forecast its next location, which was divided into three categories: left, center, and right.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>b: CREATE DATASET</head><p>The ball position data that has been collected is then processed and made into a structured dataset. This dataset will be used as input to train the ball prediction model. To ensure the model can make predictions with high accuracy, the dataset should include various scenarios, such as ball movement at different speeds, different shooting angles, and varying environmental conditions. The data also needs to be tagged with time information to enable dynamic analysis of the ball movement. Dataset creation involves a process of data cleaning, tagging, and splitting the data into training and testing sets, with a total of 450 training data points and 180 testing data points, to ensure the resulting model can generalize to new situations that may be encountered during a match. Variation in the dataset is essential to improve the model's ability to predict ball position accurately and responsively.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>c: TRAINING CNN MODEL</head><p>The Convolutional Neural Network (CNN) model is trained using the prepared dataset. CNN is a type of deep neural network that is highly effective for the analysis and processing of visual data such as images and videos. In this context, CNN is used to predict the position of the ball based on the position data that has been collected during the training session. The training process involves adjusting the weights of the model through the backpropagation technique to minimize the prediction error. The Fig. <ref type="figure" target="#fig_6">7</ref> is a sequential model of the CNN architecture for ball position prediction. A sequential model is a series of layers that are processed sequentially from input to output. The given model consists of several types of layers: Conv1D, AveragePooling1D, Dropout, MaxPooling1D, Flatten, and Dense. The operation process is in equations ( <ref type="formula" target="#formula_2">4</ref>) to <ref type="bibr" target="#b8">(9)</ref>.</p><p>1. Conv1D Layer</p><p>• Function: Filtering the input signal using a filter.</p><p>• Operation:</p><formula xml:id="formula_2">y (t) = (x * w) (t) + b (<label>4</label></formula><formula xml:id="formula_3">)</formula><p>where y is the input, w is the filter weight, b is the bias, and * is the convolution operation.</p><p>• Output: Filtered signal.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.">AveragePooling1D layer</head><p>• Function: Reduces the dimensionality of the signal by averaging the values within a specific window.</p><p>• Operation:</p><formula xml:id="formula_4">y (t) = 1 k k-1 i=0 x(t + i) (<label>5</label></formula><formula xml:id="formula_5">)</formula><p>where y is pooling window size.</p><p>• Output: A signal whose size is smaller than the average value of the pooling window.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.">Dropout layer</head><p>• Function: Prevent overfitting by randomly disabling some units (neurons) during training.</p><p>• Operation:</p><formula xml:id="formula_6">y (t) = x (t) .m(t)<label>(6)</label></formula><p>where m(t) is a mask containing zero or one, determined randomly.</p><p>• Output: A signal for which some units are disabled.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.">MaxPooling1D layer</head><p>• Function: Reduces the dimensionality of the signal by taking the maximum value within a specific window.</p><p>• Operation:</p><formula xml:id="formula_7">y (t) = max(x (t) , x (t + 1) , . . . , x(t + k -1)) (<label>7</label></formula><formula xml:id="formula_8">)</formula><p>where k is the size of the pooling window.</p><p>• Output: A signal whose size is smaller than the maximum value of the pooling window.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.">Flatten layer</head><p>• Function: Converts multi-dimensional signals into onedimensional (1D) signals.</p><p>• Output: 1D signal. 6. Dense (Fully Connected) layer</p><p>• Function: Linearly combine all the signal features and apply an activation function.</p><p>• Operation:</p><formula xml:id="formula_9">y = σ (Wx + b) (<label>8</label></formula><formula xml:id="formula_10">)</formula><p>where x is the input, σ is the activation function, w is the weight matrix, and b is the bias vector.</p><p>• Output: The signal that has been transformed by the dense layer.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>i) TRANSFORMATION STEPS IN THE MODEL</head><p>Here is the complete sequence of transformations that occur to the input signal as it passes through each layer in the model: 1. Conv1D 1:</p><p>• Input: (None, 10, 512)</p><p>• Output: (None, 10, 512)</p><p>• Convolution operation with a certain filter size. 2. AveragePooling1D 1:</p><p>• Input: (None, 10, 512)</p><p>• Output: (None, 5, 512)</p><p>• Takes the average of every two consecutive values, halving the length of the signal. The model takes an input signal, operates it through multiple layers of convolution, pooling, dropout, and finally dense layers to produce the output. Each layer has specific functions that help in extracting important features from the signal and finally make predictions based on those features.</p><p>To train the CNN, a loss function is used which measures the difference between the model's prediction and the true value. The loss function used is the Mean Squared Error (MSE), which can be expressed by the following formula:</p><formula xml:id="formula_11">Loss = 1 N N i=1 ŷi -y i 2<label>(9)</label></formula><p>where:</p><p>• ŷi is the model prediction for the i-th sample,</p><p>• y i is the actual value for the i-th sample,</p><p>• N is total number of samples in the dataset.</p><p>During the training phase, the model weights are updated using the average square of the difference between the predicted and actual values, which is computed using this loss function. By minimizing this loss value, the CNN model is expected to improve its prediction accuracy of the ball position.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>4) BALL ARRIVAL PREDICTION a: INPUT BALL POSITION</head><p>The system is input into the prediction model. This position includes the coordinates of the moving ball. This data is obtained from cameras and sensors that monitor the ball's movement in real-time. This coordinate information is then used by the prediction model to calculate the ball's next trajectory.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>b: POSITION PREDICTION</head><p>The prediction model then analyzes the ball position input and predicts the future direction and position of the ball. This prediction helps the robot goalkeeper determine the movements to be made to prevent the ball from entering the goal. The position prediction can be expressed by equation <ref type="bibr" target="#b9">(10)</ref>.</p><formula xml:id="formula_12">p (t) = f (p (t -1) , p (t -2) , . . . , p(t -n)) (<label>10</label></formula><formula xml:id="formula_13">)</formula><p>where:</p><p>• p(t) is the predicted position of the ball at time t,</p><p>• p (t -1) , p (t -2) , . . . , p(tn) is the position of the ball at the previous time, which is used as input for the prediction function.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>c: PREDICTION OUTPUT</head><p>The result of the ball arrival position prediction is output. This information is used by the goalkeeping robot control system to take appropriate actions in blocking the ball. This output allows the robot to respond quickly and accurately to the movement of the ball, optimizing the chances of stopping a shot from entering the goal. The robot control system then executes the calculated motion based on the prediction, moving the robot to the ideal position to make the save.</p><p>The following is the pseudocode of the ball arrival position prediction system. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>V. EXPERIMENT RESULTS</head><p>This chapter discusses the results of the dataset that has been created as well as the results of the Convolutional Neural Network (CNN) testing that has been carried out. In this research, we produced a comprehensive dataset specifically designed for applications involving wheeled soccer goalkeeper robots. The dataset includes a variety of scenarios capturing different ball movements, speeds, shooting angles, and environmental conditions to ensure robustness and versatility.</p><p>The development, implementation, and compilation processes in this study were performed on a system with the specifications listed in Table <ref type="table">2</ref>. These specifications include various hardware components such as high-performance CPUs, GPUs, and adequate RAM, as well as software components including operating systems, deep learning frameworks, and data processing libraries. The choice of hardware and software was critical to achieve optimal performance, enabling efficient handling of complex algorithms and large volumes of data during the development, testing, and evaluation phases.</p><p>Using the right hardware ensured fast processing times and the ability to run intensive computations necessary for training deep learning models. Meanwhile, the selection of appropriate software provided the tools needed for data preprocessing, model training, and evaluation. For instance, the use of deep learning frameworks like TensorFlow facilitated the construction and training of the CNN model, while data processing libraries such as NumPy and Pandas were essential for managing and manipulating the dataset.</p><p>TABLE 2. Computer specification.  The model's overall accuracy is approximately 98.02%, calculated as follows by equations ( <ref type="formula" target="#formula_14">11</ref>) to <ref type="bibr" target="#b13">(14)</ref>.</p><formula xml:id="formula_14">Accuracy = TP + TN TP + FP + TN + FN = 396 + 0 396 + 1 + 0 = 396 404 ≈ 0, 9<label>(11)</label></formula><p>Precision, measuring the proportion of correct ball predictions out of all ball predictions, is very high at 99.75%:</p><formula xml:id="formula_15">Precision = TP TP + FP = 396 396 + 1 ≈ 0, 9975<label>(12)</label></formula><p>Recall, or sensitivity, measuring the proportion of correctly identified balls out of all actual balls, is also high at 98.26%:</p><formula xml:id="formula_16">Recall = TP TP + FN = 396 396 + 7 ≈ 0, 9826<label>(13)</label></formula><p>The F1 Score, the harmonic mean of precision and recall, is around 99.00%:</p><formula xml:id="formula_17">F1 Score = 2 × Precision × Recal Precision + Recall ≈ 0, 99<label>(14)</label></formula><p>These metrics indicate that the model has high performance in detecting balls, although it struggles with correctly identifying the background.  TABLE 3. Comparisons results of the proposed system with related works. measures the model's performance on a separate dataset. A large gap between these two lines may indicate overfitting.</p><p>At epochs 0 to 20, training accuracy jumps significantly followed by a similar increase in validation accuracy. At epochs 21 to 40, there is a slight increase in training accuracy with a short period of decline before rising again, while validation accuracy rises significantly and then falls sharply before rising again. At epochs 41 to 60, both graphs show steady fluctuations. At epochs 61 to 80, the fluctuation pattern continued on both graphs. At the last epochs, 81 to 100, there is a significant drop in training accuracy followed immediately by a rapid rise, while validation accuracy shows a continuous up and down trend with no apparent stability. Testing was conducted to evaluate the performance of the trained model. Table <ref type="table">3</ref> presents the performance report of the proposed model, a CNN-based machine learning model, in classifying test data into three categories: ''right,'' ''left,'' and ''center.'' With 180 test samples, the model achieved an overall accuracy of 70%, indicating that 70% of its predictions were correct. Table <ref type="table">3</ref> shows the result of proposed method and other comparison models. From the performance evaluation results of the CNN prediction model for ball position, it was found that the model performed well for the prediction of the ''right'' and ''left'' classes, with F1-score of 0.84 and 0.76 respectively, indicating that the model was quite reliable in classifying both classes. However, the model performance for the ''center'' class showed a significant decrease, with an F1-score of only 0.39. This suggests either an imbalance in the data or a complexity in the ball movement pattern at the center that is difficult for the model to identify.</p><p>These findings show that while the CNN model is effective for most scenarios, there are areas that require improvement, especially in predicting the ''center'' class. One of the future development plans is to improve the data distribution by rebalancing the dataset so that the ''center'' class has more training examples. In addition, more complex models will be developed using other deep learning techniques, such as integration with Long Short-Term Memory (LSTM) to better capture temporal patterns in ball movement.</p><p>For the future, some other approaches that can be developed include the use of data augmentation to generate more variations of the ball position in the ''center'' class, as well as further tuning the CNN architecture to reduce the overfitting phenomenon detected in some epochs during training. The use of attention mechanisms can also be implemented to help the model focus on key features of the ball movement, so as to improve prediction accuracy, especially in the ''center'' class which tends to be less accurate.</p><p>With this further development, it is expected that the ball position prediction model is not only more accurate in the ''right'' and ''left'' classes, but can also provide better performance on ball prediction in the ''center'' class, so as to improve the overall ability of robot goalkeepers in capturing balls from various positions.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>VI. CONCLUSION</head><p>Based on the results of the testing and analysis conducted, the YOLOv8 model effectively recognizes ball objects on the field and detects them in real-time. The developed system successfully determines the ball's position with an accuracy of 90.24% for the x-coordinate, 80.77% for the y-coordinate, and 100% for the z-coordinate within the ZED camera frame, with an error tolerance of ≤ 5 cm. Ball detection tests using deep learning showed an accuracy of 100% at distances up to 300 cm. Additionally, data training for ball position prediction using the Convolutional Neural Network (CNN) architecture resulted in a prediction accuracy of 70%. The f1-scores for each output category were 76% for the left position, 39% for the center position, and 84% for the right position. These findings indicate that the developed model is capable of detecting and determining the ball's position with high accuracy, although there is room for improvement in predicting the center position.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>FIGURE 1 .</head><label>1</label><figDesc>FIGURE 1. Overall system architecture.</figDesc><graphic coords="3,353.78,342.47,127.80,124.20" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>FIGURE 2 .</head><label>2</label><figDesc>FIGURE 2. Hardware architecture of EEPIS robot soccer on wheeled (ERSOW).</figDesc><graphic coords="4,83.63,282.14,146.28,99.72" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>FIGURE 3 .</head><label>3</label><figDesc>FIGURE 3. A ZED camera-created depth map.</figDesc><graphic coords="4,344.42,66.06,146.52,83.40" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>FIGURE 4 .</head><label>4</label><figDesc>FIGURE 4. Illustration of communication patterns in ROS.The system can detect the presence of the ball using You Only Look Once (YOLO). The next process is developed with the Tensorflow library. The transformation of the presence and position of the ball is made by creating a dataset containing the position information of the ball. Fig.5shows a system diagram of the program for ball detection, ball arrival training, and ball arrival prediction used by the robot.</figDesc><graphic coords="4,329.48,323.12,176.40,93.48" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head>FIGURE 5 .</head><label>5</label><figDesc>FIGURE 5. Ball prediction system.</figDesc><graphic coords="4,329.72,542.77,175.92,104.88" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head>FIGURE 6 .</head><label>6</label><figDesc>FIGURE 6. Ball movement dataset from kick point to goal line.</figDesc><graphic coords="7,71.03,326.37,171.48,106.56" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_6"><head>FIGURE 7 .</head><label>7</label><figDesc>FIGURE 7. CNN architecture model.</figDesc><graphic coords="7,332.72,260.64,169.92,79.56" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_7"><head>3 . 5 .</head><label>35</label><figDesc>Conv1D 2: • Input: (None, 5, 512) • Output: (None, 5, 256) • Second convolution operation. 4. AveragePooling1D 2: • Input: (None, 5, 256) • Output: (None, 3, 256) • Takes the average of every two consecutive values again. Conv1D 3:• Input: (None, 3, 256)• Output: (None, 3, 256)• Third convolution operation. 6. AveragePooling1D 3:• Input: (None, 3, 256)• Output: (None, 2, 256)• Takes the average again, reducing the signal length. 7. Conv1D 4:• Input: (None, 2, 256)• Output: (None, 2, 128)• Fourth convolution operation. 8. AveragePooling1D 4:• Input: (None, 2, 128)• Output: (None, 1, 128)• Takes the average again. 9. Dropout 1:• Input: (None, 1, 128)• Output: (None, 1, 128)• Applies dropout to prevent overfitting. 10. Conv1D 5: • Input: (None, 1, 128) • Output: (None, 1, 128) • Fifth convolution operation. 11. AveragePooling1D 5: • Input: (None, 1, 128) • Output: (None, 1, 128) • Takes the average again. 12. Conv1D 6: • Input: (None, 1, 128) • Output: (None, 1, 128) • Sixth convolution operation. 13. AveragePooling1D 6: • Input: (None, 1, 128) • Output: (None, 1, 128) • Takes the average again. 14. Dropout 2: • Input: (None, 1, 128) • Output: (None, 1, 128) • Applies dropout again. 15. Conv1D 7: • Input: (None, 1, 128) • Output: (None, 1, 64) • Seventh convolution operation. 16. MaxPooling1D: • Input: (None, 1, 64) • Output: (None, 1, 64) • Takes the maximum value in the pooling window. 17. Flatten: • Input: (None, 1, 64) • Output: (None, 64) • Flattens the signal into a one-dimensional shape. 18. Dense 1: • Input: (None, 64) • Output: (None, 32) • Fully connected layer that combines features and applies an activation function. 19. Dropout 3: • Input: (None, 32) • Output: (None, 32) • Applies dropout again. 20. Dense 2: • Input: (None, 32) • Output: (None, 3) • Final fully connected layer with an activation function to produce the final output.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_8"><head>Algorithm 1</head><label>1</label><figDesc>CNN-based Ball Arrival Position Prediction1: Load ONNX_MODEL from ''path/model.onnx'' 2: Initialize ONNX_SESSION with ONNX_MODEL 3: Define INPUT_SHAPE = [1, 5, 2], OUTPUT_CLASSES = {right, center, left} 4: Initialize input_x, input_y as empty lists 5: Set flag_prediction = 0, start_time = 0 6: while ROS_ACTIVE do 7: Process ROS callbacks 8: if ball_detected() then 9: if length(input_x) Ball not detected'' 25: end while 26: function PredictBallPosition(x_buffer, y_buffer) 27: input_tensor ← ConvertToTensor([(x, y) ∀ (x, y) ∈ zip(x_buffer, y_buffer)]) 28: input_tensor ← Reshape(input_tensor, INPUT_SHAPE) 29: output ← ONNX_SESSION.RUN(input_tensor) 30: return OUTPUT_CLASSES[argmax(output[0])]</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_9"><figDesc>A. BALL DETECTIONThe evaluation of the YOLOv8 object detection model training data was performed using ClearML to visualize the training results. The confusion matrix illustrates the model's performance in classifying two categories: ball and background. The model effectively identifies the ball category with 396 true positives (TP) and only 1 false positive (FP). However, it shows significant weaknesses in identifying the background, with 0 true negatives (TN) and 7 false negatives (FN). Fig.8shows the accuracy model of proposed CNN.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_10"><head>FIGURE 8 .</head><label>8</label><figDesc>FIGURE 8. Confusion matrix result of ball detection using CNN.</figDesc><graphic coords="10,69.23,301.07,175.08,152.52" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_11"><head>B</head><figDesc>. BALL ARRIVAL PREDICTION In the prediction data training process using the Convolutional Neural Network (CNN) architecture, the model's development is evaluated through loss and accuracy curves, as shown in Fig. 9. The loss graph shows how the model's error changes during training, with lower values indicating better performance. The accuracy graph indicates the proportion of correct predictions.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_12"><head>FIGURE 9 .</head><label>9</label><figDesc>FIGURE 9. CNN model training result. The loss graph from the results of training data using CNN. The X-axis shows the epochs (number of iterations), and the Y-axis shows the loss values, where lower means better model predictions. The red line shows the training loss, which generally decreases during training, and the blue line shows the validation loss, which helps monitor the model's performance on data that has not been seen before. From epochs 0 to 20, there is a consistent decrease in both graphs, although the validation loss increases slightly at the beginning before decreasing again. At epochs 21 to 40, training loss is stable while validation loss fluctuates. At epochs 41 to 60, training loss briefly rises before dropping again, while validation loss increases significantly before dropping. Repeated fluctuations occurred at epochs 61 to 80, and at epochs 81 to 100, training loss and validation loss finally decreased together. This analysis shows overfitting at some points, especially at epochs 41 to 60 and 61 to 80. The accuracy graph of the training data results. The red line shows the training accuracy which typically increases with epochs, and the blue line shows the validation accuracy which</figDesc><graphic coords="10,338.12,351.26,159.12,106.92" type="bitmap" /></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_0"><p>For more information, see https://creativecommons.org/licenses/by/4.0/</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_1"><p>VOLUME 13, 2025   </p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="41568" xml:id="foot_2"><p>  VOLUME 13, 2025   </p></note>
 		</body>
 		<back>
-
-			<div type="availability">
-<div xmlns="http://www.tei-c.org/ns/1.0"><p><ref type="url" target="https://journal.asritani.or.id/index.php/Botani">https://journal.asritani.or.id/index.php/Botani</ref> </p></div>
-			</div>
-
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0" />			</div>
 			<div type="references">
 
 				<listBibl>
 
 <biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">Towards an autonomous RoboCup small size league robot</title>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">G</forename><surname>Melo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Martins</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Cavalcanti</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Fernandes</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Araújo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Joaquim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">G</forename><surname>Monteiro</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Barros</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/LARS/SBR/WRE56824.2022.9996004</idno>
+	</analytic>
 	<monogr>
-		<title/>
-		<idno>ISSN: 3046-5508</idno>
+		<title level="m">Proc. Latin Amer. Robot. Symp. (LARS), Brazilian Symp. Robot. (SBR), Workshop Robot. Educ. (WRE)</title>
+		<meeting>Latin Amer. Robot. Symp. (LARS), Brazilian Symp. Robot. (SBR), Workshop Robot. Educ. (WRE)</meeting>
 		<imprint>
-			<biblScope unit="page" from="219" to="229" />
+			<date type="published" when="2022-10">Oct. 2022</date>
+			<biblScope unit="page" from="1" to="6" />
 		</imprint>
 	</monogr>
 </biblStruct>
 
 <biblStruct xml:id="b1">
 	<analytic>
-		<title level="a" type="main">Kontribusi sektor pertanian padi dalam upaya meningkatkan perekonomian masyarakat Desa Lonam Kecamatan Pemangkat dalam perspektif ekonomi Islam</title>
+		<title level="a" type="main">Tech United Eindhoven middle size league winner 2022</title>
 		<author>
-			<persName><forename type="first">W</forename><surname>Astuti</surname></persName>
+			<persName><forename type="first">S</forename><forename type="middle">T</forename><surname>Kempers</surname></persName>
 		</author>
+		<idno type="DOI">10.1007/978-3-031-28469-4_28</idno>
 	</analytic>
 	<monogr>
-		<title level="j">Lunggi Journal</title>
+		<title level="j">Robot World Cup XXV</title>
+		<editor>
+			<persName><forename type="first">A</forename><surname>Eguchi</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">N</forename><surname>Lau</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">M</forename><surname>Paetzel-Prüsmann</surname></persName>
+		</editor>
+		<editor>
+			<persName><forename type="first">T</forename><surname>Wanichanon</surname></persName>
+		</editor>
 		<imprint>
-			<biblScope unit="volume">2</biblScope>
-			<biblScope unit="issue">4</biblScope>
-			<biblScope unit="page" from="590" to="600" />
-			<date type="published" when="2024">2024</date>
+			<biblScope unit="volume">2022</biblScope>
+			<biblScope unit="page" from="337" to="348" />
+			<date type="published" when="2023">2023</date>
+			<publisher>Springer</publisher>
+			<pubPlace>Cham, Switzerland</pubPlace>
 		</imprint>
 	</monogr>
 </biblStruct>
 
 <biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">Probability-based strategy for a football multi-agent autonomous robot system</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">F A</forename><surname>Ribeiro</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">C C</forename><surname>Lopes</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">A</forename><surname>Ribeiro</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><forename type="middle">S S M</forename><surname>Pereira</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><forename type="middle">T</forename><surname>Lopes</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">F M</forename><surname>Ribeiro</surname></persName>
+		</author>
+		<idno type="DOI">10.3390/robotics13010005</idno>
+	</analytic>
 	<monogr>
-		<title level="m" type="main">Luas lahan menurut penggunaannya</title>
-		<author>
-			<persName><forename type="first">Badan</forename><surname>Pusat</surname></persName>
-		</author>
-		<author>
-			<persName><forename type="first">Statistik</forename></persName>
-		</author>
+		<title level="j">Robotics</title>
 		<imprint>
-			<date type="published" when="2011">2011</date>
-			<publisher>Badan Pusat Statistik</publisher>
-			<pubPlace>Banten</pubPlace>
+			<biblScope unit="volume">13</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page">2025</biblScope>
+			<date type="published" when="2023-12">Dec. 2023</date>
 		</imprint>
 	</monogr>
 </biblStruct>
 
 <biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Ball position estimation in goal keeper robots using neural network</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Setiawardhana</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Dikairono</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Purwanto</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">A</forename><surname>Sardjono</surname></persName>
+		</author>
+		<idno type="DOI">10.15866/ireaco.v13i1.18504</idno>
+	</analytic>
 	<monogr>
-		<title level="m" type="main">Luas panen dan produksi padi di Indonesia 2023 (angka sementara)</title>
-		<author>
-			<persName><forename type="first">Badan</forename><surname>Pusat</surname></persName>
-		</author>
-		<author>
-			<persName><forename type="first">Statistik</forename></persName>
-		</author>
+		<title level="j">Int. Rev. Autom. Control</title>
 		<imprint>
-			<date type="published" when="2023">2023</date>
-			<publisher>Badan Pusat Statistik</publisher>
-			<pubPlace>Jakarta Pusat</pubPlace>
+			<biblScope unit="volume">13</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page">38</biblScope>
+			<date type="published" when="2020-01">Jan. 2020</date>
 		</imprint>
 	</monogr>
 </biblStruct>
 
 <biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Prediction of ball position in three-dimensional space using artificial neural networks on robot ERSOW</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Setiawardhana</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><forename type="middle">A</forename><surname>Nasrulloh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">S B</forename><surname>Dewantara</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><forename type="middle">K</forename><surname>Wibowo</surname></persName>
+		</author>
+		<idno type="DOI">10.15866/ireaco.v15i6.22697</idno>
+	</analytic>
 	<monogr>
-		<title level="m" type="main">Luas panen dan produksi padi di Provinsi Banten 2024 (angka sementara)</title>
-		<author>
-			<persName><forename type="first">Badan</forename><surname>Pusat</surname></persName>
-		</author>
-		<author>
-			<persName><forename type="first">Statistik</forename></persName>
-		</author>
+		<title level="j">Int. Rev. Autom. Control</title>
 		<imprint>
-			<date type="published" when="2024">2024</date>
-			<publisher>Badan Pusat Statistik</publisher>
-			<pubPlace>Banten</pubPlace>
+			<biblScope unit="volume">15</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page">285</biblScope>
+			<date type="published" when="2022-11">Nov. 2022</date>
 		</imprint>
 	</monogr>
 </biblStruct>
 
 <biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">Ball-catching system using image processing and an omni-directional wheeled mobile robot</title>
+		<author>
+			<persName><forename type="first">S.-T</forename><surname>Kao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M.-T</forename><surname>Ho</surname></persName>
+		</author>
+		<idno type="DOI">10.3390/s21093208</idno>
+	</analytic>
 	<monogr>
-		<title level="m" type="main">Kecamatan Ciruas dalam angka / Ciruas District in Figures</title>
-		<author>
-			<persName><forename type="first">Badan</forename><surname>Pusat</surname></persName>
-		</author>
-		<author>
-			<persName><forename type="first">Statistik</forename><surname>Kabupaten</surname></persName>
-		</author>
-		<author>
-			<persName><forename type="first">Serang</forename></persName>
-		</author>
+		<title level="j">Sensors</title>
 		<imprint>
-			<date type="published" when="2024">2024</date>
-			<publisher>Badan Pusat Statistik</publisher>
-			<pubPlace>Kabupaten Serang</pubPlace>
+			<biblScope unit="volume">21</biblScope>
+			<biblScope unit="issue">9</biblScope>
+			<biblScope unit="page">3208</biblScope>
+			<date type="published" when="2021-05">May 2021</date>
 		</imprint>
 	</monogr>
 </biblStruct>
 
 <biblStruct xml:id="b6">
 	<analytic>
-		<title level="a" type="main">Memahami desain metode penelitian kualitatif</title>
+		<title level="a" type="main">Adaptation of YOLOv7 and YOLOv7_tiny for soccer-ball multi-detection with DeepSORT for tracking by semisupervised system</title>
 		<author>
-			<persName><forename type="first">M</forename><forename type="middle">R</forename><surname>Fadli</surname></persName>
+			<persName><forename type="first">J</forename><forename type="middle">A</forename><surname>Vicente-Martínez</surname></persName>
 		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Márquez-Olivera</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>García-Aliaga</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Hernández-Herrera</surname></persName>
+		</author>
+		<idno type="DOI">10.3390/s23218693</idno>
 	</analytic>
 	<monogr>
-		<title level="j">Humanika, Kajian Ilmiah Mata Kuliah Umum</title>
+		<title level="j">Sensors</title>
 		<imprint>
-			<biblScope unit="volume">21</biblScope>
-			<biblScope unit="issue">1</biblScope>
-			<biblScope unit="page" from="33" to="54" />
-			<date type="published" when="2021">2021</date>
+			<biblScope unit="volume">23</biblScope>
+			<biblScope unit="issue">21</biblScope>
+			<biblScope unit="page">8693</biblScope>
+			<date type="published" when="2023-10">Oct. 2023</date>
 		</imprint>
 	</monogr>
 </biblStruct>
 
 <biblStruct xml:id="b7">
+	<analytic>
+		<title level="a" type="main">GPU parallel computing for detection and classification object in robot soccer ERSOW</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Anwar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">A</forename><surname>Haq</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><forename type="middle">Kurnianto</forename><surname>Wibowo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">M</forename><surname>Bachtiar</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/IES50839.2020.9231770</idno>
+	</analytic>
 	<monogr>
-		<author>
-			<persName><forename type="first">Pemerintah</forename><surname>Provinsi</surname></persName>
-		</author>
-		<author>
-			<persName><forename type="first">Banten</forename></persName>
-		</author>
-		<ptr target="https://bantenprov.go.id/geografi" />
-		<title level="m">Geografi Provinsi Banten</title>
+		<title level="m">Proc. Int. Electron. Symp. (IES)</title>
+		<meeting>Int. Electron. Symp. (IES)</meeting>
 		<imprint>
-			<date type="published" when="2025">2025</date>
+			<date type="published" when="2020-09">Sep. 2020</date>
+			<biblScope unit="page" from="284" to="288" />
 		</imprint>
 	</monogr>
 </biblStruct>
 
 <biblStruct xml:id="b8">
+	<analytic>
+		<title level="a" type="main">Estimation of ball position using depth camera for middle size goalkeeper robot</title>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">P</forename><surname>Suwandi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><forename type="middle">K</forename><surname>Wibowo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">M</forename><surname>Bachtiar</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/IES55876.2022.9888575</idno>
+	</analytic>
 	<monogr>
-		<title level="m" type="main">Metode penelitian kualitatif: Teori dan panduan praktis analisis data kualitatif</title>
-		<author>
-			<persName><forename type="first">S</forename><surname>Sukarman</surname></persName>
-		</author>
-		<author>
-			<persName><forename type="first">F</forename><forename type="middle">A</forename><surname>Guampe</surname></persName>
-		</author>
-		<author>
-			<persName><forename type="first">J</forename><forename type="middle">S</forename><surname>Akbar</surname></persName>
-		</author>
-		<author>
-			<persName><forename type="first">R</forename><surname>Rulanggi</surname></persName>
-		</author>
+		<title level="m">Proc. Int. Electron. Symp. (IES)</title>
+		<meeting>Int. Electron. Symp. (IES)</meeting>
 		<imprint>
-			<date type="published" when="2024">2024</date>
+			<date type="published" when="2022-08">Aug. 2022</date>
+			<biblScope unit="page" from="374" to="379" />
 		</imprint>
 	</monogr>
-	<note>Penerbit Mifandi Mandiri Digital</note>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Performance comparison of YOLOv4 and YOLOv4tiny algorithm for object detection on wheeled soccer robot,&apos;&apos; in Proc</title>
+		<author>
+			<persName><forename type="first">I</forename><forename type="middle">H</forename><surname>Tambunan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Silaen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Michael</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">A</forename><surname>Sihotang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><forename type="middle">G</forename><surname>Sitanggang</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/ICOSNIKOM56551.2022.10034912</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Int. Conf. Comput. Sci. Inf. Technol. (ICOSNIKOM)</title>
+		<imprint>
+			<biblScope unit="page" from="1" to="6" />
+			<date type="published" when="2022-10">Oct. 2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Color based object segmentation on wheeled goalkeeper robot</title>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">A</forename><surname>Fatekha</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">S B</forename><surname>Dewantara</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Oktavianto</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/IES53407.2021.9593965</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. Int. Electron. Symp. (IES)</title>
+		<meeting>Int. Electron. Symp. (IES)</meeting>
+		<imprint>
+			<date type="published" when="2021-09">Sep. 2021</date>
+			<biblScope unit="page" from="405" to="410" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Ball identification and localization using regression for wheeled robot soccer</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Firasanti</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Sujatmiko</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Fahrurozi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">A Z</forename><surname>Hamidi</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/ICWT52862.2021.9678431</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. 7th Int. Conf. Wireless Telematics (ICWT)</title>
+		<meeting>7th Int. Conf. Wireless Telematics (ICWT)</meeting>
+		<imprint>
+			<date type="published" when="2021-08">Aug. 2021</date>
+			<biblScope unit="page" from="1" to="4" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Soccer robot localization based on sensor fusion from odometry and omnivision,&apos;</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">A</forename><surname>Ismail</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Purwanto</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Arifin</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/ISITIA56226.2022.9855313</idno>
+	</analytic>
+	<monogr>
+		<title level="j">&apos; in Proc. Int. Seminar Intell. Technol. Its Appl. (ISITIA)</title>
+		<imprint>
+			<biblScope unit="page" from="273" to="278" />
+			<date type="published" when="2022-07">Jul. 2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">Perspectives of RealSense and ZED depth sensors for robotic vision applications</title>
+		<author>
+			<persName><forename type="first">V</forename><surname>Tadic</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Toth</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Vizvari</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Klincsik</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Sari</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Sarcevic</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Sarosi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><surname>Biro</surname></persName>
+		</author>
+		<idno type="DOI">10.3390/machines10030183</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Machines</title>
+		<imprint>
+			<biblScope unit="volume">10</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page">183</biblScope>
+			<date type="published" when="2022-03">Mar. 2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">Method of using RealSense camera to estimate the depth map of any monocular camera</title>
+		<author>
+			<persName><forename type="first">L.-F</forename><surname>Tu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Q</forename><surname>Peng</surname></persName>
+		</author>
+		<idno type="DOI">10.1155/2021/9152035</idno>
+	</analytic>
+	<monogr>
+		<title level="j">J. Electr. Comput. Eng</title>
+		<imprint>
+			<biblScope unit="volume">2021</biblScope>
+			<biblScope unit="page" from="1" to="9" />
+			<date type="published" when="2021-05">May 2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">Depth accuracy analysis of the ZED 2i stereo camera in an indoor environment</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Abdelsalam</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Mansour</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Porras</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Happonen</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.robot.2024.104753</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Robot. Auto. Syst</title>
+		<imprint>
+			<biblScope unit="volume">179</biblScope>
+			<date type="published" when="2024-09">Sep. 2024</date>
+			<pubPlace>Art</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">Object-based change detection algorithm with a spatial AI stereo camera</title>
+		<author>
+			<persName><forename type="first">L</forename><surname>Göncz</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Majdik</surname></persName>
+		</author>
+		<idno type="DOI">10.3390/s22176342</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Sensors</title>
+		<imprint>
+			<biblScope unit="volume">22</biblScope>
+			<biblScope unit="issue">17</biblScope>
+			<biblScope unit="page">6342</biblScope>
+			<date type="published" when="2022-08">Aug. 2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">Tiny-YOLO distance measurement and object detection coordination system for the BarelangFC robot</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Susanto</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">A</forename><surname>Ricardo Silitonga</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Analia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">R</forename><surname>Jamzuri</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">S</forename><surname>Pamungkas</surname></persName>
+		</author>
+		<idno type="DOI">10.11591/ijece.v13i6.pp6926-6939</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Int. J. Electr. Comput. Eng. (IJECE)</title>
+		<imprint>
+			<biblScope unit="volume">13</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page">6926</biblScope>
+			<date type="published" when="2023-12">Dec. 2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">Ball detection and tracking with different embedded systems in the RoboCup soccer context</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Bordado</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Silveria</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Laureano</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/lars/sbr/wre59448.2023.10333050</idno>
+	</analytic>
+	<monogr>
+		<title level="m">&apos;&apos; in Proc. Latin Amer. Robot. Symp. (LARS), Brazilian Symp. Robot. (SBR), Workshop Robot. Educ. (WRE)</title>
+		<imprint>
+			<date type="published" when="2023-10">Oct. 2023</date>
+			<biblScope unit="page" from="514" to="519" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<analytic>
+		<title level="a" type="main">Comparison of YOLO, SSD, faster RCNN for real time tennis ball tracking for action decision networks</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Deepa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Tamilselvan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">S</forename><surname>Abrar</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Sampath</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/ICACCE46606.2019.9079965</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. Int. Conf</title>
+		<meeting>Int. Conf</meeting>
+		<imprint>
+			<date type="published" when="2020">2020</date>
+			<biblScope unit="page" from="1" to="4" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">High-speed tiny tennis ball detection based on deep convolutional neural networks</title>
+		<author>
+			<persName><forename type="first">B</forename><surname>Tian</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Zhang</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/ASID50160.2020.9271695</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. IEEE 14th Int. Conf. Anti-counterfeiting, Secur., Identificat. (ASID)</title>
+		<meeting>IEEE 14th Int. Conf. Anti-counterfeiting, Secur., Identificat. (ASID)</meeting>
+		<imprint>
+			<date type="published" when="2020-10">Oct. 2020</date>
+			<biblScope unit="page" from="30" to="33" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title level="a" type="main">Ball-type small objection algorithm based on YOLOv8</title>
+		<author>
+			<persName><forename type="first">X</forename><surname>Luo</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Quan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Liu</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/ICIS61260.2024.10778368</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. IEEE/ACIS 24th Int. Conf. Comput. Inf. Sci. (ICIS)</title>
+		<meeting>IEEE/ACIS 24th Int. Conf. Comput. Inf. Sci. (ICIS)</meeting>
+		<imprint>
+			<date type="published" when="2024-09">Sep. 2024</date>
+			<biblScope unit="page" from="139" to="144" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">Ball detection algorithms enhancement in sport robots</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Esfandiarpour</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">M</forename><surname>Mirshabani</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">M</forename><surname>Miandoab</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. 13th Iranian/3rd</title>
+		<meeting>13th Iranian/3rd</meeting>
+		<imprint/>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<monogr>
+		<author>
+			<persName><surname>Int</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Mach</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/mvip62238.2024.10491187</idno>
+		<title level="m">Vis. Image Process. Conf. (MVIP)</title>
+		<imprint>
+			<date type="published" when="2024-03">Mar. 2024</date>
+			<biblScope unit="page" from="1" to="6" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<analytic>
+		<title level="a" type="main">Design and implementation of ROS-based intelligent ball picking robot</title>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Feng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Su</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Lu</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/icaica58456.2023.10405557</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. 5th Int. Conf</title>
+		<meeting>5th Int. Conf</meeting>
+		<imprint>
+			<date type="published" when="2023-11">Nov. 2023</date>
+			<biblScope unit="page" from="863" to="870" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<analytic>
+		<title level="a" type="main">Corridors classification using convolutional neural network on mobile robot</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Setiawardhana</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><forename type="middle">S B</forename><surname>Dewantara</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">T</forename><surname>Huda</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">H Z</forename><surname>Ilahi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><forename type="middle">P</forename><surname>Nurmaida</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">N</forename><surname>Hamida</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Ryando</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><forename type="middle">D M</forename><surname>Fasya</surname></persName>
+		</author>
+		<idno type="DOI">10.15866/ireaco.v17i5.25546</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Int. Rev. Autom. Control (IREACO)</title>
+		<imprint>
+			<biblScope unit="volume">17</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page">203</biblScope>
+			<date type="published" when="2024-09">Sep. 2024</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<analytic>
+		<title level="a" type="main">Computer vision-control-based CNN-PID for mobile robot</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Farkh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">T</forename><surname>Quasim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Al</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Jaloud</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">T</forename><surname>Alhuwaimel</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Siddiqui</surname></persName>
+		</author>
+		<idno type="DOI">10.32604/cmc.2021.016600</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Comput., Mater. Continua</title>
+		<imprint>
+			<biblScope unit="volume">68</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="1065" to="1079" />
+			<date type="published" when="2021-02">Feb. 2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<title level="a" type="main">Design of a fuzzy inference based robot vision for CNN training image acquisition</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Yukawa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Oda</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Saito</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Hirata</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Toyoshima</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Katayama</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/GCCE53005.2021.9621830</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. IEEE 10th Global Conf. Consum. Electron. (GCCE)</title>
+		<meeting>IEEE 10th Global Conf. Consum. Electron. (GCCE)</meeting>
+		<imprint>
+			<date type="published" when="2021-10">Oct. 2021</date>
+			<biblScope unit="page" from="806" to="807" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<analytic>
+		<title level="a" type="main">A review of convolutional neural networks in computer vision</title>
+		<author>
+			<persName><forename type="first">X</forename><surname>Zhao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Han</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Deveci</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Parmar</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s10462-024-10721-6</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Artif. Intell. Rev</title>
+		<imprint>
+			<biblScope unit="volume">57</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page">99</biblScope>
+			<date type="published" when="2024-03">Mar. 2024</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<monogr>
+		<title level="m" type="main">CNN-based object detection for robot grasping in cluttered environment</title>
+		<author>
+			<persName><forename type="first">I</forename><surname>Ćirić</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Ivačko</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Lalić</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Nejković</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Milošević</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Stojiljković</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Jevtić</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-031-50755-7_20</idno>
+		<editor>Trajanovic, N. Filipovic, and M. Zdravkovic</editor>
+		<imprint>
+			<date type="published" when="2024">2024</date>
+			<publisher>Springer</publisher>
+			<biblScope unit="page" from="206" to="217" />
+			<pubPlace>Cham, Switzerland</pubPlace>
+		</imprint>
+	</monogr>
 </biblStruct>
 
 				</listBibl>
