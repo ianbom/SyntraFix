@@ -94,6 +94,16 @@ export const authService = {
     return parseAuthToken(rawToken) !== null
   },
 
+  getAccessToken: (): string | null => {
+    const rawToken = Cookies.get(AUTH_TOKEN_KEY)
+    if (!rawToken) {
+      return null
+    }
+
+    const authToken = parseAuthToken(rawToken)
+    return authToken?.access_token ?? null
+  },
+
   isAdmin: (): boolean => {
     const user = authService.getCurrentUser()
     return user?.role === "admin"

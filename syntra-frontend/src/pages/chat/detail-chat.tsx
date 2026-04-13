@@ -1,5 +1,6 @@
-import { useState, useEffect, useRef } from "react"
-import { useParams, useNavigate, Link } from "react-router-dom"
+import { type CSSProperties, useEffect, useMemo, useRef, useState } from "react"
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query"
+import { useLocation, useNavigate, useParams, Link } from "react-router-dom"
 import { IconPlus, IconRobot } from "@tabler/icons-react"
 import { AppSidebar } from "@/components/app-sidebar"
 import { SiteHeader } from "@/components/site-header"
@@ -7,87 +8,206 @@ import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { ChatInput, MessageBubble, TypingIndicator } from "./components"
-import { chatStore } from "./chat-store"
+import { getConversation, postChat } from "./api"
 import type { Message } from "./types"
+
+interface PendingChatLocationState {
+  initialMessage?: string
+}
+
+const PENDING_CHAT_ID = "pending"
+const processedPendingLocationKeys = new Set<string>()
 
 const DetailChatPage = () => {
   const { id } = useParams<{ id: string }>()
   const navigate = useNavigate()
+  const location = useLocation()
+  const queryClient = useQueryClient()
   const messagesEndRef = useRef<HTMLDivElement>(null)
-  const [messages, setMessages] = useState<Message[]>([])
-  const [isLoading, setIsLoading] = useState(false)
-  const [isBotTyping, setIsBotTyping] = useState(false)
-  const [chatTitle, setChatTitle] = useState("")
+  const [sendErrorMessage, setSendErrorMessage] = useState<string | null>(null)
 
-  // Load chat on mount
+  const initialMessage = useMemo(() => {
+    if (!location.state || typeof location.state !== "object") {
+      return ""
+    }
+
+    const state = location.state as PendingChatLocationState
+    return typeof state.initialMessage === "string"
+      ? state.initialMessage.trim()
+      : ""
+  }, [location.state])
+
+  const isCreatingConversationRoute = id === PENDING_CHAT_ID
+  const parsedConversationId = Number(id)
+  const conversationId =
+    Number.isInteger(parsedConversationId) && parsedConversationId > 0
+      ? parsedConversationId
+      : null
+  const isConversationIdValid = conversationId !== null
+
   useEffect(() => {
     if (!id) {
-      navigate("/chat/new")
+      navigate("/chat/new", { replace: true })
       return
     }
 
-    //
-
-    const chat = chatStore.getChat(id)
-    if (chat) {
-      setMessages(chat.messages)
-      setChatTitle(chat.title)
-
-      // If only user message, trigger bot response
-      if (chat.messages.length === 1 && chat.messages[0].role === "user") {
-        getBotResponse(chat.messages[0].content)
+    if (isCreatingConversationRoute) {
+      if (!initialMessage) {
+        navigate("/chat/new", { replace: true })
       }
-    } else {
-      navigate("/chat/new")
-    }
-  }, [id, navigate])
 
-  // Scroll to bottom when messages change
+      return
+    }
+
+    if (!isConversationIdValid) {
+      navigate("/chat/new", { replace: true })
+    }
+  }, [id, initialMessage, isConversationIdValid, isCreatingConversationRoute, navigate])
+
+  const conversationQuery = useQuery({
+    queryKey: ["chats", "conversation", conversationId],
+    queryFn: ({ signal }) => {
+      if (!conversationId) {
+        throw new Error("ID percakapan tidak valid.")
+      }
+
+      return getConversation({ conversationId, signal })
+    },
+    enabled: isConversationIdValid,
+  })
+
+  const createConversationMutation = useMutation({
+    mutationFn: (message: string) => postChat({ message }),
+    onSuccess: async (response) => {
+      setSendErrorMessage(null)
+
+      await queryClient.invalidateQueries({
+        queryKey: ["chats", "conversations"],
+      })
+
+      navigate(`/chat/${response.conversationId}`, { replace: true })
+    },
+    onError: (error: unknown) => {
+      if (error instanceof Error) {
+        setSendErrorMessage(error.message)
+        return
+      }
+
+      setSendErrorMessage("Gagal memulai percakapan.")
+    },
+  })
+
+  const {
+    mutate: createConversation,
+    isPending: isCreatingConversation,
+    status: createConversationStatus,
+  } = createConversationMutation
+
   useEffect(() => {
-    scrollToBottom()
+    if (!isCreatingConversationRoute || !initialMessage) {
+      return
+    }
+
+    if (createConversationStatus !== "idle") {
+      return
+    }
+
+    // Prevent duplicate initial request in StrictMode remount.
+    if (processedPendingLocationKeys.has(location.key)) {
+      return
+    }
+
+    processedPendingLocationKeys.add(location.key)
+    createConversation(initialMessage)
+  }, [
+    createConversation,
+    createConversationStatus,
+    initialMessage,
+    isCreatingConversationRoute,
+    location.key,
+  ])
+
+  const sendMessageMutation = useMutation({
+    mutationFn: (message: string) => {
+      if (!conversationId) {
+        throw new Error("ID percakapan tidak valid.")
+      }
+
+      return postChat({ message, conversationId })
+    },
+    onSuccess: async () => {
+      setSendErrorMessage(null)
+
+      await Promise.all([
+        queryClient.invalidateQueries({
+          queryKey: ["chats", "conversation", conversationId],
+        }),
+        queryClient.invalidateQueries({
+          queryKey: ["chats", "conversations"],
+        }),
+      ])
+    },
+    onError: (error: unknown) => {
+      if (error instanceof Error) {
+        setSendErrorMessage(error.message)
+        return
+      }
+
+      setSendErrorMessage("Gagal mengirim pesan.")
+    },
+  })
+
+  const messages = useMemo<Message[]>(() => {
+    const chats = conversationQuery.data?.chats ?? []
+
+    return [...chats].sort((firstMessage, secondMessage) => {
+      const timestampDiff = firstMessage.timestamp.getTime() - secondMessage.timestamp.getTime()
+
+      if (timestampDiff !== 0) {
+        return timestampDiff
+      }
+
+      if (firstMessage.role === secondMessage.role) {
+        return 0
+      }
+
+      return firstMessage.role === "user" ? -1 : 1
+    })
+  }, [conversationQuery.data?.chats])
+  const chatTitle =
+    conversationQuery.data?.title ?? (isCreatingConversationRoute ? "Memulai chat..." : "Chat")
+  const isBotTyping =
+    (isCreatingConversationRoute && isCreatingConversation) || sendMessageMutation.isPending
+  const isConversationLoading = isConversationIdValid && conversationQuery.isPending
+
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
   }, [messages, isBotTyping])
 
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
-  }
-
-  const getBotResponse = async (userMessage: string) => {
-    if (!id) return
-
-    setIsBotTyping(true)
-
-    try {
-      const botMessage = await chatStore.getBotResponse(id, userMessage)
-      if (botMessage) {
-        setMessages((prev) => [...prev, botMessage])
-      }
-    } catch (error) {
-      console.error("Failed to get bot response:", error)
-    } finally {
-      setIsBotTyping(false)
-    }
-  }
-
-  const handleSendMessage = async (content: string) => {
-    if (!id || isLoading) return
-
-    setIsLoading(true)
-
-    try {
-      // Add user message
-      const userMessage = chatStore.addMessage(id, content, "user")
-      if (userMessage) {
-        setMessages((prev) => [...prev, userMessage])
+  const handleSendMessage = (content: string) => {
+    if (isCreatingConversationRoute) {
+      if (isCreatingConversation) {
+        return
       }
 
-      // Get bot response
-      await getBotResponse(content)
-    } catch (error) {
-      console.error("Failed to send message:", error)
-    } finally {
-      setIsLoading(false)
+      setSendErrorMessage(null)
+      processedPendingLocationKeys.add(location.key)
+      createConversation(content)
+      return
     }
+
+    if (!isConversationIdValid || sendMessageMutation.isPending) {
+      return
+    }
+
+    setSendErrorMessage(null)
+    sendMessageMutation.mutate(content)
   }
+
+  const fetchErrorMessage =
+    conversationQuery.error instanceof Error
+      ? conversationQuery.error.message
+      : "Gagal memuat percakapan."
 
   return (
     <SidebarProvider
@@ -95,7 +215,7 @@ const DetailChatPage = () => {
         {
           "--sidebar-width": "calc(var(--spacing) * 72)",
           "--header-height": "calc(var(--spacing) * 12)",
-        } as React.CSSProperties
+        } as CSSProperties
       }
     >
       <AppSidebar variant="inset" />
@@ -104,14 +224,14 @@ const DetailChatPage = () => {
         <div className="flex flex-1 flex-col">
           <div className="@container/main flex flex-1 flex-col">
             {/* Chat Header */}
-            <div className="flex items-center justify-between border-b px-4 lg:px-6 py-3">
+            <div className="flex items-center justify-between border-b px-4 py-3 lg:px-6">
               <div className="flex items-center gap-2">
                 <div className="flex size-8 items-center justify-center rounded-full bg-primary/10">
                   <IconRobot className="size-4 text-primary" />
                 </div>
                 <div>
-                  <h1 className="font-semibold text-sm line-clamp-1 max-w-[200px] sm:max-w-md">
-                    {chatTitle || "Chat"}
+                  <h1 className="line-clamp-1 max-w-[200px] text-sm font-semibold sm:max-w-md">
+                    {chatTitle}
                   </h1>
                   <p className="text-xs text-muted-foreground">Syntra AI</p>
                 </div>
@@ -120,14 +240,42 @@ const DetailChatPage = () => {
               <Link to="/chat/new">
                 <Button variant="outline" size="sm">
                   <IconPlus className="size-4" />
-                  <span className="hidden sm:inline ml-1">Chat Baru</span>
+                  <span className="ml-1 hidden sm:inline">Chat Baru</span>
                 </Button>
               </Link>
             </div>
 
+            {isConversationIdValid && conversationQuery.isError && (
+              <div className="px-4 pt-4 lg:px-6">
+                <div className="rounded-md bg-destructive/10 p-3 text-sm text-destructive">
+                  {fetchErrorMessage}
+                </div>
+              </div>
+            )}
+
+            {sendErrorMessage && (
+              <div className="px-4 pt-4 lg:px-6">
+                <div className="rounded-md bg-destructive/10 p-3 text-sm text-destructive">
+                  {sendErrorMessage}
+                </div>
+              </div>
+            )}
+
             {/* Messages */}
-            <div className="flex-1 overflow-y-auto px-4 lg:px-6 py-6">
+            <div className="flex-1 overflow-y-auto px-4 py-6 lg:px-6">
               <div className="mx-auto max-w-3xl space-y-6">
+                {isConversationLoading && (
+                  <p className="text-center text-sm text-muted-foreground">
+                    Memuat percakapan...
+                  </p>
+                )}
+
+                {isCreatingConversationRoute && isCreatingConversation && (
+                  <p className="text-center text-sm text-muted-foreground">
+                    Memulai percakapan...
+                  </p>
+                )}
+
                 {messages.map((message) => (
                   <MessageBubble key={message.id} message={message} />
                 ))}
@@ -139,13 +287,19 @@ const DetailChatPage = () => {
             </div>
 
             {/* Input */}
-            <div className="border-t px-4 lg:px-6 py-4">
+            <div className="border-t px-4 py-4 lg:px-6">
               <div className="mx-auto max-w-3xl">
                 <Card className="p-0">
                   <ChatInput
                     onSend={handleSendMessage}
-                    disabled={isLoading || isBotTyping}
-                    placeholder={isBotTyping ? "Menunggu respons..." : "Ketik pesan..."}
+                    disabled={isConversationLoading || isBotTyping}
+                    placeholder={
+                      isBotTyping
+                        ? "Menunggu respons..."
+                        : isCreatingConversationRoute
+                          ? "Ketik pesan untuk memulai percakapan..."
+                          : "Ketik pesan..."
+                    }
                   />
                 </Card>
               </div>
@@ -158,3 +312,6 @@ const DetailChatPage = () => {
 }
 
 export default DetailChatPage
+
+
+

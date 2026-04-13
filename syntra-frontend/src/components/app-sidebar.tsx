@@ -1,4 +1,5 @@
 import * as React from "react"
+import { useQuery } from "@tanstack/react-query"
 import {
   IconDashboard,
   IconFileText,
@@ -35,7 +36,7 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible"
-import { chatStore } from "@/pages/chat/chat-store"
+import { listConversations } from "@/pages/chat/api"
 import { authService } from "@/lib/auth"
 
 const data = {
@@ -96,17 +97,24 @@ const data = {
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const location = useLocation()
-  const [chatHistory, setChatHistory] = React.useState(chatStore.getAllChats())
   const [isHistoryOpen, setIsHistoryOpen] = React.useState(true)
   
   // Get current user role
   const currentUser = authService.getCurrentUser()
   const isAdmin = currentUser?.role === "admin"
 
-  // Refresh chat history when location changes
-  React.useEffect(() => {
-    setChatHistory(chatStore.getAllChats())
-  }, [location.pathname])
+  const chatHistoryQuery = useQuery({
+    queryKey: ["chats", "conversations"],
+    queryFn: ({ signal }) =>
+      listConversations({
+        limit: 20,
+        offset: 0,
+        signal,
+      }),
+    enabled: Boolean(currentUser),
+  })
+
+  const chatHistory = chatHistoryQuery.data ?? []
 
   return (
     <Sidebar collapsible="offcanvas" {...props}>
@@ -253,7 +261,13 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                   </CollapsibleTrigger>
                   <CollapsibleContent>
                     <SidebarMenuSub>
-                      {chatHistory.length === 0 ? (
+                      {chatHistoryQuery.isPending ? (
+                        <SidebarMenuSubItem>
+                          <div className="px-2 py-1.5 text-xs text-muted-foreground">
+                            Loading chat history...
+                          </div>
+                        </SidebarMenuSubItem>
+                      ) : chatHistory.length === 0 ? (
                         <SidebarMenuSubItem>
                           <div className="px-2 py-1.5 text-xs text-muted-foreground">
                             No chat history

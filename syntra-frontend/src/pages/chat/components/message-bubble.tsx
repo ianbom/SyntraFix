@@ -2,6 +2,7 @@ import { useState } from "react"
 import { IconUser, IconRobot, IconFileText, IconChevronDown, IconChevronUp, IconExternalLink } from "@tabler/icons-react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
+import { getDocumentDownloadUrl } from "../api"
 import type { Message, DocumentReference } from "../types"
 
 interface MessageBubbleProps {
@@ -20,6 +21,46 @@ const formatTime = (date: Date): string => {
 }
 
 function ReferenceCard({ reference }: ReferenceCardProps) {
+  const [isOpeningDocument, setIsOpeningDocument] = useState(false)
+  const [openDocumentErrorMessage, setOpenDocumentErrorMessage] = useState<string | null>(null)
+
+  const handleOpenDocument = async () => {
+    if (isOpeningDocument) {
+      return
+    }
+
+    setOpenDocumentErrorMessage(null)
+    const previewWindow = window.open("about:blank", "_blank")
+
+    if (!previewWindow) {
+      setOpenDocumentErrorMessage("Popup diblokir browser. Izinkan pop-up untuk membuka dokumen.")
+      return
+    }
+
+    setIsOpeningDocument(true)
+
+    try {
+      const { downloadUrl } = await getDocumentDownloadUrl({
+        documentUrl: reference.documentUrl,
+      })
+
+      previewWindow.location.replace(downloadUrl)
+      previewWindow.opener = null
+      previewWindow.focus()
+    } catch (error: unknown) {
+      previewWindow.close()
+
+      if (error instanceof Error) {
+        setOpenDocumentErrorMessage(error.message)
+        return
+      }
+
+      setOpenDocumentErrorMessage("Gagal membuka dokumen.")
+    } finally {
+      setIsOpeningDocument(false)
+    }
+  }
+
   return (
     <div className="flex flex-col gap-2 rounded-lg border bg-card p-3 text-card-foreground shadow-sm">
       <div className="flex items-start gap-2">
@@ -38,11 +79,17 @@ function ReferenceCard({ reference }: ReferenceCardProps) {
         variant="outline"
         size="sm"
         className="w-full mt-1"
-        onClick={() => window.open(reference.documentUrl, "_blank")}
+        onClick={handleOpenDocument}
+        disabled={isOpeningDocument}
       >
         <IconExternalLink className="size-3.5 mr-1.5" />
-        Lihat Dokumen
+        {isOpeningDocument ? "Membuka dokumen..." : "Lihat Dokumen"}
       </Button>
+      {openDocumentErrorMessage && (
+        <p className="text-xs text-destructive" role="alert">
+          {openDocumentErrorMessage}
+        </p>
+      )}
     </div>
   )
 }
@@ -63,7 +110,6 @@ function DocumentReferences({ references }: { references: DocumentReference[] })
         )}
         <span>Referensi ({references.length} dokumen)</span>
       </button>
-
       {isExpanded && (
         <div className="grid gap-2 sm:grid-cols-2">
           {references.map((ref) => (

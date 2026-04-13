@@ -52,7 +52,6 @@ async def login(
     Note: Use email in the username field.
     """
     tokens = login_user(db, form_data.username, form_data.password)
-    print(tokens)
     if not tokens:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,

@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { type CSSProperties } from "react"
 import { useNavigate } from "react-router-dom"
 import { IconMessagePlus, IconSparkles } from "@tabler/icons-react"
 import { AppSidebar } from "@/components/app-sidebar"
@@ -6,7 +6,6 @@ import { SiteHeader } from "@/components/site-header"
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { ChatInput } from "./components"
-import { chatStore } from "./chat-store"
 
 const suggestions = [
   "Apa yang bisa kamu bantu?",
@@ -15,23 +14,17 @@ const suggestions = [
   "Berikan tips produktivitas",
 ]
 
+const PENDING_CHAT_PATH = "/chat/pending"
+
 const NewChatPage = () => {
   const navigate = useNavigate()
-  const [isLoading, setIsLoading] = useState(false)
 
-  const handleSendMessage = async (message: string) => {
-    setIsLoading(true)
-
-    try {
-      // Create new chat with first message
-      const chat = chatStore.createChat(message)
-
-      // Navigate to detail chat with chat ID
-      navigate(`/chat/${chat.id}`)
-    } catch (error) {
-      console.error("Failed to create chat:", error)
-      setIsLoading(false)
-    }
+  const handleSendMessage = (message: string) => {
+    navigate(PENDING_CHAT_PATH, {
+      state: {
+        initialMessage: message,
+      },
+    })
   }
 
   const handleSuggestionClick = (suggestion: string) => {
@@ -44,7 +37,7 @@ const NewChatPage = () => {
         {
           "--sidebar-width": "calc(var(--spacing) * 72)",
           "--header-height": "calc(var(--spacing) * 12)",
-        } as React.CSSProperties
+        } as CSSProperties
       }
     >
       <AppSidebar variant="inset" />
@@ -85,8 +78,7 @@ const NewChatPage = () => {
                           <button
                             key={index}
                             onClick={() => handleSuggestionClick(suggestion)}
-                            disabled={isLoading}
-                            className="rounded-lg border bg-card p-3 text-left text-sm transition-colors hover:bg-accent hover:text-accent-foreground disabled:opacity-50"
+                            className="rounded-lg border bg-card p-3 text-left text-sm transition-colors hover:bg-accent hover:text-accent-foreground"
                           >
                             {suggestion}
                           </button>
@@ -99,17 +91,10 @@ const NewChatPage = () => {
                   <Card className="bg-background">
                     <ChatInput
                       onSend={handleSendMessage}
-                      disabled={isLoading}
                       placeholder="Ketik pesan untuk memulai percakapan..."
                       autoFocus
                     />
                   </Card>
-
-                  {isLoading && (
-                    <p className="text-center text-sm text-muted-foreground">
-                      Memulai percakapan...
-                    </p>
-                  )}
                 </div>
               </div>
             </div>
