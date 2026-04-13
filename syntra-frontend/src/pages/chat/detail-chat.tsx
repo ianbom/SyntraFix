@@ -8,7 +8,7 @@ import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { ChatInput, MessageBubble, TypingIndicator } from "./components"
-import { getConversation, postChat } from "./api"
+import { getConversation, postChat, type ConversationDetail } from "./api"
 import type { Message } from "./types"
 
 interface PendingChatLocationState {
@@ -25,6 +25,7 @@ const DetailChatPage = () => {
   const queryClient = useQueryClient()
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const [sendErrorMessage, setSendErrorMessage] = useState<string | null>(null)
+  const [pendingRouteOptimisticMessage, setPendingRouteOptimisticMessage] = useState<Message | null>(null)
 
   const initialMessage = useMemo(() => {
     if (!location.state || typeof location.state !== "object") {
@@ -36,6 +37,13 @@ const DetailChatPage = () => {
       ? state.initialMessage.trim()
       : ""
   }, [location.state])
+
+  const buildOptimisticUserMessage = (content: string): Message => ({
+    id: `temp-user-${Date.now()}-${Math.random().toString(36).slice(2, 9)}`,
+    content,
+    role: "user",
+    timestamp: new Date(),
+  })
 
   const isCreatingConversationRoute = id === PENDING_CHAT_ID
   const parsedConversationId = Number(id)
@@ -78,6 +86,9 @@ const DetailChatPage = () => {
 
   const createConversationMutation = useMutation({
     mutationFn: (message: string) => postChat({ message }),
+    onMutate: (message: string) => {
+      setPendingRouteOptimisticMessage(buildOptimisticUserMessage(message))
+    },
     onSuccess: async (response) => {
       setSendErrorMessage(null)
 
@@ -135,6 +146,39 @@ const DetailChatPage = () => {
 
       return postChat({ message, conversationId })
     },
+    onMutate: async (message: string) => {
+      if (!conversationId) {
+        return { previousConversation: undefined }
+      }
+
+      await queryClient.cancelQueries({
+        queryKey: ["chats", "conversation", conversationId],
+      })
+
+      const previousConversation = queryClient.getQueryData<ConversationDetail>([
+        "chats",
+        "conversation",
+        conversationId,
+      ])
+
+      const optimisticMessage = buildOptimisticUserMessage(message)
+
+      queryClient.setQueryData<ConversationDetail>(
+        ["chats", "conversation", conversationId],
+        (currentConversation) => {
+          if (!currentConversation) {
+            return currentConversation
+          }
+
+          return {
+            ...currentConversation,
+            chats: [...currentConversation.chats, optimisticMessage],
+          }
+        }
+      )
+
+      return { previousConversation }
+    },
     onSuccess: async () => {
       setSendErrorMessage(null)
 
@@ -147,7 +191,14 @@ const DetailChatPage = () => {
         }),
       ])
     },
-    onError: (error: unknown) => {
+    onError: (error: unknown, _message, context) => {
+      if (conversationId && context?.previousConversation) {
+        queryClient.setQueryData(
+          ["chats", "conversation", conversationId],
+          context.previousConversation
+        )
+      }
+
       if (error instanceof Error) {
         setSendErrorMessage(error.message)
         return
@@ -159,8 +210,12 @@ const DetailChatPage = () => {
 
   const messages = useMemo<Message[]>(() => {
     const chats = conversationQuery.data?.chats ?? []
+    const pendingRouteMessages =
+      isCreatingConversationRoute && pendingRouteOptimisticMessage
+        ? [pendingRouteOptimisticMessage]
+        : []
 
-    return [...chats].sort((firstMessage, secondMessage) => {
+    return [...chats, ...pendingRouteMessages].sort((firstMessage, secondMessage) => {
       const timestampDiff = firstMessage.timestamp.getTime() - secondMessage.timestamp.getTime()
 
       if (timestampDiff !== 0) {
@@ -173,7 +228,8 @@ const DetailChatPage = () => {
 
       return firstMessage.role === "user" ? -1 : 1
     })
-  }, [conversationQuery.data?.chats])
+  }, [conversationQuery.data?.chats, isCreatingConversationRoute, pendingRouteOptimisticMessage])
+
   const chatTitle =
     conversationQuery.data?.title ?? (isCreatingConversationRoute ? "Memulai chat..." : "Chat")
   const isBotTyping =
@@ -312,6 +368,3 @@ const DetailChatPage = () => {
 }
 
 export default DetailChatPage
-
-
-
