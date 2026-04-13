@@ -1,3 +1,6 @@
+import json
+from typing import AsyncGenerator
+
 import httpx
 import google.generativeai as genai
 from app.config import get_settings
@@ -38,6 +41,53 @@ async def generate_response(prompt: str, model: str = GENERATION_MODEL) -> str:
         print(f"❌ Error calling LLM ({model}): {type(e).__name__} - {str(e)}")
         # Fallback or re-raise
         return "I apologize, but I encountered an error processing your request."
+
+
+async def generate_response_stream(
+    prompt: str, model: str = GENERATION_MODEL
+) -> AsyncGenerator[str, None]:
+    """
+    Stream a response from Ollama token-by-token.
+    """
+    try:
+        timeout = httpx.Timeout(500000.0, connect=500000.0)
+        async with httpx.AsyncClient(timeout=timeout) as client:
+            print(f"🔄 Streaming from Ollama with model: {model}")
+            async with client.stream(
+                "POST",
+                f"{OLLAMA_BASE_URL}/api/generate",
+                json={
+                    "model": model,
+                    "prompt": prompt,
+                    "stream": True,
+                },
+            ) as response:
+                response.raise_for_status()
+
+                async for line in response.aiter_lines():
+                    if not line:
+                        continue
+
+                    try:
+                        payload = json.loads(line)
+                    except json.JSONDecodeError:
+                        continue
+
+                    chunk = payload.get("response")
+                    if isinstance(chunk, str) and chunk:
+                        yield chunk
+
+                    if payload.get("done"):
+                        break
+    except httpx.TimeoutException as e:
+        print(f"⏱️ Timeout error streaming LLM ({model}): {str(e)}")
+        yield "Maaf, request timeout. Model mungkin membutuhkan waktu lebih lama untuk memproses."
+    except httpx.HTTPStatusError as e:
+        print(f"❌ HTTP error streaming LLM ({model}): {e.response.status_code} - {e.response.text}")
+        yield f"I apologize, but I encountered an HTTP error: {e.response.status_code}"
+    except Exception as e:
+        print(f"❌ Error streaming LLM ({model}): {type(e).__name__} - {str(e)}")
+        yield "I apologize, but I encountered an error processing your request."
 
 
 async def generate_response_test(prompt: str) -> str:

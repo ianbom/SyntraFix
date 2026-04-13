@@ -8,7 +8,12 @@ import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { ChatInput, MessageBubble, TypingIndicator } from "./components"
-import { getConversation, postChat, type ConversationDetail } from "./api"
+import {
+  getConversation,
+  postChatStream,
+  type ConversationDetail,
+  type PostChatResult,
+} from "./api"
 import type { Message } from "./types"
 
 interface PendingChatLocationState {
@@ -26,6 +31,7 @@ const DetailChatPage = () => {
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const [sendErrorMessage, setSendErrorMessage] = useState<string | null>(null)
   const [pendingRouteOptimisticMessage, setPendingRouteOptimisticMessage] = useState<Message | null>(null)
+  const [streamingAssistantMessage, setStreamingAssistantMessage] = useState<Message | null>(null)
 
   const initialMessage = useMemo(() => {
     if (!location.state || typeof location.state !== "object") {
@@ -85,20 +91,60 @@ const DetailChatPage = () => {
   })
 
   const createConversationMutation = useMutation({
-    mutationFn: (message: string) => postChat({ message }),
+    mutationFn: async (message: string): Promise<PostChatResult> => {
+      const assistantMessageId = `temp-assistant-${Date.now()}-${Math.random().toString(36).slice(2, 9)}`
+      const assistantTimestamp = new Date()
+
+      setStreamingAssistantMessage({
+        id: assistantMessageId,
+        content: "",
+        role: "assistant",
+        timestamp: assistantTimestamp,
+      })
+
+      return postChatStream({
+        message,
+        onChunk: (chunk) => {
+          setStreamingAssistantMessage((currentMessage) => {
+            if (!currentMessage || currentMessage.id !== assistantMessageId) {
+              return {
+                id: assistantMessageId,
+                content: chunk,
+                role: "assistant",
+                timestamp: assistantTimestamp,
+              }
+            }
+
+            return {
+              ...currentMessage,
+              content: `${currentMessage.content}${chunk}`,
+            }
+          })
+        },
+      })
+    },
     onMutate: (message: string) => {
       setPendingRouteOptimisticMessage(buildOptimisticUserMessage(message))
     },
     onSuccess: async (response) => {
       setSendErrorMessage(null)
+      setPendingRouteOptimisticMessage(null)
 
-      await queryClient.invalidateQueries({
-        queryKey: ["chats", "conversations"],
-      })
+      await Promise.all([
+        queryClient.invalidateQueries({
+          queryKey: ["chats", "conversation", response.conversationId],
+        }),
+        queryClient.invalidateQueries({
+          queryKey: ["chats", "conversations"],
+        }),
+      ])
 
+      setStreamingAssistantMessage(null)
       navigate(`/chat/${response.conversationId}`, { replace: true })
     },
     onError: (error: unknown) => {
+      setStreamingAssistantMessage(null)
+
       if (error instanceof Error) {
         setSendErrorMessage(error.message)
         return
@@ -139,16 +185,46 @@ const DetailChatPage = () => {
   ])
 
   const sendMessageMutation = useMutation({
-    mutationFn: (message: string) => {
+    mutationFn: async (message: string): Promise<PostChatResult> => {
       if (!conversationId) {
         throw new Error("ID percakapan tidak valid.")
       }
 
-      return postChat({ message, conversationId })
+      const assistantMessageId = `temp-assistant-${Date.now()}-${Math.random().toString(36).slice(2, 9)}`
+      const assistantTimestamp = new Date()
+
+      setStreamingAssistantMessage({
+        id: assistantMessageId,
+        content: "",
+        role: "assistant",
+        timestamp: assistantTimestamp,
+      })
+
+      return postChatStream({
+        message,
+        conversationId,
+        onChunk: (chunk) => {
+          setStreamingAssistantMessage((currentMessage) => {
+            if (!currentMessage || currentMessage.id !== assistantMessageId) {
+              return {
+                id: assistantMessageId,
+                content: chunk,
+                role: "assistant",
+                timestamp: assistantTimestamp,
+              }
+            }
+
+            return {
+              ...currentMessage,
+              content: `${currentMessage.content}${chunk}`,
+            }
+          })
+        },
+      })
     },
     onMutate: async (message: string) => {
       if (!conversationId) {
-        return { previousConversation: undefined }
+        return { previousConversation: undefined as ConversationDetail | undefined }
       }
 
       await queryClient.cancelQueries({
@@ -190,6 +266,8 @@ const DetailChatPage = () => {
           queryKey: ["chats", "conversations"],
         }),
       ])
+
+      setStreamingAssistantMessage(null)
     },
     onError: (error: unknown, _message, context) => {
       if (conversationId && context?.previousConversation) {
@@ -198,6 +276,8 @@ const DetailChatPage = () => {
           context.previousConversation
         )
       }
+
+      setStreamingAssistantMessage(null)
 
       if (error instanceof Error) {
         setSendErrorMessage(error.message)
@@ -214,21 +294,31 @@ const DetailChatPage = () => {
       isCreatingConversationRoute && pendingRouteOptimisticMessage
         ? [pendingRouteOptimisticMessage]
         : []
+    const streamingMessages = streamingAssistantMessage
+      ? [streamingAssistantMessage]
+      : []
 
-    return [...chats, ...pendingRouteMessages].sort((firstMessage, secondMessage) => {
-      const timestampDiff = firstMessage.timestamp.getTime() - secondMessage.timestamp.getTime()
+    return [...chats, ...pendingRouteMessages, ...streamingMessages].sort(
+      (firstMessage, secondMessage) => {
+        const timestampDiff = firstMessage.timestamp.getTime() - secondMessage.timestamp.getTime()
 
-      if (timestampDiff !== 0) {
-        return timestampDiff
+        if (timestampDiff !== 0) {
+          return timestampDiff
+        }
+
+        if (firstMessage.role === secondMessage.role) {
+          return 0
+        }
+
+        return firstMessage.role === "user" ? -1 : 1
       }
-
-      if (firstMessage.role === secondMessage.role) {
-        return 0
-      }
-
-      return firstMessage.role === "user" ? -1 : 1
-    })
-  }, [conversationQuery.data?.chats, isCreatingConversationRoute, pendingRouteOptimisticMessage])
+    )
+  }, [
+    conversationQuery.data?.chats,
+    isCreatingConversationRoute,
+    pendingRouteOptimisticMessage,
+    streamingAssistantMessage,
+  ])
 
   const chatTitle =
     conversationQuery.data?.title ?? (isCreatingConversationRoute ? "Memulai chat..." : "Chat")

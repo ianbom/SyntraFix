@@ -1,4 +1,4 @@
-from typing import List, Optional, Dict, Any, Tuple
+from typing import AsyncGenerator, List, Optional, Dict, Any, Tuple
 from sqlalchemy.orm import Session
 from sqlalchemy import desc, func, extract, or_, case, literal
 from fastapi import HTTPException
@@ -7,7 +7,7 @@ import re
 from app.models.chat import Conversation, Chat, ChatReference, ChatRole
 from app.models.document_chunk import DocumentChunk
 from app.schemas.chat import ChatRequest, ChatResponse, ConversationResponse
-from app.services.llm import generate_response
+from app.services.llm import generate_response, generate_response_stream
 from app.services.embedding import generate_embedding
 from app.models.document import Document, DocumentType
 
@@ -580,6 +580,19 @@ Jawab dengan: {no_context_msg}"""
             self.db.add(reference)
         self.db.commit()
 
+    def _serialize_chat_references(self, chat_id: int) -> List[Dict[str, Any]]:
+        references = self.db.query(ChatReference).filter(ChatReference.chat_id == chat_id).all()
+        return [
+            {
+                "id": reference.id,
+                "document_id": reference.document_id,
+                "quote": reference.quote,
+                "page_number": reference.page_number,
+                "document_title": reference.document_title,
+            }
+            for reference in references
+        ]
+
     # =========================================================================
     # Main Chat Processing
     # =========================================================================
@@ -658,3 +671,94 @@ Jawab dengan: {no_context_msg}"""
             created_at=bot_chat.created_at,
             references=[]
         )
+
+    async def process_chat_stream(
+        self, user_id: int, request: ChatRequest
+    ) -> AsyncGenerator[Dict[str, Any], None]:
+        # 1. Handle Conversation
+        conversation = self._handle_conversation(user_id, request)
+
+        # 2. Save User Message
+        self._save_chat_message(conversation.id, ChatRole.USER, request.message)
+        yield {"type": "start", "conversation_id": conversation.id}
+
+        # 3. Query Processing: clean + extract entities
+        query_info = self._process_query(request.message)
+        print("========== QUERY INFO ==========")
+        print(query_info)
+        print("============================================")
+
+        # 4. Build metadata filters from extracted entities
+        metadata_filters = self._build_metadata_filters(query_info["entities"])
+        print("========== METADATA FILTERS ==========")
+        print(metadata_filters)
+        print("============================================")
+
+        # 5. RAG: Retrieve Context (with metadata filtering)
+        chunks, similarities = self._retrieve_relevant_chunks(
+            query=query_info["cleaned_query"],
+            metadata_filters=metadata_filters,
+        )
+        print("========== SIMILARITIES ==========")
+        print(similarities)
+        print("============================================")
+
+        # 5b. Relevance Validation - reject low-quality results
+        if chunks and similarities:
+            avg_score = sum(similarities) / len(similarities)
+            print(f"  Average similarity: {avg_score:.4f} (min threshold: 0.5)")
+            if avg_score < 0.5:
+                print("  WARNING: Retrieved context has low relevance, discarding")
+                chunks = []
+                similarities = []
+                print("========== similarities after discard ==========")
+                print(similarities)
+                print("============================================")
+
+        context_text = self._construct_context_text(chunks)
+
+        # 6. Construct Prompt
+        full_prompt = self._construct_rag_prompt(request.message, context_text)
+        print("========== FULL PROMPT ==========")
+        print(full_prompt[:2000])
+        print("============================================")
+
+        # 7. Generate Streaming Response
+        answer_chunks: List[str] = []
+        async for chunk in generate_response_stream(full_prompt):
+            answer_chunks.append(chunk)
+            yield {"type": "chunk", "content": chunk}
+
+        answer = "".join(answer_chunks).strip()
+        if not answer:
+            answer = "Maaf, saya belum dapat menghasilkan jawaban."
+
+        # Print RAGAS evaluation data
+        retrieved_docs = [chunk.content for chunk in chunks]
+        ragas_data = {
+            "query": [request.message],
+            "generated_response": [answer],
+            "retrieved_documents": [retrieved_docs],
+        }
+        print("========== RAGAS EVALUATION DATA ==========")
+        print(ragas_data)
+        print("============================================")
+
+        # 8. Save Bot Message
+        bot_chat = self._save_chat_message(conversation.id, ChatRole.BOT, answer)
+
+        # 9. Save References
+        self._save_rag_references(bot_chat.id, chunks, similarities)
+        references_payload = self._serialize_chat_references(bot_chat.id)
+
+        yield {
+            "type": "done",
+            "chat": {
+                "id": bot_chat.id,
+                "conversation_id": conversation.id,
+                "role": bot_chat.role.value,
+                "message": bot_chat.message,
+                "created_at": bot_chat.created_at.isoformat() if bot_chat.created_at else None,
+                "references": references_payload,
+            },
+        }

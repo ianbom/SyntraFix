@@ -1,5 +1,7 @@
+import json
 from typing import List, Optional
 from fastapi import APIRouter, Depends, HTTPException, Query
+from fastapi.responses import StreamingResponse
 from sqlalchemy.orm import Session
 import google.generativeai as genai
 
@@ -27,6 +29,29 @@ async def chat_interaction(
     chat_service = ChatService(db)
     response = await chat_service.process_chat(current_user.id, request)
     return response
+
+@router.post("/stream")
+async def chat_interaction_stream(
+    request: ChatRequest,
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    """
+    Stream chat response token-by-token for realtime UI updates.
+    """
+    chat_service = ChatService(db)
+
+    async def stream_generator():
+        try:
+            async for event in chat_service.process_chat_stream(current_user.id, request):
+                yield json.dumps(event, ensure_ascii=False) + "\n"
+        except Exception as error:
+            yield json.dumps(
+                {"type": "error", "message": str(error)},
+                ensure_ascii=False,
+            ) + "\n"
+
+    return StreamingResponse(stream_generator(), media_type="application/x-ndjson")
 
 @router.get("/conversations", response_model=List[ConversationResponse])
 async def list_conversations(

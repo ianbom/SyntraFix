@@ -45,6 +45,11 @@ interface PostChatParams {
   signal?: AbortSignal
 }
 
+interface PostChatStreamParams extends PostChatParams {
+  onStart?: (conversationId: number) => void
+  onChunk?: (chunk: string) => void
+}
+
 interface ListConversationsParams {
   limit?: number
   offset?: number
@@ -65,6 +70,32 @@ interface DocumentDownloadApiResponse {
   download_url: unknown
   filename?: unknown
 }
+
+interface ChatStreamStartEvent {
+  type: "start"
+  conversation_id: number
+}
+
+interface ChatStreamChunkEvent {
+  type: "chunk"
+  content: string
+}
+
+interface ChatStreamDoneEvent {
+  type: "done"
+  chat: ChatApiResponse
+}
+
+interface ChatStreamErrorEvent {
+  type: "error"
+  message: string
+}
+
+type ChatStreamEvent =
+  | ChatStreamStartEvent
+  | ChatStreamChunkEvent
+  | ChatStreamDoneEvent
+  | ChatStreamErrorEvent
 
 export interface ConversationSummary {
   id: number
@@ -220,6 +251,123 @@ export const postChat = async ({
 
   const payload = (await response.json()) as ChatApiResponse
   return mapPostChatResult(payload)
+}
+
+const parseChatStreamEvent = (line: string): ChatStreamEvent => {
+  const payload = JSON.parse(line) as { type?: unknown; [key: string]: unknown }
+
+  if (payload.type === "start" && typeof payload.conversation_id === "number") {
+    return {
+      type: "start",
+      conversation_id: payload.conversation_id,
+    }
+  }
+
+  if (payload.type === "chunk" && typeof payload.content === "string") {
+    return {
+      type: "chunk",
+      content: payload.content,
+    }
+  }
+
+  if (payload.type === "done" && typeof payload.chat === "object" && payload.chat) {
+    return {
+      type: "done",
+      chat: payload.chat as ChatApiResponse,
+    }
+  }
+
+  if (payload.type === "error" && typeof payload.message === "string") {
+    return {
+      type: "error",
+      message: payload.message,
+    }
+  }
+
+  throw new Error("Format respons streaming tidak valid.")
+}
+
+export const postChatStream = async ({
+  message,
+  conversationId,
+  signal,
+  onStart,
+  onChunk,
+}: PostChatStreamParams): Promise<PostChatResult> => {
+  const requestBody: PostChatRequestBody = { message }
+  if (typeof conversationId === "number") {
+    requestBody.conversation_id = conversationId
+  }
+
+  const response = await fetch(`${API_BASE_URL}/chats/stream`, {
+    method: "POST",
+    headers: getAuthHeaders(true),
+    body: JSON.stringify(requestBody),
+    signal,
+  })
+
+  if (!response.ok) {
+    throw new Error(await getErrorMessage(response, "Gagal mengirim pesan."))
+  }
+
+  if (!response.body) {
+    throw new Error("Respons streaming tidak tersedia.")
+  }
+
+  const reader = response.body.getReader()
+  const decoder = new TextDecoder()
+  let buffered = ""
+  let finalResult: PostChatResult | null = null
+
+  const handleLine = (line: string) => {
+    if (!line) {
+      return
+    }
+
+    const event = parseChatStreamEvent(line)
+
+    if (event.type === "start") {
+      onStart?.(event.conversation_id)
+      return
+    }
+
+    if (event.type === "chunk") {
+      onChunk?.(event.content)
+      return
+    }
+
+    if (event.type === "error") {
+      throw new Error(event.message || "Gagal menerima streaming jawaban.")
+    }
+
+    finalResult = mapPostChatResult(event.chat)
+  }
+
+  while (true) {
+    const { done, value } = await reader.read()
+    buffered += decoder.decode(value, { stream: !done })
+
+    const lines = buffered.split("\n")
+    buffered = lines.pop() ?? ""
+
+    for (const line of lines) {
+      handleLine(line.trim())
+    }
+
+    if (done) {
+      break
+    }
+  }
+
+  if (buffered.trim().length > 0) {
+    handleLine(buffered.trim())
+  }
+
+  if (!finalResult) {
+    throw new Error("Respons streaming tidak lengkap.")
+  }
+
+  return finalResult
 }
 
 export const getDocumentDownloadUrl = async ({
