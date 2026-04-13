@@ -8,15 +8,16 @@ from app.database import get_db
 from app.models.document import Document, DocumentType
 from app.models.document_chunk import DocumentChunk
 from app.schemas.document import (
-    DocumentUpload,
     DocumentResponse,
     DocumentListItem,
     DocumentListResponse,
     DocumentUpdate,
-    DocumentTypeEnum
+    DocumentTypeEnum,
+    ProcessingMonitorItem,
+    ProcessingMonitorResponse,
+    ProcessingMonitorSummary,
 )
 from app.services.document import (
-    process_document,
     get_document_download_url,
     delete_document_file,
     FileValidator,
@@ -30,8 +31,34 @@ from app.tasks.document_tasks import process_document_task
 router = APIRouter(prefix="/documents", tags=["Documents"])
 
 
+PROCESS_MONITOR_STATUSES = ("processing", "completed", "failed")
+
+
+def _normalize_processing_status(status: Optional[str]) -> str:
+    """Normalize processing status to known values."""
+    if status in PROCESS_MONITOR_STATUSES:
+        return status
+    return "processing"
+
+
+def _normalize_processing_progress(progress: Optional[int], status: Optional[str]) -> int:
+    """Normalize persisted progress value to 0-100."""
+    normalized_status = _normalize_processing_status(status)
+
+    if progress is None:
+        return 100 if normalized_status == "completed" else 0
+
+    normalized_progress = max(0, min(int(progress), 100))
+    if normalized_status == "completed" and normalized_progress < 100:
+        return 100
+
+    return normalized_progress
+
+
 def _build_document_response(document: Document, chunk_count: int) -> DocumentResponse:
     """Helper function to build DocumentResponse from Document model."""
+    normalized_status = _normalize_processing_status(document.processing_status)
+
     return DocumentResponse(
         id=document.id,
         title=document.title,
@@ -55,7 +82,11 @@ def _build_document_response(document: Document, chunk_count: int) -> DocumentRe
         file_path=document.file_path,
         is_private=document.is_private or False,
         is_metadata_complete=document.is_metadata_complete or False,
-        processing_status=document.processing_status or "completed",
+        processing_status=normalized_status,
+        processing_progress=_normalize_processing_progress(
+            document.processing_progress,
+            normalized_status,
+        ),
         processing_error=document.processing_error,
         created_at=document.created_at,
         updated_at=document.updated_at,
@@ -109,6 +140,7 @@ async def upload_document(
         is_private=is_private,
         format="application/pdf",
         processing_status="processing",
+        processing_progress=0,
     )
     db.add(document)
     db.commit()
@@ -121,7 +153,15 @@ async def upload_document(
     # Notify via WebSocket
     if client_id:
         await manager.send_personal_message(
-            {"status": "processing", "progress": 10, "message": "Document uploaded, processing started...", "document_id": document.id},
+            {
+                "status": "processing",
+                "progress": _normalize_processing_progress(
+                    document.processing_progress,
+                    document.processing_status,
+                ),
+                "message": "Document uploaded, processing started...",
+                "document_id": document.id,
+            },
             client_id
         )
     
@@ -148,11 +188,64 @@ async def get_document_status(
     return {
         "id": document.id,
         "title": document.title,
-        "processing_status": document.processing_status,
+        "processing_status": _normalize_processing_status(document.processing_status),
+        "processing_progress": _normalize_processing_progress(
+            document.processing_progress,
+            document.processing_status,
+        ),
         "processing_error": document.processing_error,
         "chunk_count": chunk_count,
         "is_metadata_complete": document.is_metadata_complete or False
     }
+
+
+@router.get("/processing-monitor", response_model=ProcessingMonitorResponse)
+async def list_processing_monitor_documents(
+    db: Session = Depends(get_db)
+):
+    """List documents for process monitoring (processing/completed/failed)."""
+    documents = (
+        db.query(Document)
+        .filter(Document.processing_status.in_(PROCESS_MONITOR_STATUSES))
+        .order_by(Document.created_at.desc())
+        .all()
+    )
+
+    summary = {
+        "processing": 0,
+        "completed": 0,
+        "failed": 0,
+    }
+
+    monitor_documents = []
+    for document in documents:
+        normalized_status = _normalize_processing_status(document.processing_status)
+        summary[normalized_status] += 1
+
+        monitor_documents.append(
+            ProcessingMonitorItem(
+                id=document.id,
+                title=document.title,
+                creator=document.creator,
+                uploaded_at=document.created_at,
+                processing_status=normalized_status,
+                processing_progress=_normalize_processing_progress(
+                    document.processing_progress,
+                    normalized_status,
+                ),
+                processing_error=document.processing_error,
+            )
+        )
+
+    return ProcessingMonitorResponse(
+        documents=monitor_documents,
+        summary=ProcessingMonitorSummary(
+            total=len(monitor_documents),
+            processing=summary["processing"],
+            completed=summary["completed"],
+            failed=summary["failed"],
+        ),
+    )
 
 
 @router.get("/", response_model=DocumentListResponse)
@@ -328,7 +421,7 @@ async def upload_documents_bulk(
     results = []
     total_files = len(files)
     
-    for index, file in enumerate(files):
+    for file in files:
         file_result = {
             "filename": file.filename,
             "status": "pending",
@@ -353,6 +446,7 @@ async def upload_documents_bulk(
                 is_private=is_private,
                 format="application/pdf",
                 processing_status="processing",
+                processing_progress=0,
             )
             db.add(document)
             db.commit()

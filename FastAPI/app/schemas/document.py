@@ -98,6 +98,7 @@ class DocumentResponse(BaseModel):
     is_private: bool = False
     is_metadata_complete: bool = False
     processing_status: str = "completed"
+    processing_progress: int = 0
     processing_error: Optional[str] = None
     created_at: datetime
     updated_at: Optional[datetime] = None
@@ -135,3 +136,28 @@ class DocumentSearchQuery(BaseModel):
     keywords: Optional[str] = None
     date_from: Optional[DateType] = None
     date_to: Optional[DateType] = None
+
+
+class ProcessingMonitorItem(BaseModel):
+    """Schema for process monitoring item."""
+    id: int
+    title: str
+    creator: Optional[str] = None
+    uploaded_at: datetime
+    processing_status: str
+    processing_progress: int = Field(default=0, ge=0, le=100)
+    processing_error: Optional[str] = None
+
+
+class ProcessingMonitorSummary(BaseModel):
+    """Schema for process monitoring summary counters."""
+    total: int
+    processing: int
+    completed: int
+    failed: int
+
+
+class ProcessingMonitorResponse(BaseModel):
+    """Schema for process monitoring list response."""
+    documents: list[ProcessingMonitorItem]
+    summary: ProcessingMonitorSummary

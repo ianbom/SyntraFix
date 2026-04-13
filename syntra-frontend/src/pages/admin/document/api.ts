@@ -4,6 +4,9 @@ import type {
   DocumentListItem,
   DocumentListResponse,
   DocumentType,
+  ProcessDocument,
+  ProcessDocumentStatus,
+  ProcessMonitorResponse,
 } from "./types"
 
 const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL ?? "http://localhost:8000").replace(/\/$/, "")
@@ -139,11 +142,54 @@ interface UploadDocumentsBulkParams {
   signal?: AbortSignal
 }
 
+interface ListProcessingDocumentsParams {
+  signal?: AbortSignal
+}
+
+interface ProcessingMonitorApiItem {
+  id: number
+  title: string
+  creator: string | null
+  uploaded_at: string
+  processing_status: string
+  processing_progress: number
+  processing_error: string | null
+}
+
+interface ProcessingMonitorApiSummary {
+  total: number
+  processing: number
+  completed: number
+  failed: number
+}
+
+interface ProcessingMonitorApiResponse {
+  documents: ProcessingMonitorApiItem[]
+  summary: ProcessingMonitorApiSummary
+}
+
 const mapBulkUploadResult = (item: BulkUploadApiItemResult): BulkUploadItemResult => ({
   filename: item.filename,
   status: item.status,
   documentId: item.document_id,
   error: item.error,
+})
+
+const mapProcessingStatus = (status: string): ProcessDocumentStatus => {
+  if (status === "completed" || status === "failed" || status === "processing") {
+    return status
+  }
+
+  return "processing"
+}
+
+const mapProcessingDocument = (item: ProcessingMonitorApiItem): ProcessDocument => ({
+  id: String(item.id),
+  title: item.title,
+  creator: item.creator ?? "-",
+  uploadedAt: item.uploaded_at,
+  progress: item.processing_progress,
+  status: mapProcessingStatus(item.processing_status),
 })
 
 export const uploadDocumentsBulk = async ({
@@ -189,5 +235,25 @@ export const uploadDocumentsBulk = async ({
     processingCount: payload.processing_count,
     errorCount: payload.error_count,
     results: payload.results.map(mapBulkUploadResult),
+  }
+}
+
+export const listProcessingDocuments = async ({
+  signal,
+}: ListProcessingDocumentsParams): Promise<ProcessMonitorResponse> => {
+  const response = await fetch(`${API_BASE_URL}/documents/processing-monitor`, {
+    method: "GET",
+    signal,
+  })
+
+  if (!response.ok) {
+    throw new Error(await getErrorMessage(response, "Gagal mengambil data proses dokumen."))
+  }
+
+  const payload = (await response.json()) as ProcessingMonitorApiResponse
+
+  return {
+    documents: payload.documents.map(mapProcessingDocument),
+    summary: payload.summary,
   }
 }

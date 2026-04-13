@@ -1,5 +1,6 @@
 """Celery tasks for background document processing."""
 import asyncio
+from typing import Optional
 from celery import shared_task
 from sqlalchemy.orm import Session
 
@@ -33,14 +34,38 @@ def _run_async(coro):
         loop.close()
 
 
-def _update_status(db: Session, document_id: int, status: str, error: str = None):
-    """Update document processing status."""
+def _clamp_progress(progress: int) -> int:
+    """Clamp progress value to 0-100 range."""
+    return max(0, min(progress, 100))
+
+
+def _update_processing_state(
+    db: Session,
+    document_id: int,
+    status: Optional[str] = None,
+    progress: Optional[int] = None,
+    error: Optional[str] = None,
+    clear_error: bool = False,
+):
+    """Persist processing status/progress/error for a document."""
     doc = db.query(Document).filter(Document.id == document_id).first()
     if doc:
-        doc.processing_status = status
-        if error:
+        if status is not None:
+            doc.processing_status = status
+        if progress is not None:
+            doc.processing_progress = _clamp_progress(progress)
+        if clear_error:
+            doc.processing_error = None
+        if error is not None:
             doc.processing_error = error
         db.commit()
+
+
+def _calculate_chunk_progress(current_index: int, total_chunks: int) -> int:
+    """Calculate progress percentage for chunk processing stage (60-95)."""
+    if total_chunks <= 0:
+        return 95
+    return min(95, 60 + int(((current_index + 1) / total_chunks) * 35))
 
 
 @shared_task(name="process_document_task", bind=True, max_retries=2)
@@ -60,7 +85,13 @@ def process_document_task(self, document_id: int, file_path: str):
     
     try:
         # Update status to processing
-        _update_status(db, document_id, "processing")
+        _update_processing_state(
+            db,
+            document_id,
+            status="processing",
+            progress=0,
+            clear_error=True,
+        )
         document = db.query(Document).filter(Document.id == document_id).first()
         if not document:
             print(f"Document {document_id} not found")
@@ -73,6 +104,7 @@ def process_document_task(self, document_id: int, file_path: str):
         # Step 1: Download from MinIO
         print("[1/5] Downloading from MinIO...")
         file_content = storage.download_file(file_path)
+        _update_processing_state(db, document_id, progress=10)
         print(f"  Downloaded {len(file_content)} bytes")
         
         # Step 2: Extract metadata via GROBID
@@ -110,6 +142,7 @@ def process_document_task(self, document_id: int, file_path: str):
         
         # Validate metadata
         metadata = validate_metadata(metadata, raw_pdf_text or fulltext or "")
+        _update_processing_state(db, document_id, progress=30)
         
         # Update document with extracted metadata
         print("[3/5] Updating document metadata...")
@@ -132,6 +165,7 @@ def process_document_task(self, document_id: int, file_path: str):
         document.citation_count = metadata.get("citation_count", 0)
         document.is_metadata_complete = bool(metadata.get("title") and metadata.get("creator"))
         db.commit()
+        _update_processing_state(db, document_id, progress=45)
         
         # Step 4: Smart chunking
         print("[4/5] Chunking document...")
@@ -167,6 +201,7 @@ def process_document_task(self, document_id: int, file_path: str):
                 TextChunker.reindex_chunks(chunks)
         
         print(f"  Created {len(chunks)} chunks")
+        _update_processing_state(db, document_id, progress=60)
         
         # Step 5: Generate embeddings and save chunks
         print("[5/5] Generating embeddings and saving chunks...")
@@ -216,9 +251,15 @@ def process_document_task(self, document_id: int, file_path: str):
             if (i + 1) % 5 == 0 or (i + 1) == total_chunks:
                 print(f"  Processed chunk {i+1}/{total_chunks}")
                 db.flush()
+                _update_processing_state(
+                    db,
+                    document_id,
+                    progress=_calculate_chunk_progress(i, total_chunks),
+                )
         
         # Mark as completed
         document.processing_status = "completed"
+        document.processing_progress = 100
         document.processing_error = None
         db.commit()
         
@@ -237,7 +278,7 @@ def process_document_task(self, document_id: int, file_path: str):
         db.rollback()
         error_msg = f"{type(e).__name__}: {str(e)}"
         print(f"CELERY TASK FAILED: Document {document_id} - {error_msg}")
-        _update_status(db, document_id, "failed", error_msg)
+        _update_processing_state(db, document_id, status="failed", error=error_msg)
         
         # Retry on transient errors
         if self.request.retries < self.max_retries:

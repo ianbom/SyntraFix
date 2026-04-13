@@ -50,6 +50,7 @@ class Document(Base):
     
     # Processing status (for background Celery tasks)
     processing_status = Column(String(20), default="completed")  # uploading, processing, completed, failed
+    processing_progress = Column(Integer, default=0)  # 0-100 processing progress percentage
     processing_error = Column(Text, nullable=True)  # Error message if processing failed
     
     # Status flags

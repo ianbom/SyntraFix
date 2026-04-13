@@ -1,58 +1,50 @@
-import { useEffect, useState } from "react"
-import { IconRefresh, IconArrowLeft } from "@tabler/icons-react"
+import { type CSSProperties } from "react"
+import { IconArrowLeft, IconRefresh } from "@tabler/icons-react"
+import { useQuery } from "@tanstack/react-query"
 import { useNavigate } from "react-router-dom"
 import { AppSidebar } from "@/components/app-sidebar"
 import { SiteHeader } from "@/components/site-header"
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
 import { Button } from "@/components/ui/button"
 import { ProcessStatistics, ProcessTable } from "./components"
-import { mockProcessDocuments } from "./data"
-import type { ProcessDocument } from "./types"
+import { listProcessingDocuments } from "./api"
+import type { ProcessMonitorResponse } from "./types"
+
+const PROCESS_MONITOR_REFETCH_INTERVAL_MS = 3000
+
+const EMPTY_PROCESS_MONITOR_RESPONSE: ProcessMonitorResponse = {
+  documents: [],
+  summary: {
+    total: 0,
+    processing: 0,
+    completed: 0,
+    failed: 0,
+  },
+}
 
 const ProcessDocumentPage = () => {
   const navigate = useNavigate()
-  const [documents, setDocuments] = useState<ProcessDocument[]>(mockProcessDocuments)
-  const [isRefreshing, setIsRefreshing] = useState(false)
+
+  const processingDocumentsQuery = useQuery({
+    queryKey: ["documents", "processing-monitor"],
+    queryFn: ({ signal }) => listProcessingDocuments({ signal }),
+    refetchInterval: PROCESS_MONITOR_REFETCH_INTERVAL_MS,
+  })
+
+  const processMonitorData =
+    processingDocumentsQuery.data ?? EMPTY_PROCESS_MONITOR_RESPONSE
+  const documents = processMonitorData.documents
+  const isRefreshing =
+    processingDocumentsQuery.isFetching && !processingDocumentsQuery.isPending
 
   const handleRefresh = () => {
-    setIsRefreshing(true)
-    setTimeout(() => {
-      setDocuments((prev) =>
-        prev.map((doc) => {
-          if (doc.status === "processing" && doc.progress < 100) {
-            const newProgress = Math.min(doc.progress + Math.floor(Math.random() * 20), 100)
-            return {
-              ...doc,
-              progress: newProgress,
-              status: newProgress === 100 ? "completed" : "processing",
-            }
-          }
-          return doc
-        })
-      )
-      setIsRefreshing(false)
-    }, 1000)
+    void processingDocumentsQuery.refetch()
   }
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setDocuments((prev) =>
-        prev.map((doc) => {
-          if (doc.status === "processing" && doc.progress < 100) {
-            const newProgress = Math.min(doc.progress + Math.floor(Math.random() * 5), 100)
-            return {
-              ...doc,
-              progress: newProgress,
-              status: newProgress === 100 ? "completed" : "processing",
-            }
-          }
-          return doc
-        })
-      )
-    }, 3000)
-
-    return () => clearInterval(interval)
-  }, [])
+  const errorMessage =
+    processingDocumentsQuery.error instanceof Error
+      ? processingDocumentsQuery.error.message
+      : "Gagal memuat data proses dokumen."
 
   return (
     <SidebarProvider
@@ -60,7 +52,7 @@ const ProcessDocumentPage = () => {
         {
           "--sidebar-width": "calc(var(--spacing) * 72)",
           "--header-height": "calc(var(--spacing) * 12)",
-        } as React.CSSProperties
+        } as CSSProperties
       }
     >
       <AppSidebar variant="inset" />
@@ -90,7 +82,7 @@ const ProcessDocumentPage = () => {
                 </div>
                 <Button
                   onClick={handleRefresh}
-                  disabled={isRefreshing}
+                  disabled={processingDocumentsQuery.isPending || isRefreshing}
                   variant="outline"
                 >
                   <IconRefresh
@@ -99,6 +91,14 @@ const ProcessDocumentPage = () => {
                   Refresh
                 </Button>
               </div>
+
+              {processingDocumentsQuery.isError && (
+                <div className="px-4 lg:px-6">
+                  <div className="rounded-md bg-destructive/10 p-3 text-sm text-destructive">
+                    {errorMessage}
+                  </div>
+                </div>
+              )}
 
               {/* Statistics Cards */}
               <ProcessStatistics documents={documents} />

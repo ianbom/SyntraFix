@@ -52,11 +52,25 @@ export interface UploadedFile {
   errorMessage?: string
 }
 
+export type ProcessDocumentStatus = "processing" | "completed" | "failed"
+
 export interface ProcessDocument {
   id: string
   title: string
   creator: string
   uploadedAt: string
   progress: number
-  status: "processing" | "completed" | "failed"
+  status: ProcessDocumentStatus
+}
+
+export interface ProcessMonitorSummary {
+  total: number
+  processing: number
+  completed: number
+  failed: number
+}
+
+export interface ProcessMonitorResponse {
+  documents: ProcessDocument[]
+  summary: ProcessMonitorSummary
 }
