@@ -1,22 +1,17 @@
-import { useState, useMemo } from "react"
+import { useMemo, useState } from "react"
 import {
   IconSearch,
   IconArrowUp,
   IconArrowDown,
-  IconFilter,
   IconX,
 } from "@tabler/icons-react"
 import {
   useReactTable,
   getCoreRowModel,
   getSortedRowModel,
-  getFilteredRowModel,
-  getPaginationRowModel,
   flexRender,
   type SortingState,
-  type ColumnFiltersState,
 } from "@tanstack/react-table"
-import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import {
@@ -35,12 +30,6 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import {
   Pagination,
   PaginationContent,
   PaginationItem,
@@ -49,118 +38,93 @@ import {
   PaginationPrevious,
 } from "@/components/ui/pagination"
 import { columns } from "./document-columns"
-import type { Document } from "../types"
+import type { DocumentListItem } from "../types"
 
 interface DocumentTableProps {
-  documents: Document[]
+  documents: DocumentListItem[]
+  search: string
+  page: number
+  pages: number
+  perPage: number
+  total: number
+  isLoading: boolean
+  onSearchChange: (value: string) => void
+  onPageChange: (page: number) => void
+  onPerPageChange: (perPage: number) => void
 }
 
-export function DocumentTable({ documents }: DocumentTableProps) {
+export function DocumentTable({
+  documents,
+  search,
+  page,
+  pages,
+  perPage,
+  total,
+  isLoading,
+  onSearchChange,
+  onPageChange,
+  onPerPageChange,
+}: DocumentTableProps) {
   const [sorting, setSorting] = useState<SortingState>([])
-  const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([])
-  const [globalFilter, setGlobalFilter] = useState("")
-  const [statusFilter, setStatusFilter] = useState<string>("all")
-
-  const filteredDocuments = useMemo(() => {
-    if (statusFilter === "all") return documents
-    return documents.filter((doc) => doc.status === statusFilter)
-  }, [documents, statusFilter])
 
   const table = useReactTable({
-    data: filteredDocuments,
+    data: documents,
     columns,
     state: {
       sorting,
-      columnFilters,
-      globalFilter,
     },
     onSortingChange: setSorting,
-    onColumnFiltersChange: setColumnFilters,
-    onGlobalFilterChange: setGlobalFilter,
     getCoreRowModel: getCoreRowModel(),
     getSortedRowModel: getSortedRowModel(),
-    getFilteredRowModel: getFilteredRowModel(),
-    getPaginationRowModel: getPaginationRowModel(),
-    initialState: {
-      pagination: {
-        pageSize: 5,
-      },
-    },
   })
 
-  const pageCount = table.getPageCount()
-  const currentPage = table.getState().pagination.pageIndex
+  const pageCount = Math.max(pages, 1)
+  const pageNumbers = useMemo(
+    () => Array.from({ length: pageCount }, (_, index) => index + 1),
+    [pageCount]
+  )
+
+  const showingText = useMemo(() => {
+    if (total === 0) {
+      return "Menampilkan 0 dari 0 dokumen"
+    }
+
+    const start = (page - 1) * perPage + 1
+    const end = Math.min(page * perPage, total)
+
+    return `Menampilkan ${start} - ${end} dari ${total} dokumen`
+  }, [page, perPage, total])
 
   return (
     <div className="space-y-4 px-4 lg:px-6">
-      {/* Filters and Search */}
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex flex-1 items-center gap-2">
           <div className="relative flex-1 max-w-sm">
             <IconSearch className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
             <Input
               placeholder="Cari dokumen..."
-              value={globalFilter}
-              onChange={(e) => setGlobalFilter(e.target.value)}
+              value={search}
+              onChange={(event) => onSearchChange(event.target.value)}
               className="pl-9"
             />
-            {globalFilter && (
+            {search && (
               <Button
                 variant="ghost"
                 size="icon-xs"
                 className="absolute right-1 top-1/2 -translate-y-1/2"
-                onClick={() => setGlobalFilter("")}
+                onClick={() => onSearchChange("")}
               >
                 <IconX className="size-3" />
               </Button>
             )}
           </div>
-
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="outline" size="sm">
-                <IconFilter className="size-4" />
-                Filter
-                {statusFilter !== "all" && (
-                  <Badge variant="secondary" className="ml-1">
-                    1
-                  </Badge>
-                )}
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="start">
-              <DropdownMenuItem onClick={() => setStatusFilter("all")}>
-                Semua Status
-              </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => setStatusFilter("published")}>
-                Published
-              </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => setStatusFilter("draft")}>
-                Draft
-              </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => setStatusFilter("pending")}>
-                Pending
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-
-          {statusFilter !== "all" && (
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => setStatusFilter("all")}
-            >
-              Reset
-              <IconX className="size-3 ml-1" />
-            </Button>
-          )}
         </div>
 
         <div className="flex items-center gap-2">
           <span className="text-sm text-muted-foreground">Rows per page:</span>
           <Select
-            value={String(table.getState().pagination.pageSize)}
-            onValueChange={(value) => table.setPageSize(Number(value))}
+            value={String(perPage)}
+            onValueChange={(value) => onPerPageChange(Number(value))}
           >
             <SelectTrigger className="w-[70px]" size="sm">
               <SelectValue />
@@ -176,7 +140,6 @@ export function DocumentTable({ documents }: DocumentTableProps) {
         </div>
       </div>
 
-      {/* Table */}
       <div className="rounded-lg border">
         <Table>
           <TableHeader>
@@ -217,7 +180,13 @@ export function DocumentTable({ documents }: DocumentTableProps) {
             ))}
           </TableHeader>
           <TableBody>
-            {table.getRowModel().rows.length ? (
+            {isLoading ? (
+              <TableRow>
+                <TableCell colSpan={columns.length} className="h-24 text-center">
+                  Memuat dokumen...
+                </TableCell>
+              </TableRow>
+            ) : table.getRowModel().rows.length ? (
               table.getRowModel().rows.map((row) => (
                 <TableRow key={row.id}>
                   {row.getVisibleCells().map((cell) => (
@@ -244,52 +213,39 @@ export function DocumentTable({ documents }: DocumentTableProps) {
         </Table>
       </div>
 
-      {/* Pagination */}
       <div className="flex items-center justify-between">
-        <p className="text-sm text-muted-foreground">
-          Menampilkan{" "}
-          {table.getState().pagination.pageIndex *
-            table.getState().pagination.pageSize +
-            1}{" "}
-          -{" "}
-          {Math.min(
-            (table.getState().pagination.pageIndex + 1) *
-              table.getState().pagination.pageSize,
-            table.getFilteredRowModel().rows.length
-          )}{" "}
-          dari {table.getFilteredRowModel().rows.length} dokumen
-        </p>
+        <p className="text-sm text-muted-foreground">{showingText}</p>
 
         <Pagination>
           <PaginationContent>
             <PaginationItem>
               <PaginationPrevious
-                onClick={() => table.previousPage()}
+                onClick={() => onPageChange(page - 1)}
                 className={
-                  !table.getCanPreviousPage()
+                  page <= 1
                     ? "pointer-events-none opacity-50"
                     : "cursor-pointer"
                 }
               />
             </PaginationItem>
 
-            {Array.from({ length: pageCount }, (_, i) => i).map((page) => (
-              <PaginationItem key={page}>
+            {pageNumbers.map((pageNumber) => (
+              <PaginationItem key={pageNumber}>
                 <PaginationLink
-                  onClick={() => table.setPageIndex(page)}
-                  isActive={currentPage === page}
+                  onClick={() => onPageChange(pageNumber)}
+                  isActive={pageNumber === page}
                   className="cursor-pointer"
                 >
-                  {page + 1}
+                  {pageNumber}
                 </PaginationLink>
               </PaginationItem>
             ))}
 
             <PaginationItem>
               <PaginationNext
-                onClick={() => table.nextPage()}
+                onClick={() => onPageChange(page + 1)}
                 className={
-                  !table.getCanNextPage()
+                  page >= pageCount
                     ? "pointer-events-none opacity-50"
                     : "cursor-pointer"
                 }

@@ -14,7 +14,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import type { Document } from "../types"
+import type { DocumentListItem } from "../types"
 import { Link } from "react-router"
 
 const formatDate = (dateStr: string | null): string => {
@@ -26,17 +26,25 @@ const formatDate = (dateStr: string | null): string => {
   })
 }
 
-const getStatusBadge = (status: Document["status"]) => {
-  const variants = {
-    published: { variant: "default" as const, label: "Published" },
-    draft: { variant: "secondary" as const, label: "Draft" },
-    pending: { variant: "outline" as const, label: "Pending" },
-  }
-  const { variant, label } = variants[status]
-  return <Badge variant={variant}>{label}</Badge>
+const typeLabels: Record<DocumentListItem["type"], string> = {
+  journal: "Journal",
+  conference: "Conference",
+  thesis: "Thesis",
+  report: "Report",
+  book: "Book",
 }
 
-export const columns: ColumnDef<Document>[] = [
+const getTypeBadge = (type: DocumentListItem["type"]) => (
+  <Badge variant="secondary">{typeLabels[type]}</Badge>
+)
+
+const getVisibilityBadge = (isPrivate: boolean) => (
+  <Badge variant={isPrivate ? "outline" : "default"}>
+    {isPrivate ? "Private" : "Public"}
+  </Badge>
+)
+
+export const columns: ColumnDef<DocumentListItem>[] = [
   {
     accessorKey: "title",
     header: "Title",
@@ -49,26 +57,14 @@ export const columns: ColumnDef<Document>[] = [
   {
     accessorKey: "creator",
     header: "Creator",
-    cell: ({ row }) => <span className="text-sm">{row.original.creator}</span>,
+    cell: ({ row }) => (
+      <span className="text-sm">{row.original.creator?.trim() || "-"}</span>
+    ),
   },
   {
-    accessorKey: "keywords",
-    header: "Keyword",
-    cell: ({ row }) => (
-      <div className="flex flex-wrap gap-1 max-w-[200px]">
-        {row.original.keywords.slice(0, 2).map((keyword) => (
-          <Badge key={keyword} variant="secondary" className="text-xs">
-            {keyword}
-          </Badge>
-        ))}
-        {row.original.keywords.length > 2 && (
-          <Badge variant="outline" className="text-xs">
-            +{row.original.keywords.length - 2}
-          </Badge>
-        )}
-      </div>
-    ),
-    enableSorting: false,
+    accessorKey: "type",
+    header: "Tipe",
+    cell: ({ row }) => getTypeBadge(row.original.type),
   },
   {
     accessorKey: "doi",
@@ -80,9 +76,9 @@ export const columns: ColumnDef<Document>[] = [
     ),
   },
   {
-    accessorKey: "status",
-    header: "Status",
-    cell: ({ row }) => getStatusBadge(row.original.status),
+    accessorKey: "isPrivate",
+    header: "Visibilitas",
+    cell: ({ row }) => getVisibilityBadge(row.original.isPrivate),
   },
   {
     accessorKey: "publishedAt",

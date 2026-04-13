@@ -1,82 +1,198 @@
-import { useState, useCallback, useRef } from "react"
+import {
+  type CSSProperties,
+  type ChangeEvent,
+  type DragEvent,
+  useCallback,
+  useRef,
+  useState,
+} from "react"
+import { useMutation } from "@tanstack/react-query"
 import { useNavigate } from "react-router-dom"
-import { IconUpload, IconArrowLeft, IconCheck } from "@tabler/icons-react"
+import { IconArrowLeft, IconCheck, IconLoader } from "@tabler/icons-react"
 import { AppSidebar } from "@/components/app-sidebar"
 import { SiteHeader } from "@/components/site-header"
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
 import { Button } from "@/components/ui/button"
 import { FileUploadArea, UploadedFilesList } from "./components"
-import { simulateFileUpload, createUploadedFile } from "./utils"
+import { uploadDocumentsBulk } from "./api"
+import { createUploadedFile } from "./utils"
 import type { UploadedFile } from "./types"
+
+const PROCESS_DOCUMENT_ROUTE = "/admin/document/process"
+
+const isPdfFile = (file: File): boolean =>
+  file.type === "application/pdf" || file.name.toLowerCase().endsWith(".pdf")
+
+interface UploadDocumentsVariables {
+  files: UploadedFile[]
+}
 
 const CreateDocumentPage = () => {
   const navigate = useNavigate()
   const fileInputRef = useRef<HTMLInputElement>(null)
   const [uploadedFiles, setUploadedFiles] = useState<UploadedFile[]>([])
   const [isDragging, setIsDragging] = useState(false)
+  const [errorMessage, setErrorMessage] = useState<string | null>(null)
+
+  const uploadDocumentsMutation = useMutation({
+    mutationFn: async ({ files }: UploadDocumentsVariables) =>
+      uploadDocumentsBulk({ files: files.map((uploadedFile) => uploadedFile.file) }),
+    onMutate: ({ files }) => {
+      const selectedIds = new Set(files.map((uploadedFile) => uploadedFile.id))
+
+      setErrorMessage(null)
+      setUploadedFiles((previousFiles) =>
+        previousFiles.map((uploadedFile) =>
+          selectedIds.has(uploadedFile.id)
+            ? {
+                ...uploadedFile,
+                status: "uploading",
+                progress: 50,
+                errorMessage: undefined,
+              }
+            : uploadedFile
+        )
+      )
+    },
+    onSuccess: (response, { files }) => {
+      const selectedIds = new Set(files.map((uploadedFile) => uploadedFile.id))
+      const resultByFileId = new Map(
+        files.map((uploadedFile, index) => [uploadedFile.id, response.results[index]])
+      )
+
+      setUploadedFiles((previousFiles) =>
+        previousFiles.map((uploadedFile) => {
+          if (!selectedIds.has(uploadedFile.id)) {
+            return uploadedFile
+          }
+
+          const result = resultByFileId.get(uploadedFile.id)
+          if (!result) {
+            return {
+              ...uploadedFile,
+              status: "error",
+              progress: 0,
+              errorMessage: "Respon server tidak valid.",
+            }
+          }
+
+          if (result.status === "processing") {
+            return {
+              ...uploadedFile,
+              status: "success",
+              progress: 100,
+              errorMessage: undefined,
+            }
+          }
+
+          return {
+            ...uploadedFile,
+            status: "error",
+            progress: 0,
+            errorMessage: result.error ?? "Gagal mengunggah dokumen.",
+          }
+        })
+      )
+
+      if (response.processingCount > 0) {
+        navigate(PROCESS_DOCUMENT_ROUTE)
+        return
+      }
+
+      setErrorMessage("Semua dokumen gagal diunggah. Silakan coba lagi.")
+    },
+    onError: (error, { files }) => {
+      const selectedIds = new Set(files.map((uploadedFile) => uploadedFile.id))
+      const fallbackMessage =
+        error instanceof Error
+          ? error.message
+          : "Terjadi kesalahan saat mengunggah dokumen."
+
+      setUploadedFiles((previousFiles) =>
+        previousFiles.map((uploadedFile) =>
+          selectedIds.has(uploadedFile.id)
+            ? {
+                ...uploadedFile,
+                status: "error",
+                progress: 0,
+                errorMessage: fallbackMessage,
+              }
+            : uploadedFile
+        )
+      )
+      setErrorMessage(fallbackMessage)
+    },
+  })
 
   const handleFileSelect = useCallback((files: FileList | null) => {
     if (!files) return
 
-    const newFiles = Array.from(files).map(createUploadedFile)
-    setUploadedFiles((prev) => [...prev, ...newFiles])
+    const selectedFiles = Array.from(files)
+    const pdfFiles = selectedFiles.filter(isPdfFile)
+    const invalidFileCount = selectedFiles.length - pdfFiles.length
+
+    if (pdfFiles.length > 0) {
+      setUploadedFiles((previousFiles) => [
+        ...previousFiles,
+        ...pdfFiles.map(createUploadedFile),
+      ])
+    }
+
+    if (invalidFileCount > 0) {
+      setErrorMessage(
+        `${invalidFileCount} file diabaikan karena hanya format PDF yang didukung.`
+      )
+      return
+    }
+
+    setErrorMessage(null)
   }, [])
 
-  const handleFileInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    handleFileSelect(e.target.files)
-    e.target.value = ""
+  const handleFileInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+    handleFileSelect(event.target.files)
+    event.target.value = ""
   }
 
   const handleRemoveFile = useCallback((id: string) => {
-    setUploadedFiles((prev) => prev.filter((f) => f.id !== id))
+    setUploadedFiles((previousFiles) =>
+      previousFiles.filter((uploadedFile) => uploadedFile.id !== id)
+    )
   }, [])
 
-  const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
-    e.preventDefault()
+  const handleDragOver = (event: DragEvent<HTMLDivElement>) => {
+    event.preventDefault()
     setIsDragging(true)
   }
 
-  const handleDragLeave = (e: React.DragEvent<HTMLDivElement>) => {
-    e.preventDefault()
+  const handleDragLeave = (event: DragEvent<HTMLDivElement>) => {
+    event.preventDefault()
     setIsDragging(false)
   }
 
-  const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
-    e.preventDefault()
+  const handleDrop = (event: DragEvent<HTMLDivElement>) => {
+    event.preventDefault()
     setIsDragging(false)
-    handleFileSelect(e.dataTransfer.files)
-  }
-
-  const handleUpload = () => {
-    const pendingFiles = uploadedFiles.filter((f) => f.status === "pending")
-    if (pendingFiles.length === 0) {
-      alert("Tidak ada file yang perlu diupload")
-      return
-    }
-
-    pendingFiles.forEach((file) => {
-      simulateFileUpload(file.id, setUploadedFiles)
-    })
+    handleFileSelect(event.dataTransfer.files)
   }
 
   const handleSubmit = () => {
-    const allUploaded = uploadedFiles.every((f) => f.status === "success")
-    if (!allUploaded) {
-      alert("Harap upload semua file terlebih dahulu")
-      return
-    }
-
     if (uploadedFiles.length === 0) {
-      alert("Harap pilih minimal 1 dokumen")
+      setErrorMessage("Harap pilih minimal 1 dokumen.")
       return
     }
 
-    console.log("Submitting files:", uploadedFiles.map((f) => f.file))
-    alert("Dokumen berhasil disimpan!")
-    navigate("/admin/document/list")
+    const filesToUpload = uploadedFiles.filter(
+      (uploadedFile) => uploadedFile.status !== "success"
+    )
+    if (filesToUpload.length === 0) {
+      navigate(PROCESS_DOCUMENT_ROUTE)
+      return
+    }
+
+    uploadDocumentsMutation.mutate({ files: filesToUpload })
   }
 
-  const pendingCount = uploadedFiles.filter((f) => f.status === "pending").length
+  const isSubmitting = uploadDocumentsMutation.isPending
 
   return (
     <SidebarProvider
@@ -84,7 +200,7 @@ const CreateDocumentPage = () => {
         {
           "--sidebar-width": "calc(var(--spacing) * 72)",
           "--header-height": "calc(var(--spacing) * 12)",
-        } as React.CSSProperties
+        } as CSSProperties
       }
     >
       <AppSidebar variant="inset" />
@@ -133,28 +249,38 @@ const CreateDocumentPage = () => {
                     onRemoveFile={handleRemoveFile}
                   />
 
+                  {errorMessage && (
+                    <div className="rounded-md bg-destructive/10 p-3 text-sm text-destructive">
+                      {errorMessage}
+                    </div>
+                  )}
+
                   {/* Actions */}
                   <div className="flex items-center justify-between gap-4">
                     <Button
                       variant="outline"
                       onClick={() => navigate("/admin/document")}
+                      disabled={isSubmitting}
                     >
                       Batal
                     </Button>
 
                     <div className="flex items-center gap-2">
-                      {pendingCount > 0 && (
-                        <Button onClick={handleUpload} variant="secondary">
-                          <IconUpload className="size-4" />
-                          Upload {pendingCount} File
-                        </Button>
-                      )}
                       <Button
                         onClick={handleSubmit}
-                        disabled={uploadedFiles.length === 0 || uploadedFiles.some((f) => f.status !== "success")}
+                        disabled={uploadedFiles.length === 0 || isSubmitting}
                       >
-                        <IconCheck className="size-4" />
-                        Simpan Dokumen
+                        {isSubmitting ? (
+                          <>
+                            <IconLoader className="size-4 animate-spin" />
+                            Menyimpan Dokumen...
+                          </>
+                        ) : (
+                          <>
+                            <IconCheck className="size-4" />
+                            Simpan Dokumen
+                          </>
+                        )}
                       </Button>
                     </div>
                   </div>

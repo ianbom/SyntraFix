@@ -1,57 +1,73 @@
 import Cookies from "js-cookie"
 import type { AuthToken, LoginCredentials, LoginResponse, User } from "./types"
 
-// Dummy users database
-const USERS = [
-  {
-    email: "admin@syntra.com",
-    password: "admin123",
-    name: "Admin User",
-    role: "admin" as const,
-  },
-  {
-    email: "user@syntra.com",
-    password: "user123",
-    name: "Regular User",
-    role: "user" as const,
-  },
-]
-
 const AUTH_TOKEN_KEY = "auth_token"
+const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL ?? "http://localhost:8000").replace(/\/$/, "")
+
+const parseAuthToken = (rawToken: string): AuthToken | null => {
+  try {
+    const parsed = JSON.parse(rawToken) as Partial<AuthToken>
+
+    if (
+      typeof parsed !== "object" ||
+      parsed === null ||
+      typeof parsed.access_token !== "string" ||
+      typeof parsed.refresh_token !== "string" ||
+      typeof parsed.token_type !== "string" ||
+      typeof parsed.user !== "object" ||
+      parsed.user === null ||
+      typeof parsed.user.role !== "string"
+    ) {
+      Cookies.remove(AUTH_TOKEN_KEY)
+      return null
+    }
+
+    return parsed as AuthToken
+  } catch (error) {
+    console.error("Failed to parse auth token from cookie.", error)
+    Cookies.remove(AUTH_TOKEN_KEY)
+    return null
+  }
+}
+
+const getErrorMessage = async (response: Response): Promise<string> => {
+  const contentType = response.headers.get("content-type") ?? ""
+
+  if (contentType.includes("application/json")) {
+    const data = (await response.json()) as { detail?: string; message?: string }
+    return data.detail ?? data.message ?? "Login gagal"
+  }
+
+  const text = await response.text()
+  return text || "Login gagal"
+}
 
 export const authService = {
   login: async (credentials: LoginCredentials): Promise<LoginResponse> => {
-    // Simulate API delay
-    await new Promise((resolve) => setTimeout(resolve, 1000))
+    const formData = new URLSearchParams({
+      username: credentials.email,
+      password: credentials.password,
+    })
 
-    const user = USERS.find(
-      (u) => u.email === credentials.email && u.password === credentials.password
-    )
+    const response = await fetch(`${API_BASE_URL}/auth/login`, {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: formData.toString(),
+    })
 
-    if (!user) {
+    if (!response.ok) {
       return {
         success: false,
-        message: "Email atau password salah",
+        message: await getErrorMessage(response),
       }
     }
 
-    // Create token (in real app, this would be JWT from backend)
-    const token: AuthToken = {
-      name: user.name,
-      email: user.email,
-      role: user.role,
-    }
-
-    // Save to cookie (expires in 7 days)
-    Cookies.set(AUTH_TOKEN_KEY, JSON.stringify(token), { expires: 7 })
+    const token = (await response.json()) as AuthToken
+    Cookies.set(AUTH_TOKEN_KEY, JSON.stringify(token), { expires: 7, sameSite: "lax" })
 
     return {
       success: true,
-      user: {
-        name: user.name,
-        email: user.email,
-        role: user.role,
-      },
+      user: token.user,
     }
   },
 
@@ -60,23 +76,22 @@ export const authService = {
   },
 
   getCurrentUser: (): User | null => {
-    try {
-      const token = Cookies.get(AUTH_TOKEN_KEY)
-      if (!token) return null
-
-      const authToken: AuthToken = JSON.parse(token)
-      return {
-        name: authToken.name,
-        email: authToken.email,
-        role: authToken.role,
-      }
-    } catch {
+    const rawToken = Cookies.get(AUTH_TOKEN_KEY)
+    if (!rawToken) {
       return null
     }
+
+    const authToken = parseAuthToken(rawToken)
+    return authToken?.user ?? null
   },
 
   isAuthenticated: (): boolean => {
-    return !!Cookies.get(AUTH_TOKEN_KEY)
+    const rawToken = Cookies.get(AUTH_TOKEN_KEY)
+    if (!rawToken) {
+      return false
+    }
+
+    return parseAuthToken(rawToken) !== null
   },
 
   isAdmin: (): boolean => {

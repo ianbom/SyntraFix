@@ -1,4 +1,5 @@
-import { useState } from "react"
+import { type FormEvent, useState } from "react"
+import { useMutation } from "@tanstack/react-query"
 import { Link, useNavigate } from "react-router-dom"
 import { Button } from "@/components/ui/button"
 import {
@@ -15,31 +16,43 @@ const Login = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [error, setError] = useState("")
-  const [isLoading, setIsLoading] = useState(false)
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const loginMutation = useMutation({
+    mutationFn: authService.login,
+    onSuccess: (response) => {
+      if (!response.success || !response.user) {
+        setError(response.message || "Login gagal")
+        return
+      }
+
+      if (response.user.role === "admin") {
+        navigate("/admin/dashboard")
+        return
+      }
+
+      if (response.user.role === "user") {
+        navigate("/chat/new")
+        return
+      }
+
+      navigate("/")
+    },
+    onError: (mutationError: unknown) => {
+      if (mutationError instanceof Error) {
+        setError(mutationError.message)
+        return
+      }
+
+      setError("Terjadi kesalahan. Silakan coba lagi.")
+    },
+  })
+
+  const isLoading = loginMutation.isPending
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setError("")
-    setIsLoading(true)
-
-    try {
-      const response = await authService.login({ email, password })
-
-      if (response.success && response.user) {
-        // Redirect based on role
-        if (response.user.role === "admin") {
-          navigate("/admin/dashboard")
-        } else {
-          navigate("/")
-        }
-      } else {
-        setError(response.message || "Login gagal")
-      }
-    } catch (err) {
-      setError("Terjadi kesalahan. Silakan coba lagi.")
-    } finally {
-      setIsLoading(false)
-    }
+    loginMutation.mutate({ email, password })
   }
 
   return (

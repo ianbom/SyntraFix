@@ -6,7 +6,7 @@ import {
   IconClock,
 } from "@tabler/icons-react"
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import type { Document } from "../types"
+import type { DocumentListItem } from "../types"
 
 interface StatCardProps {
   title: string
@@ -33,17 +33,23 @@ function StatCard({ title, value, icon: Icon, description }: StatCardProps) {
 }
 
 interface DocumentStatisticsProps {
-  documents: Document[]
+  documents: DocumentListItem[]
+  totalDocuments: number
 }
 
-export function DocumentStatistics({ documents }: DocumentStatisticsProps) {
+export function DocumentStatistics({ documents, totalDocuments }: DocumentStatisticsProps) {
   const stats = useMemo(() => {
-    const total = documents.length
-    const published = documents.filter((d) => d.status === "published").length
-    const draft = documents.filter((d) => d.status === "draft").length
-    const pending = documents.filter((d) => d.status === "pending").length
-    return { total, published, draft, pending }
-  }, [documents])
+    const currentPage = documents.length
+    const privateDocuments = documents.filter((d) => d.isPrivate).length
+    const withDoi = documents.filter((d) => Boolean(d.doi)).length
+
+    return {
+      total: totalDocuments,
+      currentPage,
+      privateDocuments,
+      withDoi,
+    }
+  }, [documents, totalDocuments])
 
   return (
     <div className="grid grid-cols-1 gap-4 px-4 sm:grid-cols-2 lg:grid-cols-4 lg:px-6">
@@ -51,25 +57,25 @@ export function DocumentStatistics({ documents }: DocumentStatisticsProps) {
         title="Total Dokumen"
         value={stats.total}
         icon={IconFileText}
-        description="Semua dokumen"
+        description="Jumlah dokumen dari API"
       />
       <StatCard
-        title="Published"
-        value={stats.published}
+        title="Halaman Aktif"
+        value={stats.currentPage}
         icon={IconFileCheck}
-        description="Dokumen terpublikasi"
+        description="Dokumen yang sedang ditampilkan"
       />
       <StatCard
-        title="Draft"
-        value={stats.draft}
+        title="Dokumen Private"
+        value={stats.privateDocuments}
         icon={IconFilePencil}
-        description="Dokumen draft"
+        description="Dokumen private di halaman aktif"
       />
       <StatCard
-        title="Pending"
-        value={stats.pending}
+        title="Memiliki DOI"
+        value={stats.withDoi}
         icon={IconClock}
-        description="Menunggu review"
+        description="Dokumen dengan DOI di halaman aktif"
       />
     </div>
   )

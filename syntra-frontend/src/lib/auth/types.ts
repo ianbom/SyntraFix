@@ -1,13 +1,20 @@
+export type UserRole = "admin" | "user"
+
 export interface User {
-  name: string
+  id: number
   email: string
-  role: "admin" | "user"
+  username: string
+  role: UserRole
+  is_active: boolean
+  created_at: string
+  updated_at: string
 }
 
 export interface AuthToken {
-  name: string
-  email: string
-  role: "admin" | "user"
+  access_token: string
+  refresh_token: string
+  token_type: string
+  user: User
 }
 
 export interface LoginCredentials {

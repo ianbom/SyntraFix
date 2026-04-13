@@ -26,7 +26,7 @@ export function FileUploadArea({
       <CardHeader>
         <CardTitle>Pilih Dokumen</CardTitle>
         <CardDescription>
-          Upload satu atau lebih dokumen. Format yang didukung: PDF, DOC, DOCX
+          Upload satu atau lebih dokumen. Format yang didukung: PDF
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -45,7 +45,7 @@ export function FileUploadArea({
             ref={fileInputRef}
             type="file"
             multiple
-            accept=".pdf,.doc,.docx"
+            accept=".pdf"
             onChange={onFileInputChange}
             className="hidden"
           />
@@ -70,7 +70,7 @@ export function FileUploadArea({
           </Button>
 
           <p className="mt-4 text-xs text-muted-foreground">
-            Max 10MB per file • PDF, DOC, DOCX
+            Max 10MB per file • PDF
           </p>
         </div>
       </CardContent>
