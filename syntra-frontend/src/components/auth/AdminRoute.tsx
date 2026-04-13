@@ -1,3 +1,4 @@
+import { useSyncExternalStore } from "react"
 import { Navigate } from "react-router-dom"
 import { authService } from "@/lib/auth"
 
@@ -6,8 +7,13 @@ interface AdminRouteProps {
 }
 
 export function AdminRoute({ children }: AdminRouteProps) {
-  const isAuthenticated = authService.isAuthenticated()
-  const isAdmin = authService.isAdmin()
+  const currentUser = useSyncExternalStore(
+    authService.subscribe,
+    authService.getCurrentUser,
+    authService.getCurrentUser
+  )
+  const isAuthenticated = currentUser !== null
+  const isAdmin = currentUser?.role === "admin"
 
   if (!isAuthenticated) {
     return <Navigate to="/login" replace />

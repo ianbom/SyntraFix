@@ -1,20 +1,36 @@
 import { type CSSProperties } from "react"
 import { useNavigate } from "react-router-dom"
-import { IconMessagePlus, IconSparkles } from "@tabler/icons-react"
+import {
+  IconBulb,
+  IconFileText,
+  IconMessagePlus,
+  IconSparkles,
+} from "@tabler/icons-react"
 import { AppSidebar } from "@/components/app-sidebar"
 import { SiteHeader } from "@/components/site-header"
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { ChatInput } from "./components"
 
-const suggestions = [
-  "Apa yang bisa kamu bantu?",
-  "Jelaskan tentang machine learning",
-  "Bagaimana cara mengoptimalkan kode?",
-  "Berikan tips produktivitas",
-]
-
 const PENDING_CHAT_PATH = "/chat/pending"
+
+const guideCards = [
+  {
+    title: "Jelaskan Konsep",
+    description: "Minta penjelasan topik dengan bahasa yang mudah dipahami.",
+    icon: IconBulb,
+  },
+  {
+    title: "Analisis Dokumen",
+    description: "Tanyakan isi dokumen atau minta ringkasan poin penting.",
+    icon: IconFileText,
+  },
+  {
+    title: "Bantuan Cepat",
+    description: "Dapatkan jawaban praktis untuk kebutuhan kerja harian.",
+    icon: IconMessagePlus,
+  },
+]
 
 const NewChatPage = () => {
   const navigate = useNavigate()
@@ -25,10 +41,6 @@ const NewChatPage = () => {
         initialMessage: message,
       },
     })
-  }
-
-  const handleSuggestionClick = (suggestion: string) => {
-    handleSendMessage(suggestion)
   }
 
   return (
@@ -43,60 +55,49 @@ const NewChatPage = () => {
       <AppSidebar variant="inset" />
       <SidebarInset>
         <SiteHeader />
-        <div className="flex flex-1 flex-col">
-          <div className="@container/main flex flex-1 flex-col gap-2">
-            <div className="flex flex-col gap-4 py-4 md:gap-6 md:py-6">
-              <div className="flex flex-1 flex-col items-center justify-center px-4 py-8">
-                <div className="w-full max-w-2xl space-y-8">
-                  {/* Header */}
-                  <div className="text-center space-y-4">
-                    <div className="mx-auto flex size-16 items-center justify-center rounded-full bg-primary/10">
-                      <IconSparkles className="size-8 text-primary" />
-                    </div>
-                    <h1 className="text-3xl font-bold tracking-tight">
-                      Mulai Percakapan Baru
-                    </h1>
-                    <p className="text-muted-foreground max-w-md mx-auto">
-                      Tanyakan apapun kepada asisten AI kami. Kami siap membantu Anda dengan berbagai pertanyaan.
-                    </p>
-                  </div>
+        <div className="flex flex-1 flex-col px-4 py-6 md:px-6 md:py-8">
+          <div className="mx-auto flex w-full max-w-4xl flex-1 flex-col justify-center gap-6">
+            <Card className="border-border/60 bg-card/90">
+              <CardHeader className="space-y-4 text-center">
+                <div className="mx-auto flex size-14 items-center justify-center rounded-full bg-primary/10">
+                  <IconSparkles className="size-7 text-primary" />
+                </div>
+                <CardTitle className="text-2xl md:text-3xl">Mulai Percakapan Baru</CardTitle>
+                <CardDescription className="mx-auto max-w-2xl text-sm md:text-base">
+                  Tulis pertanyaan atau kebutuhanmu, lalu asisten akan langsung membantu dari
+                  percakapan pertama.
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <ChatInput
+                  onSend={handleSendMessage}
+                  placeholder="Ketik pesan untuk memulai percakapan..."
+                  autoFocus
+                />
+                <p className="text-center text-xs text-muted-foreground">
+                  Tekan Enter untuk kirim, Shift + Enter untuk menambah baris.
+                </p>
+              </CardContent>
+            </Card>
 
-                  {/* Suggestions */}
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="text-lg flex items-center gap-2">
-                        <IconMessagePlus className="size-5" />
-                        Saran Pertanyaan
-                      </CardTitle>
-                      <CardDescription>
-                        Klik salah satu saran atau ketik pertanyaan Anda sendiri
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="grid gap-2 sm:grid-cols-2">
-                        {suggestions.map((suggestion, index) => (
-                          <button
-                            key={index}
-                            onClick={() => handleSuggestionClick(suggestion)}
-                            className="rounded-lg border bg-card p-3 text-left text-sm transition-colors hover:bg-accent hover:text-accent-foreground"
-                          >
-                            {suggestion}
-                          </button>
-                        ))}
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {guideCards.map((item) => {
+                const Icon = item.icon
+
+                return (
+                  <Card key={item.title} className="border-border/60 bg-card/70">
+                    <CardContent className="flex items-start gap-3 p-4">
+                      <div className="mt-0.5 rounded-md bg-primary/10 p-2">
+                        <Icon className="size-4 text-primary" />
+                      </div>
+                      <div className="space-y-1">
+                        <p className="text-sm font-medium">{item.title}</p>
+                        <p className="text-xs text-muted-foreground">{item.description}</p>
                       </div>
                     </CardContent>
                   </Card>
-
-                  {/* Input Area */}
-                  <Card className="bg-background">
-                    <ChatInput
-                      onSend={handleSendMessage}
-                      placeholder="Ketik pesan untuk memulai percakapan..."
-                      autoFocus
-                    />
-                  </Card>
-                </div>
-              </div>
+                )
+              })}
             </div>
           </div>
         </div>

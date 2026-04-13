@@ -7,7 +7,7 @@ import { SiteHeader } from "@/components/site-header"
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-import { ChatInput, MessageBubble, TypingIndicator } from "./components"
+import { ChatInput, MessageBubble } from "./components"
 import {
   getConversation,
   postChatStream,
@@ -426,7 +426,7 @@ const DetailChatPage = () => {
                   <MessageBubble key={message.id} message={message} />
                 ))}
 
-                {isBotTyping && <TypingIndicator />}
+                {/* {isBotTyping && <TypingIndicator />} */}
 
                 <div ref={messagesEndRef} />
               </div>

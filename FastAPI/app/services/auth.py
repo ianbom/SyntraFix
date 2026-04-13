@@ -58,5 +58,6 @@ def refresh_access_token(db: Session, refresh_token: str) -> Token | None:
     return Token(
         access_token=new_access_token,
         refresh_token=new_refresh_token,
-        token_type="bearer"
+        token_type="bearer",
+        user=user
     )

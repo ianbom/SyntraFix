@@ -1,3 +1,4 @@
+import { useEffect } from "react"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Welcome from "./pages/welcome"
 import Dashboard from "./pages/admin/dashboard"
@@ -13,10 +14,47 @@ import NewChatPage from "./pages/chat/new-chat"
 import DetailChatPage from "./pages/chat/detail-chat"
 import { AdminRoute } from "./components/auth/AdminRoute"
 import { ProtectedRoute } from "./components/auth/ProtectedRoute"
+import { authService } from "@/lib/auth"
+
+function AuthTokenRefresher() {
+  useEffect(() => {
+    const refreshSession = async () => {
+      if (!authService.isAuthenticated()) {
+        return
+      }
+
+      await authService.refreshToken()
+    }
+
+    void refreshSession()
+
+    const intervalId = window.setInterval(() => {
+      void refreshSession()
+    }, authService.getRefreshIntervalMs())
+
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === "visible") {
+        void refreshSession()
+      }
+    }
+
+    window.addEventListener("focus", handleVisibilityChange)
+    document.addEventListener("visibilitychange", handleVisibilityChange)
+
+    return () => {
+      window.clearInterval(intervalId)
+      window.removeEventListener("focus", handleVisibilityChange)
+      document.removeEventListener("visibilitychange", handleVisibilityChange)
+    }
+  }, [])
+
+  return null
+}
 
 function App() {
   return (
     <BrowserRouter>
+      <AuthTokenRefresher />
       <Routes>
         {/* Public routes */}
         <Route path="/login" element={<Login />} />
