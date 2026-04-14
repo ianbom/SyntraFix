@@ -310,22 +310,13 @@ async def list_documents(
     )
 
 
-@router.get("/{document_id}", response_model=DocumentResponse)
+@router.get("/{document_id}", response_model=DocumentDetailResponse)
 async def get_document(
     document_id: int,
     db: Session = Depends(get_db)
 ):
-    """Get a document by ID with full metadata."""
-    document = db.query(Document).filter(Document.id == document_id).first()
-    
-    if not document:
-        raise HTTPException(status_code=404, detail="Document not found")
-    
-    chunk_count = db.query(func.count(DocumentChunk.id)).filter(
-        DocumentChunk.document_id == document.id
-    ).scalar() or 0
-    
-    return _build_document_response(document, chunk_count)
+    """Get complete detail data from documents + document_chunks tables."""
+    return get_document_detail_data(db, document_id)
 
 
 @router.get("/{document_id}/detail", response_model=DocumentDetailResponse)

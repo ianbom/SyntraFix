@@ -1,282 +1,192 @@
-Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application SETIAWARDHANA , (Member, IEEE), IWAN KURNIANTO WIBOWO , AND NIZHAR ACHMAD HUSEIN BERNARDT
+Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network M. UDIN HARUN AL RASYID , (Member, IEEE), SRITRUSTA SUKARIDHOTO, (Member, IEEE), AMANG SUDARSONO, AND AFDOLASH NUR KAFFAH
 
-Authors: Politeknik Elektronika, Negeri Surabaya, JG Melo, F Martins, L Cavalcanti, R Fernandes, V Araújo, R Joaquim, JG Monteiro, E Barros, ST Kempers, AF A Ribeiro, AC C Lopes, TA Ribeiro, NS S M Pereira, GT Lopes, AF M Ribeiro, S Setiawardhana, R Dikairono, D Purwanto, TA Sardjono, S Setiawardhana, WA Nasrulloh, BS B Dewantara, IK Wibowo, S.-T Kao, M.-T Ho, JA Vicente-Martínez, M Márquez-Olivera, A García-Aliaga, V Hernández-Herrera, K Anwar, MA Haq, IKurnianto Wibowo, MM Bachtiar, DP Suwandi, IK Wibowo, MM Bachtiar, IH Tambunan, D Silaen, F Michael, BA Sihotang, KG Sitanggang, RA Fatekha, BS B Dewantara, H Oktavianto, A Firasanti, A Sujatmiko, A Fahrurozi, EA Z Hamidi, MA Ismail, D Purwanto, A Arifin, V Tadic, A Toth, Z Vizvari, M Klincsik, Z Sari, P Sarcevic, J Sarosi, I Biro, L.-F Tu, Q Peng, A Abdelsalam, M Mansour, J Porras, A Happonen, L Göncz, A Majdik, S Susanto, JA Ricardo Silitonga, R Analia, ER Jamzuri, DS Pamungkas, M Bordado, D Silveria, G Laureano, R Deepa, E Tamilselvan, ES Abrar, S Sampath, B Tian, D Zhang, C Zhang, X Luo, K Quan, Y Liu, M Esfandiarpour, SM Mirshabani, EM Miandoab, Int, Mach, Y Feng, W Su, S Liu, W Lu, S Setiawardhana, BS B Dewantara, AT Huda, AH Z Ilahi, FP Nurmaida, SN Hamida, C Ryando, ZD M Fasya, R Farkh, MT Quasim, K Al, S Jaloud, ST Alhuwaimel, Siddiqui, C Yukawa, T Oda, N Saito, A Hirata, K Toyoshima, K Katayama, X Zhao, L Wang, Y Zhang, X Han, M Deveci, M Parmar, I Ćirić, N Ivačko, S Lalić, V Nejković, M Milošević, D Stojiljković, D Jevtić
+Authors: Politeknik Elektronika, Negeri Surabaya, M Udin, Harun Al Rasyid, GW K Moore, JL Semple, F González, O Villegas, D Ramírez, V Sánchez, H Domínguez, V Cojocaru, D Vrabii, AS Abiodun, MH Anisi, MK Khan, A Ali, Y Ming, S Chakraborty, S Iram, C Savaglio, P Pace, G Aloi, A Liotta, G Fortino, MT I Ul Huque, KS Munasinghe, A Jamalipour, Y Qu, G Zheng, H Ma, X Wang, B Ji, H Wu, T Le, S Moh, MU H A Rasyid, FA Saputra, A Christian, MU H Al Rasyid, AA Pranata, B.-H Lee, FA Saputra, A Sudarsono, Y Xu, Z Huang, S Yang, Z Wang, B Yang, Y Li, V Varghese, MJ Nene, LD Nardis, D Domenicali, M.-GD Benedetto, HA Sabti, DV Thiel, MA Rusli, S Takayama, A Kos, A Umek, T Wu, F Wu, J.-M Redoute, MR Yuce, S Ahmed, M Saqib, M Adil, T Ali, A Ishtiaq, E Jovanov, JN S Rubi, PR L Gondim, M Ghamari, B Janko, RS Sherratt, W Harwin, R Piechockic, C Soltanpur, G Wolgast, C Ehrenborg, A Israelsson, J Helander, E Johansson, H Manefjord, J Kang, H Larkin, B Venema, S Leonhardt, AS Mahmood, E Jafer, S Hussain, X Fernando, E Baba, A Jilbab, A Hammouch, S.-S Lin, C.-W Lan, H.-Y Hsu, S.-T Chen, J.-L Bayo-Monton, A Bayo-Monton, W Han, C Fernandez-Llatas, Y Sun, V Traver, SS Fakhrulddin, SK Gharghan, A Al-Naji, J Chahl, YJ Jeon, SJ Kang, EE Egbogah, AO Fapojuwo, X Yang, L Wang, Z Zhang, A Alhayajneh, AN Baccarini, GM Weiss, T Hayajneh, A Farajidavar, X Tian, M Zhang, JS Ho, M Udin, Al Rasyid (member, Ieee
 
-Abstract: EEPIS Robot Soccer On Wheeled (ERSOW) is a wheeled soccer robot team competing in the Indonesian Wheeled Soccer Robot Contest. The ERSOW goalkeeper robot currently faces a challenge in responding to incoming balls due to delays in image processing, leading to slow movement responses. This delay can be mitigated by implementing a prediction system. By predicting the ball's trajectory, the robot can make timely movements to block shots effectively. This research designs a prediction system using the ZED stereo camera to enhance the goalkeeper robot's responsiveness in preventing goals. The research identifies the ball's position during airborne and ground states using the ZED camera. RGB-D readings are processed with Deep Learning methods to train on ball data and extract 3D object information from the dataset. The ball detection system is tested in three scenarios: right, center, and left positions relative to the robot. Accuracy evaluation is conducted three times for ball coordinates on the X, Y, and Z axes, resulting in X-, Y-, and Z-axis accuracy values of 90%, 80.77%, and 100%, respectively, with a ≤ 5 cm error tolerance. These results allow accurate determination of the ball's X, Y, and Z positions. The ball position data is then trained using Convolutional Neural Networks (CNN) to predict the ball's arrival position for the goalkeeper robot. Evaluation results show an overall accuracy of 70%, with an F1-score of 76% for the left position, 39% for the center position, and 84% for the right position.
-
-Keywords: Ball position prediction, ZED camera, deep learning, convolutional neural network, ERSOW goalkeeper robot
+Abstract: Hypothermia is a state where the body cannot balance the body heat due to excessive cold temperature pressure so that there will be loss of heat in the body. The result will be a quickly decreasing body temperature. A condition where a body temperature is less than 35 • C and that it is accompanied by a decrease in consciousness may cause a death threat. Hypothermia is more common when climbers perform activities in cold temperatures and strong winds, and when they wear wet clothes. It is not easy for a mountain climber to find out his own body temperature as well as that of his friends and to determine whether the body temperature is safe or affected by hypothermia symptoms. Therefore, this research formed a device to detect hypothermia. It consists of temperature sensor, pulse sensor, and accompanied by heating elements based on wireless body area network (WBAN). This device will connect to the user's smartphone by using Bluetooth, so the user can see the condition of his body, adjust the temperature of the heating element, and make a group of climbers. The experiment result shows that the device can detect hypothermia symptoms and inform these symptoms to the users and groups of mountaineers in WBAN area, and the climbers can be more vigilant in responding to hypothermia so that mortality cases caused by hypothermia can be minimized. INDEX TERMS ehealth, heart rate, hypothermia, temperature, wireless body area network.
 
 I. INTRODUCTION
 
-EEPIS Robot Soccer On Wheeled (ERSOW) is one of the robotics teams at Politeknik Elektronika Negeri Surabaya. In addition, the ERSOW team participated in an international level competition in the field of robotics, the Middle Size League Robot Soccer, initiated by the Robocup Federation [1], [2]. The goal of these events, which center on wheeled robot soccer matches, is to build a robot soccer squad that can play independently and compete against the 2050 world champion human soccer team. In the research, The associate editor coordinating the review of this manuscript and approving it for publication was Yongming Li .
+Hypothermia is a condition in which the body's mechanism for temperature regulation has difficulty coping with cold pressure. Hypothermia can also be defined as an internal temperature below 35 • C. The human body can regulate temperature in the thermo neutral zone, which is between 36.5-37.5 • C. Beyond that temperature, the body's response to regulating temperature will actively balance heat production and heat loss in the body. Hypothermia often occurs when climbers are in extreme environments, especially cold temperatures, and due to the health factor of climbers [1].
 
-this soccer robot has implemented an autonomous system that requires the robot to be able to adapt to the surrounding environment and coordinate with other robots without any human intervention [3]. This research is a continuation of previous research, namely creating a ball position estimation system with a neural network [4], creating a wheeled soccer robot navigation system and creating a ball position prediction system based on a stereo minor camera and neural network [5]. There are many research topics on wheeled soccer robots developed such as in the field of computer vision, namely ball detection [6], [7], [8] goal detection [9], [10], detection of enemy robots and friend robots [11], and its localization [12], [13]. The ERSOW robot has been created with a number of basic soccer skills, such as finding the ball, dribbling the ball, avoiding robots from opponents, passing the ball to robot friends, timing to kick the ball into the goal, and so on. ERSOW has several robots, each of which has its own task, such as an attacking robot whose job is to score goals and contribute to the team's attack, a midfielder robot whose job is to help the team's defense, which has the ability to take the ball from the opponent and ward off the opponent's attack, and a goalkeeper robot whose job is to guard the team's goal from the opponent's attack and prevent goals from happening. The goalkeeper robot must have fast reflexes, good reaction speed, and the ability to ward off the ball with high accuracy. This research was conducted to improve the robot's ability to detect and predict the position of the ball. Better robot capabilities can increase the chances of winning in the competition. Predicting the position of the ball is needed so that the goalkeeper robot's ability can run optimally. With ball prediction, the goalkeeper robot will know the position of the direction of the ball's movement. The current problem is that the ERSOW goalkeeper robot still has obstacles in the robot's vision in detecting the ball with extreme light changes that can affect the ball prediction data during a soccer match. Previous research on object detection with Zed cameras has been conducted to see the performance and perspective of the camera, the effect of the camera polarizer and the measurement of the depth of the camera's distance from the object [14]. Research on estimating the distance between the camera and the object has also been carried out using a monocular camera [15]. Based on previous research, the ERSOW team wanted to create and implement a ball position detection system using the ZED camera because the camera has several advantages, namely, the image processing stage can be done inside the camera itself. The system created in this study is needed to increase the ability to detect the ball with the ability to detect the ball with changing lighting changes during the match. The detection ability is equipped with the ability to predict the position of the ball so as not to lose information. The contributions of this research are as follows:
+Extreme situations in climbing environments such as cold air pressure due to high mountains, strong winds blowing, wet clothes, and other extreme factors make hypothermia become a common disease in the climbing areas [2], [3].
 
-• Proposing a system for predicting the position of the ball using the ZED camera because the ZED camera has the ability to detect ball objects with extreme lighting conditions on the Goalkeeper Robot Application.
+The associate editor coordinating the review of this manuscript and approving it for publication was Thanh Ngoc Dinh . Knowledge of safety in climbing is a major factor to minimize the incidence of hypothermia. The problem is most climbers do not know the basics of salvation in climbing. There are still many climbers who do climbing because of hobbies or just having fun without being equipped with health and safety knowledge when climbing. This often results in mishandling of hypothermia victims. Inadequate treatment in victims of hypothermia can cause hypothermia more severe and result in loss of consciousness or fainting. It can even lead to death.
 
-• Proposing a system for predicting the ball's arrival position relative to the robot keeper using CNN. By accurately predicting the ball's trajectory, the robot keeper can better position itself to block incoming balls, thereby increasing its defensive capabilities. CNN was chosen because it can learn features automatically and is easy to integrate with low computing specifications in real-time. The best system performance is obtained by comparing several variations of the CNN method.
+Therefore, to further suppress the incidence of hypothermia among climbers when in the mountains, we are motivated to utilize current technology with the health sector, especially safety in climbing. We develop a wearable device that can be used in climbing so that it does not disrupt the climbers during the move.
 
-The following sections make up the next section of this paper: The design and use of the wheeled goalkeeping robot created by the ERSOW team is covered in general in Section II. Section III presents the system design and development of the proposed method in the form of ball object detection and ball position prediction. The experiments to collect the datasets and the processing techniques are presented in Section IV. Furthermore, Section IV also contains the results of the object detection and ball position prediction experiments which are then summarized in the conclusion in Section V.
+Based on the problem mentioned above, in this paper we propose a health monitoring device embedded into climbing jackets by utilizing Wireless Body Area Network (WBAN) technology. The device can be used by climbers during the climb without reducing the comfort and mobility of the climbers. The device used Arduino Nano as a sensor data processing center while the sensors used are temperature sensors and pulse sensors. The body temperature sensor used in the device is the MLX90615 which utilizes infrared technology so that for temperature measurements it can be done without having to make direct contact with the sensor. As for the heart sensor used is the sensor pulse XD-58C that will be placed on the fingertip of the climber to measure the number of heart beats per minute. This device is also accompanied by a heating element used TEC-12706 peltier. The peltier will connect to the motor driver that serves to regulate the temperature. The device is accompanied by Bluetooth which serves to transmit sensor data to the climber's Android smartphone. The Bluetooth used in this research is Bluetooth v4.0 which has been supported with low energy technology.
 
-II. RELATED WORK A. CAMERA MODE
+Through their Android smartphone, climbers can see the temperature and heartbeat conditions presented in the form of numbers along with their body status. In this Android app, climbers will be given information on how to handle based on current health conditions. In addition, climbers can create climber groups that will connect with other climbers in a group. Group creation uses Wi-Fi Direct technology that allows Android to connect to other Android over Wi-Fi networks. For Wi-Fi Direct usage, one member of a group of climbers must be willing to be the group leader who will become the bridge connecting all members. When climbers are connected to the climbing group, they can see the one another's position and body condition. When the condition of a climber's body worsens, other members will get a notification. The data of worsening body condition will be stored on SQLite Android as history.
 
-Research on 3D sensors and stereo cameras has been widely developed, including the complexity of depth data accuracy from the ZED stereo camera [16]. This study designed and conducted an experiment in an office environment to determine camera depth error and depth estimation using four images of different distances and resolutions. The 3D detection method using the ZED 2 stereo camera is able to integrate stereo vision and artificial intelligence where the accuracy and consistency of depth are set in the camera parameters [17]. Integration of stereo cameras with Tiny-YOLO for distance measurement and object detection coordination system on the BarelangFC Robot with the concept of combining stereo vision data with object detection algorithms [18]. This system uses Tiny-YOLO for real-time object detection and is equipped with accurate distance measurements facilitated by the ZED stereo camera [17]. An innovative approach to change detection in spatial context utilizing stereo vision is presented in the study Object-Based Change Detection Algorithm with a Spatial AI Stereo Camera. This algorithm leverages detailed depth and spatial data provided by AI-enhanced stereo cameras to detect and analyze changes in the environment, proving useful for environmental monitoring and surveillance applications. Table 1 shows the relationship with previous research developments by researchers.
+The main contributions of this study are:
 
-B. BALL DETECTION
+• Design and implementation of a wearable jacket prototype system for hypothermia detection and perform initial treatment with sensors and a heating element.
 
-Research on computer vision for accurate and fast ball detection is conducted by comparing the performance of two detection methods based on convolutional neural networks. Testing techniques are specifically designed for the accuracy and response speed of the system that has been created [20]. Previous research has created a ball detection and tracking system for the Soccer Humanoid League Kidsize using the You Only Look Once (YOLO) method based on an embedded system [19]. Other researchers improved the detection accuracy of high-speed moving balls on sports fields with the YOLOv8 algorithm because it can operate quickly and accurately [21], [22], [23]. Researchers have also created a Robot Operating System (ROS) that combines lidar, IMU, camera, and YOLO algorithm so that the robot can pick up the ball. The robot has the ability to adapt so that it can position and map the dynamic environment [24].
+• Design and execution of a case study that proves the suitability and usability of wearable jacket sensors in climbing activity.
 
-TABLE 1. The proposed system with related works.
+• The concept of real-time hypothermia feedback from system and information sharing of the body conditions to a group of climbers in the same network using Wi-Fi Direct technology without having to connect to an internet connection. This article is structured as follows. Section 2 describes previous related studies. Section 3 describes the system, the hardware, and the software architectures. Section 4 describes the methodology which contains experimental setup and algorithm to determine the health condition of the climber in detail. Section 5 describes the evaluation of experimental results. Finally, concluding remarks and plans for our future work are provided in Section 6.
 
-C. TRACKING AND PREDICTION
+II. RELATED WORK
 
-Several studies have developed many CNN methods or convolutional neural networks for object prediction applications such as balls, humans, and others. CNN can also be used for object detection and position prediction in three-dimensional environments because of its ability to extract complex visual features from image data taken from the camera. The CNN method is able to process image data in two dimensions, such as applications for detecting the position of the ball in real-time for goalkeeper robots [4], [5], [25]. The CNN method is also used for several mobile robot-vision applications [26], [27] such as service robots or collaboration of several industrial robots [28], [29]. This research aims to build a combination of ZED camera devices with CNN methods that have been used in previous research to detect and predict the position of the ball in the goal area. This model scenario is to be able to reach all lighting conditions with a camera that has artificial intelligence features. The CNN model as an intelligence feature is added so that the system can predict the position of the ball with a ZED camera that has features that can overcome changes in light intensity levels.
+WBAN sensor nodes collect biological signal data from patients over a long period of time. The data is wirelessly sent to the server, stored on the server for further processing, and used as a reference to determine an important decision [4], [5]. Sensor nodes require special communication methods to save energy to extend the network lifetime [6]. Several classifications of routing protocols for WBAN were used to send data from sensor to server such as posturebased routing, temperature-based routing, cross layer routing, cluster-based routing, and QoS-based routing to gain energy efficient routing protocols for WBAN healthcare system [7], [8]. The interference mitigation methods in WBAN such as power control approach, MAC approach, cognitive radio approach, ultra wideband (UWB) approach, and signal processing approach is important to increase data sending reliability [9]. WBAN technology can be used in various fields of application such as health [10], [11], transportation [12], military [13], and sport [14]- [17].
 
-III. HARDWARE AND SOFTWARE ARCHITECTURE
+Many researchers have conducted research related to the use of WBAN and internet of things (IoT) [18]- [21] in various fields, especially in the health sector. Ghamari et al. [22] provided a WBAN system for elderly and patients remote monitoring in residential environments. Wolgast et al. [23] designed WBAN to detect heart attack using ECG sensor and send the data to smartphone through wireless Bluetooth. Kang et al. [24] proposed a smart device to monitor vital signs such as heart rate, body temperature, and respiration rate. Venema et al. [25] proposed a monitoring system during high altitude activities using in-ear pulse oximeter and Photoplethysmography (PPG) to monitor blood oxygen (SP02) and heart rate. Mahmood et al. [26] proposed WBAN to monitor heart rate and fall detection using electrocardiography (ECG), temperature, and accelerometer sensors. Baba et al. [27] proposed WBAN application for health remote monitoring to measure breathing, heart rate, ECG, and SPO2. Lin et al. [28] proposed wearable heat stroke detection to evaluate and predict the occurrence of a heat stroke for a runner. Monton et al. [29] proposed e-health prototype merging from five health sensors, i.e., ECG, EMG, Temperature, Airflow, and GSR. Fakhrulddin et al. [30] proposed an advanced first aid system (AFAS) to monitor elderly persons from risk of falling using accelerometer sensor and heartbeat sensor. Jeon et al. [31] developed wearable device called sleep care kit to measure real-time multiple bio-signals such as SPO2, body temperature, and respiration to determine sleep quality and calculate the risk of sleep apnea. Moreover, some researchers also pay attention to WBAN technology in terms of energy consumption [32], [33], security authentication [34], and signal transmission [35].
 
-The process of system completion involves multiple stages that are intended to accomplish the objectives of the research.
+In this article, there are several innovations or uniqueness compared to the related researches mentioned above. This research focuses more on making jackets to be worn by mountain climbers. Some electric jackets are only designed to simply warm the body with certain intensity, but in this study, we make an electric jacket that is able to detect hypothermia based on body data such as heart and temperature, and a climber can see the condition of his body in a visual displayed on his smartphone of the climber. The jacket is designed to perform early detection of hypothermia symptoms so that the jacket will automatically be able to warm the body of the climber and send notification messages through the climber smartphone. Furthermore, the body data can be sent to a group of friends with the assumption that there is no internet connection at the case study site in the high mountain. Table 1 shows the comparisons of the proposed system with related works in terms of application domain, sensor modules, wireless communication, monitoring device, and the benefits of the system.
 
-Every phase is meticulously organized to guarantee that every facet of the investigation is appropriately handled and carried out. When the ZED camera on the goalkeeper robot detects the ball, the first step is to determine whether the ball is detected or not. If the ball is not detected, the process of capturing images and analysis will be repeated continuously until the ball is successfully detected by the camera. Once the ball is detected, information about the ball's position is sent to the goalkeeper robot for further processing. Fig. 1 shows the overall robot system where the camera is useful for obtaining information about the ball on the field. At this stage, the goalkeeper robot will examine the information it receives from the ZED camera using a prediction algorithm. This algorithm aims to estimate the ball's position based on the images and data captured by the camera. Machine learning techniques, in particular Convolutional Neural Networks (CNN), are used in the prediction process. These networks have been trained with a dataset that contains a variety of probable ball placements.
+III. SYSTEM ARCHITECTURE
 
-The predicted ball position is then classified into one of three main categories: left, center, or right. This classification helps the robot understand more specifically where the ball is likely to move. Consequently, the goalkeeper robot can respond more quickly and accurately to block the ball. Based on this prediction, the robot will take appropriate action, such as moving left, right, or staying in the center, to block the ball and prevent a goal. This process of detecting, analyzing, and predicting the ball's position is a crucial part of the goalkeeper robot's defense system in robot soccer. By utilizing the ZED camera technology and advanced machine learning algorithms, this system is designed to enhance the speed and accuracy of the robot's response to the ball's movement, thereby increasing the chances of successfully blocking goals from the opposing team.
+We built an initial detection and treatment system for climbers by utilizing WBAN technology to monitor the condition of the climber's body as shown in Fig. 1. The system was designed to monitor climbers' body temperature and heart rate, and to do the initial handling such as warming the temperature of the jacket using a heat element. Several sensors and other components were used, namely the pulse sensor that was used to get climbers' heart rate data, the MLX90615 temperature sensor that was used to get the climber's body temperature, the DS18B20 temperature sensor that was used to get the temperature of the heater, and the peltier that was used for the jacket heater. The sensors and components were installed on an Arduino microcontroller device and the circuit was embedded in a jacket. The values of the climber's heart rate and body temperature were combined to get a correlation as a determination of the climber's condition. Delivery of values was done in 2 ways, namely idle mode and active mode. This was done for efficient use of resources. The data were sent directly to the end device and execute the action point. Action point is a device of hardware consisting of motor drivers and peltiers. This action point was used to regulate the high and low temperatures of the heating element. This circuit was directly connected to Arduino. Users could adjust the temperature of the heater by sending data to Arduino and the data would be forwarded to the action point.
 
-A. HARDWARE ARCHITECTURE Fig. 2 shows the hardware architecture of the ERSOW team goalkeeper robot. This architecture includes key components such as the ZED 2i Camera and mini-PC. The ZED 2i Camera serves as the robot's vision system, providing the visual data required for navigation and object detection. The mini-PC acts as the brain of the system, effectively analyzing the information from the camera and directing the robot's motions. The combination of these two components allows the robot goalkeeper to operate with high precision and reliability in robotic soccer matches. The ZED Stereo camera, manufactured by Stereolabs, is the first sensor to offer depth awareness both indoors and outdoors across larger distances (up to 20 meters). The ZED 2i Stereo camera is a device that attempts to replicate human vision. Due to the approximately 65mm horizontal separation between human eyes, each eye sees a situation slightly differently. Using two lenses can provide 3D information of an observed scene, allowing developers to add 3D depth information to robotics navigation, skeleton tracking, object detection, position tracking and mapping, and other applications. Via a USB 3.0 interface, the output data is high-resolution side-by-side color video. The ZED program on the host computer uses the two synchronized left and right video streams in this movie to create a depth map of the scene. The camera records a distance value (Z, in metric units) for every pixel (X, Y) in the picture, measured from the left lens's back to the scene object, and saves it in the depth map. Fig. 3 shows that the depth map captured by the ZED camera stores a distance value (Z) for each pixel (X, Y) in the image. These distance values are expressed in metric units (e.g. meters) and are calculated from the back of the camera's left eye to the objects in the scene. Such depth maps cannot be displayed directly because they are encoded in a 32-bit format.
+The climbers could use an Android smartphone to access data sent by a microcontroller. Android application makes it easy for climbers to find out their body condition in terms of temperature and heart rate. The climber could regulate the temperature of the heating element on the jacket using the Android application. The climber could form a group of climbers and share the information of body conditions on the Android application. The climber and group members could connect each other using Wi-Fi Direct technology so that climbers could use this feature without having to connect to an internet connection.
 
-In order to display this depth map, an 8-bit monochrome (grayscale) representation with values between 0 and 255 is required, where a value of 255 represents the closest possible depth distance and a value of 0 represents the furthest possible depth distance.
+In this research there are 2 architectural designs, namely hardware and software. The architectural design of the hardware will be applied to the climbing jacket, while the software architecture design will be applied to Android smartphones.  This study used data from temperature sensors and heart rate sensors as indicators for determining the condition of the climber's body. Data from the two sensors were processed to obtain an output value to get the climber health code. Data transmission was done wirelessly via a Bluetooth communication network.
+
+A. HARDWARE ARCHITECTURE
+
+In regard to data transmission based on the available time, there are 2 modes of sending data on this device. Idle mode is a mode that is used to increase the efficiency of the data source used. This mode will be active when the climber closes
+
+TABLE 1. Comparisons of the proposed system with related works.
+
+the application. This mode will send data to Android with a time delay that is every 1 minute. Thus, the process of sending data will occur once every 1 minute and it can minimize the power for the sending process. Although data is sent once every 1 minute to Android, data from the sensor will still be retrieved at any time. This is to avoid delays in information about physical health while in active mode the data will be sent every 5 seconds. This mode will be active when the climber is using or opening the application. This mode allows climbers to see the condition of the body in more real-time.
+
+The communication of action point with Arduino still used cable. Arduino would get data from both sensors; data from both sensors would be calculated and would have an output code. If the output code shows that the climber was in a less prime condition, Arduino would send a command to the action point to activate the heater. The action point would issue a voltage in accordance with the Arduino command, and then the voltage would be converted into heat using a peltier.
+
+Through the Android application interface, climbers could access data directly from Arduino using a Bluetooth connection. Sensor data obtained would be displayed in the form of numbers with clear units along with a message or description of the climber's body condition. There was also some handling information related to early prevention of hypothermia patients. Users could measure temperature and heart rate more intensely in the Android application. In addition, users could form a group of climbers who could connect with existing climbers. With this feature, climbers could share the condition of their bodies with other climbers. In the case of hypothermia, body data would be stored in Android data storage and a notification would be displayed for climbers when the Android application were opened.
+
+The proposed hardware device consists of:
+
+1) ARDUINO NANO Arduino is an open source single-board micro controller designed to facilitate the use of electronics in various fields. Arduino Nano uses ATmega 328 microcontroller with AVR architecture. It requires 5V for power operation with 19mA power consumption. It has 32KB flash memory and 2GB SRAM with a clock speed of 16MHz. Arduino has 22 digital I/O pins, 6 of which are PWM pins. Each pin I/O has a current of 40mA. Arduino Nano size is 18 × 45mm with 7g weight.
+
+2) PULSE SENSOR
+
+Pulse sensor was used to retrieve the heart rate data of climber's body. Heart rate data was used to determine whether the climber was experiencing tachycardia or bradycardia or normal condition. Pulse sensor has a diameter of about 16mm with a thickness of 3mm, working on voltage 3V to 5V with power consumption of about 4mA.
+
+3) TEMPERATURE SENSOR -MLX90615
+
+Temperature sensor MLX90615 was used to obtain climbers' body temperature data. The data would determine whether the climber suffers from hypothermia. The temperature sensor MLX90615 can receive a voltage of 5V with an operating voltage of 3.6V. This sensor can measure 2 types of temperature i.e. object temperature and ambient temperature.
+
+The measured temperature range of the MLX90615 sensor is -20 • C to 125 • C.
+
+4) TEMPERATURE SENSOR -DS18B20
+
+Temperature sensor DS18B20 was used to determine the temperature of peltier. It allowed the climber to see the peltier temperature on the jacket. The DS18B20 sensor is a digital temperature sensor that uses the one-wire communication method. This sensor uses a voltage of 3V to 5V, and it can measure the temperature from -55 • C to 125 • C with an accuracy of about 0.5 • C.
+
+5) PELTIER
+
+Peltier was used to increase the temperature in the jacket.
+
+Peltier is a Thermo-Electric component. When this component has a voltage, it will move heat from one side to the other, so it can produce 40 • C to 70 • C heat. Peltier has dimensions of 40 × 40 × 4mm with 29g weight.
+
+6) MOTOR DRIVER -L298N
+
+The motor driver was used to adjust the voltage to be supplied to the peltier so that the temperature on the peltier can be adjusted according to the climber's preference. This research used motor driver L298N with power supply 5V to 46V. It has a maximum power of 25W and a working temperature of about 25
+
+• C to 130 • C. The dimensions of the L298N are 60 × 54mm with a weight of 48g. 7) BLUETOOTH v4.0 BLE Bluetooth was used to transmit climber health data obtained from previous sensors to the climbers' Android. This research used Bluetooth v4.0 with HM-10 type which comes with Low Energy technology. This Bluetooth works on a 24 GHz ISM Band frequency with GFSK modulation method. It has asynchronous and synchronous speed of 6K bytes and uses authentication and encryption security methods. This Bluetooth works on voltage + 3.3V 50mA.
+
+8) BATTERY
+
+The jacket used Li-Po (Lithium Ion Polymer) type battery which has bigger capacity and is not easily depleted, making it suitable for climbing which takes at least 2 hours to reach the inter-point travel post.
 
 B. SOFTWARE ARCHITECTURE
 
-This research uses the ROS system because it has the ability to integrate camera sensors with artificial intelligence methods and several other combined sensors in the robot. Fig. 4 shows the basic communication system for accessing the ZED camera on the robot. Image information is acquired over time and processed in real-time.  The prediction system that has been created using the CNN algorithm tries to change the layer parameter model to get the best results in classifying the position of the predicted direction of the ball. The dataset was collected as shown in Fig. 6. The CNN design used is as in Fig. 7 and equations ( 4) to (9). Convolutional Neural Network (CNN) is a type of artificial neural network specifically designed to process two-dimensional grid-shaped data, such as images. The convolution layer, pooling layer, and fully connected layer are the three primary hierarchical layers of a CNN. The central component of a CNN is the convolution layer, where different visual elements like edges, textures, and patterns are detected by applying filters or kernels to the input. A feature map reflecting the position of a certain feature in the original image is produced by the convolution layer's filters scanning the entire input. The way that neurons in the human brain react to visual stimuli is comparable to this mechanism.
+It includes an Android, Bluetooth Gatt. Wi-Fi Direct, and SQLite.
 
-The pooling layer, which comes after the convolution layer, is meant to combine key information and lower the dimensionality of the feature map. Max pooling, which chooses the maximum value within each condensed area of the feature map, is a frequently used kind of pooling. This lessens the number of parameters that must be computed and increases the model's resistance to slight variations in the input features' locations.
+1) ANDROID
 
-CNNs typically have multiple sets of successive convolution and pooling layers, which allow the network to detect increasingly complex features at each layer. Early layers may detect simple edges and lines, while deeper layers may detect more complex objects, such as specific shapes and patterns.
+Android is a Linux-based operating system designed for touch-screen devices such as smartphones and tablets. In general, Android application programming uses Android Studio with Java programming language and Kotlin. In this research, the Android application was connected with hardware devices via Bluetooth which serves to display the results of data collection of temperature sensors and pulse sensors. In addition, the Android app could adjust the heat level of peltier, save history of accidents caused by hypothermia, and enable group creation to share health data.
 
-The final input is supplied into the fully connected layer after passing through several convolution and pooling layers. Every neuron in this layer is connected to every other neuron in the layer before it, enabling the network to compile the features that were taken out of the earlier levels and come to a conclusion. An activation function that aids in the final classification, such as ReLU (Rectified Linear Unit) or Softmax, typically follows this completely connected layer.
+2) BLUETOOTH GATT
 
-This study designs and implements appropriate parameter values in each layer of the CNN used. Previous researchers have created several methods for artificial intelligence that have been tried to be implemented on the ERSOW robot. These methods are Label Propagation, Extra Tree Classifier, Ridge Classifier, Linear SVC, Passive Aggressive Classifier, AdaBoost, Label Spreading, Nearest Centroid, GaussianNB, and Dummy Classifier
+Bluetooth Gatt is an architecture built on the Attribute Protocol (ATT). Bluetooth Gatt was used to determine the way two low energy Bluetooth devices send and receive data, starting from searching Bluetooth connection until the process of exchanging data from Android applications with hardware devices. Unlike the use of non-low-energy Bluetooth, to connect Android hardware devices that use low-energy Bluetooth, the architecture of Bluetooth Gatt had to be used.
+
+3) Wi-Fi DIRECT Wi-Fi Direct or Wi-Fi P2P (Peer to Peer) is a standard Wi-Fi that allows direct connection without access point. Thus, Wi-Fi Direct allows multiple devices to connect one another. Wi-Fi Direct has a concept like ad-hoc. The difference is Wi-Fi Direct using single radio hop communication whereas ad-hoc mode Wi-Fi uses communication of multiple radio hops. By using Wi-Fi Direct technology, communication between devices will be like using Bluetooth. The device can communicate with the typical speed of Wi-Fi. Wi-Fi Direct can connect devices even if the device comes from different manufacturers. To use Wi-Fi Direct technology, there must be at least one supported Wi-Fi device with Wi-Fi Direct, this is to enable peer-to-peer connections between devices.
+
+In this research, Wi-Fi Direct was used to connect user climber app with the climbing group. Therefore, it was required that in one climber group be one group leader who would make Wi-Fi Direct network. Other member's data would be sent thoroughly to all members group using this Wi-Fi Direct technology.
+
+4) SQLite
+
+SQLite is a relational database system that is ACID-compliant and has a relatively small code library size. SQLite is not a system that only communicates with the program, but also as part of an overall program. The API calling, or its use, is done directly by programming language. In the Android app, SQLite is considered as a local database, so the data storage is processed using Android programming language i.e. Java or Kotlin. Because of its direct use of the programming language, SQLite can reduce overhead, latency, and more. Some of the advantages of SQLite are easy to manage, very stable, expandable, very fast. Additionally, it uses the WAL (Write-Ahead Logging) mode that allows SQLite to read and write simultaneously.
 
 IV. METHODOLOGY
 
-The diagram of the dataset creation and ball position prediction process illustrates the sequential steps involved in capturing images from the goalkeeper robot's camera, labeling images, creating a dataset directory, and training the YOLO model. The process continues with activating the camera, loading the deep learning model, reading RGB-depth images, extracting coordinates, and collecting ball position data. The dataset is then created and used to train the CNN model, which predicts ball positions, leading to the final prediction output.
+Symptoms of hypothermia disease should be known by the climber so that handling is given more quickly and effectively. This research made a hardware and software device that aims to facilitate the detection and handling of hypothermia disease. The hardware devices would be put on a climbing jacket. The hardware device consisted of several sensors, microcontroller, Bluetooth, and heating elements. The sensors used were temperature sensors and pulse sensors. The temperature sensor were connected to Arduino by using SCL pin and SDA pin while the pulse sensor connected with Arduino using pin A0. Temperature sensors would be placed in the area near the armpits because in that area the body temperature measurement can be done more effectively. Temperature sensor would take the temperature of the object i.e. body temperature and sends it to the microcontroller. The pulse sensor would be placed on the fingertip of the climber because the pulse sensor was designed to more effectively read the signal on the palm area. The pulse sensor data would also be sent to the Arduino which would then be used as parameters to determine whether the climber is hypothermic or not. In Arduino there are 4 categories of health, namely ''healthy'', ''rest'', ''hypothermia'', and ''emergency''. The ''healthy'' category means the climber was in excellent shape to continue the activity. Category ''rest'' means the climber is in a less than excellent, it is advisable to rest first to avoid hypothermia. Category ''hypothermia'' means climbers are in a state of being hypothermia, immediately do the appropriate treatment. Finally, the category of ''emergency'' means climbers in a state of serious hypothermia, call on reinforcements and get to the nearest hospital. In addition, the automatic heater in the jacket would begin to heat up to warm the climber when climbers were in abnormal circumstances. There was also a temperature sensor that had a function to measure the temperature of the heater; this sensor was connected to the Arduino using pin D5. Sensor data would also be sent to the climber smartphone by using Bluetooth. The Bluetooth was connected to the Arduino using RX pin and TX pin.
 
-The process begins with image capture using a ZED 2i camera mounted on the robot goalkeeper. These images are then stored in the dataset directory for the labeling process. The labeling process is done to mark the position of the ball in each image, which is then used to train the object detection model using YOLO (You Only Look Once).
+Regarding the software, the system used Android operating system for smartphone application development. Android would receive sensor data from the device via Bluetooth in real time. The sensor data would then be displayed in the form of numbers and graphics on the user interface. There were also features to join or create a group of climbers using Wi-Fi Direct technology. With these features climbers could connect to other climbers in one group. Climbers could see each other's health and position. The last feature was health data storage. The stored health data is the health data of the climber when attacked by hypothermia.
 
-Once the object detection model is trained, it is loaded into the system for the ball detection process. The system uses RGB images and depth information from the ZED 2i camera to detect and identify the position of the ball in X, Y, and Z coordinates. This information is then extracted from the images processed by the system.
+Fig. 3 shows the experimental setup in which the overall components are connected to the Arduino board. Sensors, motor drivers, and Bluetooth were connected to Arduino pins while peltier and battery are connected to motor driver.
 
-With the camera active, the system continuously reads the position of the ball and performs detection using the trained deep learning model. The detected ball position data is then collected and stored for use in the ball prediction training process.
+This research designed a simple algorithm to determine the health condition of the climber as shown in Fig. 4. This algorithm serves to combine data from the sensor into an output value (condition code). It aims to facilitate the determination of conditions and information that will be given to climbers.
 
-The ball prediction training process is performed using a Convolutional Neural Network (CNN). The ball position data that has been collected from the detection process is used to train the ball prediction model. The purpose of this training is to generate a model that can estimate the ball's arrival position based on previous position data, allowing the robot goalkeeper to react faster and more accurately.
+In one end device, there are two sensors (temperature and pulse sensors) to determine the state of the climbing body and one sensor (temperature sensor) to determine the condition  of the jacket. Combined sensor data only sensor data that serves to determine the condition of the climber's body. Sensor data will be processed using the condition determination algorithm. This data will be a parameter to enable the heating element on the jacket.
 
-Once the ball prediction model is trained, it is implemented in the robot goalkeeper system. The system was then tested to evaluate the performance of ball position detection and prediction. The tests were conducted with three different scenarios: when the ball is on the right, center, and left side of the robot.
+The temperature sensor of type MLX90615 was used to observe body temperature of climbers while the temperature sensor type DS18B20 was used to observe the state of the peltier temperature to adjust the jacket temperature. The body temperature sensor data would be divided into 4 categories, namely normal, mild hypothermia, moderate hypothermia, and severe hypothermia. Each category would be given a code to determine the next condition. The greater the code, the more severe the condition is. This is as shown in table 2. Heartbeat or pulse sensors of type XD-58C were used to observe heart rate or climber's pulse. Data from sensor pulses would be divided into 3 categories, namely normal, tachycardia, and bradycardia. Just like the previous sensor under any conditions, codes would be given for determination of the next condition. The greater the code the more severe the condition is. This is as shown in table 3.
 
-A. LIMITATIONS OF THE METHOD
+TABLE 3. Heartbeat sensor code.
 
-While the methodology employed in this study shows promising results in improving the accuracy of ball position prediction, several limitations need to be addressed:
+Where, Normal = 100 bpm -60 bpm, Tachycardia, the beat is more than the normal limit => 100 bpm, Bradycardia, and the beat is less than the normal limit = < 60 bpm.
 
-Lighting Sensitivity: The ZED 2i camera and the CNN-based model show sensitivity to extreme lighting conditions, such as very bright or low-light environments. Under these conditions, the quality of image data is reduced, which can negatively impact the accuracy of ball detection and position prediction.
+This code processes the input value of each variable (sensor value) as a parameter to issue a climber's health condition code. After all the sensor conditions get a code, the sensor code will be mutated with another sensor code. Subsequently, it generates some code in 2-digit numbers. This code will later be included in the algorithm in determining the health condition of the climber. The result of code in 2-digit numbers of the two sensors is shown in table 4. The permutation result shows the pattern of code for the determination of condition. Furthermore, the parameters are selected for the grouping of health conditions, namely healthy, rest, hypothermia, and emergency. This is the condition that will be used to determine the activation of the action point and the determination of message handling that will appear in the Android app. The number of possibilities formed from the permutation of the sensor code is 12 possibilities as shown in table 5.
 
-High-Speed Ball Detection: The current model struggles to maintain accuracy when the ball is moving at high speeds. This indicates that the dataset used for training might not fully represent the range of ball speeds encountered in real soccer scenarios, leading to less reliable predictions in high-velocity situations.
+TABLE 5. Possible condition.
 
-Overfitting in Training: During the training phase, overfitting was observed, particularly between epoch 41 and 60. Although the model performs well on the training data, its performance on unseen validation data fluctuated, indicating that the model may have learned patterns specific to the training set but may not generalize well to new data.
+To increase the effectiveness data packets transmission on end devices, this study used an algorithm with 2 modes of delivery as shown in Fig. 5. Idle mode allows the end device to send data when the Android climber application is in a closed state. The data will be sent once a minute to minimize power output. Whereas the active mode allows the end device to send data when the climber is actively using an Android application, or the application is open. Data in this mode will be sent every 5 seconds so that climbers can find out the condition of the body in real time. Although sending data from Arduino to Android has a delay, data retrieval from the sensor to Arduino is done at any time. The form of data sent is JSON String. This is to facilitate parsing on Android programming. The data transmitted are body temperature sensor data, heart rate data, peltier temperature sensor data, and condition codes. This JSON data will be sent during active mode.
 
-Camera Dependence: The system is heavily reliant on the quality of RGB and depth data from the ZED 2i camera. Any issues with camera calibration or environmental interference could degrade the accuracy of the position prediction. Furthermore, the system's performance could be impacted by noise or limitations in the depth measurement at certain distances.
+Fig. 6 shows the workflow of the end device in the data retrieval and transmission. At the beginning of the microcontroller work, the first thing to be processed is the initialization of the existing header file and the specified variable, other variables, the setup function, and the loop function. In the setup function, the end device will read data from the installed sensor i.e. temperature sensor and heart sensor. If the sensor is successfully activated, it will read condition code; otherwise the program will return to the start of activate sensor step. The sensor data will be sent via Bluetooth. Access to the action point is also done on the function to set the temperature of peltier. Fig. 7 shows the workflow of action point. The action point is a series of components consisting of driver motor L298N and peltier. This circuit will be used to increase the temperature of the jacket so that the climber's body temperature is not lost due to the cold environmental temperature.
 
-1) BALL DETECTION TRAINING a: CAPTURE IMAGE FROM CAMERA OF THE GOALKEEPER ROBOT
+The action point communicates directly with the Arduino by connecting the input pin cable to the Arduino. By default, the condition of the action points is 0 or off. Users can set the output of the action point by changing the PWM pin value on the Arduino. In addition, the action point can change its value automatically when the health condition of the climber is hypothermia or emergency.
 
-The image data capture process was carried out using ZED 2i cameras mounted on the center and front sides of the robot goalkeeper. This strategic placement ensures optimal visual coverage of the pitch and ball, allowing the camera to record information with high accuracy. This camera position is important to ensure the image data covers various aspects of the game, both when the ball is on the field and in the air.
+The database used in this study was SQLite database system as shown in code 1 (database sensor schema). SQLite provides quick and easy access, and it was programmed using Android programming language i.e. Java or Kotlin. The _id field is unique and different on each saved data. Field amb, obj, and heart are fields used to store sensor data while the field code will load the health code of the climber. There is also a latitude and longitude field to store the climber's position. In addition, there is timestamp column containing the time and date data, and they are stored in the database. The SQLite database was used on the Android, so the data to be stored must be sent first from Arduino to Android. On the Android, sensor data from Arduino will be sorted first to determine which data will be stored in the database. The data to be stored in the SQLite database provide the information about whether the climber is experiencing hypothermia. The data that show good health will not be stored in the database but will still be displayed on the climber's Android.
 
-b: LABEL THE IMAGE
+V. EXPERIMENTAL RESULTS
 
-Once the image is captured, the next step is to label the image. Image labeling is done by marking the object to be detected, in this case, the ball. This process is important to provide the data required by the model to learn to recognize objects.
+The hardware device that has been set up will be placed on a black box to make it look neater, to minimize the lost data, and to avoid short-circuit between the components. Some components to be stored in the black box are Arduino, Driver Motor, Bluetooth, and all the other connectors like connector, battery, and peltier sensor as shown in Fig. 8. Sensors, batteries, and peltiers will remain connected to Arduino using cables. The position of the sensor and other components can be seen in Fig. 9. The MLX90615 temperature sensor will be placed around the armpit area because in that area the temperature is not affected by skin temperature or the temperature of the outside environment. In addition, the area is often used by doctors or nurses to determine the condition of the patient's body. The pulse sensor will be placed on the palm of the hand more precisely on one of the climbers' fingers. This is because the skin in the area is thinner than the outer skin of the hand, making it easy to read the heart rate of the body. The position of the peltier and the DS18B20 temperature sensor are put together, because the DS18B20 temperature sensor will be used to find out the amount of heat generated by the peltier. The peltier is positioned in the front of the body, between the chest and abdomen. Some other peltier be placed on the back of the body, i.e., the shoulder or back. The software development system was implemented in two parts. The first part was through a software algorithm to get data and to transmit them to Arduino. The second part was the features provided in the application, along with the technology used.
 
-c: CREATE DATASET
+In the first section, to connect Android apps with enddevice hardware, the technology of Bluetooth GATT was required because it uses Low Energy. The Android app must enable approval for Bluetooth and Location in order to perform Bluetooth device's end-search devices. Bluetooth GATT already has a feature to detect whether the Bluetooth is connected, disconnected, and able to read the data sent via Bluetooth. By default, Android will accept all data displayed in serial Arduino on the end device as shown in Fig. 10.
 
-This dataset will be fed into the object detection model in order to train it. In order for the model to detect objects in various situations, the dataset should include various positions and lighting conditions. This includes variations in the camera's angle of view, the distance between the camera and the object, and the intensity and direction of light. By including images in bright, dim, shadowed, and shadowless conditions, the model will be more robust and able to recognize objects with high accuracy in diverse realworld conditions. This variation ensures that the model does not rely solely on specific visual patterns, but can generalize to new situations that may be encountered during actual operations.
+Fig. 11 shows the flow of data retrieval. The data will be processed and analyzed whether the climber is in a hypothermia state or not. The data will only appear as normal information data if not hypothermia. On the other hand, if hypothermia, the data will be entered into the SQLite database as hiking health history data. Furthermore, if the climber has a climber group that has been connected, the data will be broadcasted to all existing members. Additionally, if the climber minimizes the application, the climber will get notification about the circumstances of his body. In addition to receiving data from the end device, the app can send data to the end device. This allows the Android app to change the  state and set the temperature that will be released by the action point device.
 
-d: TRAIN YOLO MODEL
+The second section is in the Android app. There were 3 main features that could be used by climbers. The first feature was the climber's health monitoring of as shown in Fig. 12. This feature allows climbers to see the state of the body such as heart rate that is shown in units of bpm, as well as the temperature that is shown in degrees Celsius. In addition, climbers could measure the temperature and the heartbeat presented in graph. In this feature, there are several messages for climbers about the condition of the climber, as well as further handling when the climber is in a state of hypothermia. Climbers could adjust the jacket temperature by regulating the peltier temperature through the features available in Android Apps.
 
-At this stage, the YOLOv8 (You Only Look Once version 8) model is trained using the prepared dataset. YOLOv8 is the latest version of an object detection method that is renowned for its efficiency and speed. In the training process, the model will learn to recognize and detect various objects in pre-labeled images. This training involves optimizing a loss function designed to minimize the difference between the model's predictions and the ground truth labels. The loss function in YOLOv8 takes into account errors in prediction of bounding box position, bounding box size, and object classification. The training process is performed using backpropagation and stochastic gradient descent techniques to update the model weights until it reaches the desired level of accuracy. The trained model is then evaluated to ensure high object detection performance on previously unseen test images. The innovations in YOLOv8 enable improved detection accuracy and speed, making it a highly effective tool in various object recognition applications.
+The second feature was a feature to form or search for climbing groups. By utilizing Wi-Fi Direct technology, it can connect to each other using a wireless network. This feature does not require connection to the internet so there is no need to worry if there is no network signal on the climbing site. To form groups, climbers must first define the group leader; the chairperson must create a group so that other members can join the group. Members who have joined can exchange data of health and locations. A group member can see the position and state of health of other members. This feature is shown in Fig. 13.
 
-2) BALL DETECTION a: ACTIVE THE CAMERA
+The third feature is the history storage feature of climber's health history. When the climber is detected as having hypothermia, the data of the condition will automatically be stored in the SQLite database. Climbers can see the history and details of their health data, such as when and where the data occurred, how to handle it, and how the current condition of the climber's body is. It can be seen in Fig. 14.
 
-The ball detection process begins by activating the camera attached to the robot goalkeeper. This camera is tasked with capturing images and videos of the robot's surroundings with high resolution and sufficient image capture rate for real-time applications. Camera activation is an important first step to ensure that the system can acquire the visual data required for the subsequent detection and analysis steps.
+There is a notification on the Android app that will appear when the climber is detected in an abnormal state. Notifications will only appear when the climber is minimizing the Android app as shown in Fig. 15.
 
-b: LOAD THE MODEL
+The first step of analysis was to test the algorithm of condition determination. This was done to determine whether the system works well in determining the condition of the climber's body. The test was conducted by taking 20 data samples from the body. The data was entered into the condition determination algorithm as shown in table 6. The data input variables are body temperature sensor data and heart rate sensor data. Furthermore, testing in normal conditions was done by taking data directly from the jacket worn by the people. Jackets that had been embedded with end devices and action points would be put on someone. Subsequently, all data from the pulse sensor, body temperature sensor, and peltier temperature sensor would be acquired. The result is shown in table 7. The data retrieved would also be displayed on the Android application.
 
-Once the camera is activated, a pre-trained ball detection model using the YOLO (You Only Look Once) algorithm is loaded into the system. The YOLO model is designed to analyze images and videos captured by the camera efficiently and quickly. YOLO works by dividing images into grids and processing them in a single stage to detect objects, including balls, with high accuracy. This process involves extracting visual features from the image which are then processed by the YOLO model to recognize patterns corresponding to the characteristics of the ball. The use of YOLO enables object detection in real-time, which is crucial for robotic applications that require quick responses.
+TABLE 6. Result of data retrieval. TABLE 7. Sample of normal condition. TABLE 8. Results mean normal condition.
 
-c: READ RGB & DEPTH IMAGES
+The obtained data would provide average results of normal condition as shown in table 8. Next, testing in severe hypothermia (emergency) condition was done directly at cold or air-conditioned room temperature. All data obtained from the pulse sensor, body temperature sensor, and peltier temperature sensor are shown in table 9.
 
-The camera then captures images in RGB (Red, Green, Blue) format that provide rich color information as well as depth images that provide information about the distance of each pixel in the image from the camera. Depth images are very important as they allow the system to determine the distance of the object from the camera with high accuracy, which is critical information for figuring out the three-dimensional (3D) position of the ball. The combination of RGB and depth data allows the system to not only detect the ball but also measure its distance precisely, which is essential for trajectory calculation and ball motion prediction.
+The obtained data show average results of severe hypothermia (emergency) condition as shown in table 10.
 
-d: EXTRACT COORDINATES (X, Y, Z)
+Based on the results of the test data, it can be seen that the pattern of graphs changes in sensor values. Fig. 16 shows the results of testing changes in body temperature sensor values in two scenarios, normal and hypothermia.
 
-Using the RGB image and depth, the system then extracts the coordinates of the ball in three dimensions (x, y, z). These coordinates indicate the position of the sphere relative to the camera. The formula for calculating the depth z in real-world coordinates can be expressed as equations (1) to (3).
+TABLE 9. Sample of severe hypothermia (emergency) condition. TABLE 10. Results mean severe hypothermia (emergency) condition. FIGURE 16. Body temperature sensor in normal and hypothermia conditions. FIGURE 17. Peltier temperature sensor in normal and hypothermia conditions.
 
-where:
+Furthermore, Fig. 17 shows the peltier temperature sensor value in normal and hypothermia conditions. In hypothermia condition, the temperature of peltier will rise to warm the jacket of the climber. TABLE 11. Comparison of body temperature sensor with digital thermometer.
 
-• f is the focal length of the camera,
+Fig. 18 shows heart rate sensor value in normal and hypothermia conditions. In hypothermia condition, the heart rate becomes more unstable.
 
-• B is the distance between the two camera lenses(baseline),
+The results of data collected from the sensors were examined in order to determine whether the values were reliable. Thus, the data from each sensor would be compared to the data resulted from other tools. A comparable device was required to compare the data obtained by the sensor. Digital body thermometer was used to measure the difference of temperature value from body temperature sensor MLX90615. The body temperature sensor MLX90615 and digital thermometer were placed in the same position and would count
 
-• d is the horizontal shift between the left and right images (disparity)
+TABLE 12. Comparison of pulse sensor XD-58C with heart rate monitor application.
 
-The formula for calculating the coordinates x and y in the real world are:
+the temperature of the body simultaneously. The average temperature between the MLX90615 sensor and digital thermometer was very similar. This is shown in table 11.
 
-where:
-
-• u and v are the coordinates of pixels in the image,
-
-• c x and c y is the coordinate of the image center,
-
-• f x and f y is the focal length in pixel units.
-
-3) BALL ARRIVAL PREDICTION TRAINING a: COLLECT DATA
-
-The dataset creation process starts with data capture, where the robot goalkeeper is placed in the goal area, and the ball is kicked from three different directions. Data was recorded using a ZED camera to learn various ball movement patterns and match situations. Capturing data from different angles and conditions ensures the accuracy of the ball movement prediction by the system, as shown in Fig. 6. The process of capturing and processing data to predict the position of the ball in the goal area. Sample data is taken from three initial positions of the ball, namely (x1, y1), (x2, y1), and (x3, y1), and rolled to three waypoints: left, center, and right, with sampling every 20 milliseconds. The ball's routes as it moved from different spots on the field toward the goal were tracked and analyzed to forecast its next location, which was divided into three categories: left, center, and right.
-
-b: CREATE DATASET
-
-The ball position data that has been collected is then processed and made into a structured dataset. This dataset will be used as input to train the ball prediction model. To ensure the model can make predictions with high accuracy, the dataset should include various scenarios, such as ball movement at different speeds, different shooting angles, and varying environmental conditions. The data also needs to be tagged with time information to enable dynamic analysis of the ball movement. Dataset creation involves a process of data cleaning, tagging, and splitting the data into training and testing sets, with a total of 450 training data points and 180 testing data points, to ensure the resulting model can generalize to new situations that may be encountered during a match. Variation in the dataset is essential to improve the model's ability to predict ball position accurately and responsively.
-
-c: TRAINING CNN MODEL
-
-The Convolutional Neural Network (CNN) model is trained using the prepared dataset. CNN is a type of deep neural network that is highly effective for the analysis and processing of visual data such as images and videos. In this context, CNN is used to predict the position of the ball based on the position data that has been collected during the training session. The training process involves adjusting the weights of the model through the backpropagation technique to minimize the prediction error. The Fig. 7 is a sequential model of the CNN architecture for ball position prediction. A sequential model is a series of layers that are processed sequentially from input to output. The given model consists of several types of layers: Conv1D, AveragePooling1D, Dropout, MaxPooling1D, Flatten, and Dense. The operation process is in equations ( 4) to (9).
-
-1. Conv1D Layer
-
-• Function: Filtering the input signal using a filter.
-
-• Operation:
-
-where y is the input, w is the filter weight, b is the bias, and * is the convolution operation.
-
-• Output: Filtered signal.
-
-AveragePooling1D layer
-
-• Function: Reduces the dimensionality of the signal by averaging the values within a specific window.
-
-• Operation:
-
-where y is pooling window size.
-
-• Output: A signal whose size is smaller than the average value of the pooling window.
-
-Dropout layer
-
-• Function: Prevent overfitting by randomly disabling some units (neurons) during training.
-
-• Operation:
-
-where m(t) is a mask containing zero or one, determined randomly.
-
-• Output: A signal for which some units are disabled.
-
-MaxPooling1D layer
-
-• Function: Reduces the dimensionality of the signal by taking the maximum value within a specific window.
-
-• Operation:
-
-where k is the size of the pooling window.
-
-• Output: A signal whose size is smaller than the maximum value of the pooling window.
-
-Flatten layer
-
-• Function: Converts multi-dimensional signals into onedimensional (1D) signals.
-
-• Output: 1D signal. 6. Dense (Fully Connected) layer
-
-• Function: Linearly combine all the signal features and apply an activation function.
-
-• Operation:
-
-where x is the input, σ is the activation function, w is the weight matrix, and b is the bias vector.
-
-• Output: The signal that has been transformed by the dense layer.
-
-i) TRANSFORMATION STEPS IN THE MODEL
-
-Here is the complete sequence of transformations that occur to the input signal as it passes through each layer in the model: 1. Conv1D 1:
-
-• Input: (None, 10, 512)
-
-• Output: (None, 10, 512)
-
-• Convolution operation with a certain filter size. 2. AveragePooling1D 1:
-
-• Input: (None, 10, 512)
-
-• Output: (None, 5, 512)
-
-• Takes the average of every two consecutive values, halving the length of the signal. The model takes an input signal, operates it through multiple layers of convolution, pooling, dropout, and finally dense layers to produce the output. Each layer has specific functions that help in extracting important features from the signal and finally make predictions based on those features.
-
-To train the CNN, a loss function is used which measures the difference between the model's prediction and the true value. The loss function used is the Mean Squared Error (MSE), which can be expressed by the following formula:
-
-where:
-
-• ŷi is the model prediction for the i-th sample,
-
-• y i is the actual value for the i-th sample,
-
-• N is total number of samples in the dataset.
-
-During the training phase, the model weights are updated using the average square of the difference between the predicted and actual values, which is computed using this loss function. By minimizing this loss value, the CNN model is expected to improve its prediction accuracy of the ball position.
-
-4) BALL ARRIVAL PREDICTION a: INPUT BALL POSITION
-
-The system is input into the prediction model. This position includes the coordinates of the moving ball. This data is obtained from cameras and sensors that monitor the ball's movement in real-time. This coordinate information is then used by the prediction model to calculate the ball's next trajectory.
-
-b: POSITION PREDICTION
-
-The prediction model then analyzes the ball position input and predicts the future direction and position of the ball. This prediction helps the robot goalkeeper determine the movements to be made to prevent the ball from entering the goal. The position prediction can be expressed by equation (10).
-
-where:
-
-• p(t) is the predicted position of the ball at time t,
-
-• p (t -1) , p (t -2) , . . . , p(tn) is the position of the ball at the previous time, which is used as input for the prediction function.
-
-c: PREDICTION OUTPUT
-
-The result of the ball arrival position prediction is output. This information is used by the goalkeeping robot control system to take appropriate actions in blocking the ball. This output allows the robot to respond quickly and accurately to the movement of the ball, optimizing the chances of stopping a shot from entering the goal. The robot control system then executes the calculated motion based on the prediction, moving the robot to the ideal position to make the save.
-
-The following is the pseudocode of the ball arrival position prediction system.
-
-V. EXPERIMENT RESULTS
-
-This chapter discusses the results of the dataset that has been created as well as the results of the Convolutional Neural Network (CNN) testing that has been carried out. In this research, we produced a comprehensive dataset specifically designed for applications involving wheeled soccer goalkeeper robots. The dataset includes a variety of scenarios capturing different ball movements, speeds, shooting angles, and environmental conditions to ensure robustness and versatility.
-
-The development, implementation, and compilation processes in this study were performed on a system with the specifications listed in Table 2. These specifications include various hardware components such as high-performance CPUs, GPUs, and adequate RAM, as well as software components including operating systems, deep learning frameworks, and data processing libraries. The choice of hardware and software was critical to achieve optimal performance, enabling efficient handling of complex algorithms and large volumes of data during the development, testing, and evaluation phases.
-
-Using the right hardware ensured fast processing times and the ability to run intensive computations necessary for training deep learning models. Meanwhile, the selection of appropriate software provided the tools needed for data preprocessing, model training, and evaluation. For instance, the use of deep learning frameworks like TensorFlow facilitated the construction and training of the CNN model, while data processing libraries such as NumPy and Pandas were essential for managing and manipulating the dataset.
-
-TABLE 2. Computer specification.  The model's overall accuracy is approximately 98.02%, calculated as follows by equations ( 11) to (14).
-
-Precision, measuring the proportion of correct ball predictions out of all ball predictions, is very high at 99.75%:
-
-Recall, or sensitivity, measuring the proportion of correctly identified balls out of all actual balls, is also high at 98.26%:
-
-The F1 Score, the harmonic mean of precision and recall, is around 99.00%:
-
-These metrics indicate that the model has high performance in detecting balls, although it struggles with correctly identifying the background.  TABLE 3. Comparisons results of the proposed system with related works. measures the model's performance on a separate dataset. A large gap between these two lines may indicate overfitting.
-
-At epochs 0 to 20, training accuracy jumps significantly followed by a similar increase in validation accuracy. At epochs 21 to 40, there is a slight increase in training accuracy with a short period of decline before rising again, while validation accuracy rises significantly and then falls sharply before rising again. At epochs 41 to 60, both graphs show steady fluctuations. At epochs 61 to 80, the fluctuation pattern continued on both graphs. At the last epochs, 81 to 100, there is a significant drop in training accuracy followed immediately by a rapid rise, while validation accuracy shows a continuous up and down trend with no apparent stability. Testing was conducted to evaluate the performance of the trained model. Table 3 presents the performance report of the proposed model, a CNN-based machine learning model, in classifying test data into three categories: ''right,'' ''left,'' and ''center.'' With 180 test samples, the model achieved an overall accuracy of 70%, indicating that 70% of its predictions were correct. Table 3 shows the result of proposed method and other comparison models. From the performance evaluation results of the CNN prediction model for ball position, it was found that the model performed well for the prediction of the ''right'' and ''left'' classes, with F1-score of 0.84 and 0.76 respectively, indicating that the model was quite reliable in classifying both classes. However, the model performance for the ''center'' class showed a significant decrease, with an F1-score of only 0.39. This suggests either an imbalance in the data or a complexity in the ball movement pattern at the center that is difficult for the model to identify.
-
-These findings show that while the CNN model is effective for most scenarios, there are areas that require improvement, especially in predicting the ''center'' class. One of the future development plans is to improve the data distribution by rebalancing the dataset so that the ''center'' class has more training examples. In addition, more complex models will be developed using other deep learning techniques, such as integration with Long Short-Term Memory (LSTM) to better capture temporal patterns in ball movement.
-
-For the future, some other approaches that can be developed include the use of data augmentation to generate more variations of the ball position in the ''center'' class, as well as further tuning the CNN architecture to reduce the overfitting phenomenon detected in some epochs during training. The use of attention mechanisms can also be implemented to help the model focus on key features of the ball movement, so as to improve prediction accuracy, especially in the ''center'' class which tends to be less accurate.
-
-With this further development, it is expected that the ball position prediction model is not only more accurate in the ''right'' and ''left'' classes, but can also provide better performance on ball prediction in the ''center'' class, so as to improve the overall ability of robot goalkeepers in capturing balls from various positions.
+Heart Rate Monitor, a smartphone application that uses cameras and flash lights on Android smartphones, was used to measure the difference of heart rate value from pulse sensor XD-58C. Data retrieval were done at the same place, that was at the fingertips. The average heart rate between the pulse sensor XD-58C and Heart Rate Monitor application was very similar as shown in table 12.
 
 VI. CONCLUSION
 
-Based on the results of the testing and analysis conducted, the YOLOv8 model effectively recognizes ball objects on the field and detects them in real-time. The developed system successfully determines the ball's position with an accuracy of 90.24% for the x-coordinate, 80.77% for the y-coordinate, and 100% for the z-coordinate within the ZED camera frame, with an error tolerance of ≤ 5 cm. Ball detection tests using deep learning showed an accuracy of 100% at distances up to 300 cm. Additionally, data training for ball position prediction using the Convolutional Neural Network (CNN) architecture resulted in a prediction accuracy of 70%. The f1-scores for each output category were 76% for the left position, 39% for the center position, and 84% for the right position. These findings indicate that the developed model is capable of detecting and determining the ball's position with high accuracy, although there is room for improvement in predicting the center position.
+This research designed architecture and implemented a prototype to detect hypothermia symptoms in the climber's body based on WBAN technology. The proposed device consists of body temperature sensor, pulse sensor, peltier temperature sensor, and peltier heating element. The data from body temperature and pulse sensors will be processed to get the climber health condition and transferred wirelessly via Bluetooth to Android smartphone. If the output condition shows that the climber is in hypothermia symptoms, the device will send a command to the action point to activate the peltier heating element to rise the temperature of the climber's jacket. The experiment results showed that the climber could use Android smartphone to monitor the body temperature value, heart rate value, and description of the body condition. The climber could connect to a group of climbers and connect each other. The Android application would notify the climber and share the notification to a group of climbers if hypothermia were detected.
+
+In the case of hypothermia, this device can not completely cure hypothermia sufferers. This device is only used to detect symptoms of hypothermia so that early treatment can be initiated. This device can also provide an initial treatment such as the provision of heat to the body, but this is only to slow the severity of the patient's hypothermia. Further treatment can only be done by a doctor or hospital. Thus, it cannot be ascertained that if climbers use this device, climber will not get hypothermia. However, prevention is better than treatment. Because hypothermia is a disease that takes a relatively long time of healing, it is difficult to be done by non-medical people. For future work, we suggest expanding the coverage area of hypothermia detection, not only in a cluster of climbers also within the reach of the climbing area. In its development every climber's device can be connected to an access point or gateway associated with other access points and monitoring headquarters. Thus, the officers who are in the monitoring station will also get information about climbers who have hypothermia as well as the climber's location. Handling will be done much faster and can be done by someone who is an expert in the field.
 
 FIGURE 1 .
+
+Fig. 2
 
 FIGURE 2 .
 
@@ -284,25 +194,45 @@ FIGURE 3 .
 
 FIGURE 4 .
 
+TABLE 2 .
+
+TABLE 4 .
+
 FIGURE 5 .
 
 FIGURE 6 .
 
 FIGURE 7 .
 
-3 . 5 .
-
-Algorithm 1
+Code 1 .
 
 FIGURE 8 .
 
-B
-
 FIGURE 9 .
 
-For more information, see https://creativecommons.org/licenses/by/4.0/
+FIGURE 10 .
 
-VOLUME 13, 2025
+FIGURE 11 .
 
-VOLUME 13, 2025
+FIGURE 12 .
+
+FIGURE 13 .
+
+FIGURE 14 .
+
+FIGURE 15 .
+
+FIGURE 18 .
+
+VOLUME 8, 2020
+
+VOLUME 8, 2020
+
+VOLUME 8, 2020
+
+VOLUME 8, 2020
+
+VOLUME 8, 2020
+
+VOLUME 8, 2020
 =====================================

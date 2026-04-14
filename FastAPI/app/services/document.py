@@ -1565,17 +1565,42 @@ def delete_document_file(file_path: str) -> bool:
     return storage.delete_file(file_path)
 
 
-def _serialize_vector(value: Any) -> Any:
-    """Convert vector-like values into JSON-friendly output."""
-    if value is None:
-        return None
-    if isinstance(value, (list, tuple)):
-        return list(value)
+def _to_serializable(value: Any) -> Any:
+    """Recursively convert values into JSON/Pydantic-serializable types."""
+    if value is None or isinstance(value, (str, int, float, bool)):
+        return value
+
+    if isinstance(value, dict):
+        return {str(key): _to_serializable(item) for key, item in value.items()}
+
+    if isinstance(value, (list, tuple, set)):
+        return [_to_serializable(item) for item in value]
+
+    # Handle numpy-like scalars (e.g. numpy.float32) without importing numpy.
+    item_method = getattr(value, "item", None)
+    if callable(item_method):
+        try:
+            return _to_serializable(item_method())
+        except Exception:
+            pass
+
+    # Handle numpy-like arrays/vectors.
+    tolist_method = getattr(value, "tolist", None)
+    if callable(tolist_method):
+        try:
+            return _to_serializable(tolist_method())
+        except Exception:
+            pass
 
     try:
-        return list(value)
+        return [_to_serializable(item) for item in list(value)]
     except Exception:
         return str(value)
+
+
+def _serialize_vector(value: Any) -> Any:
+    """Convert vector-like values into JSON-friendly output."""
+    return _to_serializable(value)
 
 
 def get_document_detail_data(db: Session, document_id: int) -> Dict[str, Any]:
@@ -1634,9 +1659,9 @@ def get_document_detail_data(db: Session, document_id: int) -> Dict[str, Any]:
             "content": chunk.content,
             "token_count": chunk.token_count,
             "embedding": _serialize_vector(chunk.embedding),
-            "possibly_questions": chunk.possibly_questions,
+            "possibly_questions": _to_serializable(chunk.possibly_questions),
             "possibly_question_embedding": _serialize_vector(chunk.possibly_question_embedding),
-            "chunk_metadata": chunk.chunk_metadata,
+            "chunk_metadata": _to_serializable(chunk.chunk_metadata),
             "page_number": chunk.page_number,
             "section_title": chunk.section_title,
             "chunk_type": chunk.chunk_type.value if chunk.chunk_type else None,

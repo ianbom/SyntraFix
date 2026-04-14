@@ -6,7 +6,10 @@ xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.co
 	<teiHeader xml:lang="en">
 		<fileDesc>
 			<titleStmt>
-				<title level="a" type="main">Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application SETIAWARDHANA , (Member, IEEE), IWAN KURNIANTO WIBOWO , AND NIZHAR ACHMAD HUSEIN BERNARDT</title>
+				<title level="a" type="main">Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network M. UDIN HARUN AL RASYID , (Member, IEEE), SRITRUSTA SUKARIDHOTO, (Member, IEEE), AMANG SUDARSONO, AND AFDOLASH NUR KAFFAH</title>
+				<funder>
+					<orgName type="full">Ministry of Research and Technology of Indonesia, through scheme Higher Education Excellent Applied Research 2020</orgName>
+				</funder>
 			</titleStmt>
 			<publicationStmt>
 				<publisher/>
@@ -17,14 +20,8 @@ xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.co
 					<analytic>
 						<author>
 							<persName><forename type="first">Politeknik</forename><surname>Elektronika</surname></persName>
-						</author>
-						<author>
-							<persName><forename type="first">Negeri</forename><surname>Surabaya</surname></persName>
-						</author>
-						<author>
 							<affiliation key="aff0">
 								<orgName type="department">PENS</orgName>
-								<orgName type="institution">Politeknik Elektronika Negeri Surabaya</orgName>
 								<address>
 									<postCode>60111</postCode>
 									<settlement>Surabaya</settlement>
@@ -33,29 +30,54 @@ xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.co
 							</affiliation>
 						</author>
 						<author>
-							<affiliation key="aff1">
-								<orgName type="department">Ministry of Higher Education, Science and Technology</orgName>
+							<persName><forename type="first">Negeri</forename><surname>Surabaya</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">PENS</orgName>
 								<address>
+									<postCode>60111</postCode>
+									<settlement>Surabaya</settlement>
 									<country key="ID">Indonesia</country>
 								</address>
 							</affiliation>
 						</author>
-						<title level="a" type="main">Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application SETIAWARDHANA , (Member, IEEE), IWAN KURNIANTO WIBOWO , AND NIZHAR ACHMAD HUSEIN BERNARDT</title>
+						<author>
+							<persName><forename type="first">M</forename><surname>Udin</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">PENS</orgName>
+								<address>
+									<postCode>60111</postCode>
+									<settlement>Surabaya</settlement>
+									<country key="ID">Indonesia</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Harun</forename><surname>Al Rasyid</surname></persName>
+							<affiliation key="aff0">
+								<orgName type="department">PENS</orgName>
+								<address>
+									<postCode>60111</postCode>
+									<settlement>Surabaya</settlement>
+									<country key="ID">Indonesia</country>
+								</address>
+							</affiliation>
+						</author>
+						<title level="a" type="main">Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network M. UDIN HARUN AL RASYID , (Member, IEEE), SRITRUSTA SUKARIDHOTO, (Member, IEEE), AMANG SUDARSONO, AND AFDOLASH NUR KAFFAH</title>
 					</analytic>
 					<monogr>
 						<imprint>
 							<date/>
 						</imprint>
 					</monogr>
-					<idno type="MD5">6A8951F53668D4F193C364925CAA4E84</idno>
-					<idno type="DOI">10.1109/ACCESS.2025.3546346</idno>
-					<note type="submission">Received 29 January 2025, accepted 22 February 2025, date of publication 27 February 2025, date of current version 12 March 2025.</note>
+					<idno type="MD5">B118F214257DFF61EAB18FF9D86C3EA4</idno>
+					<idno type="DOI">10.1109/ACCESS.2020.3018793</idno>
+					<note type="submission">Received July 21, 2020, accepted August 13, 2020, date of publication August 24, 2020, date of current version September 3, 2020.</note>
 				</biblStruct>
 			</sourceDesc>
 		</fileDesc>
 		<encodingDesc>
 			<appInfo>
-				<application version="0.8.2" ident="GROBID" when="2026-04-13T10:51+0000">
+				<application version="0.8.2" ident="GROBID" when="2026-04-14T09:41+0000">
 					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
 					<label type="revision">a91ee48</label>
 					<label type="parameters">startPage=-1, endPage=-1, consolidateCitations=0, consolidateHeader=0, consolidateFunders=0, includeRawAffiliations=false, includeRawCitations=false, includeRawCopyrights=false, generateTeiIds=false, generateTeiCoordinates=[], sentenceSegmentation=false, flavor=null</label>
@@ -64,916 +86,963 @@ xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.co
 			</appInfo>
 		</encodingDesc>
 		<profileDesc>
-			<textClass>
-				<keywords>
-					<term>Ball position prediction</term>
-					<term>ZED camera</term>
-					<term>deep learning</term>
-					<term>convolutional neural network</term>
-					<term>ERSOW goalkeeper robot</term>
-				</keywords>
-			</textClass>
 			<abstract>
-<div xmlns="http://www.tei-c.org/ns/1.0"><p>EEPIS Robot Soccer On Wheeled (ERSOW) is a wheeled soccer robot team competing in the Indonesian Wheeled Soccer Robot Contest. The ERSOW goalkeeper robot currently faces a challenge in responding to incoming balls due to delays in image processing, leading to slow movement responses. This delay can be mitigated by implementing a prediction system. By predicting the ball's trajectory, the robot can make timely movements to block shots effectively. This research designs a prediction system using the ZED stereo camera to enhance the goalkeeper robot's responsiveness in preventing goals. The research identifies the ball's position during airborne and ground states using the ZED camera. RGB-D readings are processed with Deep Learning methods to train on ball data and extract 3D object information from the dataset. The ball detection system is tested in three scenarios: right, center, and left positions relative to the robot. Accuracy evaluation is conducted three times for ball coordinates on the X, Y, and Z axes, resulting in X-, Y-, and Z-axis accuracy values of 90%, 80.77%, and 100%, respectively, with a ≤ 5 cm error tolerance. These results allow accurate determination of the ball's X, Y, and Z positions. The ball position data is then trained using Convolutional Neural Networks (CNN) to predict the ball's arrival position for the goalkeeper robot. Evaluation results show an overall accuracy of 70%, with an F1-score of 76% for the left position, 39% for the center position, and 84% for the right position.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Hypothermia is a state where the body cannot balance the body heat due to excessive cold temperature pressure so that there will be loss of heat in the body. The result will be a quickly decreasing body temperature. A condition where a body temperature is less than 35 • C and that it is accompanied by a decrease in consciousness may cause a death threat. Hypothermia is more common when climbers perform activities in cold temperatures and strong winds, and when they wear wet clothes. It is not easy for a mountain climber to find out his own body temperature as well as that of his friends and to determine whether the body temperature is safe or affected by hypothermia symptoms. Therefore, this research formed a device to detect hypothermia. It consists of temperature sensor, pulse sensor, and accompanied by heating elements based on wireless body area network (WBAN). This device will connect to the user's smartphone by using Bluetooth, so the user can see the condition of his body, adjust the temperature of the heating element, and make a group of climbers. The experiment result shows that the device can detect hypothermia symptoms and inform these symptoms to the users and groups of mountaineers in WBAN area, and the climbers can be more vigilant in responding to hypothermia so that mortality cases caused by hypothermia can be minimized.</p><p>INDEX TERMS ehealth, heart rate, hypothermia, temperature, wireless body area network.</p></div>
 			</abstract>
 		</profileDesc>
 	</teiHeader>
 	<text xml:lang="en">
 		<body>
-<div xmlns="http://www.tei-c.org/ns/1.0"><head>I. INTRODUCTION</head><p>EEPIS Robot Soccer On Wheeled (ERSOW) is one of the robotics teams at Politeknik Elektronika Negeri Surabaya. In addition, the ERSOW team participated in an international level competition in the field of robotics, the Middle Size League Robot Soccer, initiated by the Robocup Federation <ref type="bibr" target="#b0">[1]</ref>, <ref type="bibr" target="#b1">[2]</ref>. The goal of these events, which center on wheeled robot soccer matches, is to build a robot soccer squad that can play independently and compete against the 2050 world champion human soccer team. In the research, The associate editor coordinating the review of this manuscript and approving it for publication was Yongming Li .</p><p>this soccer robot has implemented an autonomous system that requires the robot to be able to adapt to the surrounding environment and coordinate with other robots without any human intervention <ref type="bibr" target="#b2">[3]</ref>. This research is a continuation of previous research, namely creating a ball position estimation system with a neural network <ref type="bibr" target="#b3">[4]</ref>, creating a wheeled soccer robot navigation system and creating a ball position prediction system based on a stereo minor camera and neural network <ref type="bibr" target="#b4">[5]</ref>. There are many research topics on wheeled soccer robots developed such as in the field of computer vision, namely ball detection <ref type="bibr" target="#b5">[6]</ref>, <ref type="bibr" target="#b6">[7]</ref>, <ref type="bibr" target="#b7">[8]</ref> goal detection <ref type="bibr" target="#b8">[9]</ref>, <ref type="bibr" target="#b9">[10]</ref>, detection of enemy robots and friend robots <ref type="bibr" target="#b10">[11]</ref>, and its localization <ref type="bibr" target="#b11">[12]</ref>, <ref type="bibr" target="#b12">[13]</ref>. The ERSOW robot has been created with a number of basic soccer skills, such as finding the ball, dribbling the ball, avoiding robots from opponents, passing the ball to robot friends, timing to kick the ball into the goal, and so on. ERSOW has several robots, each of which has its own task, such as an attacking robot whose job is to score goals and contribute to the team's attack, a midfielder robot whose job is to help the team's defense, which has the ability to take the ball from the opponent and ward off the opponent's attack, and a goalkeeper robot whose job is to guard the team's goal from the opponent's attack and prevent goals from happening. The goalkeeper robot must have fast reflexes, good reaction speed, and the ability to ward off the ball with high accuracy. This research was conducted to improve the robot's ability to detect and predict the position of the ball. Better robot capabilities can increase the chances of winning in the competition. Predicting the position of the ball is needed so that the goalkeeper robot's ability can run optimally. With ball prediction, the goalkeeper robot will know the position of the direction of the ball's movement. The current problem is that the ERSOW goalkeeper robot still has obstacles in the robot's vision in detecting the ball with extreme light changes that can affect the ball prediction data during a soccer match. Previous research on object detection with Zed cameras has been conducted to see the performance and perspective of the camera, the effect of the camera polarizer and the measurement of the depth of the camera's distance from the object <ref type="bibr" target="#b13">[14]</ref>. Research on estimating the distance between the camera and the object has also been carried out using a monocular camera <ref type="bibr" target="#b14">[15]</ref>. Based on previous research, the ERSOW team wanted to create and implement a ball position detection system using the ZED camera because the camera has several advantages, namely, the image processing stage can be done inside the camera itself. The system created in this study is needed to increase the ability to detect the ball with the ability to detect the ball with changing lighting changes during the match. The detection ability is equipped with the ability to predict the position of the ball so as not to lose information. The contributions of this research are as follows:</p><p>• Proposing a system for predicting the position of the ball using the ZED camera because the ZED camera has the ability to detect ball objects with extreme lighting conditions on the Goalkeeper Robot Application.</p><p>• Proposing a system for predicting the ball's arrival position relative to the robot keeper using CNN. By accurately predicting the ball's trajectory, the robot keeper can better position itself to block incoming balls, thereby increasing its defensive capabilities. CNN was chosen because it can learn features automatically and is easy to integrate with low computing specifications in real-time. The best system performance is obtained by comparing several variations of the CNN method.</p><p>The following sections make up the next section of this paper: The design and use of the wheeled goalkeeping robot created by the ERSOW team is covered in general in Section II. Section III presents the system design and development of the proposed method in the form of ball object detection and ball position prediction. The experiments to collect the datasets and the processing techniques are presented in Section IV. Furthermore, Section IV also contains the results of the object detection and ball position prediction experiments which are then summarized in the conclusion in Section V.</p></div>
-<div xmlns="http://www.tei-c.org/ns/1.0"><head>II. RELATED WORK A. CAMERA MODE</head><p>Research on 3D sensors and stereo cameras has been widely developed, including the complexity of depth data accuracy from the ZED stereo camera <ref type="bibr" target="#b15">[16]</ref>. This study designed and conducted an experiment in an office environment to determine camera depth error and depth estimation using four images of different distances and resolutions. The 3D detection method using the ZED 2 stereo camera is able to integrate stereo vision and artificial intelligence where the accuracy and consistency of depth are set in the camera parameters <ref type="bibr" target="#b16">[17]</ref>. Integration of stereo cameras with Tiny-YOLO for distance measurement and object detection coordination system on the BarelangFC Robot with the concept of combining stereo vision data with object detection algorithms <ref type="bibr" target="#b17">[18]</ref>. This system uses Tiny-YOLO for real-time object detection and is equipped with accurate distance measurements facilitated by the ZED stereo camera <ref type="bibr" target="#b16">[17]</ref>. An innovative approach to change detection in spatial context utilizing stereo vision is presented in the study Object-Based Change Detection Algorithm with a Spatial AI Stereo Camera. This algorithm leverages detailed depth and spatial data provided by AI-enhanced stereo cameras to detect and analyze changes in the environment, proving useful for environmental monitoring and surveillance applications. Table <ref type="table">1</ref> shows the relationship with previous research developments by researchers.</p></div>
-<div xmlns="http://www.tei-c.org/ns/1.0"><head>B. BALL DETECTION</head><p>Research on computer vision for accurate and fast ball detection is conducted by comparing the performance of two detection methods based on convolutional neural networks. Testing techniques are specifically designed for the accuracy and response speed of the system that has been created <ref type="bibr" target="#b19">[20]</ref>. Previous research has created a ball detection and tracking system for the Soccer Humanoid League Kidsize using the You Only Look Once (YOLO) method based on an embedded system <ref type="bibr" target="#b18">[19]</ref>. Other researchers improved the detection accuracy of high-speed moving balls on sports fields with the YOLOv8 algorithm because it can operate quickly and accurately <ref type="bibr" target="#b20">[21]</ref>, <ref type="bibr" target="#b21">[22]</ref>, <ref type="bibr" target="#b22">[23]</ref>. Researchers have also created a Robot Operating System (ROS) that combines lidar, IMU, camera, and YOLO algorithm so that the robot can pick up the ball. The robot has the ability to adapt so that it can position and map the dynamic environment <ref type="bibr" target="#b24">[24]</ref>.</p><p>TABLE 1. The proposed system with related works.</p></div>
-<div xmlns="http://www.tei-c.org/ns/1.0"><head>C. TRACKING AND PREDICTION</head><p>Several studies have developed many CNN methods or convolutional neural networks for object prediction applications such as balls, humans, and others. CNN can also be used for object detection and position prediction in three-dimensional environments because of its ability to extract complex visual features from image data taken from the camera. The CNN method is able to process image data in two dimensions, such as applications for detecting the position of the ball in real-time for goalkeeper robots <ref type="bibr" target="#b3">[4]</ref>, <ref type="bibr" target="#b4">[5]</ref>, <ref type="bibr" target="#b25">[25]</ref>. The CNN method is also used for several mobile robot-vision applications <ref type="bibr" target="#b26">[26]</ref>, <ref type="bibr" target="#b27">[27]</ref> such as service robots or collaboration of several industrial robots <ref type="bibr" target="#b28">[28]</ref>, <ref type="bibr" target="#b29">[29]</ref>. This research aims to build a combination of ZED camera devices with CNN methods that have been used in previous research to detect and predict the position of the ball in the goal area. This model scenario is to be able to reach all lighting conditions with a camera that has artificial intelligence features. The CNN model as an intelligence feature is added so that the system can predict the position of the ball with a ZED camera that has features that can overcome changes in light intensity levels.</p></div>
-<div xmlns="http://www.tei-c.org/ns/1.0"><head>III. HARDWARE AND SOFTWARE ARCHITECTURE</head><p>The process of system completion involves multiple stages that are intended to accomplish the objectives of the research.</p><p>Every phase is meticulously organized to guarantee that every facet of the investigation is appropriately handled and carried out. When the ZED camera on the goalkeeper robot detects the ball, the first step is to determine whether the ball is detected or not. If the ball is not detected, the process of capturing images and analysis will be repeated continuously until the ball is successfully detected by the camera. Once the ball is detected, information about the ball's position is sent to the goalkeeper robot for further processing. Fig. <ref type="figure" target="#fig_0">1</ref> shows the overall robot system where the camera is useful for obtaining information about the ball on the field. At this stage, the goalkeeper robot will examine the information it receives from the ZED camera using a prediction algorithm. This algorithm aims to estimate the ball's position based on the images and data captured by the camera. Machine learning techniques, in particular Convolutional Neural Networks (CNN), are used in the prediction process. These networks have been trained with a dataset that contains a variety of probable ball placements.</p><p>The predicted ball position is then classified into one of three main categories: left, center, or right. This classification helps the robot understand more specifically where the ball is likely to move. Consequently, the goalkeeper robot can respond more quickly and accurately to block the ball. Based on this prediction, the robot will take appropriate action, such as moving left, right, or staying in the center, to block the ball and prevent a goal. This process of detecting, analyzing, and predicting the ball's position is a crucial part of the goalkeeper robot's defense system in robot soccer. By utilizing the ZED camera technology and advanced machine learning algorithms, this system is designed to enhance the speed and accuracy of the robot's response to the ball's movement, thereby increasing the chances of successfully blocking goals from the opposing team.</p><p>A. HARDWARE ARCHITECTURE Fig. <ref type="figure" target="#fig_1">2</ref> shows the hardware architecture of the ERSOW team goalkeeper robot. This architecture includes key components such as the ZED 2i Camera and mini-PC. The ZED 2i Camera serves as the robot's vision system, providing the visual data required for navigation and object detection. The mini-PC acts as the brain of the system, effectively analyzing the information from the camera and directing the robot's motions. The combination of these two components allows the robot goalkeeper to operate with high precision and reliability in robotic soccer matches. The ZED Stereo camera, manufactured by Stereolabs, is the first sensor to offer depth awareness both indoors and outdoors across larger distances (up to 20 meters). The ZED 2i Stereo camera is a device that attempts to replicate human vision. Due to the approximately 65mm horizontal separation between human eyes, each eye sees a situation slightly differently. Using two lenses can provide 3D information of an observed scene, allowing developers to add 3D depth information to robotics navigation, skeleton tracking, object detection, position tracking and mapping, and other applications. Via a USB 3.0 interface, the output data is high-resolution side-by-side color video. The ZED program on the host computer uses the two synchronized left and right video streams in this movie to create a depth map of the scene. The camera records a distance value (Z, in metric units) for every pixel (X, Y) in the picture, measured from the left lens's back to the scene object, and saves it in the depth map. Fig. <ref type="figure" target="#fig_2">3</ref> shows that the depth map captured by the ZED camera stores a distance value (Z) for each pixel (X, Y) in the image. These distance values are expressed in metric units (e.g. meters) and are calculated from the back of the camera's left eye to the objects in the scene. Such depth maps cannot be displayed directly because they are encoded in a 32-bit format.</p><p>In order to display this depth map, an 8-bit monochrome (grayscale) representation with values between 0 and 255 is required, where a value of 255 represents the closest possible depth distance and a value of 0 represents the furthest possible depth distance.</p></div>
-<div xmlns="http://www.tei-c.org/ns/1.0"><head>B. SOFTWARE ARCHITECTURE</head><p>This research uses the ROS system because it has the ability to integrate camera sensors with artificial intelligence methods and several other combined sensors in the robot. Fig. <ref type="figure" target="#fig_3">4</ref> shows the basic communication system for accessing the ZED camera on the robot. Image information is acquired over time and processed in real-time.  The prediction system that has been created using the CNN algorithm tries to change the layer parameter model to get the best results in classifying the position of the predicted direction of the ball. The dataset was collected as shown in Fig. <ref type="figure" target="#fig_5">6</ref>. The CNN design used is as in Fig. <ref type="figure" target="#fig_6">7</ref> and equations ( <ref type="formula" target="#formula_2">4</ref>) to <ref type="bibr" target="#b8">(9)</ref>. Convolutional Neural Network (CNN) is a type of artificial neural network specifically designed to process two-dimensional grid-shaped data, such as images. The convolution layer, pooling layer, and fully connected layer are the three primary hierarchical layers of a CNN. The central component of a CNN is the convolution layer, where different visual elements like edges, textures, and patterns are detected by applying filters or kernels to the input. A feature map reflecting the position of a certain feature in the original image is produced by the convolution layer's filters scanning the entire input. The way that neurons in the human brain react to visual stimuli is comparable to this mechanism.</p><p>The pooling layer, which comes after the convolution layer, is meant to combine key information and lower the dimensionality of the feature map. Max pooling, which chooses the maximum value within each condensed area of the feature map, is a frequently used kind of pooling. This lessens the number of parameters that must be computed and increases the model's resistance to slight variations in the input features' locations.</p><p>CNNs typically have multiple sets of successive convolution and pooling layers, which allow the network to detect increasingly complex features at each layer. Early layers may detect simple edges and lines, while deeper layers may detect more complex objects, such as specific shapes and patterns.</p><p>The final input is supplied into the fully connected layer after passing through several convolution and pooling layers. Every neuron in this layer is connected to every other neuron in the layer before it, enabling the network to compile the features that were taken out of the earlier levels and come to a conclusion. An activation function that aids in the final classification, such as ReLU (Rectified Linear Unit) or Softmax, typically follows this completely connected layer.</p><p>This study designs and implements appropriate parameter values in each layer of the CNN used. Previous researchers have created several methods for artificial intelligence that have been tried to be implemented on the ERSOW robot. These methods are Label Propagation, Extra Tree Classifier, Ridge Classifier, Linear SVC, Passive Aggressive Classifier, AdaBoost, Label Spreading, Nearest Centroid, GaussianNB, and Dummy Classifier</p></div>
-<div xmlns="http://www.tei-c.org/ns/1.0"><head>IV. METHODOLOGY</head><p>The diagram of the dataset creation and ball position prediction process illustrates the sequential steps involved in capturing images from the goalkeeper robot's camera, labeling images, creating a dataset directory, and training the YOLO model. The process continues with activating the camera, loading the deep learning model, reading RGB-depth images, extracting coordinates, and collecting ball position data. The dataset is then created and used to train the CNN model, which predicts ball positions, leading to the final prediction output.</p><p>The process begins with image capture using a ZED 2i camera mounted on the robot goalkeeper. These images are then stored in the dataset directory for the labeling process. The labeling process is done to mark the position of the ball in each image, which is then used to train the object detection model using YOLO (You Only Look Once).</p><p>Once the object detection model is trained, it is loaded into the system for the ball detection process. The system uses RGB images and depth information from the ZED 2i camera to detect and identify the position of the ball in X, Y, and Z coordinates. This information is then extracted from the images processed by the system.</p><p>With the camera active, the system continuously reads the position of the ball and performs detection using the trained deep learning model. The detected ball position data is then collected and stored for use in the ball prediction training process.</p><p>The ball prediction training process is performed using a Convolutional Neural Network (CNN). The ball position data that has been collected from the detection process is used to train the ball prediction model. The purpose of this training is to generate a model that can estimate the ball's arrival position based on previous position data, allowing the robot goalkeeper to react faster and more accurately.</p><p>Once the ball prediction model is trained, it is implemented in the robot goalkeeper system. The system was then tested to evaluate the performance of ball position detection and prediction. The tests were conducted with three different scenarios: when the ball is on the right, center, and left side of the robot.</p></div>
-<div xmlns="http://www.tei-c.org/ns/1.0"><head>A. LIMITATIONS OF THE METHOD</head><p>While the methodology employed in this study shows promising results in improving the accuracy of ball position prediction, several limitations need to be addressed:</p><p>Lighting Sensitivity: The ZED 2i camera and the CNN-based model show sensitivity to extreme lighting conditions, such as very bright or low-light environments. Under these conditions, the quality of image data is reduced, which can negatively impact the accuracy of ball detection and position prediction.</p><p>High-Speed Ball Detection: The current model struggles to maintain accuracy when the ball is moving at high speeds. This indicates that the dataset used for training might not fully represent the range of ball speeds encountered in real soccer scenarios, leading to less reliable predictions in high-velocity situations.</p><p>Overfitting in Training: During the training phase, overfitting was observed, particularly between epoch 41 and 60. Although the model performs well on the training data, its performance on unseen validation data fluctuated, indicating that the model may have learned patterns specific to the training set but may not generalize well to new data.</p><p>Camera Dependence: The system is heavily reliant on the quality of RGB and depth data from the ZED 2i camera. Any issues with camera calibration or environmental interference could degrade the accuracy of the position prediction. Furthermore, the system's performance could be impacted by noise or limitations in the depth measurement at certain distances.</p></div>
-<div xmlns="http://www.tei-c.org/ns/1.0"><head>1) BALL DETECTION TRAINING a: CAPTURE IMAGE FROM CAMERA OF THE GOALKEEPER ROBOT</head><p>The image data capture process was carried out using ZED 2i cameras mounted on the center and front sides of the robot goalkeeper. This strategic placement ensures optimal visual coverage of the pitch and ball, allowing the camera to record information with high accuracy. This camera position is important to ensure the image data covers various aspects of the game, both when the ball is on the field and in the air.</p></div>
-<div xmlns="http://www.tei-c.org/ns/1.0"><head>b: LABEL THE IMAGE</head><p>Once the image is captured, the next step is to label the image. Image labeling is done by marking the object to be detected, in this case, the ball. This process is important to provide the data required by the model to learn to recognize objects.</p></div>
-<div xmlns="http://www.tei-c.org/ns/1.0"><head>c: CREATE DATASET</head><p>This dataset will be fed into the object detection model in order to train it. In order for the model to detect objects in various situations, the dataset should include various positions and lighting conditions. This includes variations in the camera's angle of view, the distance between the camera and the object, and the intensity and direction of light. By including images in bright, dim, shadowed, and shadowless conditions, the model will be more robust and able to recognize objects with high accuracy in diverse realworld conditions. This variation ensures that the model does not rely solely on specific visual patterns, but can generalize to new situations that may be encountered during actual operations.</p></div>
-<div xmlns="http://www.tei-c.org/ns/1.0"><head>d: TRAIN YOLO MODEL</head><p>At this stage, the YOLOv8 (You Only Look Once version 8) model is trained using the prepared dataset. YOLOv8 is the latest version of an object detection method that is renowned for its efficiency and speed. In the training process, the model will learn to recognize and detect various objects in pre-labeled images. This training involves optimizing a loss function designed to minimize the difference between the model's predictions and the ground truth labels. The loss function in YOLOv8 takes into account errors in prediction of bounding box position, bounding box size, and object classification. The training process is performed using backpropagation and stochastic gradient descent techniques to update the model weights until it reaches the desired level of accuracy. The trained model is then evaluated to ensure high object detection performance on previously unseen test images. The innovations in YOLOv8 enable improved detection accuracy and speed, making it a highly effective tool in various object recognition applications.</p></div>
-<div xmlns="http://www.tei-c.org/ns/1.0"><head>2) BALL DETECTION a: ACTIVE THE CAMERA</head><p>The ball detection process begins by activating the camera attached to the robot goalkeeper. This camera is tasked with capturing images and videos of the robot's surroundings with high resolution and sufficient image capture rate for real-time applications. Camera activation is an important first step to ensure that the system can acquire the visual data required for the subsequent detection and analysis steps.</p></div>
-<div xmlns="http://www.tei-c.org/ns/1.0"><head>b: LOAD THE MODEL</head><p>Once the camera is activated, a pre-trained ball detection model using the YOLO (You Only Look Once) algorithm is loaded into the system. The YOLO model is designed to analyze images and videos captured by the camera efficiently and quickly. YOLO works by dividing images into grids and processing them in a single stage to detect objects, including balls, with high accuracy. This process involves extracting visual features from the image which are then processed by the YOLO model to recognize patterns corresponding to the characteristics of the ball. The use of YOLO enables object detection in real-time, which is crucial for robotic applications that require quick responses.</p></div>
-<div xmlns="http://www.tei-c.org/ns/1.0"><head>c: READ RGB &amp; DEPTH IMAGES</head><p>The camera then captures images in RGB (Red, Green, Blue) format that provide rich color information as well as depth images that provide information about the distance of each pixel in the image from the camera. Depth images are very important as they allow the system to determine the distance of the object from the camera with high accuracy, which is critical information for figuring out the three-dimensional (3D) position of the ball. The combination of RGB and depth data allows the system to not only detect the ball but also measure its distance precisely, which is essential for trajectory calculation and ball motion prediction.</p></div>
-<div xmlns="http://www.tei-c.org/ns/1.0"><head>d: EXTRACT COORDINATES (X, Y, Z)</head><p>Using the RGB image and depth, the system then extracts the coordinates of the ball in three dimensions (x, y, z). These coordinates indicate the position of the sphere relative to the camera. The formula for calculating the depth z in real-world coordinates can be expressed as equations (1) to <ref type="bibr" target="#b2">(3)</ref>.</p><formula xml:id="formula_0">z = f × B d (1)</formula><p>where:</p><p>• f is the focal length of the camera,</p><p>• B is the distance between the two camera lenses(baseline),</p><p>• d is the horizontal shift between the left and right images (disparity)</p><p>The formula for calculating the coordinates x and y in the real world are:</p><formula xml:id="formula_1">x = (u -c x ) × z f z (2) y = (v -c y ) × z f y (3)</formula><p>where:</p><p>• u and v are the coordinates of pixels in the image,</p><p>• c x and c y is the coordinate of the image center,</p><p>• f x and f y is the focal length in pixel units.</p></div>
-<div xmlns="http://www.tei-c.org/ns/1.0"><head>3) BALL ARRIVAL PREDICTION TRAINING a: COLLECT DATA</head><p>The dataset creation process starts with data capture, where the robot goalkeeper is placed in the goal area, and the ball is kicked from three different directions. Data was recorded using a ZED camera to learn various ball movement patterns and match situations. Capturing data from different angles and conditions ensures the accuracy of the ball movement prediction by the system, as shown in Fig. <ref type="figure" target="#fig_5">6</ref>. The process of capturing and processing data to predict the position of the ball in the goal area. Sample data is taken from three initial positions of the ball, namely (x1, y1), (x2, y1), and (x3, y1), and rolled to three waypoints: left, center, and right, with sampling every 20 milliseconds. The ball's routes as it moved from different spots on the field toward the goal were tracked and analyzed to forecast its next location, which was divided into three categories: left, center, and right.</p></div>
-<div xmlns="http://www.tei-c.org/ns/1.0"><head>b: CREATE DATASET</head><p>The ball position data that has been collected is then processed and made into a structured dataset. This dataset will be used as input to train the ball prediction model. To ensure the model can make predictions with high accuracy, the dataset should include various scenarios, such as ball movement at different speeds, different shooting angles, and varying environmental conditions. The data also needs to be tagged with time information to enable dynamic analysis of the ball movement. Dataset creation involves a process of data cleaning, tagging, and splitting the data into training and testing sets, with a total of 450 training data points and 180 testing data points, to ensure the resulting model can generalize to new situations that may be encountered during a match. Variation in the dataset is essential to improve the model's ability to predict ball position accurately and responsively.</p></div>
-<div xmlns="http://www.tei-c.org/ns/1.0"><head>c: TRAINING CNN MODEL</head><p>The Convolutional Neural Network (CNN) model is trained using the prepared dataset. CNN is a type of deep neural network that is highly effective for the analysis and processing of visual data such as images and videos. In this context, CNN is used to predict the position of the ball based on the position data that has been collected during the training session. The training process involves adjusting the weights of the model through the backpropagation technique to minimize the prediction error. The Fig. <ref type="figure" target="#fig_6">7</ref> is a sequential model of the CNN architecture for ball position prediction. A sequential model is a series of layers that are processed sequentially from input to output. The given model consists of several types of layers: Conv1D, AveragePooling1D, Dropout, MaxPooling1D, Flatten, and Dense. The operation process is in equations ( <ref type="formula" target="#formula_2">4</ref>) to <ref type="bibr" target="#b8">(9)</ref>.</p><p>1. Conv1D Layer</p><p>• Function: Filtering the input signal using a filter.</p><p>• Operation:</p><formula xml:id="formula_2">y (t) = (x * w) (t) + b (<label>4</label></formula><formula xml:id="formula_3">)</formula><p>where y is the input, w is the filter weight, b is the bias, and * is the convolution operation.</p><p>• Output: Filtered signal.</p></div>
-<div xmlns="http://www.tei-c.org/ns/1.0"><head n="2.">AveragePooling1D layer</head><p>• Function: Reduces the dimensionality of the signal by averaging the values within a specific window.</p><p>• Operation:</p><formula xml:id="formula_4">y (t) = 1 k k-1 i=0 x(t + i) (<label>5</label></formula><formula xml:id="formula_5">)</formula><p>where y is pooling window size.</p><p>• Output: A signal whose size is smaller than the average value of the pooling window.</p></div>
-<div xmlns="http://www.tei-c.org/ns/1.0"><head n="3.">Dropout layer</head><p>• Function: Prevent overfitting by randomly disabling some units (neurons) during training.</p><p>• Operation:</p><formula xml:id="formula_6">y (t) = x (t) .m(t)<label>(6)</label></formula><p>where m(t) is a mask containing zero or one, determined randomly.</p><p>• Output: A signal for which some units are disabled.</p></div>
-<div xmlns="http://www.tei-c.org/ns/1.0"><head n="4.">MaxPooling1D layer</head><p>• Function: Reduces the dimensionality of the signal by taking the maximum value within a specific window.</p><p>• Operation:</p><formula xml:id="formula_7">y (t) = max(x (t) , x (t + 1) , . . . , x(t + k -1)) (<label>7</label></formula><formula xml:id="formula_8">)</formula><p>where k is the size of the pooling window.</p><p>• Output: A signal whose size is smaller than the maximum value of the pooling window.</p></div>
-<div xmlns="http://www.tei-c.org/ns/1.0"><head n="5.">Flatten layer</head><p>• Function: Converts multi-dimensional signals into onedimensional (1D) signals.</p><p>• Output: 1D signal. 6. Dense (Fully Connected) layer</p><p>• Function: Linearly combine all the signal features and apply an activation function.</p><p>• Operation:</p><formula xml:id="formula_9">y = σ (Wx + b) (<label>8</label></formula><formula xml:id="formula_10">)</formula><p>where x is the input, σ is the activation function, w is the weight matrix, and b is the bias vector.</p><p>• Output: The signal that has been transformed by the dense layer.</p></div>
-<div xmlns="http://www.tei-c.org/ns/1.0"><head>i) TRANSFORMATION STEPS IN THE MODEL</head><p>Here is the complete sequence of transformations that occur to the input signal as it passes through each layer in the model: 1. Conv1D 1:</p><p>• Input: (None, 10, 512)</p><p>• Output: (None, 10, 512)</p><p>• Convolution operation with a certain filter size. 2. AveragePooling1D 1:</p><p>• Input: (None, 10, 512)</p><p>• Output: (None, 5, 512)</p><p>• Takes the average of every two consecutive values, halving the length of the signal. The model takes an input signal, operates it through multiple layers of convolution, pooling, dropout, and finally dense layers to produce the output. Each layer has specific functions that help in extracting important features from the signal and finally make predictions based on those features.</p><p>To train the CNN, a loss function is used which measures the difference between the model's prediction and the true value. The loss function used is the Mean Squared Error (MSE), which can be expressed by the following formula:</p><formula xml:id="formula_11">Loss = 1 N N i=1 ŷi -y i 2<label>(9)</label></formula><p>where:</p><p>• ŷi is the model prediction for the i-th sample,</p><p>• y i is the actual value for the i-th sample,</p><p>• N is total number of samples in the dataset.</p><p>During the training phase, the model weights are updated using the average square of the difference between the predicted and actual values, which is computed using this loss function. By minimizing this loss value, the CNN model is expected to improve its prediction accuracy of the ball position.</p></div>
-<div xmlns="http://www.tei-c.org/ns/1.0"><head>4) BALL ARRIVAL PREDICTION a: INPUT BALL POSITION</head><p>The system is input into the prediction model. This position includes the coordinates of the moving ball. This data is obtained from cameras and sensors that monitor the ball's movement in real-time. This coordinate information is then used by the prediction model to calculate the ball's next trajectory.</p></div>
-<div xmlns="http://www.tei-c.org/ns/1.0"><head>b: POSITION PREDICTION</head><p>The prediction model then analyzes the ball position input and predicts the future direction and position of the ball. This prediction helps the robot goalkeeper determine the movements to be made to prevent the ball from entering the goal. The position prediction can be expressed by equation <ref type="bibr" target="#b9">(10)</ref>.</p><formula xml:id="formula_12">p (t) = f (p (t -1) , p (t -2) , . . . , p(t -n)) (<label>10</label></formula><formula xml:id="formula_13">)</formula><p>where:</p><p>• p(t) is the predicted position of the ball at time t,</p><p>• p (t -1) , p (t -2) , . . . , p(tn) is the position of the ball at the previous time, which is used as input for the prediction function.</p></div>
-<div xmlns="http://www.tei-c.org/ns/1.0"><head>c: PREDICTION OUTPUT</head><p>The result of the ball arrival position prediction is output. This information is used by the goalkeeping robot control system to take appropriate actions in blocking the ball. This output allows the robot to respond quickly and accurately to the movement of the ball, optimizing the chances of stopping a shot from entering the goal. The robot control system then executes the calculated motion based on the prediction, moving the robot to the ideal position to make the save.</p><p>The following is the pseudocode of the ball arrival position prediction system. </p></div>
-<div xmlns="http://www.tei-c.org/ns/1.0"><head>V. EXPERIMENT RESULTS</head><p>This chapter discusses the results of the dataset that has been created as well as the results of the Convolutional Neural Network (CNN) testing that has been carried out. In this research, we produced a comprehensive dataset specifically designed for applications involving wheeled soccer goalkeeper robots. The dataset includes a variety of scenarios capturing different ball movements, speeds, shooting angles, and environmental conditions to ensure robustness and versatility.</p><p>The development, implementation, and compilation processes in this study were performed on a system with the specifications listed in Table <ref type="table">2</ref>. These specifications include various hardware components such as high-performance CPUs, GPUs, and adequate RAM, as well as software components including operating systems, deep learning frameworks, and data processing libraries. The choice of hardware and software was critical to achieve optimal performance, enabling efficient handling of complex algorithms and large volumes of data during the development, testing, and evaluation phases.</p><p>Using the right hardware ensured fast processing times and the ability to run intensive computations necessary for training deep learning models. Meanwhile, the selection of appropriate software provided the tools needed for data preprocessing, model training, and evaluation. For instance, the use of deep learning frameworks like TensorFlow facilitated the construction and training of the CNN model, while data processing libraries such as NumPy and Pandas were essential for managing and manipulating the dataset.</p><p>TABLE 2. Computer specification.  The model's overall accuracy is approximately 98.02%, calculated as follows by equations ( <ref type="formula" target="#formula_14">11</ref>) to <ref type="bibr" target="#b13">(14)</ref>.</p><formula xml:id="formula_14">Accuracy = TP + TN TP + FP + TN + FN = 396 + 0 396 + 1 + 0 = 396 404 ≈ 0, 9<label>(11)</label></formula><p>Precision, measuring the proportion of correct ball predictions out of all ball predictions, is very high at 99.75%:</p><formula xml:id="formula_15">Precision = TP TP + FP = 396 396 + 1 ≈ 0, 9975<label>(12)</label></formula><p>Recall, or sensitivity, measuring the proportion of correctly identified balls out of all actual balls, is also high at 98.26%:</p><formula xml:id="formula_16">Recall = TP TP + FN = 396 396 + 7 ≈ 0, 9826<label>(13)</label></formula><p>The F1 Score, the harmonic mean of precision and recall, is around 99.00%:</p><formula xml:id="formula_17">F1 Score = 2 × Precision × Recal Precision + Recall ≈ 0, 99<label>(14)</label></formula><p>These metrics indicate that the model has high performance in detecting balls, although it struggles with correctly identifying the background.  TABLE 3. Comparisons results of the proposed system with related works. measures the model's performance on a separate dataset. A large gap between these two lines may indicate overfitting.</p><p>At epochs 0 to 20, training accuracy jumps significantly followed by a similar increase in validation accuracy. At epochs 21 to 40, there is a slight increase in training accuracy with a short period of decline before rising again, while validation accuracy rises significantly and then falls sharply before rising again. At epochs 41 to 60, both graphs show steady fluctuations. At epochs 61 to 80, the fluctuation pattern continued on both graphs. At the last epochs, 81 to 100, there is a significant drop in training accuracy followed immediately by a rapid rise, while validation accuracy shows a continuous up and down trend with no apparent stability. Testing was conducted to evaluate the performance of the trained model. Table <ref type="table">3</ref> presents the performance report of the proposed model, a CNN-based machine learning model, in classifying test data into three categories: ''right,'' ''left,'' and ''center.'' With 180 test samples, the model achieved an overall accuracy of 70%, indicating that 70% of its predictions were correct. Table <ref type="table">3</ref> shows the result of proposed method and other comparison models. From the performance evaluation results of the CNN prediction model for ball position, it was found that the model performed well for the prediction of the ''right'' and ''left'' classes, with F1-score of 0.84 and 0.76 respectively, indicating that the model was quite reliable in classifying both classes. However, the model performance for the ''center'' class showed a significant decrease, with an F1-score of only 0.39. This suggests either an imbalance in the data or a complexity in the ball movement pattern at the center that is difficult for the model to identify.</p><p>These findings show that while the CNN model is effective for most scenarios, there are areas that require improvement, especially in predicting the ''center'' class. One of the future development plans is to improve the data distribution by rebalancing the dataset so that the ''center'' class has more training examples. In addition, more complex models will be developed using other deep learning techniques, such as integration with Long Short-Term Memory (LSTM) to better capture temporal patterns in ball movement.</p><p>For the future, some other approaches that can be developed include the use of data augmentation to generate more variations of the ball position in the ''center'' class, as well as further tuning the CNN architecture to reduce the overfitting phenomenon detected in some epochs during training. The use of attention mechanisms can also be implemented to help the model focus on key features of the ball movement, so as to improve prediction accuracy, especially in the ''center'' class which tends to be less accurate.</p><p>With this further development, it is expected that the ball position prediction model is not only more accurate in the ''right'' and ''left'' classes, but can also provide better performance on ball prediction in the ''center'' class, so as to improve the overall ability of robot goalkeepers in capturing balls from various positions.</p></div>
-<div xmlns="http://www.tei-c.org/ns/1.0"><head>VI. CONCLUSION</head><p>Based on the results of the testing and analysis conducted, the YOLOv8 model effectively recognizes ball objects on the field and detects them in real-time. The developed system successfully determines the ball's position with an accuracy of 90.24% for the x-coordinate, 80.77% for the y-coordinate, and 100% for the z-coordinate within the ZED camera frame, with an error tolerance of ≤ 5 cm. Ball detection tests using deep learning showed an accuracy of 100% at distances up to 300 cm. Additionally, data training for ball position prediction using the Convolutional Neural Network (CNN) architecture resulted in a prediction accuracy of 70%. The f1-scores for each output category were 76% for the left position, 39% for the center position, and 84% for the right position. These findings indicate that the developed model is capable of detecting and determining the ball's position with high accuracy, although there is room for improvement in predicting the center position.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>FIGURE 1 .</head><label>1</label><figDesc>FIGURE 1. Overall system architecture.</figDesc><graphic coords="3,353.78,342.47,127.80,124.20" type="bitmap" /></figure>
-<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>FIGURE 2 .</head><label>2</label><figDesc>FIGURE 2. Hardware architecture of EEPIS robot soccer on wheeled (ERSOW).</figDesc><graphic coords="4,83.63,282.14,146.28,99.72" type="bitmap" /></figure>
-<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>FIGURE 3 .</head><label>3</label><figDesc>FIGURE 3. A ZED camera-created depth map.</figDesc><graphic coords="4,344.42,66.06,146.52,83.40" type="bitmap" /></figure>
-<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>FIGURE 4 .</head><label>4</label><figDesc>FIGURE 4. Illustration of communication patterns in ROS.The system can detect the presence of the ball using You Only Look Once (YOLO). The next process is developed with the Tensorflow library. The transformation of the presence and position of the ball is made by creating a dataset containing the position information of the ball. Fig.5shows a system diagram of the program for ball detection, ball arrival training, and ball arrival prediction used by the robot.</figDesc><graphic coords="4,329.48,323.12,176.40,93.48" type="bitmap" /></figure>
-<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head>FIGURE 5 .</head><label>5</label><figDesc>FIGURE 5. Ball prediction system.</figDesc><graphic coords="4,329.72,542.77,175.92,104.88" type="bitmap" /></figure>
-<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head>FIGURE 6 .</head><label>6</label><figDesc>FIGURE 6. Ball movement dataset from kick point to goal line.</figDesc><graphic coords="7,71.03,326.37,171.48,106.56" type="bitmap" /></figure>
-<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_6"><head>FIGURE 7 .</head><label>7</label><figDesc>FIGURE 7. CNN architecture model.</figDesc><graphic coords="7,332.72,260.64,169.92,79.56" type="bitmap" /></figure>
-<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_7"><head>3 . 5 .</head><label>35</label><figDesc>Conv1D 2: • Input: (None, 5, 512) • Output: (None, 5, 256) • Second convolution operation. 4. AveragePooling1D 2: • Input: (None, 5, 256) • Output: (None, 3, 256) • Takes the average of every two consecutive values again. Conv1D 3:• Input: (None, 3, 256)• Output: (None, 3, 256)• Third convolution operation. 6. AveragePooling1D 3:• Input: (None, 3, 256)• Output: (None, 2, 256)• Takes the average again, reducing the signal length. 7. Conv1D 4:• Input: (None, 2, 256)• Output: (None, 2, 128)• Fourth convolution operation. 8. AveragePooling1D 4:• Input: (None, 2, 128)• Output: (None, 1, 128)• Takes the average again. 9. Dropout 1:• Input: (None, 1, 128)• Output: (None, 1, 128)• Applies dropout to prevent overfitting. 10. Conv1D 5: • Input: (None, 1, 128) • Output: (None, 1, 128) • Fifth convolution operation. 11. AveragePooling1D 5: • Input: (None, 1, 128) • Output: (None, 1, 128) • Takes the average again. 12. Conv1D 6: • Input: (None, 1, 128) • Output: (None, 1, 128) • Sixth convolution operation. 13. AveragePooling1D 6: • Input: (None, 1, 128) • Output: (None, 1, 128) • Takes the average again. 14. Dropout 2: • Input: (None, 1, 128) • Output: (None, 1, 128) • Applies dropout again. 15. Conv1D 7: • Input: (None, 1, 128) • Output: (None, 1, 64) • Seventh convolution operation. 16. MaxPooling1D: • Input: (None, 1, 64) • Output: (None, 1, 64) • Takes the maximum value in the pooling window. 17. Flatten: • Input: (None, 1, 64) • Output: (None, 64) • Flattens the signal into a one-dimensional shape. 18. Dense 1: • Input: (None, 64) • Output: (None, 32) • Fully connected layer that combines features and applies an activation function. 19. Dropout 3: • Input: (None, 32) • Output: (None, 32) • Applies dropout again. 20. Dense 2: • Input: (None, 32) • Output: (None, 3) • Final fully connected layer with an activation function to produce the final output.</figDesc></figure>
-<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_8"><head>Algorithm 1</head><label>1</label><figDesc>CNN-based Ball Arrival Position Prediction1: Load ONNX_MODEL from ''path/model.onnx'' 2: Initialize ONNX_SESSION with ONNX_MODEL 3: Define INPUT_SHAPE = [1, 5, 2], OUTPUT_CLASSES = {right, center, left} 4: Initialize input_x, input_y as empty lists 5: Set flag_prediction = 0, start_time = 0 6: while ROS_ACTIVE do 7: Process ROS callbacks 8: if ball_detected() then 9: if length(input_x) Ball not detected'' 25: end while 26: function PredictBallPosition(x_buffer, y_buffer) 27: input_tensor ← ConvertToTensor([(x, y) ∀ (x, y) ∈ zip(x_buffer, y_buffer)]) 28: input_tensor ← Reshape(input_tensor, INPUT_SHAPE) 29: output ← ONNX_SESSION.RUN(input_tensor) 30: return OUTPUT_CLASSES[argmax(output[0])]</figDesc></figure>
-<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_9"><figDesc>A. BALL DETECTIONThe evaluation of the YOLOv8 object detection model training data was performed using ClearML to visualize the training results. The confusion matrix illustrates the model's performance in classifying two categories: ball and background. The model effectively identifies the ball category with 396 true positives (TP) and only 1 false positive (FP). However, it shows significant weaknesses in identifying the background, with 0 true negatives (TN) and 7 false negatives (FN). Fig.8shows the accuracy model of proposed CNN.</figDesc></figure>
-<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_10"><head>FIGURE 8 .</head><label>8</label><figDesc>FIGURE 8. Confusion matrix result of ball detection using CNN.</figDesc><graphic coords="10,69.23,301.07,175.08,152.52" type="bitmap" /></figure>
-<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_11"><head>B</head><figDesc>. BALL ARRIVAL PREDICTION In the prediction data training process using the Convolutional Neural Network (CNN) architecture, the model's development is evaluated through loss and accuracy curves, as shown in Fig. 9. The loss graph shows how the model's error changes during training, with lower values indicating better performance. The accuracy graph indicates the proportion of correct predictions.</figDesc></figure>
-<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_12"><head>FIGURE 9 .</head><label>9</label><figDesc>FIGURE 9. CNN model training result. The loss graph from the results of training data using CNN. The X-axis shows the epochs (number of iterations), and the Y-axis shows the loss values, where lower means better model predictions. The red line shows the training loss, which generally decreases during training, and the blue line shows the validation loss, which helps monitor the model's performance on data that has not been seen before. From epochs 0 to 20, there is a consistent decrease in both graphs, although the validation loss increases slightly at the beginning before decreasing again. At epochs 21 to 40, training loss is stable while validation loss fluctuates. At epochs 41 to 60, training loss briefly rises before dropping again, while validation loss increases significantly before dropping. Repeated fluctuations occurred at epochs 61 to 80, and at epochs 81 to 100, training loss and validation loss finally decreased together. This analysis shows overfitting at some points, especially at epochs 41 to 60 and 61 to 80. The accuracy graph of the training data results. The red line shows the training accuracy which typically increases with epochs, and the blue line shows the validation accuracy which</figDesc><graphic coords="10,338.12,351.26,159.12,106.92" type="bitmap" /></figure>
-			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_0"><p>For more information, see https://creativecommons.org/licenses/by/4.0/</p></note>
-			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_1"><p>VOLUME 13, 2025   </p></note>
-			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="41568" xml:id="foot_2"><p>  VOLUME 13, 2025   </p></note>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>I. INTRODUCTION</head><p>Hypothermia is a condition in which the body's mechanism for temperature regulation has difficulty coping with cold pressure. Hypothermia can also be defined as an internal temperature below 35 • C. The human body can regulate temperature in the thermo neutral zone, which is between 36.5-37.5 • C. Beyond that temperature, the body's response to regulating temperature will actively balance heat production and heat loss in the body. Hypothermia often occurs when climbers are in extreme environments, especially cold temperatures, and due to the health factor of climbers <ref type="bibr" target="#b0">[1]</ref>.</p><p>Extreme situations in climbing environments such as cold air pressure due to high mountains, strong winds blowing, wet clothes, and other extreme factors make hypothermia become a common disease in the climbing areas <ref type="bibr" target="#b1">[2]</ref>, <ref type="bibr" target="#b2">[3]</ref>.</p><p>The associate editor coordinating the review of this manuscript and approving it for publication was Thanh Ngoc Dinh . Knowledge of safety in climbing is a major factor to minimize the incidence of hypothermia. The problem is most climbers do not know the basics of salvation in climbing. There are still many climbers who do climbing because of hobbies or just having fun without being equipped with health and safety knowledge when climbing. This often results in mishandling of hypothermia victims. Inadequate treatment in victims of hypothermia can cause hypothermia more severe and result in loss of consciousness or fainting. It can even lead to death.</p><p>Therefore, to further suppress the incidence of hypothermia among climbers when in the mountains, we are motivated to utilize current technology with the health sector, especially safety in climbing. We develop a wearable device that can be used in climbing so that it does not disrupt the climbers during the move.</p><p>Based on the problem mentioned above, in this paper we propose a health monitoring device embedded into climbing jackets by utilizing Wireless Body Area Network (WBAN) technology. The device can be used by climbers during the climb without reducing the comfort and mobility of the climbers. The device used Arduino Nano as a sensor data processing center while the sensors used are temperature sensors and pulse sensors. The body temperature sensor used in the device is the MLX90615 which utilizes infrared technology so that for temperature measurements it can be done without having to make direct contact with the sensor. As for the heart sensor used is the sensor pulse XD-58C that will be placed on the fingertip of the climber to measure the number of heart beats per minute. This device is also accompanied by a heating element used TEC-12706 peltier. The peltier will connect to the motor driver that serves to regulate the temperature. The device is accompanied by Bluetooth which serves to transmit sensor data to the climber's Android smartphone. The Bluetooth used in this research is Bluetooth v4.0 which has been supported with low energy technology.</p><p>Through their Android smartphone, climbers can see the temperature and heartbeat conditions presented in the form of numbers along with their body status. In this Android app, climbers will be given information on how to handle based on current health conditions. In addition, climbers can create climber groups that will connect with other climbers in a group. Group creation uses Wi-Fi Direct technology that allows Android to connect to other Android over Wi-Fi networks. For Wi-Fi Direct usage, one member of a group of climbers must be willing to be the group leader who will become the bridge connecting all members. When climbers are connected to the climbing group, they can see the one another's position and body condition. When the condition of a climber's body worsens, other members will get a notification. The data of worsening body condition will be stored on SQLite Android as history.</p><p>The main contributions of this study are:</p><p>• Design and implementation of a wearable jacket prototype system for hypothermia detection and perform initial treatment with sensors and a heating element.</p><p>• Design and execution of a case study that proves the suitability and usability of wearable jacket sensors in climbing activity.</p><p>• The concept of real-time hypothermia feedback from system and information sharing of the body conditions to a group of climbers in the same network using Wi-Fi Direct technology without having to connect to an internet connection. This article is structured as follows. Section 2 describes previous related studies. Section 3 describes the system, the hardware, and the software architectures. Section 4 describes the methodology which contains experimental setup and algorithm to determine the health condition of the climber in detail. Section 5 describes the evaluation of experimental results. Finally, concluding remarks and plans for our future work are provided in Section 6.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>II. RELATED WORK</head><p>WBAN sensor nodes collect biological signal data from patients over a long period of time. The data is wirelessly sent to the server, stored on the server for further processing, and used as a reference to determine an important decision <ref type="bibr" target="#b3">[4]</ref>, <ref type="bibr" target="#b4">[5]</ref>. Sensor nodes require special communication methods to save energy to extend the network lifetime <ref type="bibr" target="#b5">[6]</ref>. Several classifications of routing protocols for WBAN were used to send data from sensor to server such as posturebased routing, temperature-based routing, cross layer routing, cluster-based routing, and QoS-based routing to gain energy efficient routing protocols for WBAN healthcare system <ref type="bibr" target="#b6">[7]</ref>, <ref type="bibr" target="#b7">[8]</ref>. The interference mitigation methods in WBAN such as power control approach, MAC approach, cognitive radio approach, ultra wideband (UWB) approach, and signal processing approach is important to increase data sending reliability <ref type="bibr" target="#b8">[9]</ref>. WBAN technology can be used in various fields of application such as health <ref type="bibr" target="#b9">[10]</ref>, <ref type="bibr" target="#b10">[11]</ref>, transportation <ref type="bibr" target="#b11">[12]</ref>, military <ref type="bibr" target="#b12">[13]</ref>, and sport <ref type="bibr" target="#b13">[14]</ref>- <ref type="bibr" target="#b16">[17]</ref>.</p><p>Many researchers have conducted research related to the use of WBAN and internet of things (IoT) <ref type="bibr" target="#b17">[18]</ref>- <ref type="bibr" target="#b20">[21]</ref> in various fields, especially in the health sector. Ghamari et al. <ref type="bibr" target="#b21">[22]</ref> provided a WBAN system for elderly and patients remote monitoring in residential environments. Wolgast et al. <ref type="bibr" target="#b22">[23]</ref> designed WBAN to detect heart attack using ECG sensor and send the data to smartphone through wireless Bluetooth. Kang et al. <ref type="bibr" target="#b23">[24]</ref> proposed a smart device to monitor vital signs such as heart rate, body temperature, and respiration rate. Venema et al. <ref type="bibr" target="#b24">[25]</ref> proposed a monitoring system during high altitude activities using in-ear pulse oximeter and Photoplethysmography (PPG) to monitor blood oxygen (SP02) and heart rate. Mahmood et al. <ref type="bibr" target="#b25">[26]</ref> proposed WBAN to monitor heart rate and fall detection using electrocardiography (ECG), temperature, and accelerometer sensors. Baba et al. <ref type="bibr" target="#b26">[27]</ref> proposed WBAN application for health remote monitoring to measure breathing, heart rate, ECG, and SPO2. Lin et al. <ref type="bibr" target="#b27">[28]</ref> proposed wearable heat stroke detection to evaluate and predict the occurrence of a heat stroke for a runner. Monton et al. <ref type="bibr" target="#b28">[29]</ref> proposed e-health prototype merging from five health sensors, i.e., ECG, EMG, Temperature, Airflow, and GSR. Fakhrulddin et al. <ref type="bibr" target="#b29">[30]</ref> proposed an advanced first aid system (AFAS) to monitor elderly persons from risk of falling using accelerometer sensor and heartbeat sensor. Jeon et al. <ref type="bibr" target="#b30">[31]</ref> developed wearable device called sleep care kit to measure real-time multiple bio-signals such as SPO2, body temperature, and respiration to determine sleep quality and calculate the risk of sleep apnea. Moreover, some researchers also pay attention to WBAN technology in terms of energy consumption <ref type="bibr" target="#b31">[32]</ref>, <ref type="bibr" target="#b32">[33]</ref>, security authentication <ref type="bibr" target="#b33">[34]</ref>, and signal transmission <ref type="bibr" target="#b34">[35]</ref>.</p><p>In this article, there are several innovations or uniqueness compared to the related researches mentioned above. This research focuses more on making jackets to be worn by mountain climbers. Some electric jackets are only designed to simply warm the body with certain intensity, but in this study, we make an electric jacket that is able to detect hypothermia based on body data such as heart and temperature, and a climber can see the condition of his body in a visual displayed on his smartphone of the climber. The jacket is designed to perform early detection of hypothermia symptoms so that the jacket will automatically be able to warm the body of the climber and send notification messages through the climber smartphone. Furthermore, the body data can be sent to a group of friends with the assumption that there is no internet connection at the case study site in the high mountain. Table <ref type="table">1</ref> shows the comparisons of the proposed system with related works in terms of application domain, sensor modules, wireless communication, monitoring device, and the benefits of the system.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>III. SYSTEM ARCHITECTURE</head><p>We built an initial detection and treatment system for climbers by utilizing WBAN technology to monitor the condition of the climber's body as shown in Fig. <ref type="figure" target="#fig_0">1</ref>. The system was designed to monitor climbers' body temperature and heart rate, and to do the initial handling such as warming the temperature of the jacket using a heat element. Several sensors and other components were used, namely the pulse sensor that was used to get climbers' heart rate data, the MLX90615 temperature sensor that was used to get the climber's body temperature, the DS18B20 temperature sensor that was used to get the temperature of the heater, and the peltier that was used for the jacket heater. The sensors and components were installed on an Arduino microcontroller device and the circuit was embedded in a jacket. The values of the climber's heart rate and body temperature were combined to get a correlation as a determination of the climber's condition. Delivery of values was done in 2 ways, namely idle mode and active mode. This was done for efficient use of resources. The data were sent directly to the end device and execute the action point. Action point is a device of hardware consisting of motor drivers and peltiers. This action point was used to regulate the high and low temperatures of the heating element. This circuit was directly connected to Arduino. Users could adjust the temperature of the heater by sending data to Arduino and the data would be forwarded to the action point.</p><p>The climbers could use an Android smartphone to access data sent by a microcontroller. Android application makes it easy for climbers to find out their body condition in terms of temperature and heart rate. The climber could regulate the temperature of the heating element on the jacket using the Android application. The climber could form a group of climbers and share the information of body conditions on the Android application. The climber and group members could connect each other using Wi-Fi Direct technology so that climbers could use this feature without having to connect to an internet connection.</p><p>In this research there are 2 architectural designs, namely hardware and software. The architectural design of the hardware will be applied to the climbing jacket, while the software architecture design will be applied to Android smartphones.  This study used data from temperature sensors and heart rate sensors as indicators for determining the condition of the climber's body. Data from the two sensors were processed to obtain an output value to get the climber health code. Data transmission was done wirelessly via a Bluetooth communication network.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A. HARDWARE ARCHITECTURE</head><p>In regard to data transmission based on the available time, there are 2 modes of sending data on this device. Idle mode is a mode that is used to increase the efficiency of the data source used. This mode will be active when the climber closes</p><p>TABLE 1. Comparisons of the proposed system with related works.</p><p>the application. This mode will send data to Android with a time delay that is every 1 minute. Thus, the process of sending data will occur once every 1 minute and it can minimize the power for the sending process. Although data is sent once every 1 minute to Android, data from the sensor will still be retrieved at any time. This is to avoid delays in information about physical health while in active mode the data will be sent every 5 seconds. This mode will be active when the climber is using or opening the application. This mode allows climbers to see the condition of the body in more real-time.</p><p>The communication of action point with Arduino still used cable. Arduino would get data from both sensors; data from both sensors would be calculated and would have an output code. If the output code shows that the climber was in a less prime condition, Arduino would send a command to the action point to activate the heater. The action point would issue a voltage in accordance with the Arduino command, and then the voltage would be converted into heat using a peltier.</p><p>Through the Android application interface, climbers could access data directly from Arduino using a Bluetooth connection. Sensor data obtained would be displayed in the form of numbers with clear units along with a message or description of the climber's body condition. There was also some handling information related to early prevention of hypothermia patients. Users could measure temperature and heart rate more intensely in the Android application. In addition, users could form a group of climbers who could connect with existing climbers. With this feature, climbers could share the condition of their bodies with other climbers. In the case of hypothermia, body data would be stored in Android data storage and a notification would be displayed for climbers when the Android application were opened.</p><p>The proposed hardware device consists of:</p><p>1) ARDUINO NANO Arduino is an open source single-board micro controller designed to facilitate the use of electronics in various fields. Arduino Nano uses ATmega 328 microcontroller with AVR architecture. It requires 5V for power operation with 19mA power consumption. It has 32KB flash memory and 2GB SRAM with a clock speed of 16MHz. Arduino has 22 digital I/O pins, 6 of which are PWM pins. Each pin I/O has a current of 40mA. Arduino Nano size is 18 × 45mm with 7g weight.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>2) PULSE SENSOR</head><p>Pulse sensor was used to retrieve the heart rate data of climber's body. Heart rate data was used to determine whether the climber was experiencing tachycardia or bradycardia or normal condition. Pulse sensor has a diameter of about 16mm with a thickness of 3mm, working on voltage 3V to 5V with power consumption of about 4mA.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>3) TEMPERATURE SENSOR -MLX90615</head><p>Temperature sensor MLX90615 was used to obtain climbers' body temperature data. The data would determine whether the climber suffers from hypothermia. The temperature sensor MLX90615 can receive a voltage of 5V with an operating voltage of 3.6V. This sensor can measure 2 types of temperature i.e. object temperature and ambient temperature.</p><p>The measured temperature range of the MLX90615 sensor is -20 • C to 125 • C.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>4) TEMPERATURE SENSOR -DS18B20</head><p>Temperature sensor DS18B20 was used to determine the temperature of peltier. It allowed the climber to see the peltier temperature on the jacket. The DS18B20 sensor is a digital temperature sensor that uses the one-wire communication method. This sensor uses a voltage of 3V to 5V, and it can measure the temperature from -55 • C to 125 • C with an accuracy of about 0.5 • C.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>5) PELTIER</head><p>Peltier was used to increase the temperature in the jacket.</p><p>Peltier is a Thermo-Electric component. When this component has a voltage, it will move heat from one side to the other, so it can produce 40 • C to 70 • C heat. Peltier has dimensions of 40 × 40 × 4mm with 29g weight.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>6) MOTOR DRIVER -L298N</head><p>The motor driver was used to adjust the voltage to be supplied to the peltier so that the temperature on the peltier can be adjusted according to the climber's preference. This research used motor driver L298N with power supply 5V to 46V. It has a maximum power of 25W and a working temperature of about 25</p><p>• C to 130 • C. The dimensions of the L298N are 60 × 54mm with a weight of 48g. 7) BLUETOOTH v4.0 BLE Bluetooth was used to transmit climber health data obtained from previous sensors to the climbers' Android. This research used Bluetooth v4.0 with HM-10 type which comes with Low Energy technology. This Bluetooth works on a 24 GHz ISM Band frequency with GFSK modulation method. It has asynchronous and synchronous speed of 6K bytes and uses authentication and encryption security methods. This Bluetooth works on voltage + 3.3V 50mA.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>8) BATTERY</head><p>The jacket used Li-Po (Lithium Ion Polymer) type battery which has bigger capacity and is not easily depleted, making it suitable for climbing which takes at least 2 hours to reach the inter-point travel post.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>B. SOFTWARE ARCHITECTURE</head><p>It includes an Android, Bluetooth Gatt. Wi-Fi Direct, and SQLite.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>1) ANDROID</head><p>Android is a Linux-based operating system designed for touch-screen devices such as smartphones and tablets. In general, Android application programming uses Android Studio with Java programming language and Kotlin. In this research, the Android application was connected with hardware devices via Bluetooth which serves to display the results of data collection of temperature sensors and pulse sensors. In addition, the Android app could adjust the heat level of peltier, save history of accidents caused by hypothermia, and enable group creation to share health data.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>2) BLUETOOTH GATT</head><p>Bluetooth Gatt is an architecture built on the Attribute Protocol (ATT). Bluetooth Gatt was used to determine the way two low energy Bluetooth devices send and receive data, starting from searching Bluetooth connection until the process of exchanging data from Android applications with hardware devices. Unlike the use of non-low-energy Bluetooth, to connect Android hardware devices that use low-energy Bluetooth, the architecture of Bluetooth Gatt had to be used.</p><p>3) Wi-Fi DIRECT Wi-Fi Direct or Wi-Fi P2P (Peer to Peer) is a standard Wi-Fi that allows direct connection without access point. Thus, Wi-Fi Direct allows multiple devices to connect one another. Wi-Fi Direct has a concept like ad-hoc. The difference is Wi-Fi Direct using single radio hop communication whereas ad-hoc mode Wi-Fi uses communication of multiple radio hops. By using Wi-Fi Direct technology, communication between devices will be like using Bluetooth. The device can communicate with the typical speed of Wi-Fi. Wi-Fi Direct can connect devices even if the device comes from different manufacturers. To use Wi-Fi Direct technology, there must be at least one supported Wi-Fi device with Wi-Fi Direct, this is to enable peer-to-peer connections between devices.</p><p>In this research, Wi-Fi Direct was used to connect user climber app with the climbing group. Therefore, it was required that in one climber group be one group leader who would make Wi-Fi Direct network. Other member's data would be sent thoroughly to all members group using this Wi-Fi Direct technology.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>4) SQLite</head><p>SQLite is a relational database system that is ACID-compliant and has a relatively small code library size. SQLite is not a system that only communicates with the program, but also as part of an overall program. The API calling, or its use, is done directly by programming language. In the Android app, SQLite is considered as a local database, so the data storage is processed using Android programming language i.e. Java or Kotlin. Because of its direct use of the programming language, SQLite can reduce overhead, latency, and more. Some of the advantages of SQLite are easy to manage, very stable, expandable, very fast. Additionally, it uses the WAL (Write-Ahead Logging) mode that allows SQLite to read and write simultaneously.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>IV. METHODOLOGY</head><p>Symptoms of hypothermia disease should be known by the climber so that handling is given more quickly and effectively. This research made a hardware and software device that aims to facilitate the detection and handling of hypothermia disease. The hardware devices would be put on a climbing jacket. The hardware device consisted of several sensors, microcontroller, Bluetooth, and heating elements. The sensors used were temperature sensors and pulse sensors. The temperature sensor were connected to Arduino by using SCL pin and SDA pin while the pulse sensor connected with Arduino using pin A0. Temperature sensors would be placed in the area near the armpits because in that area the body temperature measurement can be done more effectively. Temperature sensor would take the temperature of the object i.e. body temperature and sends it to the microcontroller. The pulse sensor would be placed on the fingertip of the climber because the pulse sensor was designed to more effectively read the signal on the palm area. The pulse sensor data would also be sent to the Arduino which would then be used as parameters to determine whether the climber is hypothermic or not. In Arduino there are 4 categories of health, namely ''healthy'', ''rest'', ''hypothermia'', and ''emergency''. The ''healthy'' category means the climber was in excellent shape to continue the activity. Category ''rest'' means the climber is in a less than excellent, it is advisable to rest first to avoid hypothermia. Category ''hypothermia'' means climbers are in a state of being hypothermia, immediately do the appropriate treatment. Finally, the category of ''emergency'' means climbers in a state of serious hypothermia, call on reinforcements and get to the nearest hospital. In addition, the automatic heater in the jacket would begin to heat up to warm the climber when climbers were in abnormal circumstances. There was also a temperature sensor that had a function to measure the temperature of the heater; this sensor was connected to the Arduino using pin D5. Sensor data would also be sent to the climber smartphone by using Bluetooth. The Bluetooth was connected to the Arduino using RX pin and TX pin.</p><p>Regarding the software, the system used Android operating system for smartphone application development. Android would receive sensor data from the device via Bluetooth in real time. The sensor data would then be displayed in the form of numbers and graphics on the user interface. There were also features to join or create a group of climbers using Wi-Fi Direct technology. With these features climbers could connect to other climbers in one group. Climbers could see each other's health and position. The last feature was health data storage. The stored health data is the health data of the climber when attacked by hypothermia.</p><p>Fig. <ref type="figure" target="#fig_3">3</ref> shows the experimental setup in which the overall components are connected to the Arduino board. Sensors, motor drivers, and Bluetooth were connected to Arduino pins while peltier and battery are connected to motor driver.</p><p>This research designed a simple algorithm to determine the health condition of the climber as shown in Fig. <ref type="figure" target="#fig_4">4</ref>. This algorithm serves to combine data from the sensor into an output value (condition code). It aims to facilitate the determination of conditions and information that will be given to climbers.</p><p>In one end device, there are two sensors (temperature and pulse sensors) to determine the state of the climbing body and one sensor (temperature sensor) to determine the condition  of the jacket. Combined sensor data only sensor data that serves to determine the condition of the climber's body. Sensor data will be processed using the condition determination algorithm. This data will be a parameter to enable the heating element on the jacket.</p><p>The temperature sensor of type MLX90615 was used to observe body temperature of climbers while the temperature sensor type DS18B20 was used to observe the state of the peltier temperature to adjust the jacket temperature. The body temperature sensor data would be divided into 4 categories, namely normal, mild hypothermia, moderate hypothermia, and severe hypothermia. Each category would be given a code to determine the next condition. The greater the code, the more severe the condition is. This is as shown in table <ref type="table">2</ref>. Heartbeat or pulse sensors of type XD-58C were used to observe heart rate or climber's pulse. Data from sensor pulses would be divided into 3 categories, namely normal, tachycardia, and bradycardia. Just like the previous sensor under any conditions, codes would be given for determination of the next condition. The greater the code the more severe the condition is. This is as shown in table <ref type="table">3</ref>.</p><p>TABLE 3. Heartbeat sensor code.</p><p>Where, Normal = 100 bpm -60 bpm, Tachycardia, the beat is more than the normal limit =&gt; 100 bpm, Bradycardia, and the beat is less than the normal limit = &lt; 60 bpm.</p><p>This code processes the input value of each variable (sensor value) as a parameter to issue a climber's health condition code. After all the sensor conditions get a code, the sensor code will be mutated with another sensor code. Subsequently, it generates some code in 2-digit numbers. This code will later be included in the algorithm in determining the health condition of the climber. The result of code in 2-digit numbers of the two sensors is shown in table <ref type="table">4</ref>. The permutation result shows the pattern of code for the determination of condition. Furthermore, the parameters are selected for the grouping of health conditions, namely healthy, rest, hypothermia, and emergency. This is the condition that will be used to determine the activation of the action point and the determination of message handling that will appear in the Android app. The number of possibilities formed from the permutation of the sensor code is 12 possibilities as shown in table <ref type="table">5</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>TABLE 5. Possible condition.</head><p>To increase the effectiveness data packets transmission on end devices, this study used an algorithm with 2 modes of delivery as shown in Fig. <ref type="figure" target="#fig_7">5</ref>. Idle mode allows the end device to send data when the Android climber application is in a closed state. The data will be sent once a minute to minimize power output. Whereas the active mode allows the end device to send data when the climber is actively using an Android application, or the application is open. Data in this mode will be sent every 5 seconds so that climbers can find out the condition of the body in real time. Although sending data from Arduino to Android has a delay, data retrieval from the sensor to Arduino is done at any time. The form of data sent is JSON String. This is to facilitate parsing on Android programming. The data transmitted are body temperature sensor data, heart rate data, peltier temperature sensor data, and condition codes. This JSON data will be sent during active mode.</p><p>Fig. <ref type="figure" target="#fig_8">6</ref> shows the workflow of the end device in the data retrieval and transmission. At the beginning of the microcontroller work, the first thing to be processed is the initialization of the existing header file and the specified variable, other variables, the setup function, and the loop function. In the setup function, the end device will read data from the installed sensor i.e. temperature sensor and heart sensor. If the sensor is successfully activated, it will read condition code; otherwise the program will return to the start of activate sensor step. The sensor data will be sent via Bluetooth. Access to the action point is also done on the function to set the temperature of peltier. Fig. <ref type="figure" target="#fig_9">7</ref> shows the workflow of action point. The action point is a series of components consisting of driver motor L298N and peltier. This circuit will be used to increase the temperature of the jacket so that the climber's body temperature is not lost due to the cold environmental temperature.</p><p>The action point communicates directly with the Arduino by connecting the input pin cable to the Arduino. By default, the condition of the action points is 0 or off. Users can set the output of the action point by changing the PWM pin value on the Arduino. In addition, the action point can change its value automatically when the health condition of the climber is hypothermia or emergency.</p><p>The database used in this study was SQLite database system as shown in code 1 (database sensor schema). SQLite provides quick and easy access, and it was programmed using Android programming language i.e. Java or Kotlin. The _id field is unique and different on each saved data. Field amb, obj, and heart are fields used to store sensor data while the field code will load the health code of the climber. There is also a latitude and longitude field to store the climber's position. In addition, there is timestamp column containing the time and date data, and they are stored in the database. The SQLite database was used on the Android, so the data to be stored must be sent first from Arduino to Android. On the Android, sensor data from Arduino will be sorted first to determine which data will be stored in the database. The data to be stored in the SQLite database provide the information about whether the climber is experiencing hypothermia. The data that show good health will not be stored in the database but will still be displayed on the climber's Android.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>V. EXPERIMENTAL RESULTS</head><p>The hardware device that has been set up will be placed on a black box to make it look neater, to minimize the lost data, and to avoid short-circuit between the components. Some components to be stored in the black box are Arduino, Driver Motor, Bluetooth, and all the other connectors like connector, battery, and peltier sensor as shown in Fig. <ref type="figure" target="#fig_11">8</ref>. Sensors, batteries, and peltiers will remain connected to Arduino using cables. The position of the sensor and other components can be seen in Fig. <ref type="figure" target="#fig_12">9</ref>. The MLX90615 temperature sensor will be placed around the armpit area because in that area the temperature is not affected by skin temperature or the temperature of the outside environment. In addition, the area is often used by doctors or nurses to determine the condition of the patient's body. The pulse sensor will be placed on the palm of the hand more precisely on one of the climbers' fingers. This is because the skin in the area is thinner than the outer skin of the hand, making it easy to read the heart rate of the body. The position of the peltier and the DS18B20 temperature sensor are put together, because the DS18B20 temperature sensor will be used to find out the amount of heat generated by the peltier. The peltier is positioned in the front of the body, between the chest and abdomen. Some other peltier be placed on the back of the body, i.e., the shoulder or back. The software development system was implemented in two parts. The first part was through a software algorithm to get data and to transmit them to Arduino. The second part was the features provided in the application, along with the technology used.</p><p>In the first section, to connect Android apps with enddevice hardware, the technology of Bluetooth GATT was required because it uses Low Energy. The Android app must enable approval for Bluetooth and Location in order to perform Bluetooth device's end-search devices. Bluetooth GATT already has a feature to detect whether the Bluetooth is connected, disconnected, and able to read the data sent via Bluetooth. By default, Android will accept all data displayed in serial Arduino on the end device as shown in Fig. <ref type="figure" target="#fig_13">10</ref>.</p><p>Fig. <ref type="figure" target="#fig_14">11</ref> shows the flow of data retrieval. The data will be processed and analyzed whether the climber is in a hypothermia state or not. The data will only appear as normal information data if not hypothermia. On the other hand, if hypothermia, the data will be entered into the SQLite database as hiking health history data. Furthermore, if the climber has a climber group that has been connected, the data will be broadcasted to all existing members. Additionally, if the climber minimizes the application, the climber will get notification about the circumstances of his body. In addition to receiving data from the end device, the app can send data to the end device. This allows the Android app to change the  state and set the temperature that will be released by the action point device.</p><p>The second section is in the Android app. There were 3 main features that could be used by climbers. The first feature was the climber's health monitoring of as shown in Fig. <ref type="figure" target="#fig_15">12</ref>. This feature allows climbers to see the state of the body such as heart rate that is shown in units of bpm, as well as the temperature that is shown in degrees Celsius. In addition, climbers could measure the temperature and the heartbeat presented in graph. In this feature, there are several messages for climbers about the condition of the climber, as well as further handling when the climber is in a state of hypothermia. Climbers could adjust the jacket temperature by regulating the peltier temperature through the features available in Android Apps.</p><p>The second feature was a feature to form or search for climbing groups. By utilizing Wi-Fi Direct technology, it can connect to each other using a wireless network. This feature does not require connection to the internet so there is no need to worry if there is no network signal on the climbing site. To form groups, climbers must first define the group leader; the chairperson must create a group so that other members can join the group. Members who have joined can exchange data of health and locations. A group member can see the position and state of health of other members. This feature is shown in Fig. <ref type="figure" target="#fig_16">13</ref>.</p><p>The third feature is the history storage feature of climber's health history. When the climber is detected as having hypothermia, the data of the condition will automatically be stored in the SQLite database. Climbers can see the history and details of their health data, such as when and where the data occurred, how to handle it, and how the current condition of the climber's body is. It can be seen in Fig. <ref type="figure" target="#fig_17">14</ref>.</p><p>There is a notification on the Android app that will appear when the climber is detected in an abnormal state. Notifications will only appear when the climber is minimizing the Android app as shown in Fig. <ref type="figure" target="#fig_18">15</ref>.</p><p>The first step of analysis was to test the algorithm of condition determination. This was done to determine whether the system works well in determining the condition of the climber's body. The test was conducted by taking 20 data samples from the body. The data was entered into the condition determination algorithm as shown in table 6. The data input variables are body temperature sensor data and heart rate sensor data. Furthermore, testing in normal conditions was done by taking data directly from the jacket worn by the people. Jackets that had been embedded with end devices and action points would be put on someone. Subsequently, all data from the pulse sensor, body temperature sensor, and peltier temperature sensor would be acquired. The result is shown in table 7. The data retrieved would also be displayed on the Android application.</p><p>TABLE 6. Result of data retrieval. TABLE 7. Sample of normal condition. TABLE 8. Results mean normal condition.</p><p>The obtained data would provide average results of normal condition as shown in table 8. Next, testing in severe hypothermia (emergency) condition was done directly at cold or air-conditioned room temperature. All data obtained from the pulse sensor, body temperature sensor, and peltier temperature sensor are shown in table <ref type="table">9</ref>.</p><p>The obtained data show average results of severe hypothermia (emergency) condition as shown in table <ref type="table">10</ref>.</p><p>Based on the results of the test data, it can be seen that the pattern of graphs changes in sensor values. Fig. <ref type="figure" target="#fig_10">16</ref> shows the results of testing changes in body temperature sensor values in two scenarios, normal and hypothermia.</p><p>TABLE 9. Sample of severe hypothermia (emergency) condition. TABLE 10. Results mean severe hypothermia (emergency) condition. FIGURE 16. Body temperature sensor in normal and hypothermia conditions. FIGURE 17. Peltier temperature sensor in normal and hypothermia conditions.</p><p>Furthermore, Fig. <ref type="figure" target="#fig_10">17</ref> shows the peltier temperature sensor value in normal and hypothermia conditions. In hypothermia condition, the temperature of peltier will rise to warm the jacket of the climber. TABLE 11. Comparison of body temperature sensor with digital thermometer.</p><p>Fig. <ref type="figure" target="#fig_19">18</ref> shows heart rate sensor value in normal and hypothermia conditions. In hypothermia condition, the heart rate becomes more unstable.</p><p>The results of data collected from the sensors were examined in order to determine whether the values were reliable. Thus, the data from each sensor would be compared to the data resulted from other tools. A comparable device was required to compare the data obtained by the sensor. Digital body thermometer was used to measure the difference of temperature value from body temperature sensor MLX90615. The body temperature sensor MLX90615 and digital thermometer were placed in the same position and would count</p><p>TABLE 12. Comparison of pulse sensor XD-58C with heart rate monitor application.</p><p>the temperature of the body simultaneously. The average temperature between the MLX90615 sensor and digital thermometer was very similar. This is shown in table <ref type="table">11</ref>.</p><p>Heart Rate Monitor, a smartphone application that uses cameras and flash lights on Android smartphones, was used to measure the difference of heart rate value from pulse sensor XD-58C. Data retrieval were done at the same place, that was at the fingertips. The average heart rate between the pulse sensor XD-58C and Heart Rate Monitor application was very similar as shown in table <ref type="table">12</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>VI. CONCLUSION</head><p>This research designed architecture and implemented a prototype to detect hypothermia symptoms in the climber's body based on WBAN technology. The proposed device consists of body temperature sensor, pulse sensor, peltier temperature sensor, and peltier heating element. The data from body temperature and pulse sensors will be processed to get the climber health condition and transferred wirelessly via Bluetooth to Android smartphone. If the output condition shows that the climber is in hypothermia symptoms, the device will send a command to the action point to activate the peltier heating element to rise the temperature of the climber's jacket. The experiment results showed that the climber could use Android smartphone to monitor the body temperature value, heart rate value, and description of the body condition. The climber could connect to a group of climbers and connect each other. The Android application would notify the climber and share the notification to a group of climbers if hypothermia were detected.</p><p>In the case of hypothermia, this device can not completely cure hypothermia sufferers. This device is only used to detect symptoms of hypothermia so that early treatment can be initiated. This device can also provide an initial treatment such as the provision of heat to the body, but this is only to slow the severity of the patient's hypothermia. Further treatment can only be done by a doctor or hospital. Thus, it cannot be ascertained that if climbers use this device, climber will not get hypothermia. However, prevention is better than treatment. Because hypothermia is a disease that takes a relatively long time of healing, it is difficult to be done by non-medical people. For future work, we suggest expanding the coverage area of hypothermia detection, not only in a cluster of climbers also within the reach of the climbing area. In its development every climber's device can be connected to an access point or gateway associated with other access points and monitoring headquarters. Thus, the officers who are in the monitoring station will also get information about climbers who have hypothermia as well as the climber's location. Handling will be done much faster and can be done by someone who is an expert in the field.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>FIGURE 1 .</head><label>1</label><figDesc>FIGURE 1. System architecture.</figDesc><graphic coords="3,38.75,437.65,236.06,171.09" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>Fig. 2</head><label>2</label><figDesc>Fig. 2 shows the hardware architecture which includes an Arduino Nano, Pulse Sensor, MLX9015 Temperature Sensor, DS18B20 Temperature Sensor, L298N Driver Motor, Peltier, Bluetooth, and Battery.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>FIGURE 2 .</head><label>2</label><figDesc>FIGURE 2. Hardware architecture.</figDesc><graphic coords="3,299.65,382.42,236.06,201.65" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>FIGURE 3 .</head><label>3</label><figDesc>FIGURE 3. Experimental setup.</figDesc><graphic coords="7,73.85,66.30,165.84,133.44" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head>FIGURE 4 .</head><label>4</label><figDesc>FIGURE 4. Determination of the health condition of the climber.</figDesc><graphic coords="7,39.29,237.45,234.96,380.28" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head>TABLE 2 .</head><label>2</label><figDesc>Temperature sensor code. The categories of body temperature are Normal = 40 • C -35 • C, Mild Hypothermia = 35 • C -31 • C, Moderate Hypothermia = 31 • C -28 • C, and Severe Hypothermia =&lt; 28 • C.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_6"><head>TABLE 4 .</head><label>4</label><figDesc>Code in 2-digit numbers of the two sensors.VOLUME 8, 2020   </figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_7"><head>FIGURE 5 .</head><label>5</label><figDesc>FIGURE 5. Modes of data packet transmission.</figDesc><graphic coords="8,38.51,519.01,236.53,194.01" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_8"><head>FIGURE 6 .</head><label>6</label><figDesc>FIGURE 6. Data packets transmission of the end device.</figDesc><graphic coords="8,305.66,294.73,224.04,194.40" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_9"><head>FIGURE 7 .</head><label>7</label><figDesc>FIGURE 7. Action point work.</figDesc><graphic coords="9,38.27,66.54,237.00,215.88" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_10"><head>Code 1 .</head><label>1</label><figDesc>Database sensor schema.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_11"><head>FIGURE 8 .</head><label>8</label><figDesc>FIGURE 8. The black box.</figDesc><graphic coords="9,359.00,66.06,117.36,146.04" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_12"><head>FIGURE 9 .</head><label>9</label><figDesc>FIGURE 9. Hardware position.</figDesc><graphic coords="9,299.30,483.86,236.76,123.17" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_13"><head>FIGURE 10 .</head><label>10</label><figDesc>FIGURE 10. JSON string data.</figDesc><graphic coords="10,38.15,66.06,237.24,149.16" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_14"><head>FIGURE 11 .</head><label>11</label><figDesc>FIGURE 11. Flow of data retrieval.</figDesc><graphic coords="10,45.11,427.46,223.32,287.52" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_15"><head>FIGURE 12 .</head><label>12</label><figDesc>FIGURE 12. Body monitor feature: (a) This feature shows the value from the sensors; This feature shows the value from sensor in a chart.</figDesc><graphic coords="10,348.38,432.97,144.00,255.24" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_16"><head>FIGURE 13 .</head><label>13</label><figDesc>FIGURE 13. Group feature: (a) This feature shows who is the nearest person from user; (b) This feature shows the detail from the nearest person from user.</figDesc><graphic coords="11,84.77,291.05,144.00,233.64" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_17"><head>FIGURE 14 .</head><label>14</label><figDesc>FIGURE 14. History feature: (a) This feature shows history from user; (b) This feature shows the detail of the history from user.</figDesc><graphic coords="11,340.70,332.69,152.88,240.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_18"><head>FIGURE 15 .</head><label>15</label><figDesc>FIGURE 15. Notification.</figDesc><graphic coords="12,84.77,66.06,144.00,216.00" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_19"><head>FIGURE 18 .</head><label>18</label><figDesc>FIGURE 18. Heart pulse sensor in normal and hypothermia conditions.</figDesc><graphic coords="13,299.42,66.53,236.53,135.88" type="bitmap" /></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_0"><p>VOLUME 8, 2020   </p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="155262" xml:id="foot_1"><p>  VOLUME 8, 2020   </p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="155264" xml:id="foot_2"><p>  VOLUME 8, 2020   </p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="155268" xml:id="foot_3"><p>  VOLUME 8, 2020   </p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="155270" xml:id="foot_4"><p>  VOLUME 8, 2020   </p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="155274" xml:id="foot_5"><p>  VOLUME 8, 2020   </p></note>
 		</body>
 		<back>
-			<div type="annex">
-<div xmlns="http://www.tei-c.org/ns/1.0" />			</div>
+
+			<div type="funding">
+<div><p>This work was supported by the <rs type="funder">Ministry of Research and Technology of Indonesia, through scheme Higher Education Excellent Applied Research 2020</rs>.</p></div>
+			</div>
+			<listOrg type="funding">
+			</listOrg>
 			<div type="references">
 
 				<listBibl>
 
 <biblStruct xml:id="b0">
 	<analytic>
-		<title level="a" type="main">Towards an autonomous RoboCup small size league robot</title>
+		<title level="a" type="main">A tale of two climbers: Hypothermia, death, and survival on mount everest</title>
 		<author>
-			<persName><forename type="first">J</forename><forename type="middle">G</forename><surname>Melo</surname></persName>
+			<persName><forename type="first">G</forename><forename type="middle">W K</forename><surname>Moore</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">F</forename><surname>Martins</surname></persName>
+			<persName><forename type="first">J</forename><forename type="middle">L</forename><surname>Semple</surname></persName>
 		</author>
-		<author>
-			<persName><forename type="first">L</forename><surname>Cavalcanti</surname></persName>
-		</author>
-		<author>
-			<persName><forename type="first">R</forename><surname>Fernandes</surname></persName>
-		</author>
-		<author>
-			<persName><forename type="first">V</forename><surname>Araújo</surname></persName>
-		</author>
-		<author>
-			<persName><forename type="first">R</forename><surname>Joaquim</surname></persName>
-		</author>
-		<author>
-			<persName><forename type="first">J</forename><forename type="middle">G</forename><surname>Monteiro</surname></persName>
-		</author>
-		<author>
-			<persName><forename type="first">E</forename><surname>Barros</surname></persName>
-		</author>
-		<idno type="DOI">10.1109/LARS/SBR/WRE56824.2022.9996004</idno>
 	</analytic>
 	<monogr>
-		<title level="m">Proc. Latin Amer. Robot. Symp. (LARS), Brazilian Symp. Robot. (SBR), Workshop Robot. Educ. (WRE)</title>
-		<meeting>Latin Amer. Robot. Symp. (LARS), Brazilian Symp. Robot. (SBR), Workshop Robot. Educ. (WRE)</meeting>
+		<title level="j">High Altitude Med. Biol</title>
 		<imprint>
-			<date type="published" when="2022-10">Oct. 2022</date>
-			<biblScope unit="page" from="1" to="6" />
+			<biblScope unit="volume">13</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="51" to="56" />
+			<date type="published" when="2012-03">Mar. 2012</date>
 		</imprint>
 	</monogr>
 </biblStruct>
 
 <biblStruct xml:id="b1">
 	<analytic>
-		<title level="a" type="main">Tech United Eindhoven middle size league winner 2022</title>
+		<title level="a" type="main">Smart multi-level tool for remote patient monitoring based on a wireless sensor network and mobile augmented reality</title>
 		<author>
-			<persName><forename type="first">S</forename><forename type="middle">T</forename><surname>Kempers</surname></persName>
+			<persName><forename type="first">F</forename><surname>González</surname></persName>
 		</author>
-		<idno type="DOI">10.1007/978-3-031-28469-4_28</idno>
+		<author>
+			<persName><forename type="first">O</forename><surname>Villegas</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Ramírez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Sánchez</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Domínguez</surname></persName>
+		</author>
 	</analytic>
 	<monogr>
-		<title level="j">Robot World Cup XXV</title>
-		<editor>
-			<persName><forename type="first">A</forename><surname>Eguchi</surname></persName>
-		</editor>
-		<editor>
-			<persName><forename type="first">N</forename><surname>Lau</surname></persName>
-		</editor>
-		<editor>
-			<persName><forename type="first">M</forename><surname>Paetzel-Prüsmann</surname></persName>
-		</editor>
-		<editor>
-			<persName><forename type="first">T</forename><surname>Wanichanon</surname></persName>
-		</editor>
+		<title level="j">Sensors</title>
 		<imprint>
-			<biblScope unit="volume">2022</biblScope>
-			<biblScope unit="page" from="337" to="348" />
-			<date type="published" when="2023">2023</date>
-			<publisher>Springer</publisher>
-			<pubPlace>Cham, Switzerland</pubPlace>
+			<biblScope unit="volume">14</biblScope>
+			<biblScope unit="issue">9</biblScope>
+			<biblScope unit="page" from="17212" to="17234" />
+			<date type="published" when="2014-09">Sep. 2014</date>
 		</imprint>
 	</monogr>
 </biblStruct>
 
 <biblStruct xml:id="b2">
 	<analytic>
-		<title level="a" type="main">Probability-based strategy for a football multi-agent autonomous robot system</title>
+		<title level="a" type="main">Simulations of the effect of the cooling elements&apos; temperature on the hypothermia efficiency</title>
 		<author>
-			<persName><forename type="first">A</forename><forename type="middle">F A</forename><surname>Ribeiro</surname></persName>
+			<persName><forename type="first">V</forename><surname>Cojocaru</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">A</forename><forename type="middle">C C</forename><surname>Lopes</surname></persName>
+			<persName><forename type="first">D</forename><surname>Vrabii</surname></persName>
 		</author>
-		<author>
-			<persName><forename type="first">T</forename><forename type="middle">A</forename><surname>Ribeiro</surname></persName>
-		</author>
-		<author>
-			<persName><forename type="first">N</forename><forename type="middle">S S M</forename><surname>Pereira</surname></persName>
-		</author>
-		<author>
-			<persName><forename type="first">G</forename><forename type="middle">T</forename><surname>Lopes</surname></persName>
-		</author>
-		<author>
-			<persName><forename type="first">A</forename><forename type="middle">F M</forename><surname>Ribeiro</surname></persName>
-		</author>
-		<idno type="DOI">10.3390/robotics13010005</idno>
 	</analytic>
 	<monogr>
-		<title level="j">Robotics</title>
+		<title level="m">Proc. EHB</title>
+		<meeting>EHB<address><addrLine>Sinaia, Romania</addrLine></address></meeting>
 		<imprint>
-			<biblScope unit="volume">13</biblScope>
-			<biblScope unit="issue">1</biblScope>
-			<biblScope unit="page">2025</biblScope>
-			<date type="published" when="2023-12">Dec. 2023</date>
+			<date type="published" when="2017-06">Jun. 2017</date>
+			<biblScope unit="page" from="13" to="16" />
 		</imprint>
 	</monogr>
 </biblStruct>
 
 <biblStruct xml:id="b3">
 	<analytic>
-		<title level="a" type="main">Ball position estimation in goal keeper robots using neural network</title>
+		<title level="a" type="main">Cloud-based wireless body area networks</title>
 		<author>
-			<persName><forename type="first">S</forename><surname>Setiawardhana</surname></persName>
+			<persName><forename type="first">A</forename><forename type="middle">S</forename><surname>Abiodun</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">R</forename><surname>Dikairono</surname></persName>
+			<persName><forename type="first">M</forename><forename type="middle">H</forename><surname>Anisi</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">D</forename><surname>Purwanto</surname></persName>
+			<persName><forename type="first">M</forename><forename type="middle">K</forename><surname>Khan</surname></persName>
 		</author>
-		<author>
-			<persName><forename type="first">T</forename><forename type="middle">A</forename><surname>Sardjono</surname></persName>
-		</author>
-		<idno type="DOI">10.15866/ireaco.v13i1.18504</idno>
 	</analytic>
 	<monogr>
-		<title level="j">Int. Rev. Autom. Control</title>
+		<title level="j">IEEE Consum. Electron. Mag</title>
 		<imprint>
-			<biblScope unit="volume">13</biblScope>
-			<biblScope unit="issue">1</biblScope>
-			<biblScope unit="page">38</biblScope>
-			<date type="published" when="2020-01">Jan. 2020</date>
+			<biblScope unit="volume">8</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="55" to="59" />
+			<date type="published" when="2019-05">May 2019</date>
 		</imprint>
 	</monogr>
 </biblStruct>
 
 <biblStruct xml:id="b4">
 	<analytic>
-		<title level="a" type="main">Prediction of ball position in three-dimensional space using artificial neural networks on robot ERSOW</title>
+		<title level="a" type="main">A comprehensive survey on real-time applications of WSN</title>
 		<author>
-			<persName><forename type="first">S</forename><surname>Setiawardhana</surname></persName>
+			<persName><forename type="first">A</forename><surname>Ali</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">W</forename><forename type="middle">A</forename><surname>Nasrulloh</surname></persName>
+			<persName><forename type="first">Y</forename><surname>Ming</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">B</forename><forename type="middle">S B</forename><surname>Dewantara</surname></persName>
+			<persName><forename type="first">S</forename><surname>Chakraborty</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">I</forename><forename type="middle">K</forename><surname>Wibowo</surname></persName>
+			<persName><forename type="first">S</forename><surname>Iram</surname></persName>
 		</author>
-		<idno type="DOI">10.15866/ireaco.v15i6.22697</idno>
 	</analytic>
 	<monogr>
-		<title level="j">Int. Rev. Autom. Control</title>
+		<title level="j">Future Internet</title>
 		<imprint>
-			<biblScope unit="volume">15</biblScope>
-			<biblScope unit="issue">6</biblScope>
-			<biblScope unit="page">285</biblScope>
-			<date type="published" when="2022-11">Nov. 2022</date>
+			<biblScope unit="volume">9</biblScope>
+			<biblScope unit="issue">77</biblScope>
+			<biblScope unit="page" from="1" to="22" />
+			<date type="published" when="2017-11">Nov. 2017</date>
 		</imprint>
 	</monogr>
 </biblStruct>
 
 <biblStruct xml:id="b5">
 	<analytic>
-		<title level="a" type="main">Ball-catching system using image processing and an omni-directional wheeled mobile robot</title>
+		<title level="a" type="main">Lightweight reinforcement learning for energy efficient communications in wireless sensor networks</title>
 		<author>
-			<persName><forename type="first">S.-T</forename><surname>Kao</surname></persName>
+			<persName><forename type="first">C</forename><surname>Savaglio</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">M.-T</forename><surname>Ho</surname></persName>
+			<persName><forename type="first">P</forename><surname>Pace</surname></persName>
 		</author>
-		<idno type="DOI">10.3390/s21093208</idno>
+		<author>
+			<persName><forename type="first">G</forename><surname>Aloi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Liotta</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Fortino</surname></persName>
+		</author>
 	</analytic>
 	<monogr>
-		<title level="j">Sensors</title>
+		<title level="j">IEEE Access</title>
 		<imprint>
-			<biblScope unit="volume">21</biblScope>
-			<biblScope unit="issue">9</biblScope>
-			<biblScope unit="page">3208</biblScope>
-			<date type="published" when="2021-05">May 2021</date>
+			<biblScope unit="volume">7</biblScope>
+			<biblScope unit="page" from="29355" to="29364" />
+			<date type="published" when="2019-03">Mar. 2019</date>
 		</imprint>
 	</monogr>
 </biblStruct>
 
 <biblStruct xml:id="b6">
 	<analytic>
-		<title level="a" type="main">Adaptation of YOLOv7 and YOLOv7_tiny for soccer-ball multi-detection with DeepSORT for tracking by semisupervised system</title>
+		<title level="a" type="main">Body node coordinator placement algorithms for wireless body area networks</title>
 		<author>
-			<persName><forename type="first">J</forename><forename type="middle">A</forename><surname>Vicente-Martínez</surname></persName>
+			<persName><forename type="first">M</forename><forename type="middle">T I</forename><surname>Ul Huque</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">M</forename><surname>Márquez-Olivera</surname></persName>
+			<persName><forename type="first">K</forename><forename type="middle">S</forename><surname>Munasinghe</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">A</forename><surname>García-Aliaga</surname></persName>
+			<persName><forename type="first">A</forename><surname>Jamalipour</surname></persName>
 		</author>
-		<author>
-			<persName><forename type="first">V</forename><surname>Hernández-Herrera</surname></persName>
-		</author>
-		<idno type="DOI">10.3390/s23218693</idno>
 	</analytic>
 	<monogr>
-		<title level="j">Sensors</title>
+		<title level="j">IEEE Internet Things J</title>
 		<imprint>
-			<biblScope unit="volume">23</biblScope>
-			<biblScope unit="issue">21</biblScope>
-			<biblScope unit="page">8693</biblScope>
-			<date type="published" when="2023-10">Oct. 2023</date>
+			<biblScope unit="volume">2</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="94" to="102" />
+			<date type="published" when="2015-02">Feb. 2015</date>
 		</imprint>
 	</monogr>
 </biblStruct>
 
 <biblStruct xml:id="b7">
 	<analytic>
-		<title level="a" type="main">GPU parallel computing for detection and classification object in robot soccer ERSOW</title>
+		<title level="a" type="main">A survey of routing protocols in WBAN for healthcare applications</title>
 		<author>
-			<persName><forename type="first">K</forename><surname>Anwar</surname></persName>
+			<persName><forename type="first">Y</forename><surname>Qu</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">M</forename><forename type="middle">A</forename><surname>Haq</surname></persName>
+			<persName><forename type="first">G</forename><surname>Zheng</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">I</forename><forename type="middle">Kurnianto</forename><surname>Wibowo</surname></persName>
+			<persName><forename type="first">H</forename><surname>Ma</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">M</forename><forename type="middle">M</forename><surname>Bachtiar</surname></persName>
+			<persName><forename type="first">X</forename><surname>Wang</surname></persName>
 		</author>
-		<idno type="DOI">10.1109/IES50839.2020.9231770</idno>
+		<author>
+			<persName><forename type="first">B</forename><surname>Ji</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Wu</surname></persName>
+		</author>
 	</analytic>
 	<monogr>
-		<title level="m">Proc. Int. Electron. Symp. (IES)</title>
-		<meeting>Int. Electron. Symp. (IES)</meeting>
+		<title level="j">Sensors</title>
 		<imprint>
-			<date type="published" when="2020-09">Sep. 2020</date>
-			<biblScope unit="page" from="284" to="288" />
+			<biblScope unit="volume">19</biblScope>
+			<biblScope unit="issue">1638</biblScope>
+			<biblScope unit="page" from="1" to="24" />
+			<date type="published" when="2019-04">Apr. 2019</date>
 		</imprint>
 	</monogr>
 </biblStruct>
 
 <biblStruct xml:id="b8">
 	<analytic>
-		<title level="a" type="main">Estimation of ball position using depth camera for middle size goalkeeper robot</title>
+		<title level="a" type="main">Interference mitigation schemes for wireless body area sensor networks: A comparative survey</title>
 		<author>
-			<persName><forename type="first">D</forename><forename type="middle">P</forename><surname>Suwandi</surname></persName>
+			<persName><forename type="first">T</forename><surname>Le</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">I</forename><forename type="middle">K</forename><surname>Wibowo</surname></persName>
+			<persName><forename type="first">S</forename><surname>Moh</surname></persName>
 		</author>
-		<author>
-			<persName><forename type="first">M</forename><forename type="middle">M</forename><surname>Bachtiar</surname></persName>
-		</author>
-		<idno type="DOI">10.1109/IES55876.2022.9888575</idno>
 	</analytic>
 	<monogr>
-		<title level="m">Proc. Int. Electron. Symp. (IES)</title>
-		<meeting>Int. Electron. Symp. (IES)</meeting>
+		<title level="j">Sensors</title>
 		<imprint>
-			<date type="published" when="2022-08">Aug. 2022</date>
-			<biblScope unit="page" from="374" to="379" />
+			<biblScope unit="volume">15</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="13805" to="13838" />
+			<date type="published" when="2015-06">Jun. 2015</date>
 		</imprint>
 	</monogr>
 </biblStruct>
 
 <biblStruct xml:id="b9">
 	<analytic>
-		<title level="a" type="main">Performance comparison of YOLOv4 and YOLOv4tiny algorithm for object detection on wheeled soccer robot,&apos;&apos; in Proc</title>
+		<title level="a" type="main">Implementation of blood glucose levels monitoring system based on wireless body area network</title>
 		<author>
-			<persName><forename type="first">I</forename><forename type="middle">H</forename><surname>Tambunan</surname></persName>
+			<persName><forename type="first">M</forename><forename type="middle">U H A</forename><surname>Rasyid</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">D</forename><surname>Silaen</surname></persName>
+			<persName><forename type="first">F</forename><forename type="middle">A</forename><surname>Saputra</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">F</forename><surname>Michael</surname></persName>
+			<persName><forename type="first">A</forename><surname>Christian</surname></persName>
 		</author>
-		<author>
-			<persName><forename type="first">B</forename><forename type="middle">A</forename><surname>Sihotang</surname></persName>
-		</author>
-		<author>
-			<persName><forename type="first">K</forename><forename type="middle">G</forename><surname>Sitanggang</surname></persName>
-		</author>
-		<idno type="DOI">10.1109/ICOSNIKOM56551.2022.10034912</idno>
 	</analytic>
 	<monogr>
-		<title level="j">IEEE Int. Conf. Comput. Sci. Inf. Technol. (ICOSNIKOM)</title>
+		<title level="m">Proc. IEEE ICCE-TW</title>
+		<meeting>IEEE ICCE-TW<address><addrLine>Nantou, Taiwan</addrLine></address></meeting>
 		<imprint>
-			<biblScope unit="page" from="1" to="6" />
-			<date type="published" when="2022-10">Oct. 2022</date>
+			<date type="published" when="2016-05">May 2016</date>
+			<biblScope unit="page" from="240" to="241" />
 		</imprint>
 	</monogr>
 </biblStruct>
 
 <biblStruct xml:id="b10">
 	<analytic>
-		<title level="a" type="main">Color based object segmentation on wheeled goalkeeper robot</title>
+		<title level="a" type="main">Portable electrocardiogram sensor monitoring system based on body area network</title>
 		<author>
-			<persName><forename type="first">R</forename><forename type="middle">A</forename><surname>Fatekha</surname></persName>
+			<persName><forename type="first">M</forename><forename type="middle">U H</forename><surname>Al Rasyid</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">B</forename><forename type="middle">S B</forename><surname>Dewantara</surname></persName>
+			<persName><forename type="first">A</forename><forename type="middle">A</forename><surname>Pranata</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">H</forename><surname>Oktavianto</surname></persName>
+			<persName><forename type="first">B.-H</forename><surname>Lee</surname></persName>
 		</author>
-		<idno type="DOI">10.1109/IES53407.2021.9593965</idno>
+		<author>
+			<persName><forename type="first">F</forename><forename type="middle">A</forename><surname>Saputra</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Sudarsono</surname></persName>
+		</author>
 	</analytic>
 	<monogr>
-		<title level="m">Proc. Int. Electron. Symp. (IES)</title>
-		<meeting>Int. Electron. Symp. (IES)</meeting>
+		<title level="m">Proc. IEEE ICCE-TW</title>
+		<meeting>IEEE ICCE-TW<address><addrLine>Nantou, Taiwan</addrLine></address></meeting>
 		<imprint>
-			<date type="published" when="2021-09">Sep. 2021</date>
-			<biblScope unit="page" from="405" to="410" />
+			<date type="published" when="2016-05">May 2016</date>
+			<biblScope unit="page" from="242" to="243" />
 		</imprint>
 	</monogr>
 </biblStruct>
 
 <biblStruct xml:id="b11">
 	<analytic>
-		<title level="a" type="main">Ball identification and localization using regression for wheeled robot soccer</title>
+		<title level="a" type="main">Modeling and characterization of capacitive coupling intrabody communication in an invehicle scenario</title>
 		<author>
-			<persName><forename type="first">A</forename><surname>Firasanti</surname></persName>
+			<persName><forename type="first">Y</forename><surname>Xu</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">A</forename><surname>Sujatmiko</surname></persName>
+			<persName><forename type="first">Z</forename><surname>Huang</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">A</forename><surname>Fahrurozi</surname></persName>
+			<persName><forename type="first">S</forename><surname>Yang</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">E</forename><forename type="middle">A Z</forename><surname>Hamidi</surname></persName>
+			<persName><forename type="first">Z</forename><surname>Wang</surname></persName>
 		</author>
-		<idno type="DOI">10.1109/ICWT52862.2021.9678431</idno>
+		<author>
+			<persName><forename type="first">B</forename><surname>Yang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Li</surname></persName>
+		</author>
 	</analytic>
 	<monogr>
-		<title level="m">Proc. 7th Int. Conf. Wireless Telematics (ICWT)</title>
-		<meeting>7th Int. Conf. Wireless Telematics (ICWT)</meeting>
+		<title level="j">Sensors</title>
 		<imprint>
-			<date type="published" when="2021-08">Aug. 2021</date>
-			<biblScope unit="page" from="1" to="4" />
+			<biblScope unit="volume">19</biblScope>
+			<biblScope unit="issue">4305</biblScope>
+			<biblScope unit="page" from="1" to="18" />
+			<date type="published" when="2019">2019</date>
 		</imprint>
 	</monogr>
 </biblStruct>
 
 <biblStruct xml:id="b12">
 	<analytic>
-		<title level="a" type="main">Soccer robot localization based on sensor fusion from odometry and omnivision,&apos;</title>
+		<title level="a" type="main">Role of body area network in battlefield of things</title>
 		<author>
-			<persName><forename type="first">M</forename><forename type="middle">A</forename><surname>Ismail</surname></persName>
+			<persName><forename type="first">V</forename><surname>Varghese</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">D</forename><surname>Purwanto</surname></persName>
+			<persName><forename type="first">M</forename><forename type="middle">J</forename><surname>Nene</surname></persName>
 		</author>
-		<author>
-			<persName><forename type="first">A</forename><surname>Arifin</surname></persName>
-		</author>
-		<idno type="DOI">10.1109/ISITIA56226.2022.9855313</idno>
 	</analytic>
 	<monogr>
-		<title level="j">&apos; in Proc. Int. Seminar Intell. Technol. Its Appl. (ISITIA)</title>
+		<title level="m">Proc. I2CT</title>
+		<meeting>I2CT<address><addrLine>Pune, India</addrLine></address></meeting>
 		<imprint>
-			<biblScope unit="page" from="273" to="278" />
-			<date type="published" when="2022-07">Jul. 2022</date>
+			<date type="published" when="2018-04">Apr. 2018</date>
+			<biblScope unit="page" from="1" to="6" />
 		</imprint>
 	</monogr>
 </biblStruct>
 
 <biblStruct xml:id="b13">
 	<analytic>
-		<title level="a" type="main">Perspectives of RealSense and ZED depth sensors for robotic vision applications</title>
+		<title level="a" type="main">Mobility model for Body Area Networks of soccer players</title>
 		<author>
-			<persName><forename type="first">V</forename><surname>Tadic</surname></persName>
+			<persName><forename type="first">L</forename><forename type="middle">D</forename><surname>Nardis</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">A</forename><surname>Toth</surname></persName>
+			<persName><forename type="first">D</forename><surname>Domenicali</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Z</forename><surname>Vizvari</surname></persName>
+			<persName><forename type="first">M.-G</forename><forename type="middle">D</forename><surname>Benedetto</surname></persName>
 		</author>
-		<author>
-			<persName><forename type="first">M</forename><surname>Klincsik</surname></persName>
-		</author>
-		<author>
-			<persName><forename type="first">Z</forename><surname>Sari</surname></persName>
-		</author>
-		<author>
-			<persName><forename type="first">P</forename><surname>Sarcevic</surname></persName>
-		</author>
-		<author>
-			<persName><forename type="first">J</forename><surname>Sarosi</surname></persName>
-		</author>
-		<author>
-			<persName><forename type="first">I</forename><surname>Biro</surname></persName>
-		</author>
-		<idno type="DOI">10.3390/machines10030183</idno>
 	</analytic>
 	<monogr>
-		<title level="j">Machines</title>
+		<title level="m">Proc. EWTC</title>
+		<meeting>EWTC<address><addrLine>Paris, France</addrLine></address></meeting>
 		<imprint>
-			<biblScope unit="volume">10</biblScope>
-			<biblScope unit="issue">3</biblScope>
-			<biblScope unit="page">183</biblScope>
-			<date type="published" when="2022-03">Mar. 2022</date>
+			<date type="published" when="2010">2010</date>
+			<biblScope unit="page" from="65" to="68" />
 		</imprint>
 	</monogr>
 </biblStruct>
 
 <biblStruct xml:id="b14">
 	<analytic>
-		<title level="a" type="main">Method of using RealSense camera to estimate the depth map of any monocular camera</title>
+		<title level="a" type="main">Time multiplexing-star shape body sensor network for sports applications</title>
 		<author>
-			<persName><forename type="first">L.-F</forename><surname>Tu</surname></persName>
+			<persName><forename type="first">H</forename><forename type="middle">A</forename><surname>Sabti</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Q</forename><surname>Peng</surname></persName>
+			<persName><forename type="first">D</forename><forename type="middle">V</forename><surname>Thiel</surname></persName>
 		</author>
-		<idno type="DOI">10.1155/2021/9152035</idno>
 	</analytic>
 	<monogr>
-		<title level="j">J. Electr. Comput. Eng</title>
+		<title level="m">Proc. IEEE APSURSI</title>
+		<meeting>IEEE APSURSI<address><addrLine>Memphis, TN, USA</addrLine></address></meeting>
 		<imprint>
-			<biblScope unit="volume">2021</biblScope>
-			<biblScope unit="page" from="1" to="9" />
-			<date type="published" when="2021-05">May 2021</date>
+			<date type="published" when="2014-07">Jul. 2014</date>
+			<biblScope unit="page" from="969" to="970" />
 		</imprint>
 	</monogr>
 </biblStruct>
 
 <biblStruct xml:id="b15">
 	<analytic>
-		<title level="a" type="main">Depth accuracy analysis of the ZED 2i stereo camera in an indoor environment</title>
+		<title level="a" type="main">Jog training coaching assistance based on vital signs evaluation</title>
 		<author>
-			<persName><forename type="first">A</forename><surname>Abdelsalam</surname></persName>
+			<persName><forename type="first">M</forename><forename type="middle">A</forename><surname>Rusli</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">M</forename><surname>Mansour</surname></persName>
+			<persName><forename type="first">S</forename><surname>Takayama</surname></persName>
 		</author>
-		<author>
-			<persName><forename type="first">J</forename><surname>Porras</surname></persName>
-		</author>
-		<author>
-			<persName><forename type="first">A</forename><surname>Happonen</surname></persName>
-		</author>
-		<idno type="DOI">10.1016/j.robot.2024.104753</idno>
 	</analytic>
 	<monogr>
-		<title level="j">Robot. Auto. Syst</title>
+		<title level="m">Proc. SICE</title>
+		<meeting>SICE<address><addrLine>Kanazawa, Japan</addrLine></address></meeting>
 		<imprint>
-			<biblScope unit="volume">179</biblScope>
-			<date type="published" when="2024-09">Sep. 2024</date>
-			<pubPlace>Art</pubPlace>
+			<date type="published" when="2017-09">Sep. 2017</date>
+			<biblScope unit="page" from="1553" to="1558" />
 		</imprint>
 	</monogr>
 </biblStruct>
 
 <biblStruct xml:id="b16">
 	<analytic>
-		<title level="a" type="main">Object-based change detection algorithm with a spatial AI stereo camera</title>
+		<title level="a" type="main">Wearable sensor devices for prevention and rehabilitation in healthcare: Swimming exercise with real-time therapist feedback</title>
 		<author>
-			<persName><forename type="first">L</forename><surname>Göncz</surname></persName>
+			<persName><forename type="first">A</forename><surname>Kos</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">A</forename><surname>Majdik</surname></persName>
+			<persName><forename type="first">A</forename><surname>Umek</surname></persName>
 		</author>
-		<idno type="DOI">10.3390/s22176342</idno>
 	</analytic>
 	<monogr>
-		<title level="j">Sensors</title>
+		<title level="j">IEEE Internet Things J</title>
 		<imprint>
-			<biblScope unit="volume">22</biblScope>
-			<biblScope unit="issue">17</biblScope>
-			<biblScope unit="page">6342</biblScope>
-			<date type="published" when="2022-08">Aug. 2022</date>
+			<biblScope unit="volume">6</biblScope>
+			<biblScope unit="issue">2</biblScope>
+			<biblScope unit="page" from="1331" to="1341" />
+			<date type="published" when="2019-04">Apr. 2019</date>
 		</imprint>
 	</monogr>
 </biblStruct>
 
 <biblStruct xml:id="b17">
 	<analytic>
-		<title level="a" type="main">Tiny-YOLO distance measurement and object detection coordination system for the BarelangFC robot</title>
+		<title level="a" type="main">An autonomous wireless body area network implementation towards IoT connected healthcare applications</title>
 		<author>
-			<persName><forename type="first">S</forename><surname>Susanto</surname></persName>
+			<persName><forename type="first">T</forename><surname>Wu</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">J</forename><forename type="middle">A</forename><surname>Ricardo Silitonga</surname></persName>
+			<persName><forename type="first">F</forename><surname>Wu</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">R</forename><surname>Analia</surname></persName>
+			<persName><forename type="first">J.-M</forename><surname>Redoute</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">E</forename><forename type="middle">R</forename><surname>Jamzuri</surname></persName>
+			<persName><forename type="first">M</forename><forename type="middle">R</forename><surname>Yuce</surname></persName>
 		</author>
-		<author>
-			<persName><forename type="first">D</forename><forename type="middle">S</forename><surname>Pamungkas</surname></persName>
-		</author>
-		<idno type="DOI">10.11591/ijece.v13i6.pp6926-6939</idno>
 	</analytic>
 	<monogr>
-		<title level="j">Int. J. Electr. Comput. Eng. (IJECE)</title>
+		<title level="j">IEEE Access</title>
 		<imprint>
-			<biblScope unit="volume">13</biblScope>
-			<biblScope unit="issue">6</biblScope>
-			<biblScope unit="page">6926</biblScope>
-			<date type="published" when="2023-12">Dec. 2023</date>
+			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="page" from="11413" to="11422" />
+			<date type="published" when="2017-06">Jun. 2017</date>
 		</imprint>
 	</monogr>
 </biblStruct>
 
 <biblStruct xml:id="b18">
 	<analytic>
-		<title level="a" type="main">Ball detection and tracking with different embedded systems in the RoboCup soccer context</title>
+		<title level="a" type="main">Integration of cloud computing with Internet of Things and wireless body area network for effective healthcare</title>
 		<author>
-			<persName><forename type="first">M</forename><surname>Bordado</surname></persName>
+			<persName><forename type="first">S</forename><surname>Ahmed</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">D</forename><surname>Silveria</surname></persName>
+			<persName><forename type="first">M</forename><surname>Saqib</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">G</forename><surname>Laureano</surname></persName>
+			<persName><forename type="first">M</forename><surname>Adil</surname></persName>
 		</author>
-		<idno type="DOI">10.1109/lars/sbr/wre59448.2023.10333050</idno>
+		<author>
+			<persName><forename type="first">T</forename><surname>Ali</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Ishtiaq</surname></persName>
+		</author>
 	</analytic>
 	<monogr>
-		<title level="m">&apos;&apos; in Proc. Latin Amer. Robot. Symp. (LARS), Brazilian Symp. Robot. (SBR), Workshop Robot. Educ. (WRE)</title>
+		<title level="m">Proc. ISWSN</title>
+		<meeting>ISWSN<address><addrLine>Lahore, Pakistan</addrLine></address></meeting>
 		<imprint>
-			<date type="published" when="2023-10">Oct. 2023</date>
-			<biblScope unit="page" from="514" to="519" />
+			<date type="published" when="2017-11">Nov. 2017</date>
+			<biblScope unit="page" from="1" to="6" />
 		</imprint>
 	</monogr>
 </biblStruct>
 
 <biblStruct xml:id="b19">
 	<analytic>
-		<title level="a" type="main">Comparison of YOLO, SSD, faster RCNN for real time tennis ball tracking for action decision networks</title>
+		<title level="a" type="main">Wearables meet IoT: Synergistic personal area networks (SPANs)</title>
 		<author>
-			<persName><forename type="first">R</forename><surname>Deepa</surname></persName>
+			<persName><forename type="first">E</forename><surname>Jovanov</surname></persName>
 		</author>
-		<author>
-			<persName><forename type="first">E</forename><surname>Tamilselvan</surname></persName>
-		</author>
-		<author>
-			<persName><forename type="first">E</forename><forename type="middle">S</forename><surname>Abrar</surname></persName>
-		</author>
-		<author>
-			<persName><forename type="first">S</forename><surname>Sampath</surname></persName>
-		</author>
-		<idno type="DOI">10.1109/ICACCE46606.2019.9079965</idno>
 	</analytic>
 	<monogr>
-		<title level="m">Proc. Int. Conf</title>
-		<meeting>Int. Conf</meeting>
+		<title level="j">Sensors</title>
 		<imprint>
-			<date type="published" when="2020">2020</date>
-			<biblScope unit="page" from="1" to="4" />
+			<biblScope unit="volume">19</biblScope>
+			<biblScope unit="issue">4295</biblScope>
+			<biblScope unit="page" from="1" to="13" />
+			<date type="published" when="2019-10">Oct. 2019</date>
 		</imprint>
 	</monogr>
 </biblStruct>
 
 <biblStruct xml:id="b20">
 	<analytic>
-		<title level="a" type="main">High-speed tiny tennis ball detection based on deep convolutional neural networks</title>
+		<title level="a" type="main">IoMT platform for pervasive healthcare data aggregation, processing, and sharing based on OneM2M and OpenEHR</title>
 		<author>
-			<persName><forename type="first">B</forename><surname>Tian</surname></persName>
+			<persName><forename type="first">J</forename><forename type="middle">N S</forename><surname>Rubi</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">D</forename><surname>Zhang</surname></persName>
+			<persName><forename type="first">P</forename><forename type="middle">R L</forename><surname>Gondim</surname></persName>
 		</author>
-		<author>
-			<persName><forename type="first">C</forename><surname>Zhang</surname></persName>
-		</author>
-		<idno type="DOI">10.1109/ASID50160.2020.9271695</idno>
 	</analytic>
 	<monogr>
-		<title level="m">Proc. IEEE 14th Int. Conf. Anti-counterfeiting, Secur., Identificat. (ASID)</title>
-		<meeting>IEEE 14th Int. Conf. Anti-counterfeiting, Secur., Identificat. (ASID)</meeting>
+		<title level="j">Sensors</title>
 		<imprint>
-			<date type="published" when="2020-10">Oct. 2020</date>
-			<biblScope unit="page" from="30" to="33" />
+			<biblScope unit="volume">19</biblScope>
+			<biblScope unit="issue">4283</biblScope>
+			<biblScope unit="page" from="1" to="25" />
+			<date type="published" when="2019-10">Oct. 2019</date>
 		</imprint>
 	</monogr>
 </biblStruct>
 
 <biblStruct xml:id="b21">
 	<analytic>
-		<title level="a" type="main">Ball-type small objection algorithm based on YOLOv8</title>
+		<title level="a" type="main">A survey on wireless body area networks for eHealthcare systems in residential environments</title>
 		<author>
-			<persName><forename type="first">X</forename><surname>Luo</surname></persName>
+			<persName><forename type="first">M</forename><surname>Ghamari</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">K</forename><surname>Quan</surname></persName>
+			<persName><forename type="first">B</forename><surname>Janko</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Y</forename><surname>Liu</surname></persName>
+			<persName><forename type="first">R</forename><forename type="middle">S</forename><surname>Sherratt</surname></persName>
 		</author>
-		<idno type="DOI">10.1109/ICIS61260.2024.10778368</idno>
+		<author>
+			<persName><forename type="first">W</forename><surname>Harwin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Piechockic</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Soltanpur</surname></persName>
+		</author>
 	</analytic>
 	<monogr>
-		<title level="m">Proc. IEEE/ACIS 24th Int. Conf. Comput. Inf. Sci. (ICIS)</title>
-		<meeting>IEEE/ACIS 24th Int. Conf. Comput. Inf. Sci. (ICIS)</meeting>
+		<title level="j">Sensors</title>
 		<imprint>
-			<date type="published" when="2024-09">Sep. 2024</date>
-			<biblScope unit="page" from="139" to="144" />
+			<biblScope unit="volume">16</biblScope>
+			<biblScope unit="issue">831</biblScope>
+			<biblScope unit="page" from="1" to="33" />
+			<date type="published" when="2016-06">Jun. 2016</date>
 		</imprint>
 	</monogr>
 </biblStruct>
 
 <biblStruct xml:id="b22">
 	<analytic>
-		<title level="a" type="main">Ball detection algorithms enhancement in sport robots</title>
+		<title level="a" type="main">Wireless body area network for heart attack detection</title>
 		<author>
-			<persName><forename type="first">M</forename><surname>Esfandiarpour</surname></persName>
+			<persName><forename type="first">G</forename><surname>Wolgast</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">S</forename><forename type="middle">M</forename><surname>Mirshabani</surname></persName>
+			<persName><forename type="first">C</forename><surname>Ehrenborg</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">E</forename><forename type="middle">M</forename><surname>Miandoab</surname></persName>
+			<persName><forename type="first">A</forename><surname>Israelsson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Helander</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Johansson</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Manefjord</surname></persName>
 		</author>
 	</analytic>
 	<monogr>
-		<title level="m">Proc. 13th Iranian/3rd</title>
-		<meeting>13th Iranian/3rd</meeting>
-		<imprint/>
+		<title level="j">IEEE Antennas Propag. Mag</title>
+		<imprint>
+			<biblScope unit="volume">58</biblScope>
+			<biblScope unit="page" from="84" to="92" />
+			<date type="published" when="2016-10">Oct. 2016</date>
+		</imprint>
 	</monogr>
 </biblStruct>
 
 <biblStruct xml:id="b23">
+	<analytic>
+		<title level="a" type="main">Application of an emergency alarm system for physiological sensors utilizing smart devices</title>
+		<author>
+			<persName><forename type="first">J</forename><surname>Kang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Larkin</surname></persName>
+		</author>
+	</analytic>
 	<monogr>
-		<author>
-			<persName><surname>Int</surname></persName>
-		</author>
-		<author>
-			<persName><surname>Mach</surname></persName>
-		</author>
-		<idno type="DOI">10.1109/mvip62238.2024.10491187</idno>
-		<title level="m">Vis. Image Process. Conf. (MVIP)</title>
+		<title level="j">Technol</title>
 		<imprint>
-			<date type="published" when="2024-03">Mar. 2024</date>
-			<biblScope unit="page" from="1" to="6" />
+			<biblScope unit="volume">5</biblScope>
+			<biblScope unit="issue">26</biblScope>
+			<biblScope unit="page" from="1" to="23" />
+			<date type="published" when="2017-05">May 2017</date>
 		</imprint>
 	</monogr>
 </biblStruct>
 
 <biblStruct xml:id="b24">
 	<analytic>
-		<title level="a" type="main">Design and implementation of ROS-based intelligent ball picking robot</title>
+		<title level="a" type="main">In-ear pulse oximetry in high altitude mountaineering</title>
 		<author>
-			<persName><forename type="first">Y</forename><surname>Feng</surname></persName>
+			<persName><forename type="first">B</forename><surname>Venema</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">W</forename><surname>Su</surname></persName>
+			<persName><forename type="first">S</forename><surname>Leonhardt</surname></persName>
 		</author>
-		<author>
-			<persName><forename type="first">S</forename><surname>Liu</surname></persName>
-		</author>
-		<author>
-			<persName><forename type="first">W</forename><surname>Lu</surname></persName>
-		</author>
-		<idno type="DOI">10.1109/icaica58456.2023.10405557</idno>
 	</analytic>
 	<monogr>
-		<title level="m">Proc. 5th Int. Conf</title>
-		<meeting>5th Int. Conf</meeting>
+		<title level="m">Proc. IASTED BioMed</title>
+		<meeting>IASTED BioMed<address><addrLine>Innsbruck, Austria</addrLine></address></meeting>
 		<imprint>
-			<date type="published" when="2023-11">Nov. 2023</date>
-			<biblScope unit="page" from="863" to="870" />
+			<date type="published" when="2017">2017</date>
+			<biblScope unit="page" from="254" to="259" />
 		</imprint>
 	</monogr>
 </biblStruct>
 
 <biblStruct xml:id="b25">
 	<analytic>
-		<title level="a" type="main">Corridors classification using convolutional neural network on mobile robot</title>
+		<title level="a" type="main">Wireless body area network development for remote patient health observing,&apos;&apos; in Proc</title>
 		<author>
-			<persName><forename type="first">S</forename><surname>Setiawardhana</surname></persName>
+			<persName><forename type="first">A</forename><forename type="middle">S</forename><surname>Mahmood</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">B</forename><forename type="middle">S B</forename><surname>Dewantara</surname></persName>
+			<persName><forename type="first">E</forename><surname>Jafer</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">A</forename><forename type="middle">T</forename><surname>Huda</surname></persName>
+			<persName><forename type="first">S</forename><surname>Hussain</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">A</forename><forename type="middle">H Z</forename><surname>Ilahi</surname></persName>
+			<persName><forename type="first">X</forename><surname>Fernando</surname></persName>
 		</author>
-		<author>
-			<persName><forename type="first">F</forename><forename type="middle">P</forename><surname>Nurmaida</surname></persName>
-		</author>
-		<author>
-			<persName><forename type="first">S</forename><forename type="middle">N</forename><surname>Hamida</surname></persName>
-		</author>
-		<author>
-			<persName><forename type="first">C</forename><surname>Ryando</surname></persName>
-		</author>
-		<author>
-			<persName><forename type="first">Z</forename><forename type="middle">D M</forename><surname>Fasya</surname></persName>
-		</author>
-		<idno type="DOI">10.15866/ireaco.v17i5.25546</idno>
 	</analytic>
 	<monogr>
-		<title level="j">Int. Rev. Autom. Control (IREACO)</title>
+		<title level="j">IEEE IHTC</title>
 		<imprint>
-			<biblScope unit="volume">17</biblScope>
-			<biblScope unit="issue">5</biblScope>
-			<biblScope unit="page">203</biblScope>
-			<date type="published" when="2024-09">Sep. 2024</date>
+			<biblScope unit="page" from="26" to="31" />
+			<date type="published" when="2017-07">Jul. 2017</date>
+			<pubPlace>Toronto, ON, Canada</pubPlace>
 		</imprint>
 	</monogr>
 </biblStruct>
 
 <biblStruct xml:id="b26">
 	<analytic>
-		<title level="a" type="main">Computer vision-control-based CNN-PID for mobile robot</title>
+		<title level="a" type="main">A health remote monitoring application based on wireless body area networks</title>
 		<author>
-			<persName><forename type="first">R</forename><surname>Farkh</surname></persName>
+			<persName><forename type="first">E</forename><surname>Baba</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">M</forename><forename type="middle">T</forename><surname>Quasim</surname></persName>
+			<persName><forename type="first">A</forename><surname>Jilbab</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">K</forename><surname>Al</surname></persName>
+			<persName><forename type="first">A</forename><surname>Hammouch</surname></persName>
 		</author>
-		<author>
-			<persName><forename type="first">S</forename><surname>Jaloud</surname></persName>
-		</author>
-		<author>
-			<persName><forename type="first">S</forename><forename type="middle">T</forename><surname>Alhuwaimel</surname></persName>
-		</author>
-		<author>
-			<persName><surname>Siddiqui</surname></persName>
-		</author>
-		<idno type="DOI">10.32604/cmc.2021.016600</idno>
 	</analytic>
 	<monogr>
-		<title level="j">Comput., Mater. Continua</title>
+		<title level="m">Proc. ISCV</title>
+		<meeting>ISCV<address><addrLine>Fez, Morocco</addrLine></address></meeting>
 		<imprint>
-			<biblScope unit="volume">68</biblScope>
-			<biblScope unit="issue">1</biblScope>
-			<biblScope unit="page" from="1065" to="1079" />
-			<date type="published" when="2021-02">Feb. 2021</date>
+			<date type="published" when="2018-04">Apr. 2018</date>
+			<biblScope unit="page" from="1" to="4" />
 		</imprint>
 	</monogr>
 </biblStruct>
 
 <biblStruct xml:id="b27">
 	<analytic>
-		<title level="a" type="main">Design of a fuzzy inference based robot vision for CNN training image acquisition</title>
+		<title level="a" type="main">Data analytics of a wearable device for heat stroke detection</title>
 		<author>
-			<persName><forename type="first">C</forename><surname>Yukawa</surname></persName>
+			<persName><forename type="first">S.-S</forename><surname>Lin</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">T</forename><surname>Oda</surname></persName>
+			<persName><forename type="first">C.-W</forename><surname>Lan</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">N</forename><surname>Saito</surname></persName>
+			<persName><forename type="first">H.-Y</forename><surname>Hsu</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">A</forename><surname>Hirata</surname></persName>
+			<persName><forename type="first">S.-T</forename><surname>Chen</surname></persName>
 		</author>
-		<author>
-			<persName><forename type="first">K</forename><surname>Toyoshima</surname></persName>
-		</author>
-		<author>
-			<persName><forename type="first">K</forename><surname>Katayama</surname></persName>
-		</author>
-		<idno type="DOI">10.1109/GCCE53005.2021.9621830</idno>
 	</analytic>
 	<monogr>
-		<title level="m">Proc. IEEE 10th Global Conf. Consum. Electron. (GCCE)</title>
-		<meeting>IEEE 10th Global Conf. Consum. Electron. (GCCE)</meeting>
+		<title level="j">Sensors</title>
 		<imprint>
-			<date type="published" when="2021-10">Oct. 2021</date>
-			<biblScope unit="page" from="806" to="807" />
+			<biblScope unit="volume">18</biblScope>
+			<biblScope unit="issue">4347</biblScope>
+			<biblScope unit="page" from="1" to="14" />
+			<date type="published" when="2018-12">Dec. 2018</date>
 		</imprint>
 	</monogr>
 </biblStruct>
 
 <biblStruct xml:id="b28">
 	<analytic>
-		<title level="a" type="main">A review of convolutional neural networks in computer vision</title>
+		<title level="a" type="main">Wearable sensors integrated with Internet of Things for advancing eHealth care</title>
 		<author>
-			<persName><forename type="first">X</forename><surname>Zhao</surname></persName>
+			<persName><forename type="first">J.-L</forename><surname>Bayo-Monton</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">L</forename><surname>Wang</surname></persName>
+			<persName><forename type="first">A</forename><surname>Bayo-Monton</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">Y</forename><surname>Zhang</surname></persName>
+			<persName><forename type="first">W</forename><surname>Han</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">X</forename><surname>Han</surname></persName>
+			<persName><forename type="first">C</forename><surname>Fernandez-Llatas</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">M</forename><surname>Deveci</surname></persName>
+			<persName><forename type="first">Y</forename><surname>Sun</surname></persName>
 		</author>
 		<author>
-			<persName><forename type="first">M</forename><surname>Parmar</surname></persName>
+			<persName><forename type="first">V</forename><surname>Traver</surname></persName>
 		</author>
-		<idno type="DOI">10.1007/s10462-024-10721-6</idno>
 	</analytic>
 	<monogr>
-		<title level="j">Artif. Intell. Rev</title>
+		<title level="j">Sensors</title>
 		<imprint>
-			<biblScope unit="volume">57</biblScope>
-			<biblScope unit="issue">4</biblScope>
-			<biblScope unit="page">99</biblScope>
-			<date type="published" when="2024-03">Mar. 2024</date>
+			<biblScope unit="volume">18</biblScope>
+			<biblScope unit="issue">1851</biblScope>
+			<biblScope unit="page" from="1" to="18" />
+			<date type="published" when="2018">2018</date>
 		</imprint>
 	</monogr>
 </biblStruct>
 
 <biblStruct xml:id="b29">
+	<analytic>
+		<title level="a" type="main">An advanced first aid system based on an unmanned aerial vehicles and a wireless body area sensor network for elderly persons in outdoor environments</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">S</forename><surname>Fakhrulddin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">K</forename><surname>Gharghan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Al-Naji</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Chahl</surname></persName>
+		</author>
+	</analytic>
 	<monogr>
-		<title level="m" type="main">CNN-based object detection for robot grasping in cluttered environment</title>
-		<author>
-			<persName><forename type="first">I</forename><surname>Ćirić</surname></persName>
-		</author>
-		<author>
-			<persName><forename type="first">N</forename><surname>Ivačko</surname></persName>
-		</author>
-		<author>
-			<persName><forename type="first">S</forename><surname>Lalić</surname></persName>
-		</author>
-		<author>
-			<persName><forename type="first">V</forename><surname>Nejković</surname></persName>
-		</author>
-		<author>
-			<persName><forename type="first">M</forename><surname>Milošević</surname></persName>
-		</author>
-		<author>
-			<persName><forename type="first">D</forename><surname>Stojiljković</surname></persName>
-		</author>
-		<author>
-			<persName><forename type="first">D</forename><surname>Jevtić</surname></persName>
-		</author>
-		<idno type="DOI">10.1007/978-3-031-50755-7_20</idno>
-		<editor>Trajanovic, N. Filipovic, and M. Zdravkovic</editor>
+		<title level="j">Sensors</title>
 		<imprint>
-			<date type="published" when="2024">2024</date>
-			<publisher>Springer</publisher>
-			<biblScope unit="page" from="206" to="217" />
-			<pubPlace>Cham, Switzerland</pubPlace>
+			<biblScope unit="volume">19</biblScope>
+			<biblScope unit="issue">2955</biblScope>
+			<biblScope unit="page" from="1" to="28" />
+			<date type="published" when="2019-07">Jul. 2019</date>
 		</imprint>
 	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<analytic>
+		<title level="a" type="main">Wearable sleepcare kit: Analysis and prevention of sleep apnea symptoms in real-time</title>
+		<author>
+			<persName><forename type="first">Y</forename><forename type="middle">J</forename><surname>Jeon</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">J</forename><surname>Kang</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Access</title>
+		<imprint>
+			<biblScope unit="volume">7</biblScope>
+			<biblScope unit="page" from="60634" to="60649" />
+			<date type="published" when="2019-04">Apr. 2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<analytic>
+		<title level="a" type="main">Achieving energy efficient transmission in wireless body area networks for the physiological monitoring of military soldiers</title>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">E</forename><surname>Egbogah</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">O</forename><surname>Fapojuwo</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. IEEE MILCOM</title>
+		<meeting>IEEE MILCOM<address><addrLine>San Diego, CA, USA</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2013-11">Nov. 2013</date>
+			<biblScope unit="page" from="1371" to="1376" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b32">
+	<analytic>
+		<title level="a" type="main">Wireless body area networks MAC protocol for energy efficiency and extending lifetime</title>
+		<author>
+			<persName><forename type="first">X</forename><surname>Yang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Wang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Zhang</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Sensors Lett</title>
+		<imprint>
+			<biblScope unit="volume">2</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="1" to="4" />
+			<date type="published" when="2018-03">Mar. 2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b33">
+	<analytic>
+		<title level="a" type="main">Biometric authentication and verification for medical cyber physical systems</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Alhayajneh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">N</forename><surname>Baccarini</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><forename type="middle">M</forename><surname>Weiss</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Hayajneh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Farajidavar</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">Electron</title>
+		<imprint>
+			<biblScope unit="volume">7</biblScope>
+			<biblScope unit="issue">436</biblScope>
+			<biblScope unit="page" from="1" to="17" />
+			<date type="published" when="2018-12">Dec. 2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b34">
+	<analytic>
+		<title level="a" type="main">Robust and high-efficiency wireless body area networks with spoof surface plasmons on clothing</title>
+		<author>
+			<persName><forename type="first">X</forename><surname>Tian</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">S</forename><surname>Ho</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE MTT-S Int. Microw. Symp. Dig</title>
+		<imprint>
+			<biblScope unit="page" from="1507" to="1510" />
+			<date type="published" when="2019-06">Jun. 2019</date>
+			<pubPlace>Boston, MA, USA</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b35">
+	<analytic>
+		<title level="a" type="main">He is currently an Associate Professor with the Department of Informatics and Computer Engineering, Politeknik Elektronika Negeri Surabaya (PENS), Indonesia. He heads the research group of EEPIS Wireless Sensor Networks (EWSN) PENS. His research interests include wireless sensor networks (WSNs), wireless body area networks (WBANs), the Internet of Things (IoT), and Web technology</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Udin</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Al Rasyid (member</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Ieee</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">His research interests include privacy-enhancing authentications (group signatures), network &amp; information security, and cryptography. AFDOLASH NUR KAFFAH received the A.Md. degree from the Department of Informatics Engineering, Politeknik Elektronika Negeri Surabaya (PENS)</title>
+		<meeting><address><addrLine>Japan; Japan; Indonesia, as a Lecturer; Indonesia</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2002">2012. 2013. 2009. 2011. 2002. 2018</date>
+		</imprint>
+		<respStmt>
+			<orgName>Department of Informatics Engineering, Sepuluh Nopember Institute of Technology (ITS ; College of Electrical Engineering and Computer Science (CECS), National Taiwan University of Science and Technology (NTUST) ; Sepuluh Nopember Institute of Technology, Indonesia ; Department of Electrical Engineering, Politeknik Elektronika Negeri Surabaya (Electronics Engineering Polytechnic Institute of Surabaya)</orgName>
+		</respStmt>
+	</monogr>
+	<note>received the B.Sc. degree from the Taiwan SRITRUSTA SUKARIDHOTO (Member, IEEE) received the B.E. degree in electrical engineering Indonesia, in 2004, and the Ph.D. degree in computer and commu He joined at Politeknik Elektronika Negeri Surabaya, Indonesia, as a Lecturer 2002, and the Ph.D. degree in communication networks engineering from Okayama University He received several academic awards best paper awards AMANG SUDARSONO received the B.E. degree in electrical engineering, telecommunication and multimedia program from the Sepuluh Nopember Institute of Technology, Indonesia 2001, and the Ph.D. degree in communication network engineering from Okayama University From 1997 to 2002, he was with the Division of Network Engineering, Metro Cellular Nusantara, Ltd., Indonesia. He joined the Division of Telecommunication Engineering 2002, and he became an Assistant Professor in 2011, respectively. He stayed at Tohoku University, Japan, in 2004, as a Visiting Researcher. His research interests include computer networks, embedded systems, multimedia, and the Internet of Things He is currently an UI Designer with the Department of Engineering, IDN Media Company, Indonesia. His research interests include user interface and experience and Android development</note>
 </biblStruct>
 
 				</listBibl>

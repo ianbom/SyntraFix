@@ -15,7 +15,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import type { DocumentListItem } from "../types"
-import { Link } from "react-router"
+import { Link } from "react-router-dom"
 
 const formatDate = (dateStr: string | null): string => {
   if (!dateStr) return "-"

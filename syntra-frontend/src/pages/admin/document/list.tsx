@@ -12,6 +12,8 @@ import type { DocumentListResponse } from "./types"
 
 const DEFAULT_PER_PAGE = 10
 const SEARCH_DEBOUNCE_MS = 400
+const CREATE_DOCUMENT_ROUTE = "/admin/document/create"
+
 
 const createEmptyDocumentsResponse = (perPage: number): DocumentListResponse => ({
   documents: [],
@@ -98,7 +100,7 @@ const DocumentListPage = () => {
                   </p>
                 </div>
                 <Button asChild>
-                  <Link to="/admin/document/create">
+                  <Link to={CREATE_DOCUMENT_ROUTE}>
                     <IconFilePencil className="size-4" />
                     Tambah Dokumen
                   </Link>
@@ -123,7 +125,7 @@ const DocumentListPage = () => {
               <DocumentTable
                 documents={documentsData.documents}
                 search={searchInput}
-                page={documentsData.page}
+                page={Math.min(documentsData.page, pages)}
                 pages={documentsData.pages}
                 perPage={documentsData.perPage}
                 total={documentsData.total}
