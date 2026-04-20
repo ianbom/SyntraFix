@@ -42,6 +42,7 @@ async def generate_possibly_questions(
     try:
         response_text = await generate_response(prompt)
         questions = _parse_questions_response(response_text)
+        questions = _replace_ambiguous_document_references(questions, document_title)
 
         if questions:
             print(f"  Generated {len(questions)} questions for chunk")
@@ -85,11 +86,14 @@ ATURAN:
 4. Gunakan bahasa yang sama dengan teks (Indonesia atau Inggris)
 5. Jangan membuat pertanyaan yang terlalu umum atau tidak relevan
 6. Pertanyaan harus natural — seperti pertanyaan yang akan diajukan oleh pembaca
-7. SANGAT PENTING: JANGAN gunakan kata ganti atau referensi umum seperti "ini", "tersebut", "paper ini", "penelitian ini", "dokumen ini", "studi ini", "teks ini". Selalu gunakan istilah SPESIFIK dari teks. Contoh:
+7. Jika judul dokumen tersedia, setiap pertanyaan WAJIB menyebut judul dokumen secara eksplisit: "{document_title or 'judul dokumen'}".
+8. SANGAT PENTING: JANGAN gunakan kata ganti atau referensi umum seperti "ini", "tersebut", "paper ini", "penelitian ini", "dokumen ini", "studi ini", "teks ini". Selalu gunakan judul dokumen atau istilah SPESIFIK dari teks. Contoh:
    - BURUK: "Siapa authors dalam penelitian ini?"
    - BAIK: "Siapa authors dalam penelitian Produktivitas Padi di Blitar?"
    - BURUK: "Apa hasil dari studi ini?"
    - BAIK: "Apa hasil dari studi analisis dampak perubahan iklim terhadap pertanian?"
+   - BURUK: "Apa kegunaan CNN dalam penelitian ini?"
+   - BAIK: "Apa kegunaan CNN dalam penelitian Pengembangan Deteksi Kanker?"
    Alasan: pertanyaan dengan kata ganti "ini"/"tersebut" menghasilkan embedding yang tidak diskriminatif dan buruk untuk pencarian semantik.
 
 FORMAT RESPONSE (JSON array only, tanpa markdown):
@@ -145,3 +149,38 @@ def _parse_questions_response(response_text: str) -> List[str]:
             questions.append(cleaned)
 
     return questions
+
+
+def _replace_ambiguous_document_references(
+    questions: List[str],
+    document_title: Optional[str],
+) -> List[str]:
+    """Replace generic document references with the explicit document title."""
+    clean_title = (document_title or "").strip()
+    if not questions or not clean_title:
+        return questions
+
+    replacements = (
+        (r"\bpenelitian\s+ini\b", f"penelitian {clean_title}"),
+        (r"\bdokumen\s+ini\b", f"dokumen {clean_title}"),
+        (r"\bstudi\s+ini\b", f"studi {clean_title}"),
+        (r"\bpaper\s+ini\b", f"paper {clean_title}"),
+        (r"\bartikel\s+ini\b", f"artikel {clean_title}"),
+        (r"\bjurnal\s+ini\b", f"jurnal {clean_title}"),
+        (r"\bteks\s+ini\b", f"teks {clean_title}"),
+        (r"\bkarya\s+ini\b", f"karya {clean_title}"),
+    )
+
+    normalized_questions: List[str] = []
+    for question in questions:
+        updated_question = question
+        for pattern, replacement in replacements:
+            updated_question = re.sub(
+                pattern,
+                replacement,
+                updated_question,
+                flags=re.IGNORECASE,
+            )
+        normalized_questions.append(updated_question.strip())
+
+    return normalized_questions

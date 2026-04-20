@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useMemo } from "react"
 import { IconUser, IconRobot, IconFileText, IconChevronDown, IconChevronUp, IconExternalLink } from "@tabler/icons-react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
@@ -9,10 +9,6 @@ interface MessageBubbleProps {
   message: Message
 }
 
-interface ReferenceCardProps {
-  reference: DocumentReference
-}
-
 const formatTime = (date: Date): string => {
   return date.toLocaleTimeString("id-ID", {
     hour: "2-digit",
@@ -20,7 +16,7 @@ const formatTime = (date: Date): string => {
   })
 }
 
-function ReferenceCard({ reference }: ReferenceCardProps) {
+function GroupedReferenceCard({ title, references }: { title: string, references: DocumentReference[] }) {
   const [isOpeningDocument, setIsOpeningDocument] = useState(false)
   const [openDocumentErrorMessage, setOpenDocumentErrorMessage] = useState<string | null>(null)
 
@@ -41,7 +37,7 @@ function ReferenceCard({ reference }: ReferenceCardProps) {
 
     try {
       const { downloadUrl } = await getDocumentDownloadUrl({
-        documentUrl: reference.documentUrl,
+        documentUrl: references[0].documentUrl,
       })
 
       previewWindow.location.replace(downloadUrl)
@@ -68,17 +64,28 @@ function ReferenceCard({ reference }: ReferenceCardProps) {
           <IconFileText className="size-4 text-primary" />
         </div>
         <div className="flex-1 min-w-0">
-          <h4 className="font-medium text-sm line-clamp-1">{reference.title}</h4>
-          <p className="text-xs text-muted-foreground">Halaman {reference.pageNumber}</p>
+          <h4 className="font-medium text-sm line-clamp-2">{title}</h4>
+          <p className="text-xs text-muted-foreground">{references.length} cuplikan ditemukan</p>
         </div>
       </div>
-      <p className="text-xs text-muted-foreground line-clamp-3 italic border-l-2 border-primary/30 pl-2">
-        "{reference.excerpt}"
-      </p>
+      
+      <div className="flex flex-col gap-2 mt-2">
+        {references.map((ref, idx) => (
+          <div key={ref.id || idx} className="bg-muted/50 rounded-md p-2">
+            <p className="text-xs font-medium text-foreground mb-1">
+              Halaman {ref.pageNumber}
+            </p>
+            <p className="text-xs text-muted-foreground line-clamp-4 italic border-l-2 border-primary/30 pl-2">
+              "{ref.excerpt}"
+            </p>
+          </div>
+        ))}
+      </div>
+
       <Button
         variant="outline"
         size="sm"
-        className="w-full mt-1"
+        className="w-full mt-2"
         onClick={handleOpenDocument}
         disabled={isOpeningDocument}
       >
@@ -86,7 +93,7 @@ function ReferenceCard({ reference }: ReferenceCardProps) {
         {isOpeningDocument ? "Membuka dokumen..." : "Lihat Dokumen"}
       </Button>
       {openDocumentErrorMessage && (
-        <p className="text-xs text-destructive" role="alert">
+        <p className="text-xs text-destructive mt-1" role="alert">
           {openDocumentErrorMessage}
         </p>
       )}
@@ -96,6 +103,19 @@ function ReferenceCard({ reference }: ReferenceCardProps) {
 
 function DocumentReferences({ references }: { references: DocumentReference[] }) {
   const [isExpanded, setIsExpanded] = useState(true)
+
+  const groupedReferences = useMemo(() => {
+    return references.reduce((acc, ref) => {
+      const key = ref.title || 'Dokumen Tidak Diketahui';
+      if (!acc[key]) {
+        acc[key] = [];
+      }
+      acc[key].push(ref);
+      return acc;
+    }, {} as Record<string, DocumentReference[]>);
+  }, [references]);
+
+  const documentCount = Object.keys(groupedReferences).length;
 
   return (
     <div className="mt-2">
@@ -108,12 +128,12 @@ function DocumentReferences({ references }: { references: DocumentReference[] })
         ) : (
           <IconChevronDown className="size-3.5" />
         )}
-        <span>Referensi ({references.length} dokumen)</span>
+        <span>Referensi ({documentCount} dokumen, {references.length} cuplikan)</span>
       </button>
       {isExpanded && (
-        <div className="grid gap-2 sm:grid-cols-2">
-          {references.map((ref) => (
-            <ReferenceCard key={ref.id} reference={ref} />
+        <div className="grid gap-2">
+          {Object.entries(groupedReferences).map(([title, refs]) => (
+            <GroupedReferenceCard key={title} title={title} references={refs} />
           ))}
         </div>
       )}
