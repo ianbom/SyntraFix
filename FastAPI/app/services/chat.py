@@ -9,6 +9,7 @@ from app.models.document_chunk import DocumentChunk
 from app.schemas.chat import ChatRequest, ChatResponse, ConversationResponse
 from app.services.llm import generate_response, generate_response_stream
 from app.services.embedding import generate_embedding
+from app.services.reranker import rerank_chunks
 from app.models.document import Document, DocumentType
 
 class ChatService:
@@ -385,100 +386,76 @@ Pertanyaan asli: {query}"""
         threshold: float = 0.35,
         query_embeddings: Optional[List] = None,
     ) -> Tuple[List[DocumentChunk], List[float]]:
-        """
-        Retrieve relevant document chunks using hybrid search:
-        1. Multi-query retrieval (expanded queries)
-        2. Metadata filtering (Dublin Core pre-filter)
-        3. Semantic similarity (embedding cosine distance)
-        4. Activated hybrid scoring: semantic + keyword
-        5. Document diversification (max chunks per document)
-        """
+        """Retrieve relevant chunks using hybrid search without LLM reranking."""
+        candidates = self._retrieve_relevant_chunk_candidates(
+            query=query,
+            metadata_filters=metadata_filters,
+            limit=limit,
+            query_embeddings=query_embeddings,
+        )
+
+        selected = self._select_ranked_candidates(candidates, limit=limit, threshold=threshold)
+        return self._candidate_dicts_to_chunks(selected)
+
+    def _retrieve_relevant_chunk_candidates(
+        self,
+        query: str,
+        metadata_filters: List = None,
+        limit: int = 8,
+        query_embeddings: Optional[List] = None,
+    ) -> List[Dict[str, Any]]:
+        """Build a larger candidate pool from content and question embeddings."""
         MIN_CONTENT_LENGTH = 100
-        MAX_CHUNKS_PER_DOCUMENT = 10
+        candidate_limit = limit * 10
         keywords = self._extract_keywords(query)
         has_metadata_filters = bool(metadata_filters and len(metadata_filters) > 0)
 
-        # --- Build list of embeddings to search against ---
-        # query_embeddings may contain embeddings from expanded queries
         embeddings_to_search = query_embeddings or []
         if not embeddings_to_search:
             primary_emb = generate_embedding(query)
             if primary_emb is None:
                 print("Warning: Failed to generate query embedding")
-                return [], []
+                return []
             embeddings_to_search = [primary_emb]
 
         print(f"  Multi-query retrieval: searching with {len(embeddings_to_search)} embedding(s)")
 
-        # --- Aggregate scores across all query embeddings ---
-        # Key: chunk.id → best hybrid score found across all queries
         best_scores: Dict[int, Dict] = {}
 
         for emb_idx, query_embedding in enumerate(embeddings_to_search):
-            content_sim = (1 - DocumentChunk.embedding.cosine_distance(query_embedding)).label('semantic_score')
-            question_sim = case(
-                (DocumentChunk.possibly_question_embedding.isnot(None),
-                 1 - DocumentChunk.possibly_question_embedding.cosine_distance(query_embedding)),
-                else_=literal(0.0)
-            ).label('question_score')
-
-            base_query = self.db.query(
-                DocumentChunk,
-                Document,
-                content_sim,
-                question_sim
-            ).join(
-                Document, DocumentChunk.document_id == Document.id
-            ).filter(
-                Document.title.isnot(None),
-                Document.title != "",
-                Document.title != "Untitled Document",
-                ~Document.title.ilike("untitled%"),
-                DocumentChunk.content.isnot(None),
-                DocumentChunk.content != "",
-                func.length(DocumentChunk.content) >= MIN_CONTENT_LENGTH,
-                DocumentChunk.embedding.isnot(None)
+            content_rows = self._fetch_similarity_candidates(
+                query_embedding=query_embedding,
+                metadata_filters=metadata_filters,
+                candidate_limit=candidate_limit,
+                min_content_length=MIN_CONTENT_LENGTH,
+                retrieval_source="content",
+                has_metadata_filters=has_metadata_filters,
+            )
+            question_rows = self._fetch_similarity_candidates(
+                query_embedding=query_embedding,
+                metadata_filters=metadata_filters,
+                candidate_limit=candidate_limit,
+                min_content_length=MIN_CONTENT_LENGTH,
+                retrieval_source="question",
+                has_metadata_filters=has_metadata_filters,
             )
 
-            if has_metadata_filters:
-                filtered_query = base_query.filter(*metadata_filters)
-                raw_results = filtered_query.order_by(desc('semantic_score')).limit(limit * 6).all()
-                print(f"  [emb#{emb_idx}] Metadata-filtered results: {len(raw_results)} chunks")
-                if len(raw_results) < 2:
-                    print(f"  [emb#{emb_idx}] Too few filtered results, fallback to unfiltered")
-                    raw_results = base_query.order_by(desc('semantic_score')).limit(limit * 6).all()
-            else:
-                raw_results = base_query.order_by(desc('semantic_score')).limit(limit * 6).all()
+            print(
+                f"  [emb#{emb_idx}] Candidate rows: "
+                f"content={len(content_rows)}, question={len(question_rows)}"
+            )
 
-            for chunk, doc, semantic_score, question_score in raw_results:
-                if semantic_score is None:
-                    continue
+            candidate_rows = [
+                self._build_candidate_score(row, keywords, has_metadata_filters, "content")
+                for row in content_rows
+            ]
+            candidate_rows.extend(
+                self._build_candidate_score(row, keywords, has_metadata_filters, "question")
+                for row in question_rows
+            )
 
-                keyword_score = self._calculate_keyword_score(chunk.content, doc, keywords)
-                q_score = float(question_score) if question_score else 0.0
-                combined_semantic = max(float(semantic_score), q_score)
+            best_scores = self._merge_candidate_scores(best_scores, candidate_rows)
 
-                # Hybrid score: semantic + keyword actively weighted
-                if has_metadata_filters:
-                    hybrid_score = (combined_semantic * 0.80) + (keyword_score * 0.20)
-                    hybrid_score *= 1.1  # 10% boost for metadata-matched docs
-                else:
-                    hybrid_score = (combined_semantic * 0.65) + (keyword_score * 0.35)
-
-                chunk_id = chunk.id
-                if chunk_id not in best_scores or hybrid_score > best_scores[chunk_id]['hybrid_score']:
-                    best_scores[chunk_id] = {
-                        'chunk': chunk,
-                        'document_id': doc.id,
-                        'document_title': doc.title,
-                        'semantic_score': float(semantic_score),
-                        'question_score': q_score,
-                        'combined_semantic': combined_semantic,
-                        'keyword_score': keyword_score,
-                        'hybrid_score': hybrid_score,
-                    }
-
-        # Sort all unique chunks by best hybrid score
         scored_chunks = sorted(best_scores.values(), key=lambda x: x['hybrid_score'], reverse=True)
 
         for item in scored_chunks[:20]:  # log top 20 for debugging
@@ -490,28 +467,171 @@ Pertanyaan asli: {query}"""
                 f"hybrid={item['hybrid_score']:.4f}"
             )
 
-        # Apply threshold + document diversification
-        chunks: List[DocumentChunk] = []
-        similarities: List[float] = []
+        return scored_chunks
+
+    def _fetch_similarity_candidates(
+        self,
+        query_embedding,
+        metadata_filters: List,
+        candidate_limit: int,
+        min_content_length: int,
+        retrieval_source: str,
+        has_metadata_filters: bool,
+    ):
+        content_sim = (1 - DocumentChunk.embedding.cosine_distance(query_embedding)).label("semantic_score")
+        question_sim = case(
+            (
+                DocumentChunk.possibly_question_embedding.isnot(None),
+                1 - DocumentChunk.possibly_question_embedding.cosine_distance(query_embedding),
+            ),
+            else_=literal(0.0),
+        ).label("question_score")
+
+        base_query = self.db.query(
+            DocumentChunk,
+            Document,
+            content_sim,
+            question_sim,
+        ).join(
+            Document, DocumentChunk.document_id == Document.id
+        ).filter(
+            Document.title.isnot(None),
+            Document.title != "",
+            Document.title != "Untitled Document",
+            ~Document.title.ilike("untitled%"),
+            DocumentChunk.content.isnot(None),
+            DocumentChunk.content != "",
+            func.length(DocumentChunk.content) >= min_content_length,
+        )
+
+        if retrieval_source == "question":
+            base_query = base_query.filter(DocumentChunk.possibly_question_embedding.isnot(None))
+            order_expr = question_sim
+        else:
+            base_query = base_query.filter(DocumentChunk.embedding.isnot(None))
+            order_expr = content_sim
+
+        if has_metadata_filters:
+            filtered_query = base_query.filter(*metadata_filters)
+            rows = filtered_query.order_by(desc(order_expr)).limit(candidate_limit).all()
+            if len(rows) >= 2:
+                return rows
+            print(f"  [{retrieval_source}] Too few metadata-filtered results, fallback to unfiltered")
+
+        return base_query.order_by(desc(order_expr)).limit(candidate_limit).all()
+
+    def _build_candidate_score(
+        self,
+        row,
+        keywords: List[str],
+        has_metadata_filters: bool,
+        retrieval_source: str,
+    ) -> Dict[str, Any]:
+        chunk, doc, semantic_score, question_score = row
+        sem_score = float(semantic_score) if semantic_score is not None else 0.0
+        q_score = float(question_score) if question_score is not None else 0.0
+        keyword_score = self._calculate_keyword_score(chunk.content, doc, keywords)
+        combined_semantic = max(sem_score, q_score)
+
+        if has_metadata_filters:
+            hybrid_score = (combined_semantic * 0.80) + (keyword_score * 0.20)
+            hybrid_score *= 1.1
+        else:
+            hybrid_score = (combined_semantic * 0.65) + (keyword_score * 0.35)
+
+        return {
+            "chunk": chunk,
+            "chunk_id": chunk.id,
+            "document_id": doc.id,
+            "document_title": doc.title,
+            "section_title": chunk.section_title,
+            "page_number": chunk.page_number,
+            "content": chunk.content,
+            "semantic_score": sem_score,
+            "question_score": q_score,
+            "combined_semantic": combined_semantic,
+            "keyword_score": keyword_score,
+            "hybrid_score": hybrid_score,
+            "retrieval_source": retrieval_source,
+        }
+
+    def _merge_candidate_scores(
+        self,
+        existing: Dict[int, Dict[str, Any]],
+        rows: List[Dict[str, Any]],
+    ) -> Dict[int, Dict[str, Any]]:
+        """Merge content/question candidate rows by chunk id, keeping best score."""
+        merged = dict(existing)
+
+        for row in rows:
+            chunk = row["chunk"]
+            chunk_id = row.get("chunk_id", getattr(chunk, "id", id(chunk)))
+            row = {**row, "chunk_id": chunk_id}
+
+            if chunk_id not in merged or row["hybrid_score"] > merged[chunk_id]["hybrid_score"]:
+                merged[chunk_id] = row
+
+        return merged
+
+    def _select_ranked_candidates(
+        self,
+        candidates: List[Dict[str, Any]],
+        limit: int = 8,
+        threshold: float = 0.35,
+    ) -> List[Dict[str, Any]]:
+        MAX_CHUNKS_PER_DOCUMENT = 10
+        selected: List[Dict[str, Any]] = []
         doc_chunk_count: Dict[int, int] = {}
 
-        for item in scored_chunks:
+        for item in sorted(candidates, key=lambda x: x["hybrid_score"], reverse=True):
             if item['hybrid_score'] < threshold:
-                break  # sorted descending, no need to continue
+                break
 
             doc_id = item['document_id']
             if doc_chunk_count.get(doc_id, 0) >= MAX_CHUNKS_PER_DOCUMENT:
                 continue
 
-            chunks.append(item['chunk'])
-            similarities.append(item['hybrid_score'])
+            selected.append(item)
             doc_chunk_count[doc_id] = doc_chunk_count.get(doc_id, 0) + 1
 
-            if len(chunks) >= limit:
+            if len(selected) >= limit:
                 break
 
-        print(f"  Final retrieved: {len(chunks)} chunks (threshold={threshold}, limit={limit})")
+        print(f"  Final retrieved: {len(selected)} chunks (threshold={threshold}, limit={limit})")
+        return selected
+
+    def _candidate_dicts_to_chunks(
+        self,
+        candidates: List[Dict[str, Any]],
+    ) -> Tuple[List[DocumentChunk], List[float]]:
+        chunks = [item["chunk"] for item in candidates]
+        similarities = [
+            float(item.get("final_score", item.get("hybrid_score", 0.0)) or 0.0)
+            for item in candidates
+        ]
         return chunks, similarities
+
+    async def _retrieve_and_rerank_chunks(
+        self,
+        query: str,
+        metadata_filters: List = None,
+        limit: int = 8,
+        threshold: float = 0.35,
+        query_embeddings: Optional[List] = None,
+    ) -> Tuple[List[DocumentChunk], List[float]]:
+        candidates = self._retrieve_relevant_chunk_candidates(
+            query=query,
+            metadata_filters=metadata_filters,
+            limit=limit,
+            query_embeddings=query_embeddings,
+        )
+        selected_candidates = self._select_ranked_candidates(
+            candidates,
+            limit=limit * 4,
+            threshold=threshold,
+        )
+        reranked_candidates = await rerank_chunks(query, selected_candidates, limit=limit)
+        return self._candidate_dicts_to_chunks(reranked_candidates)
 
     # =========================================================================
     # Context & Prompt Construction
@@ -628,7 +748,7 @@ Jawab dengan: {no_context_msg}"""
         print("============================================")
 
         # 6. RAG: Retrieve Context (multi-query + metadata filtering)
-        chunks, similarities = self._retrieve_relevant_chunks(
+        chunks, similarities = await self._retrieve_and_rerank_chunks(
             query=query_info["cleaned_query"],
             metadata_filters=metadata_filters,
             query_embeddings=query_embeddings,
@@ -707,7 +827,7 @@ Jawab dengan: {no_context_msg}"""
         print("============================================")
 
         # 6. RAG: Retrieve Context (multi-query + metadata filtering)
-        chunks, similarities = self._retrieve_relevant_chunks(
+        chunks, similarities = await self._retrieve_and_rerank_chunks(
             query=query_info["cleaned_query"],
             metadata_filters=metadata_filters,
             query_embeddings=query_embeddings,
