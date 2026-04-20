@@ -18,6 +18,12 @@ from app.schemas.document import (
     ProcessingMonitorResponse,
     ProcessingMonitorSummary,
 )
+from app.services.document_responses import (
+    PROCESS_MONITOR_STATUSES,
+    build_document_response,
+    normalize_processing_progress,
+    normalize_processing_status,
+)
 from app.services.document import (
     get_document_download_url,
     get_document_detail_data,
@@ -31,69 +37,6 @@ from app.services.grobid import extract_header, extract_fulltext, extract_refere
 from app.tasks.document_tasks import process_document_task
 
 router = APIRouter(prefix="/documents", tags=["Documents"])
-
-
-PROCESS_MONITOR_STATUSES = ("processing", "completed", "failed")
-
-
-def _normalize_processing_status(status: Optional[str]) -> str:
-    """Normalize processing status to known values."""
-    if status in PROCESS_MONITOR_STATUSES:
-        return status
-    return "processing"
-
-
-def _normalize_processing_progress(progress: Optional[int], status: Optional[str]) -> int:
-    """Normalize persisted progress value to 0-100."""
-    normalized_status = _normalize_processing_status(status)
-
-    if progress is None:
-        return 100 if normalized_status == "completed" else 0
-
-    normalized_progress = max(0, min(int(progress), 100))
-    if normalized_status == "completed" and normalized_progress < 100:
-        return 100
-
-    return normalized_progress
-
-
-def _build_document_response(document: Document, chunk_count: int) -> DocumentResponse:
-    """Helper function to build DocumentResponse from Document model."""
-    normalized_status = _normalize_processing_status(document.processing_status)
-
-    return DocumentResponse(
-        id=document.id,
-        title=document.title,
-        creator=document.creator,
-        keywords=document.keywords,
-        description=document.description,
-        publisher=document.publisher,
-        contributor=document.contributor,
-        publication_date=document.date,
-        type=DocumentTypeEnum(document.type.value) if document.type else DocumentTypeEnum.JOURNAL,
-        format=document.format,
-        identifier=document.identifier,
-        source=document.source,
-        language=document.language,
-        relation=document.relation,
-        coverage=document.coverage,
-        rights=document.rights,
-        doi=document.doi,
-        abstract=document.abstract,
-        citation_count=document.citation_count or 0,
-        file_path=document.file_path,
-        is_private=document.is_private or False,
-        is_metadata_complete=document.is_metadata_complete or False,
-        processing_status=normalized_status,
-        processing_progress=_normalize_processing_progress(
-            document.processing_progress,
-            normalized_status,
-        ),
-        processing_error=document.processing_error,
-        created_at=document.created_at,
-        updated_at=document.updated_at,
-        chunk_count=chunk_count
-    )
 
 
 @router.websocket("/ws/{client_id}")
@@ -160,7 +103,7 @@ async def upload_document(
         await manager.send_personal_message(
             {
                 "status": "processing",
-                "progress": _normalize_processing_progress(
+                "progress": normalize_processing_progress(
                     document.processing_progress,
                     document.processing_status,
                 ),
@@ -170,7 +113,7 @@ async def upload_document(
             client_id
         )
     
-    return _build_document_response(document, 0)
+    return build_document_response(document, 0)
 
 
 @router.get("/{document_id}/status")
@@ -193,8 +136,8 @@ async def get_document_status(
     return {
         "id": document.id,
         "title": document.title,
-        "processing_status": _normalize_processing_status(document.processing_status),
-        "processing_progress": _normalize_processing_progress(
+        "processing_status": normalize_processing_status(document.processing_status),
+        "processing_progress": normalize_processing_progress(
             document.processing_progress,
             document.processing_status,
         ),
@@ -224,7 +167,7 @@ async def list_processing_monitor_documents(
 
     monitor_documents = []
     for document in documents:
-        normalized_status = _normalize_processing_status(document.processing_status)
+        normalized_status = normalize_processing_status(document.processing_status)
         summary[normalized_status] += 1
 
         monitor_documents.append(
@@ -234,7 +177,7 @@ async def list_processing_monitor_documents(
                 creator=document.creator,
                 uploaded_at=document.created_at,
                 processing_status=normalized_status,
-                processing_progress=_normalize_processing_progress(
+                processing_progress=normalize_processing_progress(
                     document.processing_progress,
                     normalized_status,
                 ),
@@ -355,7 +298,7 @@ async def update_document(
         DocumentChunk.document_id == document.id
     ).scalar() or 0
     
-    return _build_document_response(document, chunk_count)
+    return build_document_response(document, chunk_count)
 
 
 @router.delete("/{document_id}")

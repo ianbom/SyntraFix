@@ -10,6 +10,7 @@ from app.schemas.chat import ChatRequest, ChatResponse, ConversationResponse
 from app.services.llm import generate_response, generate_response_stream
 from app.services.embedding import generate_embedding
 from app.services.reranker import rerank_chunks
+from app.services import chat_query, rag_prompt, retrieval
 from app.models.document import Document, DocumentType
 
 class ChatService:
@@ -72,40 +73,11 @@ class ChatService:
                 "keywords": [str]
             }
         """
-        # Step 1: Clean query
-        cleaned = self._clean_query(query)
-        
-        # Step 2: Extract entities mapped to Dublin Core
-        entities = self._extract_entities(query)
-        
-        # Step 3: Extract keywords (excluding entity values already captured)
-        keywords = self._extract_keywords(cleaned, entities)
-        
-        result = {
-            "original_query": query,
-            "cleaned_query": cleaned,
-            "entities": entities,
-            "keywords": keywords
-        }
-        
-        print("========== QUERY PROCESSING ==========")
-        print(f"  Original : {query}")
-        print(f"  Cleaned  : {cleaned}")
-        print(f"  Entities : {entities}")
-        print(f"  Keywords : {keywords}")
-        print("=======================================")
-        
-        return result
+        return chat_query.process_query(query)
 
     def _clean_query(self, query: str) -> str:
         """Clean and normalize the query text."""
-        # Lowercase
-        cleaned = query.lower().strip()
-        # Remove excessive punctuation but keep meaningful ones
-        cleaned = re.sub(r'[?!.,;:]+$', '', cleaned)
-        # Normalize whitespace
-        cleaned = re.sub(r'\s+', ' ', cleaned)
-        return cleaned
+        return chat_query.clean_query(query)
 
     def _extract_entities(self, query: str) -> Dict[str, Any]:
         """
@@ -561,17 +533,7 @@ Pertanyaan asli: {query}"""
         rows: List[Dict[str, Any]],
     ) -> Dict[int, Dict[str, Any]]:
         """Merge content/question candidate rows by chunk id, keeping best score."""
-        merged = dict(existing)
-
-        for row in rows:
-            chunk = row["chunk"]
-            chunk_id = row.get("chunk_id", getattr(chunk, "id", id(chunk)))
-            row = {**row, "chunk_id": chunk_id}
-
-            if chunk_id not in merged or row["hybrid_score"] > merged[chunk_id]["hybrid_score"]:
-                merged[chunk_id] = row
-
-        return merged
+        return retrieval.merge_candidate_scores(existing, rows)
 
     def _select_ranked_candidates(
         self,
@@ -604,12 +566,7 @@ Pertanyaan asli: {query}"""
         self,
         candidates: List[Dict[str, Any]],
     ) -> Tuple[List[DocumentChunk], List[float]]:
-        chunks = [item["chunk"] for item in candidates]
-        similarities = [
-            float(item.get("final_score", item.get("hybrid_score", 0.0)) or 0.0)
-            for item in candidates
-        ]
-        return chunks, similarities
+        return retrieval.candidate_dicts_to_chunks(candidates)
 
     async def _retrieve_and_rerank_chunks(
         self,
@@ -639,48 +596,11 @@ Pertanyaan asli: {query}"""
 
     def _construct_context_text(self, chunks: List[DocumentChunk]) -> str:
         """Format chunks into a context string."""
-        context_parts = []
-        for chunk in chunks:
-            doc = self.db.query(Document).filter(Document.id == chunk.document_id).first()
-            doc_title = doc.title if doc else "Unknown Document"
-            
-            context_parts.append(
-                f"[Source: {doc_title}]\n{chunk.content}"
-            )
-        return "\n\n---\n\n".join(context_parts) if context_parts else ""
+        return rag_prompt.construct_context_text(self.db, chunks)
 
     def _construct_rag_prompt(self, message: str, context_text: str) -> str:
         """Construct the prompt for the LLM."""
-        if context_text:
-            system_prompt = """Anda adalah asisten AI yang menjawab pertanyaan berdasarkan dokumen knowledge base.
-
-INSTRUKSI:
-1. Gunakan informasi dari KONTEKS di bawah untuk menjawab pertanyaan user.
-2. Jawab dengan lengkap dan informatif menggunakan data yang ada di konteks.
-3. Jika konteks membahas topik yang relevan, berikan jawaban terbaik berdasarkan informasi tersebut.
-4. Sebutkan sumber dokumen ([Source: ...]) dalam jawaban Anda.
-5. Gunakan bahasa yang sama dengan pertanyaan user.
-6. Jika konteks benar-benar TIDAK MEMBAHAS topik pertanyaan sama sekali, katakan bahwa informasi tidak ditemukan."""
-
-            return f"""{system_prompt}
-
-KONTEKS DARI DOKUMEN:
-{context_text}
-
----
-
-PERTANYAAN USER: {message}
-
-JAWABAN (berdasarkan konteks di atas):"""
-        else:
-            no_context_msg = "Maaf, saya tidak menemukan informasi yang relevan dengan pertanyaan Anda dalam dokumen yang tersedia."
-            return f"""Anda adalah asisten AI berbasis dokumen knowledge base.
-
-Tidak ditemukan dokumen yang relevan di knowledge base untuk pertanyaan ini.
-
-PERTANYAAN USER: {message}
-
-Jawab dengan: {no_context_msg}"""
+        return rag_prompt.construct_rag_prompt(message, context_text)
 
     # =========================================================================
     # References
