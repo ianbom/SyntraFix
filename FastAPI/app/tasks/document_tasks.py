@@ -14,7 +14,8 @@ from app.services.grobid import (
 from app.services.embedding import generate_embedding
 from app.services.embedding_text import build_embedding_text
 from app.services.document_assets import _build_image_chunks, _build_table_chunks
-from app.services.question_generator import generate_possibly_questions
+# from app.services.document_chunk_export import export_document_chunk_markdown_files
+from app.services.question_generator import _build_fallback_questions, generate_possibly_questions
 from app.services.metadata_extractor import (
     extract_metadata_with_llm, is_metadata_incomplete, merge_metadata
 )
@@ -276,6 +277,7 @@ def process_document_task(self, document_id: int, file_path: str):
             content = chunk_data.get("content") or ""
             possibly_questions = None
             possibly_question_embedding = None
+            token_count = chunk_data.get("token_count", len(content.split()) if content else 0)
 
             try:
                 section_title = chunk_data.get("section_title")
@@ -291,6 +293,19 @@ def process_document_task(self, document_id: int, file_path: str):
                     possibly_question_embedding = generate_embedding(combined_questions)
             except Exception as e:
                 print(f"  Warning: question generation failed for chunk {i+1}: {e}")
+                if token_count >= 30:
+                    possibly_questions = _build_fallback_questions(
+                        content,
+                        section_title=chunk_data.get("section_title"),
+                        document_title=chunk_data.get("chunk_metadata", {}).get("source_document"),
+                    )
+
+            if token_count >= 30 and not possibly_questions:
+                possibly_questions = _build_fallback_questions(
+                    content,
+                    section_title=chunk_data.get("section_title"),
+                    document_title=chunk_data.get("chunk_metadata", {}).get("source_document"),
+                )
 
             chunk_data["_possibly_questions"] = possibly_questions
             chunk_data["_possibly_question_embedding"] = possibly_question_embedding
@@ -304,6 +319,15 @@ def process_document_task(self, document_id: int, file_path: str):
 
         if total_chunks == 0:
             _update_processing_state(db, document_id, progress=75)
+
+        # Markdown export for chunk inspection is disabled.
+        # Uncomment this block when manual PDF coverage/RAGAS debugging is needed.
+        # content_export_path, ragas_export_path = export_document_chunk_markdown_files(
+        #     metadata.get("title") or document.title or f"document_{document_id}",
+        #     chunks,
+        # )
+        # print(f"  Chunk content markdown exported to: {content_export_path}")
+        # print(f"  RAGAS markdown exported to: {ragas_export_path}")
 
         # Step 7: Generate content embeddings
         print("[7/8] Generating content embeddings...")

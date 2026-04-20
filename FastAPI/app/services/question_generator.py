@@ -26,7 +26,7 @@ async def generate_possibly_questions(
     Returns:
         List of question strings. Empty list on failure.
     """
-    if not chunk_content or len(chunk_content.strip()) < 30:
+    if not chunk_content or len(chunk_content.split()) < 30:
         return []
 
     # Truncate very long chunks to stay within token limits
@@ -46,11 +46,70 @@ async def generate_possibly_questions(
 
         if questions:
             print(f"  Generated {len(questions)} questions for chunk")
-        return questions
+            return questions
+
+        print("  Question generation returned empty response, using fallback questions")
+        return _build_fallback_questions(
+            chunk_content,
+            section_title=section_title,
+            document_title=document_title,
+            num_questions=num_questions,
+        )
 
     except Exception as e:
         print(f"Question generation error: {str(e)}")
+        return _build_fallback_questions(
+            chunk_content,
+            section_title=section_title,
+            document_title=document_title,
+            num_questions=num_questions,
+        )
+
+
+def _build_fallback_questions(
+    chunk_content: str,
+    section_title: str = None,
+    document_title: str = None,
+    num_questions: int = 5,
+) -> List[str]:
+    """Build deterministic questions so eligible chunks never store null questions."""
+    if not chunk_content or len(chunk_content.split()) < 30:
         return []
+
+    clean_title = (document_title or "dokumen tanpa judul").strip()
+    clean_section = (section_title or "konten").strip()
+    keywords = _extract_fallback_keywords(chunk_content)
+    keyword_text = ", ".join(keywords[:3]) if keywords else clean_section
+
+    candidates = [
+        f"Apa informasi utama pada bagian {clean_section} dalam dokumen {clean_title}?",
+        f"Bagaimana bagian {clean_section} menjelaskan {keyword_text} dalam dokumen {clean_title}?",
+        f"Apa detail penting terkait {keyword_text} pada dokumen {clean_title}?",
+        f"Mengapa informasi pada bagian {clean_section} penting dalam dokumen {clean_title}?",
+        f"Apa kesimpulan yang dapat diambil dari bagian {clean_section} dalam dokumen {clean_title}?",
+    ]
+
+    return candidates[: max(1, num_questions)]
+
+
+def _extract_fallback_keywords(text: str, max_keywords: int = 5) -> List[str]:
+    """Extract simple keywords for deterministic fallback questions."""
+    stopwords = {
+        "dan", "atau", "yang", "untuk", "dengan", "dari", "pada", "dalam",
+        "ini", "itu", "adalah", "sebagai", "oleh", "the", "and", "for",
+        "with", "from", "that", "this", "are", "was", "were", "berdasarkan",
+    }
+    words = re.findall(r"[A-Za-zÀ-ÖØ-öø-ÿ0-9]{4,}", text.lower())
+    seen = set()
+    keywords = []
+    for word in words:
+        if word in stopwords or word in seen:
+            continue
+        seen.add(word)
+        keywords.append(word)
+        if len(keywords) >= max_keywords:
+            break
+    return keywords
 
 
 def _build_question_prompt(

@@ -330,25 +330,75 @@ class ChatService:
     async def _expand_query(self, query: str) -> List[str]:
         """
         Generate query variations to improve retrieval recall.
-        Returns original query + up to 2 variations (bilingual ID/EN).
+        Returns original query + Indonesian and English variations.
         """
         prompt = f"""Buat 2 variasi berbeda dari pertanyaan berikut untuk meningkatkan pencarian dokumen akademik.
-Variasi 1: dalam Bahasa Indonesia yang berbeda kata-katanya.
-Variasi 2: dalam Bahasa Inggris.
-Format output: hanya 2 baris teks, tanpa nomor, tanpa penjelasan tambahan.
+WAJIB menghasilkan tepat dua baris:
+Bahasa Indonesia: <parafrasa pertanyaan dalam Bahasa Indonesia>
+English: <translation or equivalent search query in English>
+Jangan menambahkan nomor, markdown, JSON, atau penjelasan tambahan.
 Pertanyaan asli: {query}"""
         try:
             result = await generate_response(prompt)
-            lines = [line.strip() for line in result.strip().split('\n') if line.strip()]
-            variations = [v for v in lines[:2] if len(v) > 5 and v.lower() != query.lower()]
+            variations = self._parse_bilingual_query_expansion(query, result)
             all_queries = [query] + variations
             print(f"  Query expansion: {len(all_queries)} queries total")
             for i, q in enumerate(all_queries):
                 print(f"    [{i}] {q[:80]}")
             return all_queries
         except Exception as e:
-            print(f"  Query expansion failed: {e}, using original only")
-            return [query]
+            print(f"  Query expansion failed: {e}, using bilingual fallback")
+            return [query] + self._build_bilingual_query_fallback(query)
+
+    def _parse_bilingual_query_expansion(self, query: str, response_text: str) -> List[str]:
+        """Parse LLM output into Indonesian and English query variations."""
+        lines = [line.strip() for line in (response_text or "").strip().split('\n') if line.strip()]
+        indonesian_query = None
+        english_query = None
+        unlabeled_lines = []
+
+        for line in lines:
+            normalized = re.sub(r'^\s*[-*\d.)]+\s*', '', line).strip()
+            label_match = re.match(
+                r'^(bahasa\s+indonesia|indonesia|indonesian|id|english|inggris|en)\s*[:\-]\s*(.+)$',
+                normalized,
+                flags=re.IGNORECASE,
+            )
+            if label_match:
+                label = label_match.group(1).lower()
+                value = label_match.group(2).strip()
+                if not value:
+                    continue
+                if label in {"bahasa indonesia", "indonesia", "indonesian", "id"}:
+                    indonesian_query = value
+                else:
+                    english_query = value
+                continue
+
+            if len(normalized) > 5:
+                unlabeled_lines.append(normalized)
+
+        if indonesian_query is None and unlabeled_lines:
+            indonesian_query = unlabeled_lines.pop(0)
+        if english_query is None and unlabeled_lines:
+            english_query = unlabeled_lines.pop(0)
+
+        fallback_indonesian, fallback_english = self._build_bilingual_query_fallback(query)
+        indonesian_query = indonesian_query or fallback_indonesian
+        english_query = english_query or fallback_english
+
+        variations = []
+        for value in (indonesian_query, english_query):
+            if value and value.lower() != query.lower() and value not in variations:
+                variations.append(value)
+            elif value and value not in variations:
+                variations.append(value)
+
+        return variations
+
+    def _build_bilingual_query_fallback(self, query: str) -> List[str]:
+        """Return safe Indonesian and English slots when expansion parsing fails."""
+        return [query, f"English query: {query}"]
 
     def _retrieve_relevant_chunks(
         self,

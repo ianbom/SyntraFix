@@ -8,11 +8,11 @@ xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.co
 			<titleStmt>
 				<title level="a" type="main">iYOLOV7-TPE-SS: Leveraging Improved YOLO Model With Multilevel Hyperparameter Optimization for Road Damage Detection on Edge Devices</title>
 				<funder>
-					<orgName type="full">Institut Teknologi Sepuluh Nopember</orgName>
-				</funder>
-				<funder>
 					<orgName type="full">Politeknik Elektronika Negeri Surabaya</orgName>
 					<orgName type="abbreviated">PENS</orgName>
+				</funder>
+				<funder>
+					<orgName type="full">Institut Teknologi Sepuluh Nopember</orgName>
 				</funder>
 			</titleStmt>
 			<publicationStmt>
@@ -77,7 +77,7 @@ xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.co
 		</fileDesc>
 		<encodingDesc>
 			<appInfo>
-				<application version="0.8.2" ident="GROBID" when="2026-04-20T06:36+0000">
+				<application version="0.8.2" ident="GROBID" when="2026-04-20T11:54+0000">
 					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
 					<label type="revision">a91ee48</label>
 					<label type="parameters">startPage=-1, endPage=-1, consolidateCitations=0, consolidateHeader=0, consolidateFunders=0, includeRawAffiliations=false, includeRawCitations=false, includeRawCopyrights=false, generateTeiIds=false, generateTeiCoordinates=[], sentenceSegmentation=false, flavor=null</label>
