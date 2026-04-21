@@ -14,8 +14,11 @@ from ragas.metrics import AnswerRelevancy, ContextPrecision, ContextRecall, Fait
 load_dotenv(override=True)
 
 BASE_DIR = Path(__file__).resolve().parents[1]
-RAGAS_SAMPLE_PATH = BASE_DIR / "FastAPI" / "ragas-sample-bge.md"
-OUTPUT_CSV_PATH = Path(__file__).resolve().parent / "score_ragas_sample_bge4.csv"
+DEFAULT_RAGAS_SAMPLE_PATHS = [
+    Path(__file__).resolve().parent / "data" / "sample-conv6.md",
+    Path(__file__).resolve().parent / "data" / "sample-conv7.md",
+]
+OUTPUT_CSV_PATH = Path(__file__).resolve().parent / "score_ragas_conv6_conv7.csv"
 MAX_EVALUATION_ATTEMPTS = int(os.getenv("RAGAS_MAX_EVALUATION_ATTEMPTS", "5"))
 RETRY_DELAY_SECONDS = float(os.getenv("RAGAS_RETRY_DELAY_SECONDS", "3"))
 
@@ -226,12 +229,61 @@ def load_ragas_markdown(path: Path) -> dict:
     }
 
 
+def _merge_data_samples(sample_sets: list[dict]) -> dict:
+    if not sample_sets:
+        raise ValueError("No RAGAS sample sets were provided")
+
+    fields = [
+        "user_input",
+        "retrieved_contexts",
+        "response",
+        "reference",
+        "question",
+        "contexts",
+        "answer",
+        "ground_truth",
+    ]
+    merged = {field: [] for field in fields}
+    for sample_set in sample_sets:
+        for field in fields:
+            merged[field].extend(sample_set[field])
+    return merged
+
+
+def _get_sample_paths() -> list[Path]:
+    configured_paths = os.getenv("RAGAS_SAMPLE_PATHS")
+    if not configured_paths:
+        return DEFAULT_RAGAS_SAMPLE_PATHS
+
+    paths = []
+    for raw_path in configured_paths.split(";"):
+        raw_path = raw_path.strip()
+        if not raw_path:
+            continue
+        path = Path(raw_path)
+        if not path.is_absolute():
+            path = BASE_DIR / path
+        paths.append(path)
+
+    if not paths:
+        raise ValueError("RAGAS_SAMPLE_PATHS is set but contains no valid paths")
+    return paths
+
+
 def main() -> None:
-    data_samples = load_ragas_markdown(RAGAS_SAMPLE_PATH)
+    sample_paths = _get_sample_paths()
+    sample_sets = []
+    for sample_path in sample_paths:
+        sample_set = load_ragas_markdown(sample_path)
+        _validate_samples(sample_set)
+        sample_sets.append(sample_set)
+        print(f"Loaded {len(sample_set['user_input'])} RAGAS samples from {sample_path}")
+
+    data_samples = _merge_data_samples(sample_sets)
     _validate_samples(data_samples)
     dataset = Dataset.from_dict(data_samples)
 
-    print(f"Loaded {len(dataset)} RAGAS samples from {RAGAS_SAMPLE_PATH}")
+    print(f"Loaded {len(dataset)} total RAGAS samples from {len(sample_paths)} file(s)")
 
     df = evaluate_until_complete(dataset)
     df.to_csv(OUTPUT_CSV_PATH, index=False)
