@@ -5,8 +5,11 @@ from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.sql import func
 from sqlalchemy.orm import relationship
 from pgvector.sqlalchemy import Vector
+from app.config import get_settings
 from app.database import Base
 import enum
+
+settings = get_settings()
 
 
 class ChunkType(str, enum.Enum):
@@ -37,12 +40,12 @@ class DocumentChunk(Base):
     content = Column(Text, nullable=False)
     token_count = Column(Integer)
     
-    # Vector embedding (nomic-embed-text dimension: 768)
-    embedding = Column(Vector(768))
+    # Vector embedding dimension follows OLLAMA_EMBEDDING_DIMENSION.
+    embedding = Column(Vector(settings.OLLAMA_EMBEDDING_DIMENSION))
     
     # Hypothetical questions generated from chunk content
     possibly_questions = Column(JSONB)  # e.g. ["What is X?", "How does Y work?"]
-    possibly_question_embedding = Column(Vector(768))  # Combined embedding of the questions
+    possibly_question_embedding = Column(Vector(settings.OLLAMA_EMBEDDING_DIMENSION))  # Combined embedding of the questions
     
     # Additional metadata
     chunk_metadata = Column(JSONB)  # Flexible metadata storage

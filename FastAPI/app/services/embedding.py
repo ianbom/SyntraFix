@@ -11,10 +11,8 @@ settings = get_settings()
 
 def generate_embedding(text: str, max_retries: int = 3) -> Optional[list[float]]:
     """
-    Generate embedding for text using Ollama nomic-embed-text model.
-    Returns 768-dimensional embedding vector or None if failed.
-    
-    Note: nomic-embed-text produces 768-dimensional embeddings.
+    Generate embedding for text using the configured Ollama embedding model.
+    Returns a vector matching OLLAMA_EMBEDDING_DIMENSION, or None if failed.
     """
     if not text or not text.strip():
         return None
@@ -26,7 +24,7 @@ def generate_embedding(text: str, max_retries: int = 3) -> Optional[list[float]]
     payload = {
         "model": settings.OLLAMA_EMBEDDING_MODEL,
         "prompt": text,
-        "output_dimensionality": 768
+        "output_dimensionality": settings.OLLAMA_EMBEDDING_DIMENSION
     }
     
     for attempt in range(max_retries):
@@ -37,6 +35,14 @@ def generate_embedding(text: str, max_retries: int = 3) -> Optional[list[float]]
                 data = response.json()
                 embedding = data.get("embedding")
                 if embedding:
+                    expected_dimension = settings.OLLAMA_EMBEDDING_DIMENSION
+                    actual_dimension = len(embedding)
+                    if actual_dimension != expected_dimension:
+                        print(
+                            f"Embedding dimension mismatch: expected {expected_dimension}, "
+                            f"got {actual_dimension} for model {settings.OLLAMA_EMBEDDING_MODEL}"
+                        )
+                        return None
                     return embedding
                 print("No embedding in response")
                 return None

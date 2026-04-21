@@ -31,8 +31,11 @@ class Settings(BaseSettings):
     # Ollama
     # OLLAMA_BASE_URL: str = "http://localhost:11434"
     OLLAMA_BASE_URL: str = "http://localhost:11435"
-    OLLAMA_EMBEDDING_MODEL: str = "embeddinggemma:latest"
+    # OLLAMA_EMBEDDING_MODEL: str = "embeddinggemma:latest"
+    # OLLAMA_EMBEDDING_DIMENSION: int = 768
+    OLLAMA_EMBEDDING_MODEL: str = "bge-m3:567m"
     OLLAMA_GENERATION_MODEL: str = "llama3.1:8b"
+    OLLAMA_EMBEDDING_DIMENSION: int = 1024
 
     # Google Gemini
     GOOGLE_API_KEY: str | None = None

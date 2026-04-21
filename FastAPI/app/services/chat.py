@@ -10,6 +10,7 @@ from app.schemas.chat import ChatRequest, ChatResponse, ConversationResponse
 from app.services.llm import generate_response, generate_response_stream
 from app.services.embedding import generate_embedding
 from app.services.reranker import rerank_chunks
+from app.services import chat_query, rag_prompt, retrieval
 from app.models.document import Document, DocumentType
 
 class ChatService:
@@ -72,40 +73,11 @@ class ChatService:
                 "keywords": [str]
             }
         """
-        # Step 1: Clean query
-        cleaned = self._clean_query(query)
-        
-        # Step 2: Extract entities mapped to Dublin Core
-        entities = self._extract_entities(query)
-        
-        # Step 3: Extract keywords (excluding entity values already captured)
-        keywords = self._extract_keywords(cleaned, entities)
-        
-        result = {
-            "original_query": query,
-            "cleaned_query": cleaned,
-            "entities": entities,
-            "keywords": keywords
-        }
-        
-        print("========== QUERY PROCESSING ==========")
-        print(f"  Original : {query}")
-        print(f"  Cleaned  : {cleaned}")
-        print(f"  Entities : {entities}")
-        print(f"  Keywords : {keywords}")
-        print("=======================================")
-        
-        return result
+        return chat_query.process_query(query)
 
     def _clean_query(self, query: str) -> str:
         """Clean and normalize the query text."""
-        # Lowercase
-        cleaned = query.lower().strip()
-        # Remove excessive punctuation but keep meaningful ones
-        cleaned = re.sub(r'[?!.,;:]+$', '', cleaned)
-        # Normalize whitespace
-        cleaned = re.sub(r'\s+', ' ', cleaned)
-        return cleaned
+        return chat_query.clean_query(query)
 
     def _extract_entities(self, query: str) -> Dict[str, Any]:
         """
@@ -358,25 +330,75 @@ class ChatService:
     async def _expand_query(self, query: str) -> List[str]:
         """
         Generate query variations to improve retrieval recall.
-        Returns original query + up to 2 variations (bilingual ID/EN).
+        Returns original query + Indonesian and English variations.
         """
         prompt = f"""Buat 2 variasi berbeda dari pertanyaan berikut untuk meningkatkan pencarian dokumen akademik.
-Variasi 1: dalam Bahasa Indonesia yang berbeda kata-katanya.
-Variasi 2: dalam Bahasa Inggris.
-Format output: hanya 2 baris teks, tanpa nomor, tanpa penjelasan tambahan.
+WAJIB menghasilkan tepat dua baris:
+Bahasa Indonesia: <parafrasa pertanyaan dalam Bahasa Indonesia>
+English: <translation or equivalent search query in English>
+Jangan menambahkan nomor, markdown, JSON, atau penjelasan tambahan.
 Pertanyaan asli: {query}"""
         try:
             result = await generate_response(prompt)
-            lines = [line.strip() for line in result.strip().split('\n') if line.strip()]
-            variations = [v for v in lines[:2] if len(v) > 5 and v.lower() != query.lower()]
+            variations = self._parse_bilingual_query_expansion(query, result)
             all_queries = [query] + variations
             print(f"  Query expansion: {len(all_queries)} queries total")
             for i, q in enumerate(all_queries):
                 print(f"    [{i}] {q[:80]}")
             return all_queries
         except Exception as e:
-            print(f"  Query expansion failed: {e}, using original only")
-            return [query]
+            print(f"  Query expansion failed: {e}, using bilingual fallback")
+            return [query] + self._build_bilingual_query_fallback(query)
+
+    def _parse_bilingual_query_expansion(self, query: str, response_text: str) -> List[str]:
+        """Parse LLM output into Indonesian and English query variations."""
+        lines = [line.strip() for line in (response_text or "").strip().split('\n') if line.strip()]
+        indonesian_query = None
+        english_query = None
+        unlabeled_lines = []
+
+        for line in lines:
+            normalized = re.sub(r'^\s*[-*\d.)]+\s*', '', line).strip()
+            label_match = re.match(
+                r'^(bahasa\s+indonesia|indonesia|indonesian|id|english|inggris|en)\s*[:\-]\s*(.+)$',
+                normalized,
+                flags=re.IGNORECASE,
+            )
+            if label_match:
+                label = label_match.group(1).lower()
+                value = label_match.group(2).strip()
+                if not value:
+                    continue
+                if label in {"bahasa indonesia", "indonesia", "indonesian", "id"}:
+                    indonesian_query = value
+                else:
+                    english_query = value
+                continue
+
+            if len(normalized) > 5:
+                unlabeled_lines.append(normalized)
+
+        if indonesian_query is None and unlabeled_lines:
+            indonesian_query = unlabeled_lines.pop(0)
+        if english_query is None and unlabeled_lines:
+            english_query = unlabeled_lines.pop(0)
+
+        fallback_indonesian, fallback_english = self._build_bilingual_query_fallback(query)
+        indonesian_query = indonesian_query or fallback_indonesian
+        english_query = english_query or fallback_english
+
+        variations = []
+        for value in (indonesian_query, english_query):
+            if value and value.lower() != query.lower() and value not in variations:
+                variations.append(value)
+            elif value and value not in variations:
+                variations.append(value)
+
+        return variations
+
+    def _build_bilingual_query_fallback(self, query: str) -> List[str]:
+        """Return safe Indonesian and English slots when expansion parsing fails."""
+        return [query, f"English query: {query}"]
 
     def _retrieve_relevant_chunks(
         self,
@@ -561,17 +583,7 @@ Pertanyaan asli: {query}"""
         rows: List[Dict[str, Any]],
     ) -> Dict[int, Dict[str, Any]]:
         """Merge content/question candidate rows by chunk id, keeping best score."""
-        merged = dict(existing)
-
-        for row in rows:
-            chunk = row["chunk"]
-            chunk_id = row.get("chunk_id", getattr(chunk, "id", id(chunk)))
-            row = {**row, "chunk_id": chunk_id}
-
-            if chunk_id not in merged or row["hybrid_score"] > merged[chunk_id]["hybrid_score"]:
-                merged[chunk_id] = row
-
-        return merged
+        return retrieval.merge_candidate_scores(existing, rows)
 
     def _select_ranked_candidates(
         self,
@@ -604,12 +616,7 @@ Pertanyaan asli: {query}"""
         self,
         candidates: List[Dict[str, Any]],
     ) -> Tuple[List[DocumentChunk], List[float]]:
-        chunks = [item["chunk"] for item in candidates]
-        similarities = [
-            float(item.get("final_score", item.get("hybrid_score", 0.0)) or 0.0)
-            for item in candidates
-        ]
-        return chunks, similarities
+        return retrieval.candidate_dicts_to_chunks(candidates)
 
     async def _retrieve_and_rerank_chunks(
         self,
@@ -639,48 +646,11 @@ Pertanyaan asli: {query}"""
 
     def _construct_context_text(self, chunks: List[DocumentChunk]) -> str:
         """Format chunks into a context string."""
-        context_parts = []
-        for chunk in chunks:
-            doc = self.db.query(Document).filter(Document.id == chunk.document_id).first()
-            doc_title = doc.title if doc else "Unknown Document"
-            
-            context_parts.append(
-                f"[Source: {doc_title}]\n{chunk.content}"
-            )
-        return "\n\n---\n\n".join(context_parts) if context_parts else ""
+        return rag_prompt.construct_context_text(self.db, chunks)
 
     def _construct_rag_prompt(self, message: str, context_text: str) -> str:
         """Construct the prompt for the LLM."""
-        if context_text:
-            system_prompt = """Anda adalah asisten AI yang menjawab pertanyaan berdasarkan dokumen knowledge base.
-
-INSTRUKSI:
-1. Gunakan informasi dari KONTEKS di bawah untuk menjawab pertanyaan user.
-2. Jawab dengan lengkap dan informatif menggunakan data yang ada di konteks.
-3. Jika konteks membahas topik yang relevan, berikan jawaban terbaik berdasarkan informasi tersebut.
-4. Sebutkan sumber dokumen ([Source: ...]) dalam jawaban Anda.
-5. Gunakan bahasa yang sama dengan pertanyaan user.
-6. Jika konteks benar-benar TIDAK MEMBAHAS topik pertanyaan sama sekali, katakan bahwa informasi tidak ditemukan."""
-
-            return f"""{system_prompt}
-
-KONTEKS DARI DOKUMEN:
-{context_text}
-
----
-
-PERTANYAAN USER: {message}
-
-JAWABAN (berdasarkan konteks di atas):"""
-        else:
-            no_context_msg = "Maaf, saya tidak menemukan informasi yang relevan dengan pertanyaan Anda dalam dokumen yang tersedia."
-            return f"""Anda adalah asisten AI berbasis dokumen knowledge base.
-
-Tidak ditemukan dokumen yang relevan di knowledge base untuk pertanyaan ini.
-
-PERTANYAAN USER: {message}
-
-Jawab dengan: {no_context_msg}"""
+        return rag_prompt.construct_rag_prompt(message, context_text)
 
     # =========================================================================
     # References

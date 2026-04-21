@@ -1,0 +1,519 @@
+[
+  {
+    "index": 1,
+    "question": "Apa itu CNN dan mengapa CNN efektif untuk memproses data visual?",
+    "conversation_id_before_request": null,
+    "status": "success",
+    "chat_id": 106,
+    "conversation_id": 7,
+    "response_message": "CNN adalah singkatan dari Convolutional Neural Network, yaitu jenis jaringan syaraf tiruan yang dirancang khusus untuk memproses data visual seperti gambar dan video. CNN menggunakan teknik konvolusi untuk mendeteksi fitur-fitur dalam citra dengan mengaplikasikan filter-filter pada citra tersebut.\n\nCNN efektif untuk memproses data visual karena dapat mengekstrak fitur-fitur yang kompleks dari citra, seperti garis-garis, bentuk-bentuk, dan tekstur. CNN juga dapat belajar dan adaptasi terhadap berbagai kondisi cahaya, sudut pandang, dan lain-lain.\n\nDalam konteks penelitian ini, CNN digunakan untuk memprediksi posisi bola dalam lingkungan tiga dimensi menggunakan kamera Zed. CNN berhasil meningkatkan akurasi model dengan menghasilkan output yang sangat baik dalam mendeteksi bola dan menentukan posisinya dengan tepat.\n\nDalam penelitian ini, CNN juga digunakan untuk memproses data visual dalam aplikasi robot penjaga gawang. Hasilnya menunjukkan bahwa penggunaan metode CNN dapat memberikan hasil yang baik dalam aplikasi robot penjaga gawang.\n\n[Source: Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application]\n\nJadi, jawaban dari pertanyaan Anda adalah: CNN (Convolutional Neural Network) adalah jenis jaringan syaraf tiruan yang dirancang khusus untuk memproses data visual seperti gambar dan video. CNN efektif untuk memproses data visual karena dapat mengekstrak fitur-fitur yang kompleks dari citra dan dapat belajar dan adaptasi terhadap berbagai kondisi cahaya, sudut pandang, dan lain-lain.",
+    "raw_response": {
+      "id": 106,
+      "conversation_id": 7,
+      "role": "bot",
+      "message": "CNN adalah singkatan dari Convolutional Neural Network, yaitu jenis jaringan syaraf tiruan yang dirancang khusus untuk memproses data visual seperti gambar dan video. CNN menggunakan teknik konvolusi untuk mendeteksi fitur-fitur dalam citra dengan mengaplikasikan filter-filter pada citra tersebut.\n\nCNN efektif untuk memproses data visual karena dapat mengekstrak fitur-fitur yang kompleks dari citra, seperti garis-garis, bentuk-bentuk, dan tekstur. CNN juga dapat belajar dan adaptasi terhadap berbagai kondisi cahaya, sudut pandang, dan lain-lain.\n\nDalam konteks penelitian ini, CNN digunakan untuk memprediksi posisi bola dalam lingkungan tiga dimensi menggunakan kamera Zed. CNN berhasil meningkatkan akurasi model dengan menghasilkan output yang sangat baik dalam mendeteksi bola dan menentukan posisinya dengan tepat.\n\nDalam penelitian ini, CNN juga digunakan untuk memproses data visual dalam aplikasi robot penjaga gawang. Hasilnya menunjukkan bahwa penggunaan metode CNN dapat memberikan hasil yang baik dalam aplikasi robot penjaga gawang.\n\n[Source: Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application]\n\nJadi, jawaban dari pertanyaan Anda adalah: CNN (Convolutional Neural Network) adalah jenis jaringan syaraf tiruan yang dirancang khusus untuk memproses data visual seperti gambar dan video. CNN efektif untuk memproses data visual karena dapat mengekstrak fitur-fitur yang kompleks dari citra dan dapat belajar dan adaptasi terhadap berbagai kondisi cahaya, sudut pandang, dan lain-lain.",
+      "created_at": "2026-04-21T06:01:42.107410-07:00",
+      "references": []
+    }
+  },
+  {
+    "index": 2,
+    "question": "Bagaimana CNN digunakan untuk memprediksi posisi bola pada goalkeeper robot?",
+    "conversation_id_before_request": 7,
+    "status": "success",
+    "chat_id": 108,
+    "conversation_id": 7,
+    "response_message": "CNN digunakan dalam sistem kombinasi antara kamera Zed dan metode CNN untuk mendeteksi posisi bola dengan akurasi tinggi. Dalam prosesnya, kamera ZED pada robot penjaga gawang mendeteksi bola dan mengirimkan informasi tentang posisi bola ke robot penjaga gawang. Selanjutnya, algoritma prediksi digunakan untuk memprediksi posisi bola berdasarkan gambar dan data yang dikumpulkan oleh kamera.\n\nDalam proses ini, CNN dipelajari menggunakan dataset yang berisikan variasi lokasi bola potensial. Prediksi posisi bola kemudian diklasifikasikan menjadi tiga kategori utama: kiri, tengah, atau kanan. Dengan demikian, robot penjaga gawang dapat memahami lebih spesifik di mana bola akan bergerak dan mengambil aksi yang tepat untuk menghalangi bola.\n\nSelain itu, CNN dipilih karena dapat belajar fitur secara otomatis dan mudah diintegrasikan dengan spesifikasi komputasi rendah dalam waktu nyata. Dalam hal ini, penggunaan CNN meningkatkan kemampuan robot penjaga gawang untuk memblokir bola dengan akurasi yang lebih tinggi.\n\n[Source: Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application]",
+    "raw_response": {
+      "id": 108,
+      "conversation_id": 7,
+      "role": "bot",
+      "message": "CNN digunakan dalam sistem kombinasi antara kamera Zed dan metode CNN untuk mendeteksi posisi bola dengan akurasi tinggi. Dalam prosesnya, kamera ZED pada robot penjaga gawang mendeteksi bola dan mengirimkan informasi tentang posisi bola ke robot penjaga gawang. Selanjutnya, algoritma prediksi digunakan untuk memprediksi posisi bola berdasarkan gambar dan data yang dikumpulkan oleh kamera.\n\nDalam proses ini, CNN dipelajari menggunakan dataset yang berisikan variasi lokasi bola potensial. Prediksi posisi bola kemudian diklasifikasikan menjadi tiga kategori utama: kiri, tengah, atau kanan. Dengan demikian, robot penjaga gawang dapat memahami lebih spesifik di mana bola akan bergerak dan mengambil aksi yang tepat untuk menghalangi bola.\n\nSelain itu, CNN dipilih karena dapat belajar fitur secara otomatis dan mudah diintegrasikan dengan spesifikasi komputasi rendah dalam waktu nyata. Dalam hal ini, penggunaan CNN meningkatkan kemampuan robot penjaga gawang untuk memblokir bola dengan akurasi yang lebih tinggi.\n\n[Source: Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application]",
+      "created_at": "2026-04-21T06:02:44.827560-07:00",
+      "references": []
+    }
+  },
+  {
+    "index": 3,
+    "question": "Apa peran kamera ZED dalam sistem prediksi posisi bola pada robot penjaga gawang?",
+    "conversation_id_before_request": 7,
+    "status": "success",
+    "chat_id": 110,
+    "conversation_id": 7,
+    "response_message": "Kamera ZED berperan sebagai visi sistem untuk mendeteksi dan mendiagnosis objek bola. Dengan kemampuan mendeteksi objek, kamera ZED dapat menyediakan data yang akurat tentang posisi bola dalam ruang tiga dimensi.\n\n[Source: Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application]",
+    "raw_response": {
+      "id": 110,
+      "conversation_id": 7,
+      "role": "bot",
+      "message": "Kamera ZED berperan sebagai visi sistem untuk mendeteksi dan mendiagnosis objek bola. Dengan kemampuan mendeteksi objek, kamera ZED dapat menyediakan data yang akurat tentang posisi bola dalam ruang tiga dimensi.\n\n[Source: Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application]",
+      "created_at": "2026-04-21T06:03:44.035783-07:00",
+      "references": []
+    }
+  },
+  {
+    "index": 4,
+    "question": "Bagaimana data RGB dari kamera ZED membantu sistem mengenali bola?",
+    "conversation_id_before_request": 7,
+    "status": "success",
+    "chat_id": 112,
+    "conversation_id": 7,
+    "response_message": "Data RGB dari kamera ZED berperan penting dalam sistem pengenalan bola karena dapat menyediakan informasi tentang warna dan tekstur bola yang sangat berguna untuk mendeteksi posisi bola. Dengan kombinasi data depth dari kamera ZED, sistem dapat tidak hanya mendeteksi bola tetapi juga mengukur jaraknya dengan akurasi tinggi.\n\nSebagai contoh, dalam penelitian ini disebutkan bahwa kombinasi data RGB dan depth memungkinkan sistem untuk \"bukan hanya mendeteksi bola tapi juga mengukur jaraknya secara tepat\", yang sangat penting untuk perhitungan trajektori bola dan prediksi gerakan bola.\n\nDengan demikian, data RGB dari kamera ZED membantu meningkatkan akurasi pengenalan bola dan sistem dapat dengan lebih baik memprediksi pergerakan bola di lapangan sepakbola. [Source: Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application]",
+    "raw_response": {
+      "id": 112,
+      "conversation_id": 7,
+      "role": "bot",
+      "message": "Data RGB dari kamera ZED berperan penting dalam sistem pengenalan bola karena dapat menyediakan informasi tentang warna dan tekstur bola yang sangat berguna untuk mendeteksi posisi bola. Dengan kombinasi data depth dari kamera ZED, sistem dapat tidak hanya mendeteksi bola tetapi juga mengukur jaraknya dengan akurasi tinggi.\n\nSebagai contoh, dalam penelitian ini disebutkan bahwa kombinasi data RGB dan depth memungkinkan sistem untuk \"bukan hanya mendeteksi bola tapi juga mengukur jaraknya secara tepat\", yang sangat penting untuk perhitungan trajektori bola dan prediksi gerakan bola.\n\nDengan demikian, data RGB dari kamera ZED membantu meningkatkan akurasi pengenalan bola dan sistem dapat dengan lebih baik memprediksi pergerakan bola di lapangan sepakbola. [Source: Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application]",
+      "created_at": "2026-04-21T06:04:31.458561-07:00",
+      "references": []
+    }
+  },
+  {
+    "index": 5,
+    "question": "Bagaimana data depth dari kamera ZED membantu memperkirakan jarak bola?",
+    "conversation_id_before_request": 7,
+    "status": "success",
+    "chat_id": 114,
+    "conversation_id": 7,
+    "response_message": "Data depth dari kamera ZED sangat membantu dalam memperkirakan jarak bola karena dapat menyediakan informasi tentang jarak setiap titik pada gambar dengan akurasi yang tinggi. Dengan menggabungkan data depth ini dengan data RGB, sistem dapat tidak hanya mendeteksi posisi bola tetapi juga mengukur jaraknya dengan tepat.\n\nDalam penelitian ini, kamera ZED digunakan untuk mendapatkan gambar 3D dari lapangan sepakbola. Dengan menggunakan teknologi stereo vision, kamera dapat mengukur jarak setiap titik pada gambar dan menyediakan informasi tentang kedalaman gambar.\n\nData depth dari kamera ZED sangat bermanfaat dalam memperkirakan jarak bola karena dapat:\n\n* Mengukur jarak bola dengan akurasi tinggi\n* Memberikan informasi tentang kedalaman gambar yang berguna untuk menghitung koordinat 3D bola\n* Mengintegrasikan stereo vision dan kecerdasan buatan (artificial intelligence) untuk meningkatkan akurasi depth\n\nDengan demikian, data depth dari kamera ZED sangat membantu dalam memperkirakan jarak bola dan merupakan salah satu faktor yang signifikan dalam pengembangan sistem prediksi posisi bola menggunakan metode CNN dengan kamera Zed.\n\n[Source: Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application]",
+    "raw_response": {
+      "id": 114,
+      "conversation_id": 7,
+      "role": "bot",
+      "message": "Data depth dari kamera ZED sangat membantu dalam memperkirakan jarak bola karena dapat menyediakan informasi tentang jarak setiap titik pada gambar dengan akurasi yang tinggi. Dengan menggabungkan data depth ini dengan data RGB, sistem dapat tidak hanya mendeteksi posisi bola tetapi juga mengukur jaraknya dengan tepat.\n\nDalam penelitian ini, kamera ZED digunakan untuk mendapatkan gambar 3D dari lapangan sepakbola. Dengan menggunakan teknologi stereo vision, kamera dapat mengukur jarak setiap titik pada gambar dan menyediakan informasi tentang kedalaman gambar.\n\nData depth dari kamera ZED sangat bermanfaat dalam memperkirakan jarak bola karena dapat:\n\n* Mengukur jarak bola dengan akurasi tinggi\n* Memberikan informasi tentang kedalaman gambar yang berguna untuk menghitung koordinat 3D bola\n* Mengintegrasikan stereo vision dan kecerdasan buatan (artificial intelligence) untuk meningkatkan akurasi depth\n\nDengan demikian, data depth dari kamera ZED sangat membantu dalam memperkirakan jarak bola dan merupakan salah satu faktor yang signifikan dalam pengembangan sistem prediksi posisi bola menggunakan metode CNN dengan kamera Zed.\n\n[Source: Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application]",
+      "created_at": "2026-04-21T06:05:37.728077-07:00",
+      "references": []
+    }
+  },
+  {
+    "index": 6,
+    "question": "Mengapa kamera ZED cocok digunakan pada robot penjaga gawang?",
+    "conversation_id_before_request": 7,
+    "status": "success",
+    "chat_id": 116,
+    "conversation_id": 7,
+    "response_message": "Kamera ZED sangat cocok digunakan pada robot penjaga gawang karena memiliki kemampuan deteksi bola yang tinggi bahkan dalam kondisi cahaya yang ekstrem. Kamera ini juga dapat merekam informasi dengan akurasi tinggi, sehingga membantu sistem untuk mendeteksi posisi bola secara akurat.\n\nDalam penelitian yang terkait, kamera ZED telah digunakan sebagai sensor utama untuk mendeteksi posisi bola dalam lingkungan tiga dimensi. Kamera ini juga dapat bekerja dengan baik di kondisi cahaya yang berbeda-beda, sehingga sangat cocok digunakan pada robot penjaga gawang yang harus menangkap bola dari berbagai sudut.\n\nDengan menggunakan kamera ZED, sistem dapat mendeteksi posisi bola dengan lebih akurat dan cepat, sehingga membantu robot penjaga gawang untuk menangkap bola dengan lebih efektif. Selain itu, kamera ini juga dapat merekam informasi tentang pergerakan bola dalam lingkungan yang beragam, sehingga membantu sistem untuk memahami pergerakan bola secara lebih baik.\n\nDalam [Source: Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application], disebutkan bahwa kamera ZED memiliki kemampuan deteksi bola yang tinggi bahkan dalam kondisi cahaya yang ekstrem, sehingga sangat cocok digunakan pada robot penjaga gawang.",
+    "raw_response": {
+      "id": 116,
+      "conversation_id": 7,
+      "role": "bot",
+      "message": "Kamera ZED sangat cocok digunakan pada robot penjaga gawang karena memiliki kemampuan deteksi bola yang tinggi bahkan dalam kondisi cahaya yang ekstrem. Kamera ini juga dapat merekam informasi dengan akurasi tinggi, sehingga membantu sistem untuk mendeteksi posisi bola secara akurat.\n\nDalam penelitian yang terkait, kamera ZED telah digunakan sebagai sensor utama untuk mendeteksi posisi bola dalam lingkungan tiga dimensi. Kamera ini juga dapat bekerja dengan baik di kondisi cahaya yang berbeda-beda, sehingga sangat cocok digunakan pada robot penjaga gawang yang harus menangkap bola dari berbagai sudut.\n\nDengan menggunakan kamera ZED, sistem dapat mendeteksi posisi bola dengan lebih akurat dan cepat, sehingga membantu robot penjaga gawang untuk menangkap bola dengan lebih efektif. Selain itu, kamera ini juga dapat merekam informasi tentang pergerakan bola dalam lingkungan yang beragam, sehingga membantu sistem untuk memahami pergerakan bola secara lebih baik.\n\nDalam [Source: Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application], disebutkan bahwa kamera ZED memiliki kemampuan deteksi bola yang tinggi bahkan dalam kondisi cahaya yang ekstrem, sehingga sangat cocok digunakan pada robot penjaga gawang.",
+      "created_at": "2026-04-21T06:07:07.096142-07:00",
+      "references": []
+    }
+  },
+  {
+    "index": 7,
+    "question": "Apa manfaat penggunaan CNN pada aplikasi goalkeeper robot dibanding metode visual tradisional?",
+    "conversation_id_before_request": 7,
+    "status": "success",
+    "chat_id": 118,
+    "conversation_id": 7,
+    "response_message": "Penggunaan Convolutional Neural Network (CNN) pada aplikasi goalkeeper robot memiliki beberapa manfaat dibandingkan dengan metode visual tradisional. CNN dapat memproses citra dengan lebih efektif dan efisien, terutama dalam pengenalan bola dan pergerakannya di lapangan.\n\nMenurut Tabel 2, spesifikasi komputer yang digunakan dalam pengembangan robot penjaga gawang menggunakan metode CNN (Convolutional Neural Network) dengan kamera Zed. Dari tabel ini terlihat bahwa model ini memiliki performa yang baik dalam mendeteksi bola, dengan sekitar 396 true positif dan hanya 1 false positive.\n\nCNN juga dapat belajar fitur-fitur otomatis dari data citra, sehingga tidak perlu melakukan pengaturan manual seperti pada metode visual tradisional. Selain itu, CNN lebih mudah untuk diintegrasikan dengan sistem komputer yang memiliki spesifikasi rendah dalam waktu nyata.\n\nDalam penelitian ini, CNN digunakan untuk memprediksi posisi bola berdasarkan data citra yang telah dikumpulkan selama sesi latihan. Model ini dapat menyesuaikan berat-beratnya melalui teknik backpropagation untuk meminimalkan kesalahan prediksi.\n\nDengan demikian, penggunaan CNN pada aplikasi goalkeeper robot dapat meningkatkan kemampuan robot dalam mendeteksi dan memprediksi posisi bola dengan lebih akurat, serta meningkatkan kemampuan robot untuk menangkap bola dari berbagai posisi di lapangan.\n\n[Source: Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application]",
+    "raw_response": {
+      "id": 118,
+      "conversation_id": 7,
+      "role": "bot",
+      "message": "Penggunaan Convolutional Neural Network (CNN) pada aplikasi goalkeeper robot memiliki beberapa manfaat dibandingkan dengan metode visual tradisional. CNN dapat memproses citra dengan lebih efektif dan efisien, terutama dalam pengenalan bola dan pergerakannya di lapangan.\n\nMenurut Tabel 2, spesifikasi komputer yang digunakan dalam pengembangan robot penjaga gawang menggunakan metode CNN (Convolutional Neural Network) dengan kamera Zed. Dari tabel ini terlihat bahwa model ini memiliki performa yang baik dalam mendeteksi bola, dengan sekitar 396 true positif dan hanya 1 false positive.\n\nCNN juga dapat belajar fitur-fitur otomatis dari data citra, sehingga tidak perlu melakukan pengaturan manual seperti pada metode visual tradisional. Selain itu, CNN lebih mudah untuk diintegrasikan dengan sistem komputer yang memiliki spesifikasi rendah dalam waktu nyata.\n\nDalam penelitian ini, CNN digunakan untuk memprediksi posisi bola berdasarkan data citra yang telah dikumpulkan selama sesi latihan. Model ini dapat menyesuaikan berat-beratnya melalui teknik backpropagation untuk meminimalkan kesalahan prediksi.\n\nDengan demikian, penggunaan CNN pada aplikasi goalkeeper robot dapat meningkatkan kemampuan robot dalam mendeteksi dan memprediksi posisi bola dengan lebih akurat, serta meningkatkan kemampuan robot untuk menangkap bola dari berbagai posisi di lapangan.\n\n[Source: Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application]",
+      "created_at": "2026-04-21T06:09:17.525978-07:00",
+      "references": []
+    }
+  },
+  {
+    "index": 8,
+    "question": "Bagaimana arsitektur CNN bekerja dalam mengenali objek seperti bola?",
+    "conversation_id_before_request": 7,
+    "status": "success",
+    "chat_id": 120,
+    "conversation_id": 7,
+    "response_message": "Arsitektur CNN (Convolutional Neural Network) yang digunakan dalam penelitian ini terdiri dari beberapa lapisan, yaitu Conv1D, AveragePooling1D, Dropout, MaxPooling1D, Flatten, dan Dense. Setiap lapisan memiliki fungsi khusus untuk mengekstraksi fitur-fitur penting dari input dan membuat prediksi.\n\nLapisan pertama adalah Conv1D yang melakukan operasi konvolusi dengan menggunakan filter tertentu. Output dari lapisan ini kemudian diolah oleh lapisan AveragePooling1D yang mengambil rata-rata setiap dua nilai konsekutif, sehingga panjang sinyal dikurangi secara signifikan.\n\nSelanjutnya, lapisan Dropout digunakan untuk mempertahankan model dari overfitting dengan cara menghilangkan beberapa neuron secara acak pada setiap iterasi. Lapisan MaxPooling1D kemudian digunakan untuk mengekstraksi fitur-fitur yang paling penting dari input.\n\nLapisan Flatten kemudian digunakan untuk merubah output lapisan sebelumnya menjadi vektor tunggal, sehingga dapat diproses oleh lapisan Dense. Lapisan Dense merupakan lapisan akhir yang melakukan klasifikasi dan membuat prediksi akhir.\n\nDalam arsitektur ini, CNN model mengekstraksi fitur-fitur penting dari input melalui proses konvolusi, pooling, dan lain-lain, sehingga dapat membuat prediksi akurat tentang posisi bola. [Source: Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application]",
+    "raw_response": {
+      "id": 120,
+      "conversation_id": 7,
+      "role": "bot",
+      "message": "Arsitektur CNN (Convolutional Neural Network) yang digunakan dalam penelitian ini terdiri dari beberapa lapisan, yaitu Conv1D, AveragePooling1D, Dropout, MaxPooling1D, Flatten, dan Dense. Setiap lapisan memiliki fungsi khusus untuk mengekstraksi fitur-fitur penting dari input dan membuat prediksi.\n\nLapisan pertama adalah Conv1D yang melakukan operasi konvolusi dengan menggunakan filter tertentu. Output dari lapisan ini kemudian diolah oleh lapisan AveragePooling1D yang mengambil rata-rata setiap dua nilai konsekutif, sehingga panjang sinyal dikurangi secara signifikan.\n\nSelanjutnya, lapisan Dropout digunakan untuk mempertahankan model dari overfitting dengan cara menghilangkan beberapa neuron secara acak pada setiap iterasi. Lapisan MaxPooling1D kemudian digunakan untuk mengekstraksi fitur-fitur yang paling penting dari input.\n\nLapisan Flatten kemudian digunakan untuk merubah output lapisan sebelumnya menjadi vektor tunggal, sehingga dapat diproses oleh lapisan Dense. Lapisan Dense merupakan lapisan akhir yang melakukan klasifikasi dan membuat prediksi akhir.\n\nDalam arsitektur ini, CNN model mengekstraksi fitur-fitur penting dari input melalui proses konvolusi, pooling, dan lain-lain, sehingga dapat membuat prediksi akurat tentang posisi bola. [Source: Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application]",
+      "created_at": "2026-04-21T06:09:53.848510-07:00",
+      "references": []
+    }
+  },
+  {
+    "index": 9,
+    "question": "Apa fungsi convolution layer dalam model CNN untuk deteksi bola?",
+    "conversation_id_before_request": 7,
+    "status": "success",
+    "chat_id": 122,
+    "conversation_id": 7,
+    "response_message": "Convolution Layer memiliki fungsi utama yaitu mendeteksi feature atau ciri-ciri pada citra yang dapat membantu sistem komputer memahami isi dari citra tersebut. Dalam model CNN untuk deteksi bola, Convolution Layer digunakan untuk mengekstrak fitur-fitur seperti garis, bentuk, dan tekstur pada citra bola.\n\n[Source: Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application]\n\nDalam dokumen tersebut dijelaskan bahwa Convolutional Neural Network (CNN) adalah jenis jaringan syaraf tiruan yang sangat efektif untuk menganalisis dan memproses data visual seperti citra. CNN digunakan dalam deteksi bola dengan cara mengidentifikasi fitur-fitur pada citra bola.\n\nDalam model CNN, Convolution Layer adalah komponen sentral yang mendeteksi fitur-fitur pada citra dengan menggunakan filter atau kernel untuk melakukan operasi konvolusi pada input. Operasi konvolusi ini menghasilkan feature map yang merepresentasikan posisi dari suatu fitur dalam citra asli.\n\n[Source: Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application]\n\nDokumen tersebut juga menjelaskan bahwa model CNN digunakan untuk memprediksi posisi bola berdasarkan data posisi yang telah dikumpulkan selama proses pelatihan. Model ini menggunakan Convolution Layer, pooling layer, dan lapisan fully connected untuk mendeteksi posisi bola.\n\nDengan demikian, dapat disimpulkan bahwa fungsi convolution layer dalam model CNN untuk deteksi bola adalah mendeteksi fitur-fitur pada citra bola untuk membantu sistem komputer memahami isi dari citra tersebut.",
+    "raw_response": {
+      "id": 122,
+      "conversation_id": 7,
+      "role": "bot",
+      "message": "Convolution Layer memiliki fungsi utama yaitu mendeteksi feature atau ciri-ciri pada citra yang dapat membantu sistem komputer memahami isi dari citra tersebut. Dalam model CNN untuk deteksi bola, Convolution Layer digunakan untuk mengekstrak fitur-fitur seperti garis, bentuk, dan tekstur pada citra bola.\n\n[Source: Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application]\n\nDalam dokumen tersebut dijelaskan bahwa Convolutional Neural Network (CNN) adalah jenis jaringan syaraf tiruan yang sangat efektif untuk menganalisis dan memproses data visual seperti citra. CNN digunakan dalam deteksi bola dengan cara mengidentifikasi fitur-fitur pada citra bola.\n\nDalam model CNN, Convolution Layer adalah komponen sentral yang mendeteksi fitur-fitur pada citra dengan menggunakan filter atau kernel untuk melakukan operasi konvolusi pada input. Operasi konvolusi ini menghasilkan feature map yang merepresentasikan posisi dari suatu fitur dalam citra asli.\n\n[Source: Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application]\n\nDokumen tersebut juga menjelaskan bahwa model CNN digunakan untuk memprediksi posisi bola berdasarkan data posisi yang telah dikumpulkan selama proses pelatihan. Model ini menggunakan Convolution Layer, pooling layer, dan lapisan fully connected untuk mendeteksi posisi bola.\n\nDengan demikian, dapat disimpulkan bahwa fungsi convolution layer dalam model CNN untuk deteksi bola adalah mendeteksi fitur-fitur pada citra bola untuk membantu sistem komputer memahami isi dari citra tersebut.",
+      "created_at": "2026-04-21T06:11:11.178083-07:00",
+      "references": []
+    }
+  },
+  {
+    "index": 10,
+    "question": "Apa fungsi pooling layer dalam CNN untuk pemrosesan citra?",
+    "conversation_id_before_request": 7,
+    "status": "success",
+    "chat_id": 124,
+    "conversation_id": 7,
+    "response_message": "Pertanyaan user tentang fungsi pooling layer dalam CNN untuk pemrosesan citra dapat dijawab berdasarkan informasi dari dokumen.\n\nPoolinng layer memiliki dua jenis: AveragePooling dan MaxPooling. Fungsi pooling layer adalah mengurangi dimensi feature map dengan cara memilih nilai maksimum (MaxPooling) atau rata-rata (AveragePooling) dalam setiap jendela (window). Hal ini dilakukan untuk mengurangi jumlah parameter yang perlu dihitung dan meningkatkan ketahanan model terhadap variasi lokasi fitur.\n\nDalam konteks pemrosesan citra, pooling layer digunakan untuk mengekstrak informasi penting dari citra dengan cara memilih nilai maksimum atau rata-rata dalam setiap jendela. Ini membantu meningkatkan kemampuan model CNN dalam mendeteksi fitur kompleks di citra.\n\n[Source: Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application]\n\nDalam dokumen tersebut, dijelaskan bahwa pooling layer dapat digunakan untuk mengurangi dimensi feature map dan meningkatkan ketahanan model terhadap variasi lokasi fitur. Jadi, jawaban dari pertanyaan user adalah: Pooling layer memiliki fungsi mengurangi dimensi feature map dengan cara memilih nilai maksimum atau rata-rata dalam setiap jendela untuk pemrosesan citra.\n\nDalam konteks tersebut juga dijelaskan tentang jenis-jenis pooling seperti MaxPooling dan AveragePooling.",
+    "raw_response": {
+      "id": 124,
+      "conversation_id": 7,
+      "role": "bot",
+      "message": "Pertanyaan user tentang fungsi pooling layer dalam CNN untuk pemrosesan citra dapat dijawab berdasarkan informasi dari dokumen.\n\nPoolinng layer memiliki dua jenis: AveragePooling dan MaxPooling. Fungsi pooling layer adalah mengurangi dimensi feature map dengan cara memilih nilai maksimum (MaxPooling) atau rata-rata (AveragePooling) dalam setiap jendela (window). Hal ini dilakukan untuk mengurangi jumlah parameter yang perlu dihitung dan meningkatkan ketahanan model terhadap variasi lokasi fitur.\n\nDalam konteks pemrosesan citra, pooling layer digunakan untuk mengekstrak informasi penting dari citra dengan cara memilih nilai maksimum atau rata-rata dalam setiap jendela. Ini membantu meningkatkan kemampuan model CNN dalam mendeteksi fitur kompleks di citra.\n\n[Source: Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application]\n\nDalam dokumen tersebut, dijelaskan bahwa pooling layer dapat digunakan untuk mengurangi dimensi feature map dan meningkatkan ketahanan model terhadap variasi lokasi fitur. Jadi, jawaban dari pertanyaan user adalah: Pooling layer memiliki fungsi mengurangi dimensi feature map dengan cara memilih nilai maksimum atau rata-rata dalam setiap jendela untuk pemrosesan citra.\n\nDalam konteks tersebut juga dijelaskan tentang jenis-jenis pooling seperti MaxPooling dan AveragePooling.",
+      "created_at": "2026-04-21T06:12:02.444118-07:00",
+      "references": []
+    }
+  },
+  {
+    "index": 11,
+    "question": "Bagaimana CNN dilatih menggunakan dataset posisi bola?",
+    "conversation_id_before_request": 7,
+    "status": "success",
+    "chat_id": 126,
+    "conversation_id": 7,
+    "response_message": "CNN dilatih menggunakan dataset posisi bola melalui proses pelatihan model yang terdiri dari beberapa tahapan. Pertama, model CNN direpresentasikan sebagai sebuah jaringan neural yang memiliki lapisan konvolusi, pooling, dropout, dan lapisan dense. Kemudian, dataset posisi bola yang telah dibuat digunakan untuk melatih model CNN.\n\nPada proses pelatihan, loss function yang digunakan adalah Mean Squared Error (MSE), yaitu perbedaan rata-rata persegi antara prediksi model dan nilai sebenarnya. Dalam proses pelatihan, bobot-bobot model diupdate menggunakan average square dari perbedaan antara prediksi dan nilai sebenarnya.\n\nDengan demikian, CNN dapat dilatih untuk memprediksi posisi bola dengan akurasi yang tinggi. Selain itu, dataset yang digunakan harus mencakup variasi-variasi kondisi lapangan sepakbola, seperti bola bergerak pada kecepatan yang berbeda-beda dan dalam sudut-sudut yang berbeda pula.\n\nProses pelatihan model CNN dapat dilihat dalam Gambar 9, yang menunjukkan grafik hasil pelatihan model CNN. Grafik ini menampilkan proses pengembangan akurasi model CNN selama proses pelatihan, dengan meningkatnya akurasi seiring berjalannya waktu dan iterasi pelatihan.\n\nDengan demikian, dapat disimpulkan bahwa CNN dilatih menggunakan dataset posisi bola melalui proses pelatihan yang terdiri dari beberapa tahapan, termasuk penggunaan loss function MSE, update bobot-bobot model, serta variasi kondisi lapangan sepakbola dalam dataset.\n\n[Source: Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application]",
+    "raw_response": {
+      "id": 126,
+      "conversation_id": 7,
+      "role": "bot",
+      "message": "CNN dilatih menggunakan dataset posisi bola melalui proses pelatihan model yang terdiri dari beberapa tahapan. Pertama, model CNN direpresentasikan sebagai sebuah jaringan neural yang memiliki lapisan konvolusi, pooling, dropout, dan lapisan dense. Kemudian, dataset posisi bola yang telah dibuat digunakan untuk melatih model CNN.\n\nPada proses pelatihan, loss function yang digunakan adalah Mean Squared Error (MSE), yaitu perbedaan rata-rata persegi antara prediksi model dan nilai sebenarnya. Dalam proses pelatihan, bobot-bobot model diupdate menggunakan average square dari perbedaan antara prediksi dan nilai sebenarnya.\n\nDengan demikian, CNN dapat dilatih untuk memprediksi posisi bola dengan akurasi yang tinggi. Selain itu, dataset yang digunakan harus mencakup variasi-variasi kondisi lapangan sepakbola, seperti bola bergerak pada kecepatan yang berbeda-beda dan dalam sudut-sudut yang berbeda pula.\n\nProses pelatihan model CNN dapat dilihat dalam Gambar 9, yang menunjukkan grafik hasil pelatihan model CNN. Grafik ini menampilkan proses pengembangan akurasi model CNN selama proses pelatihan, dengan meningkatnya akurasi seiring berjalannya waktu dan iterasi pelatihan.\n\nDengan demikian, dapat disimpulkan bahwa CNN dilatih menggunakan dataset posisi bola melalui proses pelatihan yang terdiri dari beberapa tahapan, termasuk penggunaan loss function MSE, update bobot-bobot model, serta variasi kondisi lapangan sepakbola dalam dataset.\n\n[Source: Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application]",
+      "created_at": "2026-04-21T06:18:02.325936-07:00",
+      "references": []
+    }
+  },
+  {
+    "index": 12,
+    "question": "Bagaimana hasil training CNN dapat mempengaruhi akurasi prediksi posisi bola?",
+    "conversation_id_before_request": 7,
+    "status": "success",
+    "chat_id": 128,
+    "conversation_id": 7,
+    "response_message": "Hasil training CNN dapat mempengaruhi akurasi prediksi posisi bola dalam beberapa cara. Pertama, jika model CNN telah berjalan dengan efektif dan akurasi model meningkat secara signifikan, seperti yang ditunjukkan oleh grafik hasil pelatihan model CNN di FIGURE 9, maka akan meningkatkan kemampuan model untuk memprediksi posisi bola dengan tepat. Kedua, jika model telah terlatih dengan baik dan dapat mendeteksi bola dengan akurasi tinggi, seperti yang ditunjukkan oleh hasil analisis pada TABLE 3, maka akan meningkatkan kemampuan model untuk membedakan bola dari non-bola.\n\nNamun, perlu diingat bahwa performa model dalam mengklasifikasikan posisi bola di tengah lapangan menunjukkan hasil yang kurang baik, dengan F1-score hanya sebesar 0,39. Hal ini mungkin disebabkan oleh kompleksitas dan variasi data pelatihan, atau adanya masalah lain seperti overfitting.\n\nDalam beberapa kasus, perlu diperhatikan bahwa model CNN dapat mengalami overfitting, terutama pada epochs tertentu selama proses pelatihan. Hal ini dapat menyebabkan akurasi model meningkat secara signifikan di tengah pelatihan, tetapi kemudian menurun ketika model dites di data pengujian yang lebih besar.\n\nDalam keseluruhan, hasil training CNN sangat penting dalam mempengaruhi akurasi prediksi posisi bola. Jadi, perlu dilakukan penelitian dan pengembangan lebih lanjut untuk meningkatkan performa model dan mengurangi kemungkinan overfitting.",
+    "raw_response": {
+      "id": 128,
+      "conversation_id": 7,
+      "role": "bot",
+      "message": "Hasil training CNN dapat mempengaruhi akurasi prediksi posisi bola dalam beberapa cara. Pertama, jika model CNN telah berjalan dengan efektif dan akurasi model meningkat secara signifikan, seperti yang ditunjukkan oleh grafik hasil pelatihan model CNN di FIGURE 9, maka akan meningkatkan kemampuan model untuk memprediksi posisi bola dengan tepat. Kedua, jika model telah terlatih dengan baik dan dapat mendeteksi bola dengan akurasi tinggi, seperti yang ditunjukkan oleh hasil analisis pada TABLE 3, maka akan meningkatkan kemampuan model untuk membedakan bola dari non-bola.\n\nNamun, perlu diingat bahwa performa model dalam mengklasifikasikan posisi bola di tengah lapangan menunjukkan hasil yang kurang baik, dengan F1-score hanya sebesar 0,39. Hal ini mungkin disebabkan oleh kompleksitas dan variasi data pelatihan, atau adanya masalah lain seperti overfitting.\n\nDalam beberapa kasus, perlu diperhatikan bahwa model CNN dapat mengalami overfitting, terutama pada epochs tertentu selama proses pelatihan. Hal ini dapat menyebabkan akurasi model meningkat secara signifikan di tengah pelatihan, tetapi kemudian menurun ketika model dites di data pengujian yang lebih besar.\n\nDalam keseluruhan, hasil training CNN sangat penting dalam mempengaruhi akurasi prediksi posisi bola. Jadi, perlu dilakukan penelitian dan pengembangan lebih lanjut untuk meningkatkan performa model dan mengurangi kemungkinan overfitting.",
+      "created_at": "2026-04-21T06:21:28.242736-07:00",
+      "references": []
+    }
+  },
+  {
+    "index": 13,
+    "question": "Apa hubungan antara AI, computer vision, dan CNN dalam sistem robot penjaga gawang?",
+    "conversation_id_before_request": 7,
+    "status": "success",
+    "chat_id": 130,
+    "conversation_id": 7,
+    "response_message": "AI, computer vision, dan CNN memiliki hubungan yang sangat erat dalam sistem robot penjaga gawang. Berikut adalah penjelasan singkat tentang bagaimana masing-masing teknologi tersebut berinteraksi:\n\n1. **AI**: Sistem robot penjaga gawang menggunakan AI untuk mengolah informasi visual dari kamera dan membuat keputusan yang tepat dalam waktu real-time. AI digunakan untuk mendeteksi posisi bola, pengaruh perubahan cahaya, dan koordinasi gerakan dengan robot lain.\n\n2. **Computer Vision**: Computer vision adalah bagian dari AI yang berkaitan dengan proses analisis dan interpretasi informasi visual. Dalam sistem robot penjaga gawang, computer vision digunakan untuk mengolah gambar dari kamera dan mendeteksi posisi bola, gerakan lawan, dan lain-lain.\n\n3. **CNN (Convolutional Neural Network)**: CNN adalah jenis jaringan syaraf tiruan yang dirancang secara spesifik untuk proses pengolahan citra. Dalam sistem robot penjaga gawang, CNN digunakan untuk mendeteksi posisi bola dan gerakan lawan berdasarkan gambar dari kamera. CNN dapat belajar dari contoh data dan meningkatkan akurasi dalam waktu.\n\nDengan demikian, AI sebagai konsep utama memanfaatkan kemampuan computer vision untuk mengolah informasi visual dan kemudian menggunakan CNN untuk mendeteksi dan menerjemahkan informasi tersebut ke dalam tindakan robot. Keseluruhan proses ini berjalan secara real-time, sehingga sistem robot penjaga gawang dapat bereaksi dengan cepat terhadap perubahan situasi di lapangan sepak bola.",
+    "raw_response": {
+      "id": 130,
+      "conversation_id": 7,
+      "role": "bot",
+      "message": "AI, computer vision, dan CNN memiliki hubungan yang sangat erat dalam sistem robot penjaga gawang. Berikut adalah penjelasan singkat tentang bagaimana masing-masing teknologi tersebut berinteraksi:\n\n1. **AI**: Sistem robot penjaga gawang menggunakan AI untuk mengolah informasi visual dari kamera dan membuat keputusan yang tepat dalam waktu real-time. AI digunakan untuk mendeteksi posisi bola, pengaruh perubahan cahaya, dan koordinasi gerakan dengan robot lain.\n\n2. **Computer Vision**: Computer vision adalah bagian dari AI yang berkaitan dengan proses analisis dan interpretasi informasi visual. Dalam sistem robot penjaga gawang, computer vision digunakan untuk mengolah gambar dari kamera dan mendeteksi posisi bola, gerakan lawan, dan lain-lain.\n\n3. **CNN (Convolutional Neural Network)**: CNN adalah jenis jaringan syaraf tiruan yang dirancang secara spesifik untuk proses pengolahan citra. Dalam sistem robot penjaga gawang, CNN digunakan untuk mendeteksi posisi bola dan gerakan lawan berdasarkan gambar dari kamera. CNN dapat belajar dari contoh data dan meningkatkan akurasi dalam waktu.\n\nDengan demikian, AI sebagai konsep utama memanfaatkan kemampuan computer vision untuk mengolah informasi visual dan kemudian menggunakan CNN untuk mendeteksi dan menerjemahkan informasi tersebut ke dalam tindakan robot. Keseluruhan proses ini berjalan secara real-time, sehingga sistem robot penjaga gawang dapat bereaksi dengan cepat terhadap perubahan situasi di lapangan sepak bola.",
+      "created_at": "2026-04-21T06:29:24.992316-07:00",
+      "references": []
+    }
+  },
+  {
+    "index": 14,
+    "question": "Bagaimana ROS dapat membantu integrasi kamera, AI, dan sensor pada goalkeeper robot?",
+    "conversation_id_before_request": 7,
+    "status": "error",
+    "conversation_id": 7,
+    "error": "401 Client Error: Unauthorized for url: http://localhost:8000/chats/"
+  },
+  {
+    "index": 15,
+    "question": "Bagaimana sistem kontrol goalkeeper robot menggunakan hasil prediksi posisi bola?",
+    "conversation_id_before_request": 7,
+    "status": "error",
+    "conversation_id": 7,
+    "error": "401 Client Error: Unauthorized for url: http://localhost:8000/chats/"
+  },
+  {
+    "index": 16,
+    "question": "Bagaimana cara kerja Retrieval-Augmented Generation atau RAG?",
+    "conversation_id_before_request": 7,
+    "status": "error",
+    "conversation_id": 7,
+    "error": "401 Client Error: Unauthorized for url: http://localhost:8000/chats/"
+  },
+  {
+    "index": 17,
+    "question": "Apa manfaat RAG untuk sistem tanya jawab berbasis dokumen akademik?",
+    "conversation_id_before_request": 7,
+    "status": "error",
+    "conversation_id": 7,
+    "error": "401 Client Error: Unauthorized for url: http://localhost:8000/chats/"
+  },
+  {
+    "index": 18,
+    "question": "Mengapa retrieval menjadi tahap penting dalam pipeline RAG?",
+    "conversation_id_before_request": 7,
+    "status": "error",
+    "conversation_id": 7,
+    "error": "401 Client Error: Unauthorized for url: http://localhost:8000/chats/"
+  },
+  {
+    "index": 19,
+    "question": "Bagaimana reranking dapat meningkatkan kualitas dokumen yang dipakai oleh RAG?",
+    "conversation_id_before_request": 7,
+    "status": "error",
+    "conversation_id": 7,
+    "error": "401 Client Error: Unauthorized for url: http://localhost:8000/chats/"
+  },
+  {
+    "index": 20,
+    "question": "Apa perbedaan RAG tradisional dan DynamicRAG?",
+    "conversation_id_before_request": 7,
+    "status": "error",
+    "conversation_id": 7,
+    "error": "401 Client Error: Unauthorized for url: http://localhost:8000/chats/"
+  },
+  {
+    "index": 21,
+    "question": "Bagaimana AI dapat meningkatkan akurasi retrieval dan generation pada sistem RAG?",
+    "conversation_id_before_request": 7,
+    "status": "error",
+    "conversation_id": 7,
+    "error": "401 Client Error: Unauthorized for url: http://localhost:8000/chats/"
+  },
+  {
+    "index": 22,
+    "question": "Bagaimana LLM menggunakan retrieved context untuk menghasilkan jawaban?",
+    "conversation_id_before_request": 7,
+    "status": "error",
+    "conversation_id": 7,
+    "error": "401 Client Error: Unauthorized for url: http://localhost:8000/chats/"
+  },
+  {
+    "index": 23,
+    "question": "Apa risiko jika retrieved context pada RAG tidak relevan dengan pertanyaan?",
+    "conversation_id_before_request": 7,
+    "status": "error",
+    "conversation_id": 7,
+    "error": "401 Client Error: Unauthorized for url: http://localhost:8000/chats/"
+  },
+  {
+    "index": 24,
+    "question": "Bagaimana embedding membantu sistem RAG menemukan dokumen yang relevan?",
+    "conversation_id_before_request": 7,
+    "status": "error",
+    "conversation_id": 7,
+    "error": "401 Client Error: Unauthorized for url: http://localhost:8000/chats/"
+  },
+  {
+    "index": 25,
+    "question": "Bagaimana query expansion dapat membantu retrieval pada sistem RAG?",
+    "conversation_id_before_request": 7,
+    "status": "error",
+    "conversation_id": 7,
+    "error": "401 Client Error: Unauthorized for url: http://localhost:8000/chats/"
+  },
+  {
+    "index": 26,
+    "question": "Apa itu eHealth dan bagaimana teknologi sensor dapat digunakan dalam aplikasi eHealth?",
+    "conversation_id_before_request": 7,
+    "status": "error",
+    "conversation_id": 7,
+    "error": "401 Client Error: Unauthorized for url: http://localhost:8000/chats/"
+  },
+  {
+    "index": 27,
+    "question": "Bagaimana AI dapat mendukung monitoring kesehatan berbasis wearable device?",
+    "conversation_id_before_request": 7,
+    "status": "error",
+    "conversation_id": 7,
+    "error": "401 Client Error: Unauthorized for url: http://localhost:8000/chats/"
+  },
+  {
+    "index": 28,
+    "question": "Bagaimana heart rate digunakan untuk mendeteksi kondisi kesehatan seseorang?",
+    "conversation_id_before_request": 7,
+    "status": "error",
+    "conversation_id": 7,
+    "error": "401 Client Error: Unauthorized for url: http://localhost:8000/chats/"
+  },
+  {
+    "index": 29,
+    "question": "Apa arti tachycardia dan bradycardia dalam monitoring heart rate?",
+    "conversation_id_before_request": 7,
+    "status": "error",
+    "conversation_id": 7,
+    "error": "401 Client Error: Unauthorized for url: http://localhost:8000/chats/"
+  },
+  {
+    "index": 30,
+    "question": "Bagaimana heart rate dan body temperature digunakan bersama untuk memantau pendaki?",
+    "conversation_id_before_request": 7,
+    "status": "error",
+    "conversation_id": 7,
+    "error": "401 Client Error: Unauthorized for url: http://localhost:8000/chats/"
+  },
+  {
+    "index": 31,
+    "question": "Apa hubungan antara hypothermia, body temperature, dan heart rate pada sistem monitoring pendaki?",
+    "conversation_id_before_request": 7,
+    "status": "error",
+    "conversation_id": 7,
+    "error": "401 Client Error: Unauthorized for url: http://localhost:8000/chats/"
+  },
+  {
+    "index": 32,
+    "question": "Bagaimana smart jacket dapat membantu deteksi dini hypothermia?",
+    "conversation_id_before_request": 7,
+    "status": "error",
+    "conversation_id": 7,
+    "error": "401 Client Error: Unauthorized for url: http://localhost:8000/chats/"
+  },
+  {
+    "index": 33,
+    "question": "Apa fungsi sensor temperature dalam sistem eHealth berbasis wearable device?",
+    "conversation_id_before_request": 7,
+    "status": "error",
+    "conversation_id": 7,
+    "error": "401 Client Error: Unauthorized for url: http://localhost:8000/chats/"
+  },
+  {
+    "index": 34,
+    "question": "Bagaimana sensor body temperature membantu sistem mendeteksi gejala hypothermia?",
+    "conversation_id_before_request": 7,
+    "status": "error",
+    "conversation_id": 7,
+    "error": "401 Client Error: Unauthorized for url: http://localhost:8000/chats/"
+  },
+  {
+    "index": 35,
+    "question": "Bagaimana sensor pada smart jacket mengirim data ke aplikasi Android?",
+    "conversation_id_before_request": 7,
+    "status": "error",
+    "conversation_id": 7,
+    "error": "401 Client Error: Unauthorized for url: http://localhost:8000/chats/"
+  },
+  {
+    "index": 36,
+    "question": "Apa itu Wireless Body Area Network dan bagaimana digunakan untuk monitoring kesehatan?",
+    "conversation_id_before_request": 7,
+    "status": "error",
+    "conversation_id": 7,
+    "error": "401 Client Error: Unauthorized for url: http://localhost:8000/chats/"
+  },
+  {
+    "index": 37,
+    "question": "Bagaimana Wireless Body Area Network mengirim data heart rate dan temperature ke perangkat pengguna?",
+    "conversation_id_before_request": 7,
+    "status": "error",
+    "conversation_id": 7,
+    "error": "401 Client Error: Unauthorized for url: http://localhost:8000/chats/"
+  },
+  {
+    "index": 38,
+    "question": "Apa kelebihan WBAN untuk monitoring kondisi tubuh dibanding sistem kabel?",
+    "conversation_id_before_request": 7,
+    "status": "error",
+    "conversation_id": 7,
+    "error": "401 Client Error: Unauthorized for url: http://localhost:8000/chats/"
+  },
+  {
+    "index": 39,
+    "question": "Bagaimana Bluetooth digunakan dalam pengiriman data sensor pada wearable health system?",
+    "conversation_id_before_request": 7,
+    "status": "error",
+    "conversation_id": 7,
+    "error": "401 Client Error: Unauthorized for url: http://localhost:8000/chats/"
+  },
+  {
+    "index": 40,
+    "question": "Bagaimana data kesehatan dari WBAN dapat disimpan untuk pemrosesan lebih lanjut?",
+    "conversation_id_before_request": 7,
+    "status": "error",
+    "conversation_id": 7,
+    "error": "401 Client Error: Unauthorized for url: http://localhost:8000/chats/"
+  },
+  {
+    "index": 41,
+    "question": "Apa yang dimaksud dengan pseudonym dalam sistem keamanan komunikasi?",
+    "conversation_id_before_request": 7,
+    "status": "error",
+    "conversation_id": 7,
+    "error": "401 Client Error: Unauthorized for url: http://localhost:8000/chats/"
+  },
+  {
+    "index": 42,
+    "question": "Apa yang dimaksud dengan anonymity dalam sistem autentikasi mobile user?",
+    "conversation_id_before_request": 7,
+    "status": "error",
+    "conversation_id": 7,
+    "error": "401 Client Error: Unauthorized for url: http://localhost:8000/chats/"
+  },
+  {
+    "index": 43,
+    "question": "Bagaimana pseudonym dan anonymity menjaga privasi pengguna dalam komunikasi?",
+    "conversation_id_before_request": 7,
+    "status": "error",
+    "conversation_id": 7,
+    "error": "401 Client Error: Unauthorized for url: http://localhost:8000/chats/"
+  },
+  {
+    "index": 44,
+    "question": "Apa itu pseudonymous-based anonymous authentication?",
+    "conversation_id_before_request": 7,
+    "status": "error",
+    "conversation_id": 7,
+    "error": "401 Client Error: Unauthorized for url: http://localhost:8000/chats/"
+  },
+  {
+    "index": 45,
+    "question": "Mengapa revocation penting dalam sistem pseudonym dan anonymity?",
+    "conversation_id_before_request": 7,
+    "status": "error",
+    "conversation_id": 7,
+    "error": "401 Client Error: Unauthorized for url: http://localhost:8000/chats/"
+  },
+  {
+    "index": 46,
+    "question": "Apa peran Group Manager dalam anonymous authentication?",
+    "conversation_id_before_request": 7,
+    "status": "error",
+    "conversation_id": 7,
+    "error": "401 Client Error: Unauthorized for url: http://localhost:8000/chats/"
+  },
+  {
+    "index": 47,
+    "question": "Bagaimana user pseudonym generation menghasilkan PIDs pengguna?",
+    "conversation_id_before_request": 7,
+    "status": "error",
+    "conversation_id": 7,
+    "error": "401 Client Error: Unauthorized for url: http://localhost:8000/chats/"
+  },
+  {
+    "index": 48,
+    "question": "Bagaimana received signal strength dapat digunakan untuk shared key generation?",
+    "conversation_id_before_request": 7,
+    "status": "error",
+    "conversation_id": 7,
+    "error": "401 Client Error: Unauthorized for url: http://localhost:8000/chats/"
+  },
+  {
+    "index": 49,
+    "question": "Bagaimana RSS values diubah menjadi bit stream dalam proses shared key generation?",
+    "conversation_id_before_request": 7,
+    "status": "error",
+    "conversation_id": 7,
+    "error": "401 Client Error: Unauthorized for url: http://localhost:8000/chats/"
+  },
+  {
+    "index": 50,
+    "question": "Apa hubungan antara shared key generation, PIDs, dan anonymous authentication?",
+    "conversation_id_before_request": 7,
+    "status": "error",
+    "conversation_id": 7,
+    "error": "401 Client Error: Unauthorized for url: http://localhost:8000/chats/"
+  }
+]
