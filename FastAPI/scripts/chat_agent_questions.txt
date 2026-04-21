@@ -1,0 +1,16 @@
+Bagaimana sensor pada smart jacket mengirim data ke aplikasi Android?
+Apa itu Wireless Body Area Network dan bagaimana digunakan untuk monitoring kesehatan?
+Bagaimana Wireless Body Area Network mengirim data heart rate dan temperature ke perangkat pengguna?
+Apa kelebihan WBAN untuk monitoring kondisi tubuh dibanding sistem kabel?
+Bagaimana Bluetooth digunakan dalam pengiriman data sensor pada wearable health system?
+Bagaimana data kesehatan dari WBAN dapat disimpan untuk pemrosesan lebih lanjut?
+Apa yang dimaksud dengan pseudonym dalam sistem keamanan komunikasi?
+Apa yang dimaksud dengan anonymity dalam sistem autentikasi mobile user?
+Bagaimana pseudonym dan anonymity menjaga privasi pengguna dalam komunikasi?
+Apa itu pseudonymous-based anonymous authentication?
+Mengapa revocation penting dalam sistem pseudonym dan anonymity?
+Apa peran Group Manager dalam anonymous authentication?
+Bagaimana user pseudonym generation menghasilkan PIDs pengguna?
+Bagaimana received signal strength dapat digunakan untuk shared key generation?
+Bagaimana RSS values diubah menjadi bit stream dalam proses shared key generation?
+Apa hubungan antara shared key generation, PIDs, dan anonymous authentication?

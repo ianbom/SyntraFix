@@ -1,7 +1,7 @@
 import json
 from typing import List, Optional
 from fastapi import APIRouter, Depends, HTTPException, Query
-from fastapi.responses import StreamingResponse
+from fastapi.responses import FileResponse, StreamingResponse
 from sqlalchemy.orm import Session
 import google.generativeai as genai
 
@@ -10,6 +10,7 @@ from app.models.user import User
 from app.api.deps import get_current_user
 from app.schemas.chat import ChatRequest, ChatResponse, ConversationResponse
 from app.services.chat import ChatService
+from app.services.ragas_export import export_ragas_markdown
 from app.config import get_settings
 
 router = APIRouter(prefix="/chats", tags=["Chats"])
@@ -77,6 +78,40 @@ async def get_conversation(
     if not conversation:
         raise HTTPException(status_code=404, detail="Conversation not found")
     return conversation
+
+
+@router.get("/ragas/export")
+async def export_ragas_test_data(
+    conversation_id: Optional[int] = Query(default=None),
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+):
+    """
+    Export chat data for RAGAS test preparation as a Markdown file.
+
+    Fields:
+    - user_input: previous user chat message
+    - retrieved_context: ChatReference.quote from the bot answer
+    - response: bot chat message
+    - reference: empty field to be filled manually
+    """
+    if conversation_id is not None:
+        chat_service = ChatService(db)
+        conversation = chat_service.get_conversation(conversation_id, current_user.id)
+        if not conversation:
+            raise HTTPException(status_code=404, detail="Conversation not found")
+
+    output_path = export_ragas_markdown(
+        db=db,
+        user_id=current_user.id,
+        conversation_id=conversation_id,
+    )
+
+    return FileResponse(
+        path=output_path,
+        media_type="text/markdown",
+        filename=output_path.name,
+    )
 
 
 @router.get("/models/embedding")
