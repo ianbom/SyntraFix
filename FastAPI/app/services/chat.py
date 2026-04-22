@@ -276,7 +276,7 @@ class ChatService:
         return filters
 
     # =========================================================================
-    # Hybrid Search (Semantic + Keyword + Metadata)
+    # Hybrid Search (Semantic + Question Embedding)
     # =========================================================================
 
     def _calculate_keyword_score(self, content: str, doc: 'Document', keywords: List[str]) -> float:
@@ -429,7 +429,6 @@ Pertanyaan asli: {query}"""
         """Build a larger candidate pool from content and question embeddings."""
         MIN_CONTENT_LENGTH = 100
         candidate_limit = limit * 10
-        keywords = self._extract_keywords(query)
         has_metadata_filters = bool(metadata_filters and len(metadata_filters) > 0)
 
         embeddings_to_search = query_embeddings or []
@@ -468,11 +467,11 @@ Pertanyaan asli: {query}"""
             )
 
             candidate_rows = [
-                self._build_candidate_score(row, keywords, has_metadata_filters, "content")
+                self._build_candidate_score(row, "content")
                 for row in content_rows
             ]
             candidate_rows.extend(
-                self._build_candidate_score(row, keywords, has_metadata_filters, "question")
+                self._build_candidate_score(row, "question")
                 for row in question_rows
             )
 
@@ -485,7 +484,6 @@ Pertanyaan asli: {query}"""
                 f"  Chunk {item['chunk'].id}: "
                 f"content_sim={item['semantic_score']:.4f}, "
                 f"q_sim={item['question_score']:.4f}, "
-                f"keyword={item['keyword_score']:.4f}, "
                 f"hybrid={item['hybrid_score']:.4f}"
             )
 
@@ -545,21 +543,12 @@ Pertanyaan asli: {query}"""
     def _build_candidate_score(
         self,
         row,
-        keywords: List[str],
-        has_metadata_filters: bool,
         retrieval_source: str,
     ) -> Dict[str, Any]:
         chunk, doc, semantic_score, question_score = row
         sem_score = float(semantic_score) if semantic_score is not None else 0.0
         q_score = float(question_score) if question_score is not None else 0.0
-        keyword_score = self._calculate_keyword_score(chunk.content, doc, keywords)
         combined_semantic = max(sem_score, q_score)
-
-        if has_metadata_filters:
-            hybrid_score = (combined_semantic * 0.80) + (keyword_score * 0.20)
-            hybrid_score *= 1.1
-        else:
-            hybrid_score = (combined_semantic * 0.65) + (keyword_score * 0.35)
 
         return {
             "chunk": chunk,
@@ -572,8 +561,8 @@ Pertanyaan asli: {query}"""
             "semantic_score": sem_score,
             "question_score": q_score,
             "combined_semantic": combined_semantic,
-            "keyword_score": keyword_score,
-            "hybrid_score": hybrid_score,
+            "keyword_score": 0.0,
+            "hybrid_score": combined_semantic,
             "retrieval_source": retrieval_source,
         }
 

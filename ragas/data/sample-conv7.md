@@ -61,7 +61,8 @@ Jadi, jawaban dari pertanyaan Anda adalah: CNN (Convolutional Neural Network) ad
 
 ### reference
 
-Berdasarkan retrieved context, The Convolutional Neural Network (CNN) model is trained using the prepared dataset. CNN is a type of deep neural network that is highly effective for the analysis and processing of visual data such as (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 7) This research uses the ROS system because it has the ability to integrate camera sensors with artificial intelligence methods and several other combined sensors in the robot. Fig. 4 shows the basic co (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 4) Several studies have developed many CNN methods or convolutional neural networks for object prediction applications such as balls, humans, and others. CNN can also be used for object detection and pos (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 1)
+CNN atau Convolutional Neural Network adalah jenis deep neural network yang efektif untuk analisis dan pemrosesan data visual. Dalam dokumen Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, CNN dilatih menggunakan dataset yang telah disiapkan dan digunakan untuk object detection serta prediksi posisi objek seperti bola. [Source: Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application]
+
 ---
 
 ## Sample 2
@@ -110,7 +111,8 @@ Selain itu, CNN dipilih karena dapat belajar fitur secara otomatis dan mudah dii
 
 ### reference
 
-Berdasarkan retrieved context, TABLE 3. Comparisons results of the proposed system with related works. Analisis hasil pengujian menunjukkan bahwa model prediksi posisi bola yang dikembangkan menggunakan metode CNN dengan kamera Ze (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 11) TABLE 1. The proposed system with related works. Tabel ini menjelaskan sistem yang diusulkan bersama dengan karya terkait dalam penelitian "Penginderaan Bola Menggunakan Metode CNN Dengan Kamera Zed (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 3) Several studies have developed many CNN methods or convolutional neural networks for object prediction applications such as balls, humans, and others. CNN can also be used for object detection and pos (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 1)
+CNN digunakan untuk memprediksi posisi bola dengan menganalisis input posisi bola dan memperkirakan arah serta posisi bola berikutnya. Sistem yang diusulkan memakai kamera ZED karena kamera tersebut mampu mendeteksi objek bola pada kondisi pencahayaan ekstrem, lalu hasil prediksi membantu robot goalkeeper menentukan gerakan untuk memblokir bola. [Source: Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application]
+
 ---
 
 ## Sample 3
@@ -155,7 +157,8 @@ Kamera ZED berperan sebagai visi sistem untuk mendeteksi dan mendiagnosis objek 
 
 ### reference
 
-Berdasarkan retrieved context, TABLE 2. Computer Specification. Tabel ini mencatat spesifikasi komputer yang digunakan dalam pengembangan robot penjaga gawang menggunakan metode CNN (Convolutional Neural Network) dengan kamera Zed (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 10) TABLE 1. The proposed system with related works. Tabel ini menjelaskan sistem yang diusulkan bersama dengan karya terkait dalam penelitian "Penginderaan Bola Menggunakan Metode CNN Dengan Kamera Zed (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 3) The image data capture process was carried out using ZED 2i cameras mounted on the center and front sides of the robot goalkeeper. This strategic placement ensures optimal visual coverage of the pitch (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 6)
+Kamera ZED berperan sebagai sensor visual untuk menangkap data gambar pada robot goalkeeper. ZED 2i dipasang pada sisi tengah dan depan robot agar cakupan visual lapangan optimal, serta digunakan karena mampu mendeteksi objek bola bahkan dalam kondisi pencahayaan ekstrem. [Source: Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application]
+
 ---
 
 ## Sample 4
@@ -204,7 +207,8 @@ Dengan demikian, data RGB dari kamera ZED membantu meningkatkan akurasi pengenal
 
 ### reference
 
-Berdasarkan retrieved context, TABLE 3. Comparisons results of the proposed system with related works. Analisis hasil pengujian menunjukkan bahwa model prediksi posisi bola yang dikembangkan menggunakan metode CNN dengan kamera Ze (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 11) TABLE 1. The proposed system with related works. Tabel ini menjelaskan sistem yang diusulkan bersama dengan karya terkait dalam penelitian "Penginderaan Bola Menggunakan Metode CNN Dengan Kamera Zed (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 3) The camera then captures images in RGB (Red, Green, Blue) format that provide rich color information as well as depth images that provide information about the distance of each pixel in the image from (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 6)
+Data RGB dari kamera ZED menyediakan informasi warna yang kaya, sedangkan depth image menyediakan informasi jarak setiap piksel dari kamera. Informasi RGB membantu sistem mengenali karakter visual bola, sementara data depth membantu memperkirakan jarak sehingga sistem dapat mendukung prediksi posisi bola. [Source: Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application]
+
 ---
 
 ## Sample 5
@@ -261,7 +265,8 @@ Dengan demikian, data depth dari kamera ZED sangat membantu dalam memperkirakan 
 
 ### reference
 
-Berdasarkan retrieved context, TABLE 3. Comparisons results of the proposed system with related works. Analisis hasil pengujian menunjukkan bahwa model prediksi posisi bola yang dikembangkan menggunakan metode CNN dengan kamera Ze (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 11) TABLE 1. The proposed system with related works. Tabel ini menjelaskan sistem yang diusulkan bersama dengan karya terkait dalam penelitian "Penginderaan Bola Menggunakan Metode CNN Dengan Kamera Zed (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 3) Research on 3D sensors and stereo cameras has been widely developed, including the complexity of depth data accuracy from the ZED stereo camera [16]. This study designed and conducted an experiment in (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 2)
+Data depth dari kamera ZED membantu memperkirakan jarak bola karena depth image memberikan informasi jarak setiap piksel dari kamera. Dengan menggunakan RGB image dan depth, sistem dapat mengekstrak koordinat bola dalam tiga dimensi, yaitu x, y, dan z, yang menunjukkan posisi bola relatif terhadap kamera. [Source: Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application]
+
 ---
 
 ## Sample 6
@@ -310,7 +315,8 @@ Dalam [Source: Prediction of Ball Position Using CNN Methods With Zed Camera on 
 
 ### reference
 
-Berdasarkan retrieved context, TABLE 2. Computer Specification. Tabel ini mencatat spesifikasi komputer yang digunakan dalam pengembangan robot penjaga gawang menggunakan metode CNN (Convolutional Neural Network) dengan kamera Zed (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 10) TABLE 1. The proposed system with related works. Tabel ini menjelaskan sistem yang diusulkan bersama dengan karya terkait dalam penelitian "Penginderaan Bola Menggunakan Metode CNN Dengan Kamera Zed (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 3) The image data capture process was carried out using ZED 2i cameras mounted on the center and front sides of the robot goalkeeper. This strategic placement ensures optimal visual coverage of the pitch (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 6)
+Kamera ZED cocok digunakan pada robot penjaga gawang karena mampu mendeteksi objek bola dalam kondisi pencahayaan ekstrem. Pada penelitian ini, ZED 2i dipasang di bagian tengah dan depan robot goalkeeper agar visual coverage terhadap lapangan menjadi optimal untuk proses prediksi posisi bola. [Source: Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application]
+
 ---
 
 ## Sample 7
@@ -363,7 +369,8 @@ Dengan demikian, penggunaan CNN pada aplikasi goalkeeper robot dapat meningkatka
 
 ### reference
 
-Berdasarkan retrieved context, TABLE 2. Computer Specification. Tabel ini mencatat spesifikasi komputer yang digunakan dalam pengembangan robot penjaga gawang menggunakan metode CNN (Convolutional Neural Network) dengan kamera Zed (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 10) The Convolutional Neural Network (CNN) model is trained using the prepared dataset. CNN is a type of deep neural network that is highly effective for the analysis and processing of visual data such as (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 7) TABLE 1. The proposed system with related works. Tabel ini menjelaskan sistem yang diusulkan bersama dengan karya terkait dalam penelitian "Penginderaan Bola Menggunakan Metode CNN Dengan Kamera Zed (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 3)
+Manfaat CNN pada aplikasi goalkeeper robot adalah kemampuannya sebagai deep neural network yang efektif untuk analisis dan pemrosesan data visual. CNN dapat digunakan untuk object detection dan prediksi posisi objek seperti bola, sehingga cocok untuk mendukung sistem prediksi posisi bola pada robot penjaga gawang berbasis kamera ZED. [Source: Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application]
+
 ---
 
 ## Sample 8
@@ -422,7 +429,8 @@ Dalam arsitektur ini, CNN model mengekstraksi fitur-fitur penting dari input mel
 
 ### reference
 
-Berdasarkan retrieved context, FIGURE 8. Confusion matrix result of ball detection using CNN. FIGURE 8. Confusion Matrix Hasil Deteksi Bola Menggunakan CNN. Gambar ini menampilkan sebuah grafik yang disebut "confusion matrix". Gra (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 10) TABLE 3. Comparisons results of the proposed system with related works. Analisis hasil pengujian menunjukkan bahwa model prediksi posisi bola yang dikembangkan menggunakan metode CNN dengan kamera Ze (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 11) TABLE 1. The proposed system with related works. Tabel ini menjelaskan sistem yang diusulkan bersama dengan karya terkait dalam penelitian "Penginderaan Bola Menggunakan Metode CNN Dengan Kamera Zed (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 3)
+Arsitektur CNN bekerja dengan model yang dilatih menggunakan dataset yang disiapkan untuk memproses data visual. Dalam dokumen ini, CNN digunakan untuk object detection dan prediksi posisi bola; hasil deteksi dievaluasi menggunakan confusion matrix, dan model arsitektur CNN serta hasil training CNN ditampilkan sebagai bagian dari sistem. [Source: Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application]
+
 ---
 
 ## Sample 9
@@ -493,7 +501,8 @@ Dengan demikian, dapat disimpulkan bahwa fungsi convolution layer dalam model CN
 
 ### reference
 
-Berdasarkan retrieved context, 1. Conv1D Layer • Function: Filtering the input signal using a filter. • Operation: where y is the input, w is the filter weight, b is the bias, and * is the convolution operation. • Output: Filte (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 7) FIGURE 8. Confusion matrix result of ball detection using CNN. FIGURE 8. Confusion Matrix Hasil Deteksi Bola Menggunakan CNN. Gambar ini menampilkan sebuah grafik yang disebut "confusion matrix". Gra (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 10) Here is the complete sequence of transformations that occur to the input signal as it passes through each layer in the model: 1. Conv1D 1: • Input: (None, 10, 512) • Output: (None, 10, 512) • Convo (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 8)
+Convolution layer atau Conv1D berfungsi menyaring input signal menggunakan filter. Dalam konteks CNN untuk deteksi bola, operasi filtering ini membantu model memproses sinyal atau data visual sehingga fitur yang relevan dapat digunakan untuk object detection dan prediksi posisi bola. [Source: Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application]
+
 ---
 
 ## Sample 10
@@ -570,7 +579,8 @@ Dalam konteks tersebut juga dijelaskan tentang jenis-jenis pooling seperti MaxPo
 
 ### reference
 
-Berdasarkan retrieved context, The pooling layer, which comes after the convolution layer, is meant to combine key information and lower the dimensionality of the feature map. Max pooling, which chooses the maximum value within eac (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 5) • Function: Reduces the dimensionality of the signal by averaging the values within a specific window. • Operation: where y is pooling window size. • Output: A signal whose size is smaller than the (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 7) • Function: Reduces the dimensionality of the signal by taking the maximum value within a specific window. • Operation: where k is the size of the pooling window. • Output: A signal whose size is s (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 8)
+Pooling layer berfungsi menggabungkan informasi penting dan menurunkan dimensionalitas feature map setelah convolution layer. Average pooling mengurangi dimensi dengan menghitung rata-rata nilai dalam window tertentu, sedangkan max pooling mengambil nilai maksimum dalam window tertentu sehingga ukuran sinyal menjadi lebih kecil. [Source: Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application]
+
 ---
 
 ## Sample 11
@@ -629,7 +639,8 @@ Dengan demikian, dapat disimpulkan bahwa CNN dilatih menggunakan dataset posisi 
 
 ### reference
 
-Berdasarkan retrieved context, TABLE 3. Comparisons results of the proposed system with related works. Analisis hasil pengujian menunjukkan bahwa model prediksi posisi bola yang dikembangkan menggunakan metode CNN dengan kamera Ze (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 11) FIGURE 8. Confusion matrix result of ball detection using CNN. FIGURE 8. Confusion Matrix Hasil Deteksi Bola Menggunakan CNN. Gambar ini menampilkan sebuah grafik yang disebut "confusion matrix". Gra (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 10) The Convolutional Neural Network (CNN) model is trained using the prepared dataset. CNN is a type of deep neural network that is highly effective for the analysis and processing of visual data such as (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 7)
+CNN dilatih menggunakan dataset yang telah disiapkan. Data posisi bola yang dikumpulkan diproses menjadi dataset terstruktur, lalu dataset tersebut digunakan sebagai input untuk melatih model prediksi bola agar model dapat mempelajari hubungan antara data posisi bola dan output prediksi. [Source: Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application]
+
 ---
 
 ## Sample 12
@@ -686,7 +697,8 @@ Dalam keseluruhan, hasil training CNN sangat penting dalam mempengaruhi akurasi 
 
 ### reference
 
-Berdasarkan retrieved context, TABLE 3. Comparisons results of the proposed system with related works. Analisis hasil pengujian menunjukkan bahwa model prediksi posisi bola yang dikembangkan menggunakan metode CNN dengan kamera Ze (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 11) FIGURE 9. CNN model training result. Gambar ini menampilkan grafik hasil pelatihan model CNN (Convolutional Neural Network). Grafik ini terlihat seperti garis di atas yang menunjukkan proses pengemba (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 10) FIGURE 8. Confusion matrix result of ball detection using CNN. FIGURE 8. Confusion Matrix Hasil Deteksi Bola Menggunakan CNN. Gambar ini menampilkan sebuah grafik yang disebut "confusion matrix". Gra (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 10)
+Hasil training CNN mempengaruhi akurasi prediksi posisi bola karena model dilatih menggunakan dataset yang telah disiapkan untuk analisis dan pemrosesan data visual. Dokumen menampilkan grafik hasil pelatihan CNN dan tabel perbandingan hasil sistem, serta menyebutkan bahwa metode ini menunjukkan hasil menjanjikan dalam meningkatkan akurasi prediksi posisi bola meskipun masih memiliki keterbatasan seperti sensitivitas pencahayaan. [Source: Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application]
+
 ---
 
 ## Sample 13
@@ -737,7 +749,8 @@ Dengan demikian, AI sebagai konsep utama memanfaatkan kemampuan computer vision 
 
 ### reference
 
-Berdasarkan retrieved context, TABLE 2. Computer Specification. Tabel ini mencatat spesifikasi komputer yang digunakan dalam pengembangan robot penjaga gawang menggunakan metode CNN (Convolutional Neural Network) dengan kamera Zed (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 10) Several studies have developed many CNN methods or convolutional neural networks for object prediction applications such as balls, humans, and others. CNN can also be used for object detection and pos (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 1) The process of system completion involves multiple stages that are intended to accomplish the objectives of the research. Every phase is meticulously organized to guarantee that every facet of the in (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 3)
+Dalam sistem robot penjaga gawang, AI, computer vision, dan CNN saling terkait melalui pengolahan data visual dari kamera ZED. ROS digunakan untuk mengintegrasikan sensor kamera dengan metode artificial intelligence dan sensor lain, sedangkan CNN digunakan untuk object detection dan prediksi posisi objek seperti bola. [Source: Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application]
+
 ---
 
 ## Sample 14
@@ -788,7 +801,8 @@ Dalam konteks penelitian ini, CNN dipilih karena kemampuannya dalam memproses da
 
 ### reference
 
-Berdasarkan retrieved context, The Convolutional Neural Network (CNN) model is trained using the prepared dataset. CNN is a type of deep neural network that is highly effective for the analysis and processing of visual data such as (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 7) This research uses the ROS system because it has the ability to integrate camera sensors with artificial intelligence methods and several other combined sensors in the robot. Fig. 4 shows the basic co (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 4) Several studies have developed many CNN methods or convolutional neural networks for object prediction applications such as balls, humans, and others. CNN can also be used for object detection and pos (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 1)
+CNN adalah Convolutional Neural Network, yaitu jenis deep neural network yang efektif untuk analisis dan pemrosesan data visual. Dalam penelitian ini, CNN digunakan untuk object detection dan prediksi posisi bola, sedangkan ROS membantu mengintegrasikan sensor kamera dengan metode artificial intelligence pada robot goalkeeper. [Source: Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application]
+
 ---
 
 ## Sample 15
@@ -835,7 +849,8 @@ Dengan demikian, ROS dapat membantu meningkatkan akurasi dan responsifitas siste
 
 ### reference
 
-Berdasarkan retrieved context, This research uses the ROS system because it has the ability to integrate camera sensors with artificial intelligence methods and several other combined sensors in the robot. Fig. 4 shows the basic co (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 4) The process of system completion involves multiple stages that are intended to accomplish the objectives of the research. Every phase is meticulously organized to guarantee that every facet of the in (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 3) Research on computer vision for accurate and fast ball detection is conducted by comparing the performance of two detection methods based on convolutional neural networks. Testing techniques are speci (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 2)
+ROS membantu integrasi kamera, AI, dan sensor pada goalkeeper robot karena sistem ini mampu mengintegrasikan sensor kamera dengan metode artificial intelligence dan sensor lain pada robot. Dalam penelitian ini, ROS menjadi bagian dari sistem yang mendukung penggunaan kamera ZED dan metode CNN untuk prediksi posisi bola. [Source: Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application]
+
 ---
 
 ## Sample 16
@@ -882,7 +897,8 @@ Dengan demikian, sistem kontrol goalkeeper robot dapat menggunakan hasil prediks
 
 ### reference
 
-Berdasarkan retrieved context, TABLE 3. Comparisons results of the proposed system with related works. Analisis hasil pengujian menunjukkan bahwa model prediksi posisi bola yang dikembangkan menggunakan metode CNN dengan kamera Ze (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 11) FIGURE 5. Ball prediction system. Maaf, saya tidak dapat menafsirkan atau membuat gambar. Namun, saya dapat membantu Anda untuk menyimulasikan hasil interpretasi jika Anda dapat memberikan deskripsi s (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 4) The result of the ball arrival position prediction is output. This information is used by the goalkeeping robot control system to take appropriate actions in blocking the ball. This output allows the (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 9)
+Sistem kontrol goalkeeper robot menggunakan hasil prediksi posisi kedatangan bola sebagai informasi untuk mengambil tindakan yang tepat dalam memblokir bola. Model prediksi menganalisis input posisi bola, memprediksi arah dan posisi bola di masa depan, lalu output tersebut membantu robot menentukan gerakan yang harus dilakukan. [Source: Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application]
+
 ---
 
 ## Sample 17
@@ -931,7 +947,8 @@ Dengan demikian, DynamicRAG mencapai performa yang lebih baik daripada sistem RA
 
 ### reference
 
-Berdasarkan retrieved context, Table 6: Performance comparison across different settings and datasets menunjukkan hasil perbandingan kinerja sistem Retrieval-Augmented Generation (RAG) dengan beberapa pengaturan dan dataset. Data t (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 18) Retrieval-augmented generation (RAG) systems combine large language models (LLMs) with external knowledge retrieval, making them highly effective for knowledge-intensive tasks. A crucial but often und (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 1) The first step in the RAG framework is to retrieve relevant documents or passages from a large corpus. This is typically done using an information retrieval (IR) system. Given a query q, the IR system (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 3)
+RAG atau Retrieval-Augmented Generation bekerja dengan menggabungkan LLM dengan external knowledge retrieval. Langkah awal RAG adalah mengambil dokumen atau passage relevan dari korpus besar menggunakan information retrieval system, lalu setelah encoding, model generation menggunakan query dan dokumen yang diambil sebagai input untuk menghasilkan jawaban. [Source: DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation]
+
 ---
 
 ## Sample 18
@@ -985,7 +1002,8 @@ Dengan demikian, RAG dapat menjadi solusi yang efektif untuk meningkatkan kinerj
 
 ### reference
 
-Berdasarkan retrieved context, Table 1: Overview of candidate datasets for RAG evaluation. SQuAD, MultiHop-RAG, and Natural Questions are included to Table 1: Overview of candidate datasets untuk evaluasi model RAG menunjukkan bebe (QuOTE: Question-Oriented Text Embeddings, page 4) Retrieval-augmented generation (RAG [35,36,40]) serves as a significant contribution to the deployment and acceptance of LLMs in practice. Given a user's prompt, RAG retrieves relevant information fro (QuOTE: Question-Oriented Text Embeddings, page 1) Retrieval-augmented generation (RAG) systems combine large language models (LLMs) with external knowledge retrieval, making them highly effective for knowledge-intensive tasks. A crucial but often und (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 1)
+Manfaat RAG untuk sistem tanya jawab berbasis dokumen akademik adalah kemampuannya mengambil informasi relevan dari dokumen eksternal berdasarkan prompt pengguna. RAG menggabungkan LLM dengan external knowledge retrieval sehingga efektif untuk tugas knowledge-intensive, dan dapat dilengkapi dengan dynamic reranking untuk menentukan dokumen yang lebih relevan sebelum jawaban dibuat. [Source: QuOTE: Question-Oriented Text Embeddings; Source: DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation]
+
 ---
 
 ## Sample 19
@@ -1030,7 +1048,8 @@ Dari penjelasan di atas, dapat disimpulkan bahwa retrieval adalah tahap penting 
 
 ### reference
 
-Berdasarkan retrieved context, Many RAG systems employ a two-step pipeline: a fast retriever selects the top-k candidate chunks, and a reranker, typically a computationally intensive cross-encoder, reorders these candidates for fin (QuOTE: Question-Oriented Text Embeddings, page 2) The first step in the RAG framework is to retrieve relevant documents or passages from a large corpus. This is typically done using an information retrieval (IR) system. Given a query q, the IR system (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 3) We present QuOTE (Question-Oriented Text Embeddings), a novel enhancement to retrieval-augmented generation (RAG) systems, aimed at improving document representation for accurate and nuanced retrieval (QuOTE: Question-Oriented Text Embeddings, page 1)
+Retrieval penting dalam pipeline RAG karena tahap pertama framework RAG adalah mengambil dokumen atau passage relevan dari korpus besar menggunakan information retrieval system. Banyak sistem RAG memakai pipeline dua langkah, yaitu fast retriever memilih top-k candidate chunks lalu reranker menyusun ulang kandidat tersebut untuk digunakan pada tahap akhir. [Source: DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation; Source: QuOTE: Question-Oriented Text Embeddings]
+
 ---
 
 ## Sample 20
@@ -1077,7 +1096,8 @@ Dengan demikian, reranking dapat meningkatkan kualitas dokumen yang digunakan da
 
 ### reference
 
-Berdasarkan retrieved context, Retrieval-augmented generation (RAG) systems combine large language models (LLMs) with external knowledge retrieval, making them highly effective for knowledge-intensive tasks. A crucial but often und (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 1) This work introduces DynamicRAG, a new reinforcement learning framework to optimize reranking in RAG. By modeling the reranker as an RL agent and using LLM response quality as rewards, it dynamically (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 11) Based on these insights, we propose DynamicRAG, a novel RAG framework where the reranker dynamically adjusts both the order and number of retrieved documents based on the query. In DynamicRAG, the rer (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 2)
+Reranking meningkatkan kualitas dokumen pada RAG dengan menyusun ulang kandidat dokumen agar generator menerima konteks yang lebih relevan. DynamicRAG memperkenalkan framework reinforcement learning untuk mengoptimalkan reranking dengan memodelkan reranker sebagai agen RL dan menggunakan kualitas respons LLM sebagai reward. [Source: DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation]
+
 ---
 
 ## Sample 21
@@ -1122,7 +1142,8 @@ Sumber: [Source: DynamicRAG: Leveraging Outputs of Large Language Model as Feedb
 
 ### reference
 
-Berdasarkan retrieved context, In this section, we propose DynamicRAG. Unlike traditional RAG systems that rely on static ranking methods, DynamicRAG introduces a dynamic reranking mechanism and leverages feedback from LLM output t (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 4) Table 6: Performance comparison across different settings and datasets menunjukkan hasil perbandingan kinerja sistem Retrieval-Augmented Generation (RAG) dengan beberapa pengaturan dan dataset. Data t (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 18) Table 1: The DynamicRAG results for different datasets among different backbone models. Results menampilkan hasil evaluasi model Retrieval-Augmented Generation (RAG) dalam beberapa dataset. Analisis i (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 7)
+Perbedaan RAG tradisional dan DynamicRAG adalah RAG tradisional bergantung pada metode ranking statis, sedangkan DynamicRAG memperkenalkan mekanisme dynamic reranking dan memanfaatkan feedback dari output LLM. Dengan mekanisme ini, DynamicRAG dapat menyesuaikan proses reranking terhadap kebutuhan generation. [Source: DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation]
+
 ---
 
 ## Sample 22
@@ -1173,7 +1194,8 @@ Dalam kesimpulan, metode dynamic reranking dan penggunaan reward function yang t
 
 ### reference
 
-Berdasarkan retrieved context, Retrieval-augmented generation (RAG) systems combine large language models (LLMs) with external knowledge retrieval, making them highly effective for knowledge-intensive tasks. A crucial but often und (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 1) The first step in the RAG framework is to retrieve relevant documents or passages from a large corpus. This is typically done using an information retrieval (IR) system. Given a query q, the IR system (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 3) Table 6: Performance comparison across different settings and datasets menunjukkan hasil perbandingan kinerja sistem Retrieval-Augmented Generation (RAG) dengan beberapa pengaturan dan dataset. Data t (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 18)
+AI dapat meningkatkan akurasi retrieval dan generation pada RAG melalui dynamic reranking. DynamicRAG memakai feedback dari output LLM untuk membantu reranking, membandingkan kinerja pada berbagai setting dan dataset, serta memperkenalkan mekanisme yang berbeda dari ranking statis tradisional. [Source: DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation]
+
 ---
 
 ## Sample 23
@@ -1224,7 +1246,8 @@ Dengan menggunakan kombinasi dari proses encoding dokumen, generatif, dan evalua
 
 ### reference
 
-Berdasarkan retrieved context, We split the corpus into smaller passages (or chunks). For each chunk, we prompt an LLM to generate a set of questions that the chunk can answer. While question generation is a well studied topic in N (QuOTE: Question-Oriented Text Embeddings, page 3) To systematically investigate the effect of varying the number of generated questions, we parameterize our LLM prompt to either generate: • Fixed # Questions: If a desired quantity num_questions is p (QuOTE: Question-Oriented Text Embeddings, page 5) After encoding, the next phase is to generate an answer or response based on the query and retrieved documents. The generation model takes both the query and the retrieved documents as input and gener (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 3)
+LLM menggunakan retrieved context dalam RAG dengan menjadikan query dan dokumen yang telah diambil sebagai input untuk model generation. Setelah encoding, model generation menghasilkan jawaban berdasarkan query dan retrieved documents. LLM juga dapat digunakan dalam passage reranking melalui pendekatan point-wise, pair-wise, atau list-wise. [Source: DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation]
+
 ---
 
 ## Sample 24
@@ -1269,7 +1292,8 @@ Sumber: [Source: QuOTE: Question-Oriented Text Embeddings], [Source: DynamicRAG:
 
 ### reference
 
-Berdasarkan retrieved context, Table 1: Overview of candidate datasets for RAG evaluation. SQuAD, MultiHop-RAG, and Natural Questions are included to Table 1: Overview of candidate datasets untuk evaluasi model RAG menunjukkan bebe (QuOTE: Question-Oriented Text Embeddings, page 4) Retrieval-augmented generation (RAG [35,36,40]) serves as a significant contribution to the deployment and acceptance of LLMs in practice. Given a user's prompt, RAG retrieves relevant information fro (QuOTE: Question-Oriented Text Embeddings, page 1) Context is provided in disjointed sentence lists, complicating chunk-based retrieval. MultiHop-RAG's more document-centric structure provides a natural benchmark. Frames [29] 824 multi-hop questions (QuOTE: Question-Oriented Text Embeddings, page 4)
+Jika retrieved context tidak relevan, sistem RAG berisiko menggunakan informasi yang tidak sesuai untuk menjawab pertanyaan. QuOTE menjelaskan bahwa query pengguna sering singkat sedangkan jawaban membutuhkan informasi yang detail dan terstruktur, sehingga retrieval yang buruk atau konteks yang terpisah-pisah dapat mempersulit chunk-based retrieval dan menurunkan kualitas jawaban. [Source: QuOTE: Question-Oriented Text Embeddings]
+
 ---
 
 ## Sample 25
@@ -1318,7 +1342,8 @@ Secara keseluruhan, dapat disimpulkan bahwa embedding membantu sistem RAG menemu
 
 ### reference
 
-Berdasarkan retrieved context, Retrieval-augmented generation (RAG [35,36,40]) serves as a significant contribution to the deployment and acceptance of LLMs in practice. Given a user's prompt, RAG retrieves relevant information fro (QuOTE: Question-Oriented Text Embeddings, page 1) This work has demonstrated how the use of questions to augment representations of documents can yield significant improvement in information retrieval for RAG applications. The need for deduplication (QuOTE: Question-Oriented Text Embeddings, page 9) We present QuOTE (Question-Oriented Text Embeddings), a novel enhancement to retrieval-augmented generation (RAG) systems, aimed at improving document representation for accurate and nuanced retrieval (QuOTE: Question-Oriented Text Embeddings, page 1)
+Embedding membantu sistem RAG menemukan dokumen relevan dengan meningkatkan representasi dokumen untuk retrieval yang lebih akurat dan nuanced. QuOTE menunjukkan bahwa penggunaan pertanyaan untuk memperkaya representasi dokumen dapat menghasilkan peningkatan signifikan dalam information retrieval untuk aplikasi RAG. [Source: QuOTE: Question-Oriented Text Embeddings]
+
 ---
 
 ## Sample 26
@@ -1363,7 +1388,8 @@ Dengan demikian, dapat disimpulkan bahwa query expansion dapat membantu meningka
 
 ### reference
 
-Berdasarkan retrieved context, The first step in the RAG framework is to retrieve relevant documents or passages from a large corpus. This is typically done using an information retrieval (IR) system. Given a query q, the IR system (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 3) Retrieval-augmented generation (RAG) systems combine large language models (LLMs) with external knowledge retrieval, making them highly effective for knowledge-intensive tasks. A crucial but often und (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 1) Retrieval-augmented generation (RAG) systems have emerged as a powerful approach for combining the strengths of large language models (LLMs) with external knowledge retrieval. This integration has pro (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 1)
+Query expansion dapat membantu retrieval karena banyak skenario QA memiliki ketidakseimbangan antara query pengguna yang singkat dan jawaban yang membutuhkan informasi detail serta terstruktur. Dengan memperkaya atau menyesuaikan representasi query/dokumen, sistem retrieval dapat lebih mudah menemukan passage relevan dari korpus besar. [Source: QuOTE: Question-Oriented Text Embeddings; Source: DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation]
+
 ---
 
 ## Sample 27
@@ -1408,7 +1434,8 @@ Dengan demikian, teknologi sensor dapat digunakan dalam aplikasi eHealth untuk m
 
 ### reference
 
-Berdasarkan retrieved context, TABLE 4. Code in 2-digit numbers of the two sensors. Dalam penelitian ini, sensor suhu tubuh menggunakan tipe DS18B20 dan sensor getaran untuk mengukur denyut nadi dengan tipe XD-58C. Sensor suhu tub (Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network, page 7) WBAN sensor nodes collect biological signal data from patients over a long period of time. The data is wirelessly sent to the server, stored on the server for further processing, and used as a referen (Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network, page 2) Regarding the software, the system used Android operating system for smartphone application development. Android would receive sensor data from the device via Bluetooth in real time. The sensor data w (Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network, page 6)
+Retrieved context tidak mendefinisikan eHealth secara eksplisit. Konteks yang tersedia menjelaskan penggunaan WBAN dan IoT dalam sektor kesehatan, node sensor WBAN yang mengumpulkan data biologis dan mengirimkannya secara nirkabel ke server, serta sensor suhu tubuh DS18B20 dan sensor denyut nadi XD-58C untuk mendukung monitoring kondisi tubuh. [Source: Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network]
+
 ---
 
 ## Sample 28
@@ -1461,7 +1488,8 @@ Dengan demikian, AI dapat membantu dalam mendukung monitoring kesehatan berbasis
 
 ### reference
 
-Berdasarkan retrieved context, This research designed architecture and implemented a prototype to detect hypothermia symptoms in the climber's body based on WBAN technology. The proposed device consists of body temperature sensor, (Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network, page 1) Regarding the software, the system used Android operating system for smartphone application development. Android would receive sensor data from the device via Bluetooth in real time. The sensor data w (Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network, page 6)
+Teknologi wearable device berbasis WBAN dapat mendukung monitoring kesehatan dengan mengumpulkan data dari sensor tubuh. Retrieved context menjelaskan penelitian tentang prototype untuk mendeteksi gejala hypothermia pada pendaki menggunakan WBAN, serta penggunaan WBAN dan IoT di sektor kesehatan. [Source: Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network]
+
 ---
 
 ## Sample 29
@@ -1518,7 +1546,8 @@ Dengan demikian, heart rate digunakan sebagai salah satu indikator untuk mendete
 
 ### reference
 
-Berdasarkan retrieved context, Pulse sensor was used to retrieve the heart rate data of climber's body. Heart rate data was used to determine whether the climber was experiencing tachycardia or bradycardia or normal condition. Puls (Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network, page 5) TABLE 6. Result of data retrieval. Tabel 6. Hasil Retribusi Data. Data ini menunjukkan hasil pengujian algoritma kondisi deteksi terhadap data 20 sampel tubuh dari peserta uji coba. Variabel utama da (Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network, page 12) TABLE 5. Possible condition. Tabel TABLE 5. Possible condition menampilkan kemungkinan kondisi yang mungkin terjadi dalam sistem deteksi hipotermia dengan menggunakan jaket pintar berbasis Jaringan A (Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network, page 8)
+Heart rate digunakan untuk mendeteksi kondisi kesehatan melalui pulse sensor atau sensor getaran yang mengambil data denyut jantung tubuh pendaki. Data heart rate digunakan untuk menentukan apakah pendaki berada dalam kondisi normal, tachycardia, atau bradycardia, dan menjadi bagian dari sistem deteksi kondisi tubuh. [Source: Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network]
+
 ---
 
 ## Sample 30
@@ -1565,7 +1594,8 @@ Sumber: [Source: Design and Implementation of Hypothermia Symptoms Early Detecti
 
 ### reference
 
-Berdasarkan retrieved context, Pulse sensor was used to retrieve the heart rate data of climber's body. Heart rate data was used to determine whether the climber was experiencing tachycardia or bradycardia or normal condition. Puls (Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network, page 5)
+Dalam monitoring heart rate pada konteks smart jacket, tachycardia dan bradycardia adalah kondisi yang digunakan bersama kategori normal untuk menilai data denyut jantung pendaki. Pulse sensor mengambil data heart rate tubuh pendaki, lalu data tersebut digunakan untuk menentukan apakah pendaki mengalami tachycardia, bradycardia, atau kondisi normal. [Source: Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network]
+
 ---
 
 ## Sample 42
@@ -1608,7 +1638,8 @@ Dengan cara ini, system dapat melakukan pemantauan secara real-time dan mendetek
 
 ### reference
 
-Berdasarkan retrieved context, Pulse sensor was used to retrieve the heart rate data of climber's body. Heart rate data was used to determine whether the climber was experiencing tachycardia or bradycardia or normal condition. Puls (Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network, page 5) The climbers could use an Android smartphone to access data sent by a microcontroller. Android application makes it easy for climbers to find out their body condition in terms of temperature and heart (Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network, page 3) This research designed architecture and implemented a prototype to detect hypothermia symptoms in the climber's body based on WBAN technology. The proposed device consists of body temperature sensor, (Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network, page 1)
+Heart rate dan body temperature digunakan bersama untuk memantau kondisi pendaki dalam sistem deteksi awal dan penanganan hypothermia berbasis WBAN. Sistem menggunakan sensor suhu tubuh dan sensor heart rate, lalu data diproses untuk menentukan apakah pendaki berada dalam kondisi hypothermia atau normal; aplikasi Android menyediakan fitur monitoring kesehatan pendaki. [Source: Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network]
+
 ---
 
 ## Sample 43
@@ -1653,7 +1684,8 @@ Dengan demikian, dapat disimpulkan bahwa pada sistem monitoring pendaki, body te
 
 ### reference
 
-Retrieved context tidak memuat informasi langsung yang menjawab pertanyaan tersebut. Konteks yang tersedia hanya menyebut: Hypothermia is a state where the body cannot balance the body heat due to excessive cold temperature pressure so that there will be loss of heat in the body. The result will be a quickly decreasing bo (Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network, page 1) Hypothermia is a condition in which the body's mechanism for temperature regulation has difficulty coping with cold pressure. Hypothermia can also be defined as an internal temperature below 35 • C. T (Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network, page 1) The second section is in the Android a. Karena itu reference yang sesuai adalah bahwa informasi yang diminta tidak tersedia secara jelas dalam retrieved context.
+Hypothermia terjadi ketika tubuh tidak dapat menyeimbangkan panas akibat tekanan suhu dingin sehingga terjadi kehilangan panas dan suhu tubuh menurun cepat. Dalam sistem monitoring pendaki, body temperature dan heart rate dipantau untuk mendeteksi kondisi abnormal, dan ketika pendaki terdeteksi hypothermia, data kondisi tersebut disimpan dalam riwayat kesehatan. [Source: Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network]
+
 ---
 
 ## Sample 44
@@ -1702,7 +1734,8 @@ Dengan demikian, smart jacket dapat membantu mencegah komplikasi yang lebih seri
 
 ### reference
 
-Berdasarkan retrieved context, Table 1 shows the comparisons of the proposed system with Table 1 menunjukkan perbandingan sistem yang diproposalkan dengan sistem lainnya dalam beberapa aspek. Dari tabel ini dapat diketahui bahwa si (Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network, page 3) In this article, there are several innovations or uniqueness compared to the related researches mentioned above. This research focuses more on making jackets to be worn by mountain climbers. Some elec (Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network, page 2) TABLE 1. Comparisons of the proposed system with related works. Data yang tersedia dari tabel di atas dapat dikategorikan menjadi dua bagian utama yaitu Desain Sistem dan Implementasi, serta Perbandi (Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network, page 4)
+Smart jacket membantu deteksi dini hypothermia dengan perangkat yang dirancang khusus untuk dipakai pendaki. Perangkat ini tidak menyembuhkan hypothermia sepenuhnya, tetapi digunakan untuk mendeteksi gejala agar penanganan awal dapat dimulai; sistem berbasis WBAN dan sensor tubuh mendukung monitoring kondisi pendaki. [Source: Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network]
+
 ---
 
 ## Sample 45
@@ -1747,7 +1780,8 @@ Dalam penelitian ini, sensor temperature digunakan bersama dengan sensor getaran
 
 ### reference
 
-Berdasarkan retrieved context, This research designed architecture and implemented a prototype to detect hypothermia symptoms in the climber's body based on WBAN technology. The proposed device consists of body temperature sensor, (Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network, page 1) Temperature sensor DS18B20 was used to determine the temperature of peltier. It allowed the climber to see the peltier temperature on the jacket. The DS18B20 sensor is a digital temperature sensor tha (Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network, page 5) TABLE 4. Code in 2-digit numbers of the two sensors. Dalam penelitian ini, sensor suhu tubuh menggunakan tipe DS18B20 dan sensor getaran untuk mengukur denyut nadi dengan tipe XD-58C. Sensor suhu tub (Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network, page 7)
+Sensor temperature dalam sistem wearable digunakan untuk memantau suhu tubuh atau suhu peltier pada jaket. Konteks menyebut sensor suhu tubuh DS18B20 dan sensor denyut nadi XD-58C; sensor DS18B20 juga digunakan untuk menentukan temperatur peltier sehingga pendaki dapat melihat suhu peltier pada jaket. [Source: Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network]
+
 ---
 
 ## Sample 46
@@ -1800,6 +1834,7 @@ Dengan demikian, sensor body temperature berperan penting dalam sistem deteksi h
 
 ### reference
 
-Berdasarkan retrieved context, TABLE 4. Code in 2-digit numbers of the two sensors. Dalam penelitian ini, sensor suhu tubuh menggunakan tipe DS18B20 dan sensor getaran untuk mengukur denyut nadi dengan tipe XD-58C. Sensor suhu tub (Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network, page 7) Table 1 shows the comparisons of the proposed system with Table 1 menunjukkan perbandingan sistem yang diproposalkan dengan sistem lainnya dalam beberapa aspek. Dari tabel ini dapat diketahui bahwa si (Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network, page 3) In this article, there are several innovations or uniqueness compared to the related researches mentioned above. This research focuses more on making jackets to be worn by mountain climbers. Some elec (Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network, page 2)
+Sensor body temperature membantu sistem mendeteksi gejala hypothermia dengan mengukur suhu tubuh pendaki dan mengelompokkannya ke dalam kondisi seperti normal, hypothermia ringan, hypothermia sedang, atau hypothermia berat. Data sensor ini digunakan bersama sensor lain pada smart jacket untuk menentukan kondisi kesehatan pendaki. [Source: Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network]
+
 ---
 

@@ -10,6 +10,7 @@ from app.models.user import User
 from app.api.deps import get_current_user
 from app.schemas.chat import ChatRequest, ChatResponse, ConversationResponse
 from app.services.chat import ChatService
+from app.services.chat_test_export import export_chat_test_markdown_for_bot_chat
 from app.services.ragas_export import export_ragas_markdown
 from app.config import get_settings
 
@@ -29,6 +30,10 @@ async def chat_interaction(
     """
     chat_service = ChatService(db)
     response = await chat_service.process_chat(current_user.id, request)
+    try:
+        export_chat_test_markdown_for_bot_chat(db, response.id)
+    except Exception as error:
+        print(f"Warning: failed to export chat_test markdown for chat {response.id}: {error}")
     return response
 
 @router.post("/stream")
@@ -45,6 +50,16 @@ async def chat_interaction_stream(
     async def stream_generator():
         try:
             async for event in chat_service.process_chat_stream(current_user.id, request):
+                if event.get("type") == "done":
+                    chat_id = event.get("chat", {}).get("id")
+                    if chat_id is not None:
+                        try:
+                            export_chat_test_markdown_for_bot_chat(db, chat_id)
+                        except Exception as export_error:
+                            print(
+                                "Warning: failed to export chat_test markdown "
+                                f"for chat {chat_id}: {export_error}"
+                            )
                 yield json.dumps(event, ensure_ascii=False) + "\n"
         except Exception as error:
             yield json.dumps(

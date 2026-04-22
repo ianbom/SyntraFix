@@ -41,7 +41,7 @@ WBAN digunakan untuk mendeteksi gejala hipotermia, memantau suhu tubuh dan detak
 
 ### reference
 
-WBAN digunakan untuk mengumpulkan data sinyal biologis, memantau kondisi tubuh, dan mendukung sistem kesehatan seperti deteksi gejala hipotermia pada pendaki.
+WBAN digunakan untuk mengumpulkan dan mengirim data biologis pengguna secara nirkabel. Dalam sistem smart jacket, WBAN mendukung monitoring kondisi tubuh pendaki, termasuk suhu tubuh dan denyut nadi, untuk membantu deteksi gejala hypothermia. [Source: Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network]
 
 ---
 
@@ -85,7 +85,7 @@ Sumber: [Source: Design and Implementation of Hypothermia Symptoms Early Detecti
 
 ### reference
 
-WBAN mengirim data tubuh dengan node sensor yang mengumpulkan sinyal biologis pasien, lalu data dikirim secara nirkabel ke server untuk disimpan, diproses, dan digunakan sebagai referensi.
+WBAN mengirim data tubuh melalui node sensor yang mengumpulkan sinyal biologis, lalu data tersebut dikirim secara nirkabel ke server untuk disimpan dan diproses. Pada sistem smart jacket, aplikasi Android menerima data sensor dari perangkat melalui Bluetooth secara real-time. [Source: Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network]
 
 ---
 
@@ -135,7 +135,7 @@ Sumber: [Source: Design and Implementation of Hypothermia Symptoms Early Detecti
 
 ### reference
 
-Kelebihan WBAN dalam konteks ini adalah dapat mengumpulkan data biologis pasien dalam jangka waktu lama dan mengirimkannya secara nirkabel ke server untuk penyimpanan serta pemrosesan lanjutan.
+Kelebihan WBAN pada konteks smart jacket adalah kemampuannya mengumpulkan data biologis dari pengguna dalam jangka waktu tertentu dan mengirimkannya secara nirkabel untuk diproses. Sistem ini mendukung monitoring kondisi tubuh dan deteksi gejala hypothermia pada pendaki. [Source: Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network]
 
 ---
 
@@ -181,7 +181,7 @@ Pseudonym adalah identitas palsu yang dihasilkan oleh algoritma pengenalan pseud
 
 ### reference
 
-Pseudonym dalam konteks ini berupa PID yang dibuat melalui user pseudonym generation. PID dapat dibuat berdasarkan indeks keanggotaan pengguna dan epoch time, lalu digunakan dalam skema pseudonymous-based anonymous authentication.
+Pseudonym adalah identitas semu yang digunakan dalam skema autentikasi anonim. Pada dokumen VANETs, user pseudonym generation membuat PID pengguna berdasarkan indeks keanggotaan pengguna dan epoch time, sehingga pengguna dapat melakukan autentikasi tanpa mengungkapkan informasi privasi secara langsung. [Source: An Anonymous Authentication With Received Signal Strength Based Pseudonymous Identities Generation for VANETs]
 
 ---
 
@@ -233,6 +233,6 @@ Dalam kesimpulan, anonimitas adalah kemampuan untuk menghindari identifikasi ata
 
 ### reference
 
-Anonymity dalam konteks ini adalah kemampuan mobile user untuk melakukan autentikasi secara anonim kepada entity berwenang seperti Group Manager tanpa mengungkapkan informasi privasi.
+Anonymity adalah kemampuan mobile user untuk melakukan autentikasi kepada entitas berwenang seperti Group Manager tanpa mengungkapkan informasi privasi. Sistem anonymous authentication memberikan autentikasi anonim dan menjaga privasi pengguna dalam jaringan. [Source: An Anonymous Authentication With Received Signal Strength Based Pseudonymous Identities Generation for VANETs]
 
 ---

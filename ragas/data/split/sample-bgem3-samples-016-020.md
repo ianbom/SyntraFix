@@ -43,7 +43,7 @@ RAG adalah singkatan dari "Retrieval-Augmented Generation". Sistem ini menggabun
 
 ### reference
 
-RAG atau Retrieval-Augmented Generation adalah kerangka yang mengambil dokumen atau passage relevan dari korpus besar menggunakan sistem information retrieval, lalu menggabungkannya dengan kemampuan model bahasa.
+RAG atau Retrieval-Augmented Generation adalah sistem yang menggabungkan Large Language Models dengan external knowledge retrieval. Sistem ini mengambil informasi relevan dari sumber eksternal sehingga efektif untuk tugas yang membutuhkan pengetahuan. [Source: DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation]
 
 ---
 
@@ -87,7 +87,7 @@ RAG (Retrieval-Augmented Generation) digunakan untuk melakukan tugas-tugas penge
 
 ### reference
 
-RAG digunakan untuk tugas yang membutuhkan pengetahuan intensif karena menggabungkan large language model dengan retrieval pengetahuan eksternal sehingga dapat mengambil informasi relevan sebelum menghasilkan jawaban.
+RAG digunakan untuk tugas-tugas knowledge-intensive dengan menggabungkan kemampuan LLM dan retrieval pengetahuan eksternal. Dengan mengambil dokumen atau passage relevan dari korpus besar, RAG membantu generator menghasilkan jawaban yang didukung konteks dokumen. [Source: DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation]
 
 ---
 
@@ -133,7 +133,7 @@ Sumber: [Source: DynamicRAG: Leveraging Outputs of Large Language Model as Feedb
 
 ### reference
 
-RAG mencari informasi dengan mengambil dokumen atau passage relevan dari korpus besar. Langkah ini biasanya dilakukan oleh sistem information retrieval berdasarkan query pengguna.
+RAG mencari informasi dengan mengambil dokumen atau passage yang relevan dari korpus besar. Langkah awal framework RAG biasanya dilakukan oleh information retrieval system yang menerima query pengguna dan memilih dokumen yang relevan untuk digunakan oleh generator. [Source: DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation]
 
 ---
 
@@ -184,7 +184,7 @@ Namun, untuk menjawab pertanyaan user secara langsung: "Apa kelebihan RAG diband
 
 ### reference
 
-Konteks menunjukkan bahwa pendekatan dengan retrieval dibandingkan dengan model tanpa retrieval dan bahwa DynamicRAG menambahkan reranking dinamis. Keunggulan RAG berada pada penggunaan mekanisme retrieval untuk membawa informasi eksternal yang relevan ke proses jawaban.
+Kelebihan RAG dibanding chat biasa yang tidak memakai retrieval adalah kemampuannya menggabungkan LLM dengan pencarian pengetahuan eksternal. Dengan external knowledge retrieval, RAG lebih cocok untuk tugas knowledge-intensive karena jawaban dapat didukung oleh dokumen atau passage yang relevan. [Source: DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation]
 
 ---
 
@@ -235,6 +235,6 @@ Sumber:
 
 ### reference
 
-RAG memberi jawaban dari dokumen dengan terlebih dahulu mengambil dokumen atau passage relevan dari korpus menggunakan sistem information retrieval, lalu informasi yang diambil digunakan sebagai dasar proses generasi jawaban.
+RAG memberi jawaban dari dokumen dengan terlebih dahulu mengambil dokumen atau passage relevan dari korpus besar menggunakan information retrieval system. Konteks yang ditemukan kemudian digunakan oleh generator untuk membuat jawaban berdasarkan informasi eksternal tersebut. [Source: DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation]
 
 ---

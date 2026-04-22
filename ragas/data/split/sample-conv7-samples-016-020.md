@@ -1,0 +1,259 @@
+# RAGAS Test Data
+
+File ini digenerate dari tabel `chats` dan `chat_references`.
+`reference` sengaja dikosongkan agar dapat diisi manual.
+
+## Sample 16
+
+- conversation_id: 7
+- user_chat_id: 135
+- bot_chat_id: 136
+
+### user_input
+
+Bagaimana sistem kontrol goalkeeper robot menggunakan hasil prediksi posisi bola?
+
+### retrieved_context
+
+1. The result of the ball arrival position prediction is output. This information is used by the goalkeeping robot control system to take appropriate actions in blocking the ball. This output allows the (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 9)
+
+2. The prediction model then analyzes the ball position input and predicts the future direction and position of the ball. This prediction helps the robot goalkeeper determine the movements to be made to (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 9)
+
+3. The process of system completion involves multiple stages that are intended to accomplish the objectives of the research.
+
+Every phase is meticulously organized to guarantee that every facet of the in (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 3)
+
+4. • Proposing a system for predicting the position of the ball using the ZED camera because the ZED camera has the ability to detect ball objects with extreme lighting conditions on the Goalkeeper Robot (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 2)
+
+5. The dataset creation process starts with data capture, where the robot goalkeeper is placed in the goal area, and the ball is kicked from three different directions. Data was recorded using a ZED came (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 7)
+
+6. With this further development, it is expected that the ball position prediction model is not only more accurate in the ''right'' and ''left'' classes, but can also provide better performance on ball p (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 11)
+
+7. TABLE 3. Comparisons results of the proposed system with related works.
+
+Analisis hasil pengujian menunjukkan bahwa model prediksi posisi bola yang dikembangkan menggunakan metode CNN dengan kamera Ze (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 11)
+
+8. FIGURE 5. Ball prediction system. Maaf, saya tidak dapat menafsirkan atau membuat gambar. Namun, saya dapat membantu Anda untuk menyimulasikan hasil interpretasi jika Anda dapat memberikan deskripsi s (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 4)
+
+### response
+
+Sistem kontrol goalkeeper robot menggunakan hasil prediksi posisi bola untuk mengambil aksi yang tepat dalam mencegah bola masuk ke gawang. Setelah melakukan analisis pada data visual dari kamera ZED, sistem akan memprediksi posisi bola di masa depan dan klasifikasinya menjadi salah satu dari tiga kategori: kiri, tengah, atau kanan.
+
+Dengan menggunakan hasil prediksi ini, sistem kontrol akan mengarahkan goalkeeper robot untuk mengambil aksi yang tepat, seperti bergerak ke arah kiri, kanan, atau tetap di tengah lapangan. Aksi ini bertujuan untuk mencegah bola masuk ke gawang dan meningkatkan kemampuan robot goalkeeper dalam menangkap bola.
+
+Performa sistem prediksi posisi bola yang dikembangkan menggunakan metode CNN dengan kamera ZED telah menunjukkan hasil yang baik dalam klasifikasi dan deteksi bola di lapangan sepakbola. Namun, perlu diperbaiki lagi untuk meningkatkan akurasi pada kelas "tengah".
+
+Dengan demikian, sistem kontrol goalkeeper robot dapat menggunakan hasil prediksi posisi bola yang lebih akurat untuk mengambil aksi yang tepat dan meningkatkan kemampuan robot goalkeeper dalam menangkap bola. [Source: Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application]
+
+### reference
+
+Sistem kontrol goalkeeper robot menggunakan hasil prediksi posisi kedatangan bola sebagai informasi untuk mengambil tindakan yang tepat dalam memblokir bola. Model prediksi menganalisis input posisi bola, memprediksi arah dan posisi bola di masa depan, lalu output tersebut membantu robot menentukan gerakan yang harus dilakukan. [Source: Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application]
+
+---
+
+---
+
+## Sample 17
+
+- conversation_id: 7
+- user_chat_id: 137
+- bot_chat_id: 138
+
+### user_input
+
+Bagaimana cara kerja Retrieval-Augmented Generation atau RAG?
+
+### retrieved_context
+
+1. After encoding, the next phase is to generate an answer or response based on the query and retrieved documents. The generation model takes both the query and the retrieved documents as input and gener (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 3)
+
+2. Table 6: Performance comparison across different settings and datasets menunjukkan hasil perbandingan kinerja sistem Retrieval-Augmented Generation (RAG) dengan beberapa pengaturan dan dataset. Data t (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 18)
+
+3. Retrieval-augmented generation (RAG) systems combine large language models (LLMs) with external knowledge retrieval, making them highly effective for knowledge-intensive tasks. A crucial but often und (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 1)
+
+4. The first step in the RAG framework is to retrieve relevant documents or passages from a large corpus. This is typically done using an information retrieval (IR) system. Given a query q, the IR system (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 3)
+
+5. Retrieval-augmented generation (RAG) systems have emerged as a powerful approach for combining the strengths of large language models (LLMs) with external knowledge retrieval. This integration has pro (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 1)
+
+6. Table 11: Prompt template for dynamic Reranker.
+
+Tabel ini menunjukkan contoh prompt template untuk sistem reranking dinamis dalam retrieval-augmented generation. Ada dua jenis prompt yang dibahas di (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 23)
+
+7. Tables 9 and 10 present two distinct examples illustrating the effectiveness of our approach. In the first example, the dynamic reranker produces a reordered sequence and selects a different number of (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 20)
+
+8. In this section, we propose DynamicRAG. Unlike traditional RAG systems that rely on static ranking methods, DynamicRAG introduces a dynamic reranking mechanism and leverages feedback from LLM output t (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 4)
+
+### response
+
+Retrieval-Augmented Generation (RAG) adalah sistem yang menggabungkan kemampuan besar model bahasa (Large Language Models) dengan ekstraksi informasi dari luar, sehingga sangat efektif dalam menjawab tugas-tugas pengetahuan intensif. Sistem RAG mencakup dua komponen utama: retriever dan generator.
+
+Retriever bertanggung jawab untuk mengambil dokumen-dokumen relevan dari korpus yang besar berdasarkan query yang diberikan. Kemudian, generator menggunakan dokumen-dokumen tersebut untuk menghasilkan respons akhir.
+
+Namun, ada dua tantangan utama yang dihadapi oleh sistem RAG: pertama, dokumen-dokumen tidak relevan dapat menyebabkan proses penyusunan jawaban menjadi salah arah; kedua, fenomena 'hilang di tengah-tengah' (lost-in-the-middle) terjadi ketika informasi penting terlupakan karena jumlah dokumen yang besar. Reranker memainkan peran krusial dalam mengatasi masalah ini dengan menilai relevansi dokumen-dokumen yang diperoleh.
+
+Dalam sistem RAG, reranker bertanggung jawab untuk memilih k dokumen yang paling relevan dari hasil penelusuran. Namun, menentukan nilai optimal (k) masih merupakan masalah yang sulit. Jika nilai k terlalu kecil, informasi penting mungkin hilang; jika nilai k terlalu besar, konten tidak relevan dapat meningkatkan kerumitan dan mengganggu generator.
+
+Dalam paper ini, kami memperkenalkan DynamicRAG, sebuah framework RAG dinamis yang menggunakan reranker yang dapat menyesuaikan ulang dokumen-dokumen yang dipilih berdasarkan query. Kami juga menggunakan model bahasa besar sebagai sumber umpan balik untuk menyempurnakan keputusan reranking.
+
+Dengan demikian, DynamicRAG mencapai performa yang lebih baik daripada sistem RAG tradisional dan dapat menyelesaikan tantangan di atas dengan lebih efektif.
+
+### reference
+
+RAG atau Retrieval-Augmented Generation bekerja dengan menggabungkan LLM dengan external knowledge retrieval. Langkah awal RAG adalah mengambil dokumen atau passage relevan dari korpus besar menggunakan information retrieval system, lalu setelah encoding, model generation menggunakan query dan dokumen yang diambil sebagai input untuk menghasilkan jawaban. [Source: DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation]
+
+---
+
+---
+
+## Sample 18
+
+- conversation_id: 7
+- user_chat_id: 139
+- bot_chat_id: 140
+
+### user_input
+
+Apa manfaat RAG untuk sistem tanya jawab berbasis dokumen akademik?
+
+### retrieved_context
+
+1. Table 11: Prompt template for dynamic Reranker.
+
+Tabel ini menunjukkan contoh prompt template untuk sistem reranking dinamis dalam retrieval-augmented generation. Ada dua jenis prompt yang dibahas di (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 23)
+
+2. Table 1: Overview of candidate datasets for RAG evaluation. SQuAD, MultiHop-RAG, and Natural Questions are included to Table 1: Overview of candidate datasets untuk evaluasi model RAG menunjukkan bebe (QuOTE: Question-Oriented Text Embeddings, page 4)
+
+3. Retrieval-augmented generation (RAG [35,36,40]) serves as a significant contribution to the deployment and acceptance of LLMs in practice. Given a user's prompt, RAG retrieves relevant information fro (QuOTE: Question-Oriented Text Embeddings, page 1)
+
+4. Retrieval-augmented generation (RAG) systems combine large language models (LLMs) with external knowledge retrieval, making them highly effective for knowledge-intensive tasks. A crucial but often und (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 1)
+
+5. This work has demonstrated how the use of questions to augment representations of documents can yield significant improvement in information retrieval for RAG applications. The need for deduplication (QuOTE: Question-Oriented Text Embeddings, page 9)
+
+6. This work introduces DynamicRAG, a new reinforcement learning framework to optimize reranking in RAG. By modeling the reranker as an RL agent and using LLM response quality as rewards, it dynamically (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 11)
+
+7. The first step in the RAG framework is to retrieve relevant documents or passages from a large corpus. This is typically done using an information retrieval (IR) system. Given a query q, the IR system (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 3)
+
+8. [64] T Zhang, V Kishore, F Wu, KQ Weinberger, Y Artzi. Bertscore: Evaluating text generation with BERT. (2020)
+
+[65] T Zhang, SG Patil, N Jain, S Shen, M Zaharia, I Stoica, JE Gonzalez. Raft: Adapting (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 1)
+
+### response
+
+RAG (Retrieval-Augmented Generation) memiliki beberapa manfaat untuk sistem tanya jawab berbasis dokumen akademik. 
+
+Pertama, RAG dapat meningkatkan kemampuan sistem dalam menjawab pertanyaan dengan memungkinkannya mengakses informasi dari berbagai sumber dan konteks yang relevan. Sistem ini juga dapat membantu meningkatkan akurasi jawaban dengan menggunakan reranking dinamis untuk menentukan dokumen yang paling relevan.
+
+Kedua, RAG dapat membantu dalam pengelolaan dataset yang besar dan kompleks, seperti SQuAD, MultiHop-RAG, dan Natural Questions. Sistem ini dapat memproses pertanyaan dan respons dengan lebih cepat dan efektif.
+
+Ketiga, RAG dapat meningkatkan kinerja sistem dalam menangani pertanyaan yang kompleks atau tidak biasa, karena sistem ini dapat mengakses informasi dari berbagai sumber dan konteks yang relevan.
+
+Keempat, RAG dapat membantu dalam pengembangan sistem tanya jawab yang lebih baik dengan menggunakan reinforcement learning untuk melatih reranking dinamis.
+
+Dengan demikian, RAG dapat menjadi solusi yang efektif untuk meningkatkan kinerja sistem tanya jawab berbasis dokumen akademik. 
+
+[Source: QuOTE: Question-Oriented Text Embeddings]
+[Source: DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation]
+
+### reference
+
+Manfaat RAG untuk sistem tanya jawab berbasis dokumen akademik adalah kemampuannya mengambil informasi relevan dari dokumen eksternal berdasarkan prompt pengguna. RAG menggabungkan LLM dengan external knowledge retrieval sehingga efektif untuk tugas knowledge-intensive, dan dapat dilengkapi dengan dynamic reranking untuk menentukan dokumen yang lebih relevan sebelum jawaban dibuat. [Source: QuOTE: Question-Oriented Text Embeddings; Source: DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation]
+
+---
+
+---
+
+## Sample 19
+
+- conversation_id: 7
+- user_chat_id: 141
+- bot_chat_id: 142
+
+### user_input
+
+Mengapa retrieval menjadi tahap penting dalam pipeline RAG?
+
+### retrieved_context
+
+1. Many RAG systems employ a two-step pipeline: a fast retriever selects the top-k candidate chunks, and a reranker, typically a computationally intensive cross-encoder, reorders these candidates for fin (QuOTE: Question-Oriented Text Embeddings, page 2)
+
+2. The first step in the RAG framework is to retrieve relevant documents or passages from a large corpus. This is typically done using an information retrieval (IR) system. Given a query q, the IR system (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 3)
+
+3. During query time, multiple retrieved "documents" often reference the same underlying chunk. Hence, a deduplication step is necessary to ensure we select the top-k distinct chunks, avoiding wasted slo (QuOTE: Question-Oriented Text Embeddings, page 1)
+
+4. Retrieval-augmented generation (RAG [35,36,40]) serves as a significant contribution to the deployment and acceptance of LLMs in practice. Given a user's prompt, RAG retrieves relevant information fro (QuOTE: Question-Oriented Text Embeddings, page 1)
+
+5. We present QuOTE (Question-Oriented Text Embeddings), a novel enhancement to retrieval-augmented generation (RAG) systems, aimed at improving document representation for accurate and nuanced retrieval (QuOTE: Question-Oriented Text Embeddings, page 1)
+
+6. Table 11: Prompt template for dynamic Reranker.
+
+Tabel ini menunjukkan contoh prompt template untuk sistem reranking dinamis dalam retrieval-augmented generation. Ada dua jenis prompt yang dibahas di (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 23)
+
+7. Retrieval-augmented generation (RAG) systems have emerged as a powerful approach for combining the strengths of large language models (LLMs) with external knowledge retrieval. This integration has pro (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 1)
+
+8. The Table 3b shows the performance of DynamicRAG under various ablation conditions, where key components such as retrieval, reranking, reinforcement learning, and iterative training are removed. Evalu (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 9)
+
+### response
+
+Retrieval menjadi tahap penting dalam pipeline Retrieval-Augmented Generation (RAG) karena sistem reranking dinamis membutuhkan dokumen-dokumen relevan untuk mengidentifikasi informasi yang tepat. Dengan menggunakan retrieval, sistem dapat memilih dokumen-dokumen yang paling relevan terhadap query yang diberikan, sehingga meningkatkan kualitas respons yang dihasilkan.
+
+Pada [Source: DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation], disebutkan bahwa sistem reranking dinamis sangat penting dalam RAG framework karena dapat mengidentifikasi dokumen-dokumen yang relevan dan memilih k yang tepat. Dengan demikian, sistem dapat meningkatkan efisiensi dan efektifitas proses retrieval-reranking.
+
+Selain itu, seperti disebutkan pada [Source: QuOTE: Question-Oriented Text Embeddings], retrieval juga sangat penting dalam RAG karena dapat membantu sistem untuk memilih dokumen-dokumen yang paling relevan terhadap query. Dengan menggunakan question-based embeddings, sistem dapat meningkatkan kualitas respons yang dihasilkan.
+
+Dari penjelasan di atas, dapat disimpulkan bahwa retrieval adalah tahap penting dalam pipeline RAG karena membantu sistem untuk memilih dokumen-dokumen yang relevan dan meningkatkan kualitas respons yang dihasilkan. [Source: DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation]
+
+### reference
+
+Retrieval penting dalam pipeline RAG karena tahap pertama framework RAG adalah mengambil dokumen atau passage relevan dari korpus besar menggunakan information retrieval system. Banyak sistem RAG memakai pipeline dua langkah, yaitu fast retriever memilih top-k candidate chunks lalu reranker menyusun ulang kandidat tersebut untuk digunakan pada tahap akhir. [Source: DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation; Source: QuOTE: Question-Oriented Text Embeddings]
+
+---
+
+---
+
+## Sample 20
+
+- conversation_id: 7
+- user_chat_id: 143
+- bot_chat_id: 144
+
+### user_input
+
+Bagaimana reranking dapat meningkatkan kualitas dokumen yang dipakai oleh RAG?
+
+### retrieved_context
+
+1. Table 11: Prompt template for dynamic Reranker.
+
+Tabel ini menunjukkan contoh prompt template untuk sistem reranking dinamis dalam retrieval-augmented generation. Ada dua jenis prompt yang dibahas di (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 23)
+
+2. Retrieval-augmented generation (RAG) systems combine large language models (LLMs) with external knowledge retrieval, making them highly effective for knowledge-intensive tasks. A crucial but often und (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 1)
+
+3. This work introduces DynamicRAG, a new reinforcement learning framework to optimize reranking in RAG. By modeling the reranker as an RL agent and using LLM response quality as rewards, it dynamically (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 11)
+
+4. Traditional reranking approaches rely on static ranking models that determine the relevance of retrieved documents independently of the generation task. These models typically operate within a fixed-l (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 4)
+
+5. The Figure 7 presents the performance of DynamicRAG with different numbers of top-K documents (from 50 to 500) used for reranking across three benchmarks: NQ, HotpotQA, and ASQA. We adopt the same tec (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 17)
+
+6. Based on these insights, we propose DynamicRAG, a novel RAG framework where the reranker dynamically adjusts both the order and number of retrieved documents based on the query. In DynamicRAG, the rer (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 2)
+
+7. Tables 9 and 10 present two distinct examples illustrating the effectiveness of our approach. In the first example, the dynamic reranker produces a reordered sequence and selects a different number of (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 20)
+
+8. LLMs are increasingly used for passage reranking, with methods generally being point-wise (assessing individual relevance via relevance or query generation [27,9,47]), pair-wise (comparing passage pai (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 11)
+
+### response
+
+Reranking dalam Retrieval-Augmented Generation (RAG) dapat meningkatkan kualitas dokumen yang dipakai dengan cara dinamis menyesuaikan urutan dan jumlah dokumen yang dipilih berdasarkan query. Reranking tidak lagi hanya menggunakan model ranking statis, tetapi menggunakan penggunaan feedback dari generator untuk mengarahkan proses reranking.
+
+Dengan menggunakan teknik reinforcement learning (RL), reranker dapat belajar untuk memilih dokumen-dokumen yang paling relevan dan efisien untuk digunakan dalam generasi. Dengan cara ini, reranking dapat meningkatkan kualitas dokumen yang dipakai oleh RAG sehingga dapat menghasilkan jawaban yang lebih akurat dan singkat.
+
+Selain itu, DynamicRAG juga dapat membantu mengurangi jumlah dokumen yang tidak relevan atau berpotensi menyebabkan kebocoran informasi. Hal ini dilakukan dengan cara model reranking yang dapat memilih dokumen-dokumen yang paling relevan dan efisien untuk digunakan dalam generasi.
+
+Dalam beberapa kasus, reranking bahkan dapat mengurangi jumlah dokumen yang dipakai oleh RAG karena model reranking dapat mengenali pertanyaan yang cukup sederhana sehingga tidak perlu menggunakan informasi dari luar.
+
+Dengan demikian, reranking dapat meningkatkan kualitas dokumen yang digunakan dalam RAG dengan cara dinamis menyesuaikan urutan dan jumlah dokumen yang dipilih berdasarkan query. [Source: DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation]
+
+### reference
+
+Reranking meningkatkan kualitas dokumen pada RAG dengan menyusun ulang kandidat dokumen agar generator menerima konteks yang lebih relevan. DynamicRAG memperkenalkan framework reinforcement learning untuk mengoptimalkan reranking dengan memodelkan reranker sebagai agen RL dan menggunakan kualitas respons LLM sebagai reward. [Source: DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation]
+
+---

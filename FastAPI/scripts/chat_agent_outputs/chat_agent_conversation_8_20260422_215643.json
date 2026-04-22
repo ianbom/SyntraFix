@@ -1,0 +1,427 @@
+[
+  {
+    "index": 1,
+    "question": "Apa itu eHealth?",
+    "conversation_id_before_request": 8,
+    "status": "success",
+    "chat_id": 304,
+    "conversation_id": 8,
+    "response_message": "eHealth adalah istilah yang digunakan untuk merujuk pada teknologi kesehatan yang menggunakan internet dan komunikasi jaringan komputer untuk mendukung pelayanan kesehatan. Dalam konteks ini, eHealth dapat meliputi berbagai aspek seperti:\n\n1. Sistem Informasi Kesehatan: eHealth dapat digunakan untuk mengembangkan sistem informasi kesehatan yang memungkinkan akses dan analisis data kesehatan secara lebih cepat dan efisien.\n2. Telemedicine: eHealth juga dapat digunakan untuk mendukung telemedicine, yaitu layanan medis yang disampaikan melalui jaringan internet atau komunikasi jaringan komputer.\n3. Pemantauan Kesehatan: eHealth dapat digunakan untuk memantau kondisi kesehatan pasien secara terus-menerus dan mengirimkan informasi ke dokter atau tim kesehatan yang terkait.\n4. Edukasi Kesehatan: eHealth juga dapat digunakan untuk menyediakan edukasi kesehatan kepada masyarakat, termasuk informasi tentang penyakit, pencegahan, dan pengobatan.\n\nDalam beberapa referensi yang disebutkan dalam konteks, eHealth telah dikembangkan dalam berbagai aplikasi seperti:\n\n* Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network (WBAN): sebuah sistem yang menggunakan teknologi WBAN untuk mendeteksi kondisi tubuh pengguna dan memantau suhu tubuh serta detak jantung.\n* Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network: sebuah artikel yang menjelaskan tentang implementasi sistem eHealth berbasis WBAN untuk mendeteksi gejala hipotermia.\n\nDengan demikian, dapat disimpulkan bahwa eHealth adalah istilah yang digunakan untuk merujuk pada teknologi kesehatan yang menggunakan internet dan komunikasi jaringan komputer untuk mendukung pelayanan kesehatan.",
+    "raw_response": {
+      "id": 304,
+      "conversation_id": 8,
+      "role": "bot",
+      "message": "eHealth adalah istilah yang digunakan untuk merujuk pada teknologi kesehatan yang menggunakan internet dan komunikasi jaringan komputer untuk mendukung pelayanan kesehatan. Dalam konteks ini, eHealth dapat meliputi berbagai aspek seperti:\n\n1. Sistem Informasi Kesehatan: eHealth dapat digunakan untuk mengembangkan sistem informasi kesehatan yang memungkinkan akses dan analisis data kesehatan secara lebih cepat dan efisien.\n2. Telemedicine: eHealth juga dapat digunakan untuk mendukung telemedicine, yaitu layanan medis yang disampaikan melalui jaringan internet atau komunikasi jaringan komputer.\n3. Pemantauan Kesehatan: eHealth dapat digunakan untuk memantau kondisi kesehatan pasien secara terus-menerus dan mengirimkan informasi ke dokter atau tim kesehatan yang terkait.\n4. Edukasi Kesehatan: eHealth juga dapat digunakan untuk menyediakan edukasi kesehatan kepada masyarakat, termasuk informasi tentang penyakit, pencegahan, dan pengobatan.\n\nDalam beberapa referensi yang disebutkan dalam konteks, eHealth telah dikembangkan dalam berbagai aplikasi seperti:\n\n* Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network (WBAN): sebuah sistem yang menggunakan teknologi WBAN untuk mendeteksi kondisi tubuh pengguna dan memantau suhu tubuh serta detak jantung.\n* Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network: sebuah artikel yang menjelaskan tentang implementasi sistem eHealth berbasis WBAN untuk mendeteksi gejala hipotermia.\n\nDengan demikian, dapat disimpulkan bahwa eHealth adalah istilah yang digunakan untuk merujuk pada teknologi kesehatan yang menggunakan internet dan komunikasi jaringan komputer untuk mendukung pelayanan kesehatan.",
+      "created_at": "2026-04-22T07:40:30.718012-07:00",
+      "references": []
+    }
+  },
+  {
+    "index": 2,
+    "question": "Untuk apa eHealth digunakan?",
+    "conversation_id_before_request": 8,
+    "status": "success",
+    "chat_id": 306,
+    "conversation_id": 8,
+    "response_message": "Informasi tersebut tidak ditemukan pada dokumen yang tersedia.",
+    "raw_response": {
+      "id": 306,
+      "conversation_id": 8,
+      "role": "bot",
+      "message": "Informasi tersebut tidak ditemukan pada dokumen yang tersedia.",
+      "created_at": "2026-04-22T07:41:10.204199-07:00",
+      "references": []
+    }
+  },
+  {
+    "index": 3,
+    "question": "Bagaimana eHealth membantu pasien?",
+    "conversation_id_before_request": 8,
+    "status": "success",
+    "chat_id": 308,
+    "conversation_id": 8,
+    "response_message": "EHealth membantu pasien dengan:\n\n* Mengukur suhu tubuh dan detak jantung secara real-time\n* Memberikan peringatan awal jika terdapat gejala hipotermia\n* Mengaktifkan pemanas listrik untuk menghangatkan tubuh pasien\n* Membagikan informasi kondisi tubuh pada grup yang telah dibuat\n* Memungkinkan pasien untuk mengatur suhu pemanas listrik secara manual\n\nDengan demikian, eHealth membantu meningkatkan keselamatan dan kenyamanan pasien, terutama bagi mereka yang melakukan aktivitas ekstrem seperti pendakian gunung.",
+    "raw_response": {
+      "id": 308,
+      "conversation_id": 8,
+      "role": "bot",
+      "message": "EHealth membantu pasien dengan:\n\n* Mengukur suhu tubuh dan detak jantung secara real-time\n* Memberikan peringatan awal jika terdapat gejala hipotermia\n* Mengaktifkan pemanas listrik untuk menghangatkan tubuh pasien\n* Membagikan informasi kondisi tubuh pada grup yang telah dibuat\n* Memungkinkan pasien untuk mengatur suhu pemanas listrik secara manual\n\nDengan demikian, eHealth membantu meningkatkan keselamatan dan kenyamanan pasien, terutama bagi mereka yang melakukan aktivitas ekstrem seperti pendakian gunung.",
+      "created_at": "2026-04-22T07:41:35.690752-07:00",
+      "references": []
+    }
+  },
+  {
+    "index": 4,
+    "question": "Apa manfaat eHealth untuk dokter?",
+    "conversation_id_before_request": 8,
+    "status": "success",
+    "chat_id": 310,
+    "conversation_id": 8,
+    "response_message": "Informasi tersebut tidak ditemukan pada dokumen yang tersedia.",
+    "raw_response": {
+      "id": 310,
+      "conversation_id": 8,
+      "role": "bot",
+      "message": "Informasi tersebut tidak ditemukan pada dokumen yang tersedia.",
+      "created_at": "2026-04-22T07:42:06.275770-07:00",
+      "references": []
+    }
+  },
+  {
+    "index": 5,
+    "question": "Bagaimana eHealth memantau kondisi tubuh?",
+    "conversation_id_before_request": 8,
+    "status": "success",
+    "chat_id": 312,
+    "conversation_id": 8,
+    "response_message": "EHealth melakukan pemantuan kondisi tubuh dengan menggunakan sensor-sensor yang dipasang pada jubah pintar berbasis Jaringan Area Tubuh Nirkabel (Wearable Body Area Network). Sensor-sensor tersebut meliputi:\n\n* Sensor suhu badan untuk mendeteksi temperatur tubuh\n* Sensor detak jantung untuk mendeteksi kadar detak jantung\n* Elemen panas peltier untuk memanas suhu tubuh\n\nData dari sensor-sensor ini akan diproses dan dianalisis untuk mengetahui kondisi tubuh pengguna. Jika pengguna sedang mengalami hipotermia, sistem akan memberikan notifikasi dan melakukan penanganan awal dengan memanaskan suhu tubuh menggunakan elemen panas peltier.\n\nInformasi tersebut dapat ditemukan pada dokumen [Source: Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network]",
+    "raw_response": {
+      "id": 312,
+      "conversation_id": 8,
+      "role": "bot",
+      "message": "EHealth melakukan pemantuan kondisi tubuh dengan menggunakan sensor-sensor yang dipasang pada jubah pintar berbasis Jaringan Area Tubuh Nirkabel (Wearable Body Area Network). Sensor-sensor tersebut meliputi:\n\n* Sensor suhu badan untuk mendeteksi temperatur tubuh\n* Sensor detak jantung untuk mendeteksi kadar detak jantung\n* Elemen panas peltier untuk memanas suhu tubuh\n\nData dari sensor-sensor ini akan diproses dan dianalisis untuk mengetahui kondisi tubuh pengguna. Jika pengguna sedang mengalami hipotermia, sistem akan memberikan notifikasi dan melakukan penanganan awal dengan memanaskan suhu tubuh menggunakan elemen panas peltier.\n\nInformasi tersebut dapat ditemukan pada dokumen [Source: Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network]",
+      "created_at": "2026-04-22T07:43:06.455473-07:00",
+      "references": []
+    }
+  },
+  {
+    "index": 6,
+    "question": "Apa itu heart rate?",
+    "conversation_id_before_request": 8,
+    "status": "success",
+    "chat_id": 314,
+    "conversation_id": 8,
+    "response_message": "Heart rate bukanlah topik yang didiskusikan dalam konteks tersebut. Namun, konteks \"Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network\" menyebutkan bahwa pulse sensor digunakan untuk menangkap data detak jantung (heart rate) tubuh pendaki. \n\nJadi, jawaban singkatnya adalah: Detak jantung.\n\n[Source: Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network]",
+    "raw_response": {
+      "id": 314,
+      "conversation_id": 8,
+      "role": "bot",
+      "message": "Heart rate bukanlah topik yang didiskusikan dalam konteks tersebut. Namun, konteks \"Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network\" menyebutkan bahwa pulse sensor digunakan untuk menangkap data detak jantung (heart rate) tubuh pendaki. \n\nJadi, jawaban singkatnya adalah: Detak jantung.\n\n[Source: Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network]",
+      "created_at": "2026-04-22T07:43:39.239221-07:00",
+      "references": []
+    }
+  },
+  {
+    "index": 7,
+    "question": "Mengapa heart rate penting?",
+    "conversation_id_before_request": 8,
+    "status": "success",
+    "chat_id": 316,
+    "conversation_id": 8,
+    "response_message": "Pulse sensor digunakan untuk mengukur denyut nadi seseorang, dan data denyut nadi tersebut digunakan untuk menentukan apakah seseorang mengalami hipotermia ringan, hipotermia sedang, atau hipotermia berat.\n\n[Source: Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network]",
+    "raw_response": {
+      "id": 316,
+      "conversation_id": 8,
+      "role": "bot",
+      "message": "Pulse sensor digunakan untuk mengukur denyut nadi seseorang, dan data denyut nadi tersebut digunakan untuk menentukan apakah seseorang mengalami hipotermia ringan, hipotermia sedang, atau hipotermia berat.\n\n[Source: Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network]",
+      "created_at": "2026-04-22T07:44:08.508274-07:00",
+      "references": []
+    }
+  },
+  {
+    "index": 8,
+    "question": "Bagaimana heart rate diukur?",
+    "conversation_id_before_request": 8,
+    "status": "success",
+    "chat_id": 318,
+    "conversation_id": 8,
+    "response_message": "Pulse sensor digunakan untuk mengukur denyut nadi tubuh, dan data denyut nadi tersebut dapat berupa tachycardia atau bradycardia atau kondisi normal.\n\n*Sumber: [Source: Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network]",
+    "raw_response": {
+      "id": 318,
+      "conversation_id": 8,
+      "role": "bot",
+      "message": "Pulse sensor digunakan untuk mengukur denyut nadi tubuh, dan data denyut nadi tersebut dapat berupa tachycardia atau bradycardia atau kondisi normal.\n\n*Sumber: [Source: Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network]",
+      "created_at": "2026-04-22T07:44:56.462070-07:00",
+      "references": []
+    }
+  },
+  {
+    "index": 9,
+    "question": "Apa arti heart rate tinggi?",
+    "conversation_id_before_request": 8,
+    "status": "success",
+    "chat_id": 320,
+    "conversation_id": 8,
+    "response_message": "Pulse sensor digunakan untuk memperoleh data detak jantung tubuh pendaki. Data detak jantung digunakan untuk menentukan apakah pendaki mengalami tachycardia atau bradycardia atau kondisi normal.\n\nTidak ada definisi spesifik tentang \"heart rate tinggi\" di dalam konteks yang tersedia, tetapi dapat disimpulkan bahwa heart rate tinggi merujuk pada kondisi tachycardia, yaitu detak jantung yang lebih cepat dari biasanya.\n\n[Source: Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network]",
+    "raw_response": {
+      "id": 320,
+      "conversation_id": 8,
+      "role": "bot",
+      "message": "Pulse sensor digunakan untuk memperoleh data detak jantung tubuh pendaki. Data detak jantung digunakan untuk menentukan apakah pendaki mengalami tachycardia atau bradycardia atau kondisi normal.\n\nTidak ada definisi spesifik tentang \"heart rate tinggi\" di dalam konteks yang tersedia, tetapi dapat disimpulkan bahwa heart rate tinggi merujuk pada kondisi tachycardia, yaitu detak jantung yang lebih cepat dari biasanya.\n\n[Source: Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network]",
+      "created_at": "2026-04-22T07:45:25.066433-07:00",
+      "references": []
+    }
+  },
+  {
+    "index": 10,
+    "question": "Apa arti heart rate rendah?",
+    "conversation_id_before_request": 8,
+    "status": "success",
+    "chat_id": 322,
+    "conversation_id": 8,
+    "response_message": "Bradikardia (jantung berdetak dengan kecepatan lebih lambat dari biasa) adalah kondisi di mana detak jantung turun. [Source: Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network]\n\n*Penting: Jawaban ini didukung oleh konteks yang menyebutkan bahwa pulse sensor digunakan untuk mengukur denyut nadi dan membagi kondisi menjadi tiga kategori, termasuk bradikardia.",
+    "raw_response": {
+      "id": 322,
+      "conversation_id": 8,
+      "role": "bot",
+      "message": "Bradikardia (jantung berdetak dengan kecepatan lebih lambat dari biasa) adalah kondisi di mana detak jantung turun. [Source: Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network]\n\n*Penting: Jawaban ini didukung oleh konteks yang menyebutkan bahwa pulse sensor digunakan untuk mengukur denyut nadi dan membagi kondisi menjadi tiga kategori, termasuk bradikardia.",
+      "created_at": "2026-04-22T07:46:02.693334-07:00",
+      "references": []
+    }
+  },
+  {
+    "index": 11,
+    "question": "Apa itu hypothermia?",
+    "conversation_id_before_request": 8,
+    "status": "success",
+    "chat_id": 324,
+    "conversation_id": 8,
+    "response_message": "Hypothermia adalah suatu kondisi di mana tubuh manusia tidak dapat menyesuaikan diri dengan tekanan dingin, sehingga terjadi kekurangan panas dalam tubuh. Suhu tubuh yang lebih rendah dari 35°C juga merupakan gejala hipotermia.\n\nSumber: [Source: Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network]",
+    "raw_response": {
+      "id": 324,
+      "conversation_id": 8,
+      "role": "bot",
+      "message": "Hypothermia adalah suatu kondisi di mana tubuh manusia tidak dapat menyesuaikan diri dengan tekanan dingin, sehingga terjadi kekurangan panas dalam tubuh. Suhu tubuh yang lebih rendah dari 35°C juga merupakan gejala hipotermia.\n\nSumber: [Source: Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network]",
+      "created_at": "2026-04-22T07:46:34.162090-07:00",
+      "references": []
+    }
+  },
+  {
+    "index": 12,
+    "question": "Apa penyebab hypothermia?",
+    "conversation_id_before_request": 8,
+    "status": "success",
+    "chat_id": 326,
+    "conversation_id": 8,
+    "response_message": "Hypothermia adalah kondisi di mana tubuh manusia mengalami penurunan suhu hingga menimbulkan gejala-gejala yang berbahaya. Penyebab hypothermia antara lain:\n* Kondisi ekstrem seperti cuaca dingin, angin kencang, dan air dingin [Source: Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network]\n* Pakaian basah [Source: Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network]\n\nSumber:\n[Source: Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network]",
+    "raw_response": {
+      "id": 326,
+      "conversation_id": 8,
+      "role": "bot",
+      "message": "Hypothermia adalah kondisi di mana tubuh manusia mengalami penurunan suhu hingga menimbulkan gejala-gejala yang berbahaya. Penyebab hypothermia antara lain:\n* Kondisi ekstrem seperti cuaca dingin, angin kencang, dan air dingin [Source: Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network]\n* Pakaian basah [Source: Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network]\n\nSumber:\n[Source: Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network]",
+      "created_at": "2026-04-22T07:47:01.546512-07:00",
+      "references": []
+    }
+  },
+  {
+    "index": 13,
+    "question": "Apa tanda tubuh mengalami hypothermia?",
+    "conversation_id_before_request": 8,
+    "status": "success",
+    "chat_id": 328,
+    "conversation_id": 8,
+    "response_message": "Berdasarkan konteks, tanda-tanda tubuh mengalami hipotermia adalah:\n\n• Suhu tubuh di bawah 35°C\n• Penurunan detak jantung dan suhu tubuh\n• Gejala-gejala yang berbahaya lainnya\n\nSumber: [Source: Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network]",
+    "raw_response": {
+      "id": 328,
+      "conversation_id": 8,
+      "role": "bot",
+      "message": "Berdasarkan konteks, tanda-tanda tubuh mengalami hipotermia adalah:\n\n• Suhu tubuh di bawah 35°C\n• Penurunan detak jantung dan suhu tubuh\n• Gejala-gejala yang berbahaya lainnya\n\nSumber: [Source: Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network]",
+      "created_at": "2026-04-22T07:47:35.898808-07:00",
+      "references": []
+    }
+  },
+  {
+    "index": 14,
+    "question": "Bagaimana temperature tubuh dipantau?",
+    "conversation_id_before_request": 8,
+    "status": "success",
+    "chat_id": 330,
+    "conversation_id": 8,
+    "response_message": "Sensor suhu tubuh menggunakan tipe DS18B20 untuk mengukur temperatur tubuh. Data dari sensor ini dibagi ke dalam empat kelompok: normal, hipotermia ringan, hipotermia sedang, dan hipotermia berat.\n\n[Source: Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network]",
+    "raw_response": {
+      "id": 330,
+      "conversation_id": 8,
+      "role": "bot",
+      "message": "Sensor suhu tubuh menggunakan tipe DS18B20 untuk mengukur temperatur tubuh. Data dari sensor ini dibagi ke dalam empat kelompok: normal, hipotermia ringan, hipotermia sedang, dan hipotermia berat.\n\n[Source: Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network]",
+      "created_at": "2026-04-22T07:48:02.427780-07:00",
+      "references": []
+    }
+  },
+  {
+    "index": 15,
+    "question": "Mengapa temperature tubuh penting?",
+    "conversation_id_before_request": 8,
+    "status": "success",
+    "chat_id": 332,
+    "conversation_id": 8,
+    "response_message": "Temperature tubuh sangat penting karena dapat membantu mendeteksi kondisi hipotermia. Hipotermia adalah suhu tubuh di bawah 35 • C, yang dapat menyebabkan gejala-gejala berbahaya seperti penurunan kesadaran dan bahkan kematian. Dengan menggunakan sensor suhu tubuh, sistem yang diproposalkan dapat mendeteksi kondisi hipotermia dan memberikan peringatan kepada pengguna.\n\nSistem ini juga dapat membantu dalam deteksi awal gejala-gejala hipotermia dengan memantau suhu tubuh secara real-time. Dengan demikian, pengguna dapat melakukan penanganan awal yang efektif untuk mencegah komplikasi yang lebih serius.\n\nDalam tabel 9, Sample of severe hypothermia (emergency) condition menunjukkan bahwa penurunan suhu tubuh dapat menyebabkan gejala-gejala berbahaya seperti penurunan detak jantung dan tekanan darah. Dengan demikian, penting untuk mengenali kondisi hipotermia parah dan memberikan perawatan yang tepat segera.\n\nSumber:\n[Source: Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network]",
+    "raw_response": {
+      "id": 332,
+      "conversation_id": 8,
+      "role": "bot",
+      "message": "Temperature tubuh sangat penting karena dapat membantu mendeteksi kondisi hipotermia. Hipotermia adalah suhu tubuh di bawah 35 • C, yang dapat menyebabkan gejala-gejala berbahaya seperti penurunan kesadaran dan bahkan kematian. Dengan menggunakan sensor suhu tubuh, sistem yang diproposalkan dapat mendeteksi kondisi hipotermia dan memberikan peringatan kepada pengguna.\n\nSistem ini juga dapat membantu dalam deteksi awal gejala-gejala hipotermia dengan memantau suhu tubuh secara real-time. Dengan demikian, pengguna dapat melakukan penanganan awal yang efektif untuk mencegah komplikasi yang lebih serius.\n\nDalam tabel 9, Sample of severe hypothermia (emergency) condition menunjukkan bahwa penurunan suhu tubuh dapat menyebabkan gejala-gejala berbahaya seperti penurunan detak jantung dan tekanan darah. Dengan demikian, penting untuk mengenali kondisi hipotermia parah dan memberikan perawatan yang tepat segera.\n\nSumber:\n[Source: Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network]",
+      "created_at": "2026-04-22T07:48:31.471126-07:00",
+      "references": []
+    }
+  },
+  {
+    "index": 16,
+    "question": "Apa itu Wireless Body Area Network?",
+    "conversation_id_before_request": 8,
+    "status": "success",
+    "chat_id": 334,
+    "conversation_id": 8,
+    "response_message": "Wireless Body Area Network (WBAN) adalah teknologi yang digunakan untuk mendeteksi kondisi tubuh pengguna. Sistem WBAN dapat mengirimkan data sensor, seperti suhu tubuh dan detak jantung, ke smartphone pengguna melalui Bluetooth.\n\n[Source: Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network]",
+    "raw_response": {
+      "id": 334,
+      "conversation_id": 8,
+      "role": "bot",
+      "message": "Wireless Body Area Network (WBAN) adalah teknologi yang digunakan untuk mendeteksi kondisi tubuh pengguna. Sistem WBAN dapat mengirimkan data sensor, seperti suhu tubuh dan detak jantung, ke smartphone pengguna melalui Bluetooth.\n\n[Source: Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network]",
+      "created_at": "2026-04-22T07:49:05.017333-07:00",
+      "references": []
+    }
+  },
+  {
+    "index": 17,
+    "question": "Untuk apa WBAN digunakan?",
+    "conversation_id_before_request": 8,
+    "status": "success",
+    "chat_id": 336,
+    "conversation_id": 8,
+    "response_message": "WBAN digunakan untuk mendeteksi gejala hipotermia, memantau suhu tubuh dan detak jantung, serta melakukan penanganan awal dengan memanas suhu tubuh menggunakan elemen panas.\n\n[Source: Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network]",
+    "raw_response": {
+      "id": 336,
+      "conversation_id": 8,
+      "role": "bot",
+      "message": "WBAN digunakan untuk mendeteksi gejala hipotermia, memantau suhu tubuh dan detak jantung, serta melakukan penanganan awal dengan memanas suhu tubuh menggunakan elemen panas.\n\n[Source: Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network]",
+      "created_at": "2026-04-22T07:49:35.168471-07:00",
+      "references": []
+    }
+  },
+  {
+    "index": 18,
+    "question": "Bagaimana WBAN mengirim data tubuh?",
+    "conversation_id_before_request": 8,
+    "status": "success",
+    "chat_id": 338,
+    "conversation_id": 8,
+    "response_message": "Data dari sensor-sensor yang dipasang pada kamera (seperti tekanan darah dan suhu tubuh) dikirim melalui jaringan nirkabel (Wireless Body Area Network, WBAN) ke server.\n\nSumber: [Source: Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network]",
+    "raw_response": {
+      "id": 338,
+      "conversation_id": 8,
+      "role": "bot",
+      "message": "Data dari sensor-sensor yang dipasang pada kamera (seperti tekanan darah dan suhu tubuh) dikirim melalui jaringan nirkabel (Wireless Body Area Network, WBAN) ke server.\n\nSumber: [Source: Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network]",
+      "created_at": "2026-04-22T07:50:31.424256-07:00",
+      "references": []
+    }
+  },
+  {
+    "index": 19,
+    "question": "Apa kelebihan WBAN?",
+    "conversation_id_before_request": 8,
+    "status": "success",
+    "chat_id": 340,
+    "conversation_id": 8,
+    "response_message": "Berikut adalah jawaban berdasarkan konteks:\n\nKelebihan WBAN antara lain:\n* Dapat mendeteksi awal gejala hipotermia\n* Menerima notifikasi perubahan suhu tubuh\n* Memungkinkan pengguna untuk berbagi informasi tentang kondisi tubuh mereka melalui aplikasi Android\n* Tidak memerlukan koneksi internet yang stabil\n\nSumber: [Source: Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network]",
+    "raw_response": {
+      "id": 340,
+      "conversation_id": 8,
+      "role": "bot",
+      "message": "Berikut adalah jawaban berdasarkan konteks:\n\nKelebihan WBAN antara lain:\n* Dapat mendeteksi awal gejala hipotermia\n* Menerima notifikasi perubahan suhu tubuh\n* Memungkinkan pengguna untuk berbagi informasi tentang kondisi tubuh mereka melalui aplikasi Android\n* Tidak memerlukan koneksi internet yang stabil\n\nSumber: [Source: Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network]",
+      "created_at": "2026-04-22T07:51:07.204044-07:00",
+      "references": []
+    }
+  },
+  {
+    "index": 20,
+    "question": "Apa itu pseudonym?",
+    "conversation_id_before_request": 8,
+    "status": "success",
+    "chat_id": 342,
+    "conversation_id": 8,
+    "response_message": "Pseudonym adalah identitas palsu yang dihasilkan oleh algoritma pengenalan pseudonim dan diterjemahkan dalam H(k|PIDij), di mana k adalah indeks waktu periode dan PIDij adalah ID pseudonim dari Mobile-i pada interval j.\n\n[Source: An Anonymous Authentication With Received Signal Strength Based Pseudonymous Identities Generation for VANETs]",
+    "raw_response": {
+      "id": 342,
+      "conversation_id": 8,
+      "role": "bot",
+      "message": "Pseudonym adalah identitas palsu yang dihasilkan oleh algoritma pengenalan pseudonim dan diterjemahkan dalam H(k|PIDij), di mana k adalah indeks waktu periode dan PIDij adalah ID pseudonim dari Mobile-i pada interval j.\n\n[Source: An Anonymous Authentication With Received Signal Strength Based Pseudonymous Identities Generation for VANETs]",
+      "created_at": "2026-04-22T07:52:43.131706-07:00",
+      "references": []
+    }
+  },
+  {
+    "index": 21,
+    "question": "Apa itu anonymity?",
+    "conversation_id_before_request": 8,
+    "status": "success",
+    "chat_id": 344,
+    "conversation_id": 8,
+    "response_message": "Anonimitas adalah kemampuan untuk menghindari identifikasi atau pengenalan diri sendiri oleh orang lain. Dalam konteks penelitian ini, anonimitas digunakan dalam autentikasi untuk mencegah akses tidak sah ke jaringan VANET.\n\nDalam tabel 1 yang disajikan di atas, anonimitas didefinisikan sebagai \"Autentikasi Anonim\" (Sud). Penulis menggunakan pseudonim yang dapat diubah-ubah dengan skema revokasi (SKG) yang berbeda-beda untuk menghindari identifikasi dari pengguna setiap saat.\n\nPenggunaan anonimitas dalam autentikasi adalah salah satu aspek penting dari sistem keamanan yang dikembangkan dalam penelitian ini. Dengan demikian, dapat dipastikan bahwa pengguna dapat berinteraksi dengan jaringan VANET tanpa khawatir akan akses tidak sah oleh orang lain.\n\nDalam kesimpulan, anonimitas adalah kemampuan untuk menghindari identifikasi atau pengenalan diri sendiri oleh orang lain, dan digunakan dalam autentikasi untuk mencegah akses tidak sah ke jaringan VANET.",
+    "raw_response": {
+      "id": 344,
+      "conversation_id": 8,
+      "role": "bot",
+      "message": "Anonimitas adalah kemampuan untuk menghindari identifikasi atau pengenalan diri sendiri oleh orang lain. Dalam konteks penelitian ini, anonimitas digunakan dalam autentikasi untuk mencegah akses tidak sah ke jaringan VANET.\n\nDalam tabel 1 yang disajikan di atas, anonimitas didefinisikan sebagai \"Autentikasi Anonim\" (Sud). Penulis menggunakan pseudonim yang dapat diubah-ubah dengan skema revokasi (SKG) yang berbeda-beda untuk menghindari identifikasi dari pengguna setiap saat.\n\nPenggunaan anonimitas dalam autentikasi adalah salah satu aspek penting dari sistem keamanan yang dikembangkan dalam penelitian ini. Dengan demikian, dapat dipastikan bahwa pengguna dapat berinteraksi dengan jaringan VANET tanpa khawatir akan akses tidak sah oleh orang lain.\n\nDalam kesimpulan, anonimitas adalah kemampuan untuk menghindari identifikasi atau pengenalan diri sendiri oleh orang lain, dan digunakan dalam autentikasi untuk mencegah akses tidak sah ke jaringan VANET.",
+      "created_at": "2026-04-22T07:54:05.374507-07:00",
+      "references": []
+    }
+  },
+  {
+    "index": 22,
+    "question": "Mengapa revocation diperlukan?",
+    "conversation_id_before_request": 8,
+    "status": "success",
+    "chat_id": 346,
+    "conversation_id": 8,
+    "response_message": "Informasi tersebut tidak ditemukan pada dokumen yang tersedia.",
+    "raw_response": {
+      "id": 346,
+      "conversation_id": 8,
+      "role": "bot",
+      "message": "Informasi tersebut tidak ditemukan pada dokumen yang tersedia.",
+      "created_at": "2026-04-22T07:54:47.320713-07:00",
+      "references": []
+    }
+  },
+  {
+    "index": 23,
+    "question": "Apa itu received signal strength?",
+    "conversation_id_before_request": 8,
+    "status": "success",
+    "chat_id": 348,
+    "conversation_id": 8,
+    "response_message": "Received Signal Strength (RSS) adalah indikator kekuatan sinyal yang diterima oleh perangkat. Dalam konteks penelitian ini, RSS digunakan sebagai salah satu cara untuk menghasilkan kunci rahasia berbasis bit reversal dan kuantisasi adaptif.\n\n[Source: LoRa-PRIME: A Novel Secret Key Generation Framework Based on Periodic Bit Reversal and Modified Adaptive Quantization for Robust Cooperative Jamming LoRa Relay Networks]",
+    "raw_response": {
+      "id": 348,
+      "conversation_id": 8,
+      "role": "bot",
+      "message": "Received Signal Strength (RSS) adalah indikator kekuatan sinyal yang diterima oleh perangkat. Dalam konteks penelitian ini, RSS digunakan sebagai salah satu cara untuk menghasilkan kunci rahasia berbasis bit reversal dan kuantisasi adaptif.\n\n[Source: LoRa-PRIME: A Novel Secret Key Generation Framework Based on Periodic Bit Reversal and Modified Adaptive Quantization for Robust Cooperative Jamming LoRa Relay Networks]",
+      "created_at": "2026-04-22T07:55:16.990628-07:00",
+      "references": []
+    }
+  },
+  {
+    "index": 24,
+    "question": "Bagaimana RSS digunakan untuk keamanan?",
+    "conversation_id_before_request": 8,
+    "status": "success",
+    "chat_id": 350,
+    "conversation_id": 8,
+    "response_message": "RSS digunakan sebagai salah satu parameter dalam proses SKG (Secret Key Generation) dan dapat meningkatkan keamanan jaringan LoRa. Dalam tabel 10, nilai RSSI (Received Signal Strength Indicator) dari masing-masing nodus menunjukkan bahwa beberapa nodus mengalami kesulitan dalam menerima sinyal dengan baik.\n\nDengan menggunakan RSS sebagai parameter SKG, sistem dapat meningkatkan keamanan jaringan LoRa. Namun, perlu diingat bahwa jaringan LoRa masih rentan terhadap gangguan dan perubahan lingkungan.\n\nSumber: [LoRa-PRIME: A Novel Secret Key Generation Framework Based on Periodic Bit Reversal and Modified Adaptive Quantization for Robust Cooperative Jamming LoRa Relay Networks]",
+    "raw_response": {
+      "id": 350,
+      "conversation_id": 8,
+      "role": "bot",
+      "message": "RSS digunakan sebagai salah satu parameter dalam proses SKG (Secret Key Generation) dan dapat meningkatkan keamanan jaringan LoRa. Dalam tabel 10, nilai RSSI (Received Signal Strength Indicator) dari masing-masing nodus menunjukkan bahwa beberapa nodus mengalami kesulitan dalam menerima sinyal dengan baik.\n\nDengan menggunakan RSS sebagai parameter SKG, sistem dapat meningkatkan keamanan jaringan LoRa. Namun, perlu diingat bahwa jaringan LoRa masih rentan terhadap gangguan dan perubahan lingkungan.\n\nSumber: [LoRa-PRIME: A Novel Secret Key Generation Framework Based on Periodic Bit Reversal and Modified Adaptive Quantization for Robust Cooperative Jamming LoRa Relay Networks]",
+      "created_at": "2026-04-22T07:55:49.816106-07:00",
+      "references": []
+    }
+  },
+  {
+    "index": 25,
+    "question": "Apa itu shared key generation?",
+    "conversation_id_before_request": 8,
+    "status": "success",
+    "chat_id": 352,
+    "conversation_id": 8,
+    "response_message": "Shared key generation bukanlah topik yang spesifiknya dijelaskan di dokumen yang tersedia. Namun, dapat dilihat dari beberapa kutipan bahwa Shared Key Generation (SKG) adalah proses menghasilkan kunci rahasia bersama antara dua atau lebih perangkat dalam jaringan.\n\nDari [Source: LoRa-PRIME: A Novel Secret Key Generation Framework Based on Periodic Bit Reversal and Modified Adaptive Quantization for Robust Cooperative Jamming LoRa Relay Networks], SKG diuraikan sebagai metode yang menggunakan sifat acak dari saluran komunikasi, seperti keacakan RSSI (Received Signal Strength Indicator), untuk menghasilkan kunci rahasia. \n\nDari [Source: An Anonymous Authentication With Received Signal Strength Based Pseudonymous Identities Generation for VANETs], dapat dilihat bahwa proses pembentukan kunci rahasia bersama dalam jaringan anonim melibatkan pengolahan data sisi kiri dan kanan, diikuti dengan operasi aritmetika untuk menghasilkan nilai akhir sebagai kunci rahasia bersama.\n\nJadi, jawaban yang dapat diberikan adalah: Shared key generation adalah proses menghasilkan kunci rahasia bersama antara perangkat dalam jaringan menggunakan sifat acak dari saluran komunikasi.",
+    "raw_response": {
+      "id": 352,
+      "conversation_id": 8,
+      "role": "bot",
+      "message": "Shared key generation bukanlah topik yang spesifiknya dijelaskan di dokumen yang tersedia. Namun, dapat dilihat dari beberapa kutipan bahwa Shared Key Generation (SKG) adalah proses menghasilkan kunci rahasia bersama antara dua atau lebih perangkat dalam jaringan.\n\nDari [Source: LoRa-PRIME: A Novel Secret Key Generation Framework Based on Periodic Bit Reversal and Modified Adaptive Quantization for Robust Cooperative Jamming LoRa Relay Networks], SKG diuraikan sebagai metode yang menggunakan sifat acak dari saluran komunikasi, seperti keacakan RSSI (Received Signal Strength Indicator), untuk menghasilkan kunci rahasia. \n\nDari [Source: An Anonymous Authentication With Received Signal Strength Based Pseudonymous Identities Generation for VANETs], dapat dilihat bahwa proses pembentukan kunci rahasia bersama dalam jaringan anonim melibatkan pengolahan data sisi kiri dan kanan, diikuti dengan operasi aritmetika untuk menghasilkan nilai akhir sebagai kunci rahasia bersama.\n\nJadi, jawaban yang dapat diberikan adalah: Shared key generation adalah proses menghasilkan kunci rahasia bersama antara perangkat dalam jaringan menggunakan sifat acak dari saluran komunikasi.",
+      "created_at": "2026-04-22T07:56:14.486032-07:00",
+      "references": []
+    }
+  }
+]

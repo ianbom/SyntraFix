@@ -39,7 +39,7 @@ Berikut adalah jawaban berdasarkan konteks yang tersedia:
 
 ### reference
 
-AI dalam konteks ini digunakan bersama vision systems dan CPSS untuk mendukung analisis Block Design Test, termasuk pengenalan interaksi tangan-objek dan visual attention, sehingga dapat membantu memperoleh pengetahuan dari aktivitas manusia.
+Retrieved context membahas pengembangan teknologi untuk Block Design Test, representasi fisik jari manusia, dan pengenalan interaksi tangan-objek dengan visual attention. Dalam batas konteks tersebut, AI atau sistem berbasis visi dapat membantu menganalisis aktivitas tangan dan objek pada pengujian atau rehabilitasi, tetapi konteks tidak cukup untuk membuat klaim umum bahwa AI membantu semua kebutuhan manusia. [Source: Multiscopic CPSS for Independent Block-Design Test Based on Hand-Object Interaction Recognition With Visual Attention]
 
 ---
 
@@ -78,7 +78,7 @@ Sumber: [Source: DynamicRAG: Leveraging Outputs of Large Language Model as Feedb
 
 ### reference
 
-Contoh penggunaan AI dalam retrieved context meliputi reranking dinamis pada model GPT-4o, sistem deteksi kondisi hipotermia, dan pendekatan vision/artificial intelligence untuk analisis aktivitas manusia.
+Contoh penggunaan AI yang didukung retrieved context adalah dynamic reranking pada model GPT-4o dalam DynamicRAG. Tabel konteks menunjukkan adanya performance improvement menggunakan dynamic reranker pada closed-source models, sehingga contoh AI yang relevan adalah pemanfaatan LLM dan reranking dinamis untuk meningkatkan kinerja sistem RAG. [Source: DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation]
 
 ---
 
@@ -106,7 +106,7 @@ Informasi tersebut tidak ditemukan pada dokumen yang tersedia.
 
 ### reference
 
-Retrieved context hanya menampilkan hasil data retrieval pada sistem smart jacket untuk deteksi hipotermia. Konteks tidak menjelaskan hubungan AI dan kesehatan secara langsung.
+Retrieved context hanya memuat hasil pengujian algoritma kondisi deteksi pada data sampel tubuh dalam sistem smart jacket. Konteks tersebut tidak menjelaskan hubungan AI dan kesehatan secara langsung, sehingga informasi tentang hubungan AI dan kesehatan tidak ditemukan secara jelas. [Source: Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network]
 
 ---
 
@@ -150,7 +150,7 @@ Informasi tersebut tidak ditemukan pada dokumen yang tersedia.
 
 ### reference
 
-Retrieved context tidak mendefinisikan eHealth secara langsung. Konteks membahas penggunaan WBAN dan IoT dalam sektor kesehatan, node sensor yang mengumpulkan sinyal biologis pasien, serta pengiriman data secara nirkabel ke server.
+Retrieved context tidak mendefinisikan eHealth secara eksplisit. Konteks yang tersedia membahas WBAN, IoT di sektor kesehatan, pengumpulan data biologis oleh node sensor, pengiriman data secara nirkabel ke server, aplikasi Android, dan sistem deteksi gejala hypothermia. [Source: Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network]
 
 ---
 
@@ -210,6 +210,6 @@ Dengan demikian, dapat disimpulkan bahwa eHealth adalah istilah yang digunakan u
 
 ### reference
 
-Retrieved context tidak memuat definisi eHealth. Konteks yang tersedia lebih banyak membahas online learning, PKI, Android, dan topik lain di luar definisi eHealth.
+Retrieved context tidak mendefinisikan eHealth secara eksplisit. Konteks lebih banyak membahas online learning, PKI, Android, WBAN, dan sistem smart jacket, sehingga definisi eHealth umum seperti telemedicine atau sistem informasi kesehatan tidak didukung langsung oleh konteks. [Source: Exploring Challenges of Online Learning Activity in Politeknik Elektronika Negeri Surabaya at The Beginning of Covid-19 Outbreak; Source: Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network]
 
 ---

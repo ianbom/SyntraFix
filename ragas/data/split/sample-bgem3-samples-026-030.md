@@ -23,7 +23,7 @@ I apologize, but I encountered an error processing your request.
 
 ### reference
 
-Retrieved context kosong, sehingga tidak ada informasi yang dapat digunakan untuk menjelaskan apa itu eHealth.
+Tidak ada retrieved context yang tersedia pada sample ini, sehingga reference yang didukung konteks tidak dapat dibuat untuk pertanyaan tentang eHealth.
 
 ---
 
@@ -49,7 +49,7 @@ I apologize, but I encountered an error processing your request.
 
 ### reference
 
-Retrieved context kosong, sehingga tidak ada informasi yang dapat digunakan untuk menjawab bagaimana AI membantu manusia.
+Tidak ada retrieved context yang tersedia pada sample ini, sehingga reference yang didukung konteks tidak dapat dibuat untuk pertanyaan tentang bagaimana AI membantu manusia.
 
 ---
 
@@ -75,7 +75,7 @@ I apologize, but I encountered an error processing your request.
 
 ### reference
 
-Retrieved context kosong, sehingga tidak ada informasi yang dapat digunakan untuk memberi contoh penggunaan AI.
+Tidak ada retrieved context yang tersedia pada sample ini, sehingga reference yang didukung konteks tidak dapat dibuat untuk pertanyaan tentang contoh penggunaan AI.
 
 ---
 
@@ -101,7 +101,7 @@ I apologize, but I encountered an error processing your request.
 
 ### reference
 
-Retrieved context kosong, sehingga tidak ada informasi yang dapat digunakan untuk menjelaskan hubungan AI dan kesehatan.
+Tidak ada retrieved context yang tersedia pada sample ini, sehingga reference yang didukung konteks tidak dapat dibuat untuk pertanyaan tentang hubungan AI dan kesehatan.
 
 ---
 
@@ -127,6 +127,6 @@ I apologize, but I encountered an error processing your request.
 
 ### reference
 
-Retrieved context kosong, sehingga tidak ada informasi yang dapat digunakan untuk menjelaskan apa itu eHealth.
+Tidak ada retrieved context yang tersedia pada sample ini, sehingga reference yang didukung konteks tidak dapat dibuat untuk pertanyaan tentang eHealth.
 
 ---

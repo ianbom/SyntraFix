@@ -48,7 +48,7 @@ Sumber:
 
 ### reference
 
-Hypothermia disebabkan oleh tekanan suhu dingin yang berlebihan sehingga tubuh kehilangan panas. Dalam konteks pendakian, faktor seperti udara dingin di pegunungan, angin kencang, pakaian basah, dan kondisi ekstrem dapat menyebabkan hypothermia.
+Penyebab hypothermia yang didukung konteks adalah tekanan suhu dingin berlebihan yang membuat tubuh tidak mampu menyeimbangkan panas dan menyebabkan kehilangan panas tubuh. Kondisi tersebut membuat suhu tubuh menurun dengan cepat. [Source: Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network]
 
 ---
 
@@ -98,7 +98,7 @@ Sumber: [Source: Design and Implementation of Hypothermia Symptoms Early Detecti
 
 ### reference
 
-Tanda tubuh mengalami hypothermia dalam konteks ini adalah suhu internal di bawah 35 derajat Celcius, tubuh kehilangan panas, dan kondisi tubuh dapat memburuk pada sampel severe hypothermia.
+Tanda tubuh mengalami hypothermia yang didukung retrieved context adalah penurunan suhu tubuh akibat tubuh kehilangan panas karena tekanan suhu dingin. Sistem smart jacket dirancang untuk mendeteksi gejala hypothermia dengan memantau suhu tubuh dan data denyut nadi pengguna. [Source: Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network]
 
 ---
 
@@ -142,7 +142,7 @@ Sensor suhu tubuh menggunakan tipe DS18B20 untuk mengukur temperatur tubuh. Data
 
 ### reference
 
-Temperature tubuh dipantau menggunakan sensor suhu tubuh DS18B20 pada sistem smart jacket/WBAN. Sensor ini menjadi bagian dari sistem pemantauan kondisi tubuh pendaki.
+Temperature tubuh dipantau menggunakan sensor suhu tubuh DS18B20 pada sistem smart jacket. Data suhu tubuh dikelompokkan menjadi beberapa kondisi seperti normal, hypothermia ringan, hypothermia sedang, dan hypothermia berat. [Source: Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network]
 
 ---
 
@@ -195,7 +195,7 @@ Sumber:
 
 ### reference
 
-Temperature tubuh penting karena hypothermia didefinisikan sebagai suhu internal di bawah 35 derajat Celcius dan terjadi ketika tubuh tidak mampu menyeimbangkan panas akibat tekanan dingin.
+Temperature tubuh penting karena hypothermia terjadi ketika tubuh kehilangan panas dan suhu tubuh menurun dengan cepat akibat tekanan suhu dingin. Dengan memantau temperature tubuh, sistem smart jacket dapat mendeteksi gejala hypothermia dan membantu penanganan awal. [Source: Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network]
 
 ---
 
@@ -239,6 +239,6 @@ Wireless Body Area Network (WBAN) adalah teknologi yang digunakan untuk mendetek
 
 ### reference
 
-Wireless Body Area Network atau WBAN adalah jaringan sensor tubuh yang mengumpulkan sinyal biologis pasien dalam jangka waktu lama, lalu mengirimkan data tersebut secara nirkabel ke server untuk disimpan dan diproses lebih lanjut.
+Wireless Body Area Network (WBAN) adalah jaringan sensor tubuh yang mengumpulkan data sinyal biologis dari pengguna atau pasien. Data sensor dikirim secara nirkabel ke server, disimpan untuk pemrosesan lebih lanjut, dan digunakan sebagai referensi untuk pengambilan keputusan. [Source: Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network]
 
 ---

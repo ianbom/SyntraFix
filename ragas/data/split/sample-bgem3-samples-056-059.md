@@ -41,7 +41,7 @@ Informasi tersebut tidak ditemukan pada dokumen yang tersedia.
 
 ### reference
 
-Retrieved context tidak menjelaskan secara jelas mengapa revocation diperlukan. Konteks hanya menyebut access control, RBAC, keamanan data EV, dan rencana future work terkait algoritma revocation.
+Retrieved context tidak menjelaskan revocation secara langsung. Konteks yang tersedia membahas RBAC sebagai algoritma access control untuk melindungi informasi atau resource, serta protokol ID-RBAC-AKE untuk mengamankan akses pengguna EV ke cloud resources. [Source: Ephemeral Secret Leakage-Free ID-Role-Based Access Control Authentication and Key Exchange Protocol for Securing Electric Vehicle Data]
 
 ---
 
@@ -93,7 +93,7 @@ Received Signal Strength (RSS) adalah indikator kekuatan sinyal yang diterima ol
 
 ### reference
 
-Received Signal Strength atau RSS/RSSI adalah indikator kekuatan sinyal yang diterima. Konteks menyebut pengukuran RSSI oleh node dan pengumpulan nilai RSS dari komunikasi.
+Received Signal Strength pada retrieved context muncul sebagai RSSI atau Received Signal Strength Indicator, yaitu nilai pengukuran kekuatan sinyal yang diterima oleh node. Konteks LoRa-PRIME menggunakan pengukuran RSSI dalam framework secret key generation dan membahas jumlah pengukuran RSSI yang berhasil diterima oleh setiap node. [Source: LoRa-PRIME: A Novel Secret Key Generation Framework Based on Periodic Bit Reversal and Modified Adaptive Quantization for Robust Cooperative Jamming LoRa Relay Networks]
 
 ---
 
@@ -140,7 +140,7 @@ Sumber: [LoRa-PRIME: A Novel Secret Key Generation Framework Based on Periodic B
 
 ### reference
 
-RSS digunakan untuk keamanan sebagai parameter dalam proses secret key generation. Konteks menyebut pemanfaatan randomness dari physical layer wireless communication yang dihasilkan dari nilai RSS yang dikumpulkan.
+RSS digunakan untuk keamanan dengan memanfaatkan nilai RSS atau RSSI sebagai bagian dari physical layer security dan secret key generation. Konteks menyebut korelasi nilai RSS antara Mobile-i, Verifier, dan Eve, serta penggunaan physical layer security sebagai alternatif ringan untuk mengamankan komunikasi nirkabel pada sistem IoT yang terbatas sumber daya. [Source: An Anonymous Authentication With Received Signal Strength Based Pseudonymous Identities Generation for VANETs; Source: LoRa-PRIME: A Novel Secret Key Generation Framework Based on Periodic Bit Reversal and Modified Adaptive Quantization for Robust Cooperative Jamming LoRa Relay Networks]
 
 ---
 
@@ -186,6 +186,6 @@ Jadi, jawaban yang dapat diberikan adalah: Shared key generation adalah proses m
 
 ### reference
 
-Shared key generation adalah proses pembentukan kunci rahasia bersama. Dalam konteks, secret key generation dikembangkan pada berbagai perangkat, dan terdapat proposed shared secret key generation dalam jaringan anonim serta metode berbasis physical layer security.
+Shared key generation atau secret key generation adalah proses menghasilkan kunci rahasia pada perangkat atau skenario komunikasi nirkabel. Retrieved context LoRa-PRIME membahas implementasi secret key generation pada berbagai perangkat, average key generation rate, dan key generation time untuk beberapa skenario serta skema quantization. [Source: LoRa-PRIME: A Novel Secret Key Generation Framework Based on Periodic Bit Reversal and Modified Adaptive Quantization for Robust Cooperative Jamming LoRa Relay Networks]
 
 ---

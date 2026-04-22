@@ -23,7 +23,7 @@ Informasi tersebut tidak ditemukan pada dokumen yang tersedia.
 
 ### reference
 
-Retrieved context hanya menyebut penggunaan artificial intelligence approaches bersama vision systems untuk meningkatkan pengetahuan dari Block Design Test. Konteks tidak memuat definisi umum tentang AI.
+Retrieved context tidak menyediakan definisi umum tentang AI. Konteks hanya menyebut contoh framework yang menggabungkan vision systems dan artificial intelligence untuk membantu neuropsychologists memperoleh pengetahuan dari Block Design Test dan tugas sejenis. [Source: Multiscopic CPSS for Independent Block-Design Test Based on Hand-Object Interaction Recognition With Visual Attention]
 
 ---
 
@@ -55,7 +55,7 @@ Informasi tersebut tidak ditemukan pada dokumen yang tersedia.
 
 ### reference
 
-Retrieved context tidak memuat manfaat AI secara langsung. Konteks hanya membahas QuOTE untuk peningkatan retrieval pada sistem RAG dan beberapa informasi perangkat pengukuran.
+Retrieved context tidak memberikan daftar manfaat AI secara umum. Konteks yang tersedia lebih relevan dengan QuOTE untuk meningkatkan representasi dokumen pada sistem RAG, terutama agar retrieval lebih akurat dan nuanced pada skenario question answering. [Source: QuOTE: Question-Oriented Text Embeddings]
 
 ---
 
@@ -81,7 +81,7 @@ I apologize, but I encountered an error processing your request.
 
 ### reference
 
-Retrieved context kosong, sehingga tidak ada informasi yang dapat digunakan untuk menjawab bagaimana AI membantu manusia.
+Tidak ada retrieved context yang tersedia pada sample ini, sehingga reference yang didukung konteks tidak dapat dibuat untuk pertanyaan tentang bagaimana AI membantu manusia.
 
 ---
 
@@ -107,7 +107,7 @@ I apologize, but I encountered an error processing your request.
 
 ### reference
 
-Retrieved context kosong, sehingga tidak ada informasi yang dapat digunakan untuk memberi contoh penggunaan AI.
+Tidak ada retrieved context yang tersedia pada sample ini, sehingga reference yang didukung konteks tidak dapat dibuat untuk pertanyaan tentang contoh penggunaan AI.
 
 ---
 
@@ -133,6 +133,6 @@ I apologize, but I encountered an error processing your request.
 
 ### reference
 
-Retrieved context kosong, sehingga tidak ada informasi yang dapat digunakan untuk menjelaskan hubungan AI dan kesehatan.
+Tidak ada retrieved context yang tersedia pada sample ini, sehingga reference yang didukung konteks tidak dapat dibuat untuk pertanyaan tentang hubungan AI dan kesehatan.
 
 ---

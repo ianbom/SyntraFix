@@ -1,0 +1,1263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://raw.githubusercontent.com/kermitt2/grobid/master/grobid-home/schemas/xsd/Grobid.xsd"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+	<teiHeader xml:lang="en">
+		<fileDesc>
+			<titleStmt>
+				<title level="a" type="main">Development of a Speech Emotion Recognition Dataset for Indonesian</title>
+				<funder>
+					<orgName type="full">Politeknik Elektronika Negeri Surabaya</orgName>
+					<orgName type="abbreviated">PENS</orgName>
+				</funder>
+				<funder ref="#_vxTvK9V">
+					<orgName type="full">Ministry of Education, Culture, Research, and Technology, Republic of Indonesia</orgName>
+				</funder>
+			</titleStmt>
+			<publicationStmt>
+				<publisher/>
+				<availability status="unknown"><licence/></availability>
+			</publicationStmt>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author role="corresp">
+							<persName><forename type="first">Budi</forename><surname>Tri</surname></persName>
+							<email>tribudi@pens.ac.id</email>
+							<idno type="ORCID">0000-0002-9508-8580</idno>
+						</author>
+						<author>
+							<persName><surname>Santoso</surname></persName>
+							<idno type="ORCID">0000-0002-9508-8580</idno>
+							<affiliation key="aff0">
+								<orgName type="department">Creative Multimedia Department</orgName>
+								<address>
+									<addrLine>Politeknik Elektronika Negeri Surabaya</addrLine>
+									<postCode>60111</postCode>
+									<settlement>Surabaya</settlement>
+									<country key="ID">Indonesia</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><roleName>Member, IEEE</roleName><forename type="first">Ahmad</forename><surname>Nafi Budianto</surname></persName>
+							<idno type="ORCID">0009-0000-8110-7376</idno>
+							<affiliation key="aff1">
+								<orgName type="department">Electrical Engineering Department</orgName>
+								<address>
+									<addrLine>Politeknik Elektronika Negeri Surabaya</addrLine>
+									<postCode>60111</postCode>
+									<settlement>Surabaya</settlement>
+									<country key="ID">Indonesia</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Titon</forename><surname>Dutono</surname></persName>
+							<idno type="ORCID">0000-0003-2230-8180</idno>
+							<affiliation key="aff1">
+								<orgName type="department">Electrical Engineering Department</orgName>
+								<address>
+									<addrLine>Politeknik Elektronika Negeri Surabaya</addrLine>
+									<postCode>60111</postCode>
+									<settlement>Surabaya</settlement>
+									<country key="ID">Indonesia</country>
+								</address>
+							</affiliation>
+						</author>
+						<author>
+							<persName><forename type="first">Tri</forename><forename type="middle">Budi</forename><surname>Santoso</surname></persName>
+						</author>
+						<title level="a" type="main">Development of a Speech Emotion Recognition Dataset for Indonesian</title>
+					</analytic>
+					<monogr>
+						<imprint>
+							<date/>
+						</imprint>
+					</monogr>
+					<idno type="MD5">7847E339B2AFCE7B201DF6FF3BEE45A6</idno>
+					<idno type="DOI">10.1109/ACCESS.2026.3652377</idno>
+					<note type="submission">Received 14 December 2025, accepted 2 January 2026, date of publication 12 January 2026, date of current version 15 January 2026.</note>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<appInfo>
+				<application version="0.8.2" ident="GROBID" when="2026-04-22T14:11+0000">
+					<desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+					<label type="revision">a91ee48</label>
+					<label type="parameters">startPage=-1, endPage=-1, consolidateCitations=0, consolidateHeader=0, consolidateFunders=0, includeRawAffiliations=false, includeRawCitations=false, includeRawCopyrights=false, generateTeiIds=false, generateTeiCoordinates=[], sentenceSegmentation=false, flavor=null</label>
+					<ref target="https://github.com/kermitt2/grobid"/>
+				</application>
+			</appInfo>
+		</encodingDesc>
+		<profileDesc>
+			<abstract>
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>Speech emotion recognition (SER) is a crucial technology for applications such as humancomputer interaction, mental health monitoring, and call centre analytics. However, SER research in Indonesia is still limited by a lack of annotated speech emotion datasets. In this study, we provided EEPIS's Speech Emotion Recognition Audio Video Dataset (E-SERAVD), an Indonesian speech emotion recognition dataset that contains four basic emotions: Happy, Angry, Neutral, and Sad. The data obtained from the Indonesian movies and scenes were trimmed to capture emotional expressions. The dataset creation process was based on a model that has been widely used by previous researchers. In this case, the dataset creation begins with the process of defining the parameters and types of audio recordings to be targeted. The next step is data collection, followed by data cleaning. The data validation stage involved testing by three raters to prepare for the labelling process. The three raters' observations showed satisfactory performance, with agreement scores of 88.8, 68.8, and 91.4%. The constructed dataset was evaluated using the inter-rater reliability metric, which showed a Fleiss Kappa value of 0.61. Therefore, it was included in the good category and was then determined. The final step is to separate the data for training and testing. The baseline model accuracy was evaluated with a value of 90% and F1 score of 86%. The E-SERAVD Dataset for Indonesian SER was prepared as an open-source dataset, with complete documentation and model benchmarks.</p><p>INDEX TERMS Agreement, dataset, labelling, mel-frequency cepstral coefficient (MFCC), speech emotion recognition (SER).</p></div>
+			</abstract>
+		</profileDesc>
+	</teiHeader>
+	<text xml:lang="en">
+		<body>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>I. INTRODUCTION</head><p>Speech Emotion Recognition (SER) systems aim to develop devices that can recognize emotional states from voice signals. Its development points toward making technology more human, improving services, and assisting in healthcare, security, and more. Current developments indicate that the performance of SER models is highly dependent on the quality and diversity of the datasets used for training and evaluation. Therefore, the availability of datasets that accurately represent real-world conditions is a prerequisite for producing a model that is generally applicable to realworld conditions <ref type="bibr" target="#b0">[1]</ref>, <ref type="bibr" target="#b1">[2]</ref>, <ref type="bibr" target="#b2">[3]</ref>.</p><p>The associate editor coordinating the review of this manuscript and approving it for publication was Jon Atli Benediktsson .</p><p>Indonesian is the 10th most widely spoken language in the world, but resources for SER are still limited. The current situation shows that there is not yet an Indonesian language dataset that has achieved the same level of performance as global datasets, such as EMO-DB, the Ryerson Audio-Visual Database of Emotional Speech and Song (RAVDESS), or Interactive Emotional Dyadic Motion Capture (IEMO-CAP). Existing datasets often suffer from dialect diversity (Javanese, Sundanese, etc.). When researchers attempt to adapt existing datasets, such as RADVESS, the performance drops significantly. The emotion ''anger'' is often expressed more subtly in Indonesian than in English. When the SER model was trained on a Western dataset (RAVDESS), its accuracy decreased by 25% when tested on Indonesian data. Conventional features Mel Frequency Cepstral Coefficient (MFCC) and pitch were less effective because of the unique intonation patterns of Indonesians. The emotion ''sadness'' is often characterized by word-final stress rather than pitch variation. <ref type="bibr" target="#b3">[4]</ref>, <ref type="bibr" target="#b4">[5]</ref>.</p><p>Efforts have been made to create an emotion corpus in Indonesian; however, they are still small-scale and tend to be fragmented. One dataset, the IDN SER corpus, was proposed in 2020, but its use has not yet been made public. Meanwhile, IEMO-IN, with a corpus of 500 and four types of emotional expressions, was proposed for free use in 2022. However, the recording quality is still not natural because of the limited number of speakers. There was also IndoWaveSentiment in 2024, but the number of datasets provided was still limited. Most of these datasets are not publicly available, have a limited number of participants (&lt;30 people), and have not yet been standardized in terms of sampling rate, annotation agreement, or metadata completeness <ref type="bibr" target="#b5">[6]</ref>.</p><p>In this study, an Indonesian SER dataset was constructed using a systematic methodology based on the dataset formation patterns from previous studies <ref type="bibr" target="#b6">[7]</ref>, <ref type="bibr" target="#b7">[8]</ref>. The quality of the dataset formed was also analyzed through interrater reliability <ref type="bibr" target="#b8">[9]</ref>, statistical behaviour <ref type="bibr" target="#b9">[10]</ref>, and feature evaluation <ref type="bibr" target="#b10">[11]</ref>, <ref type="bibr" target="#b11">[12]</ref> and tested using Convolutional Neural Network (CNN) clustering <ref type="bibr" target="#b12">[13]</ref>, <ref type="bibr" target="#b13">[14]</ref>.</p><p>Furthermore, this dataset will be shared as open access to obtain various feedback and enrichments in terms of the amount of supporting data. This paper proposes the development of a dataset utilizing Indonesian movie dialogue. This method is expected to build a dataset derived from the speeches of trained professionals.</p><p>The main contributions of this paper are:</p><p>-Presenting the EEPIS Speech Emotion Recognition Audio Video Dataset (E-SERAVD), an Indonesian speech emotion recognition dataset that utilizes movie dialogues, the recording process is carried out professionally in a studio, and the voice is expressed by professional speakers in expressing emotions. -The compilation of the dataset followed a proven compilation model <ref type="bibr" target="#b6">[7]</ref>, <ref type="bibr" target="#b7">[8]</ref>, which was tested and compared with datasets generated using the latest public corpora. This comparison demonstrates how dataset design affects the performance and generalization of the SER model. -E-SEVARD is a public dataset for SER and making it available to the scientific community allows various inputs from other researchers to facilitate further development. The remainder of this paper is organized as follows.</p><p>Section II provides a background review of various related studies on SER tasks. The method proposed in this study is explained in Section III. Section IV discusses the experimental results and evaluations performed on the dataset. Finally, Section V concludes the study and discusses the scope of future research in this field.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>II. RELATED METHODS</head><p>The Berlin Database of Emotional Speech (EMO-DB) is a well-known and widely used dataset for emotion recognition. This German language dataset was developed from the speech of ten speakers (five men and five women). The recordings totaled approximately 800, with emotions including anger, boredom, disgust, fear, happiness, sadness, and neutrality. The speakers (actors/actresses) read sentences with a planned expression of a specific emotion and the results were assessed by listeners and validated through acoustic measurements. This type of dataset is very good; however, it exhibits gender bias (higher accuracy for female voices) and makes it difficult to recognize emotions (boredom) <ref type="bibr" target="#b14">[15]</ref>.</p><p>The next dataset, RAVDESS, was produced by researchers in the UK. This dataset is popular in research on SER and facial expressions <ref type="bibr" target="#b15">[16]</ref>. English speech data (North America) were generated from 24 professional speakers (12 male and 12 female). A total of 1,440 audio files (speech) and 1,012 audio files (singing) were used. There are eight types of emotional expression: neutral, calm, happy, sad, angry, fearful, disgusted, and surprised. This dataset has a standard file and naming structure and has since been widely adopted by other researchers to build datasets for emotional recognition. One weakness of this dataset is the emergence of gender bias (higher accuracy for female voices, +7%).</p><p>The Interactive Emotional Dyadic Motion Capture Database (IEMOCAP) is the most popular and comprehensive dataset for research on emotion recognition from voice (speech emotion recognition/SER), facial expressions, and body movements in natural conversational interactions. This dataset was created to study emotions during natural conversations (spontaneous speech) and structured scenarios (scripted speech). There are eight emotional expressions: anger, happiness, sadness, neutrality, fear, surprise, excitement, and frustration, which is a unique expression found in IEMOCAP. The dataset consisted of audio recordings of conversational voices (WAV format, 16 kHz); facial expression videos (MPEG-4 format); motion capture for lips, eyebrows, and body movements (3D markers); and transcripts in the form of conversational text with timestamps. One of the advantages of IEMOCAP is that the recordings are the result of natural conversations, such that emotions emerge spontaneously, unlike EMO-DB/RAVDESS, which are scripted <ref type="bibr" target="#b16">[17]</ref>.</p><p>Researchers in Japan were the first to develop the SER datasets. Various datasets have emerged from around 2000 until now, such as the Japanese Speech Corpus of Saruwatari Lab (JUST), the Japanese Emotional Speech Database (JEMO), the Multimodal Dialogue Dataset (MMD), the Orientale Corp. Emotional speech database, Japanese adaptation of EMO-DB, and recent deep-learningbased SER. This has led to a cross-cultural system that can be used for the adaptation of existing datasets and various developments for applications in game and social media technology <ref type="bibr" target="#b17">[18]</ref>, <ref type="bibr" target="#b18">[19]</ref>, <ref type="bibr" target="#b19">[20]</ref>. <ref type="bibr">VOLUME 14, 2026</ref> Researchers in China have been actively building datasets for the development of audio-based emotion recognition systems <ref type="bibr" target="#b20">[21]</ref>. The emotional recognition method developed here is slightly different because it does not specify the type of expression for emotions but rather establishes a baseline feature set for classifying arousal and power dimensions. Separately, another research group in China developed a large-scale SER dataset <ref type="bibr" target="#b21">[22]</ref> and natural-behavior-based speech signal corpus for SER <ref type="bibr" target="#b22">[23]</ref>. Research on the development of Speech Emotion Recognition, supported by datasets according to the language used, has been conducted in various Middle Eastern and South Asian countries <ref type="bibr" target="#b9">[10]</ref>, <ref type="bibr" target="#b23">[24]</ref>, <ref type="bibr" target="#b24">[25]</ref>, <ref type="bibr" target="#b25">[26]</ref>. In general, this study utilized MFCC feature processing and ANN clustering. The dataset prepared to support this research was developed according to the local speakers in which the system was built. Thai researchers have also developed a speech emotion recognition dataset called LOTUS <ref type="bibr" target="#b26">[27]</ref>. This dataset was subsequently widely used by researchers in Thailand to develop various SER algorithms and applications <ref type="bibr" target="#b27">[28]</ref>.</p><p>In Indonesia, there have been many SER dataset development activities, such as the Indonesian Emotion Speech Corpus (IDESC), Emotional Speech Dataset (ESD), Indonesian Emotional Speech Dataset (IESD), Crowdsourced Indonesian SER Dataset, and Indonesian Dialect Speech Emotion Recognition (IDSER). Researchers have attempted this in various applications <ref type="bibr" target="#b28">[29]</ref>, <ref type="bibr" target="#b29">[30]</ref>, <ref type="bibr" target="#b30">[31]</ref>, <ref type="bibr" target="#b31">[32]</ref>, <ref type="bibr" target="#b32">[33]</ref>. In general, these datasets were constructed using dedicated speakers who pronounce specific words and sentences according to their intended emotional expressions. Some also utilize dialogue from TV shows or YouTube. The resulting datasets exhibit diversity but not all feature dialectal variations and diverse acoustic conditions.</p><p>This paper proposes the development of a dataset utilizing Indonesian movie dialogue. This method is expected to build a dataset derived from the speeches of trained professionals. This step is expected to increase the diversity of the SER datasets in Indonesia. Compared to existing datasets, such as RAVDESS and EMODB built in the laboratory, where scripts are prepared to generate an emotional expression, the E-SEVARD dataset is built with different characteristics. E-SEVARD is built using movie dialogue, so it has a directed performance with a complete narrative context and can bridge the gap between lab control and natural realism. This dataset is shared for all users, both for researchers who are engaged in the field of SER and practitioners who want to utilize the E-SEVARD Dataset for other purposes. Thus, this Dataset provides an opportunity for the Indonesian-speaking SER research community to test the system they have designed as one of many datasets from which researchers can choose.</p><p>On the other hand, the research also has its own characteristics, where E-SEVARD is the first large-scale SER Dataset for Indonesians from natural but structured sources and is a resource for linguistic and anthropological research on the expression of Indonesian cultural emotions.</p><p>In relation to the theme of developing new research topics, it is also possible for researchers to explore whether the acoustic characteristics of angry emotions in Indonesia are like or different from the acoustic characteristics of emotions in other places (countries).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>III. PROPOSED METHOD</head><p>Six stages are generally conducted in the process of dataset development: parameter and population definitions, data collection, data cleaning, data validation, splitting into training and test sets, and circulation <ref type="bibr" target="#b6">[7]</ref>, <ref type="bibr" target="#b7">[8]</ref>. This process is illustrated in Figure <ref type="figure" target="#fig_0">1</ref>. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A. DATASET DESIGN</head><p>In the parameter definition, it was determined that the recorded sound was the result of emotional expressions carried out by a professional in Indonesia. This stage was carried out during the dataset design process, which began by defining and setting parameters for the data to be collected. At this stage, Indonesian-language movies are prepared in full-length video formats (MP4, MOV, etc.). The movie data used was not limited to a particular movie genre, with various emotional characters displayed by movie actors <ref type="bibr" target="#b32">[33]</ref>.</p><p>Movies were selected with a focus on dominant vocals and emotional characterization, while using minimal background music. The emotional characteristics of the movies used as the dataset were angry, sad, neutral, and happy, according to Thayer's basic emotional model <ref type="bibr" target="#b33">[34]</ref>. These categories were selected based on their relevance to several previous studies and represented the fundamental emotional elements of human expression, making them more applicable across a wide range of fields.</p><p>The four emotions anger, sadness, happiness, and neutrality are basic categories in Speech Emotion Recognition (SER). These emotions can be expressed universally through voice and are easily recognizable in verbal communication. Research provides an overview of human perception evaluation of basic emotions in speech, ''anger, sadness, happiness, and neutrality.'' The results indicate that these four emotions can be accurately recognized through audio visual analysis <ref type="bibr" target="#b34">[35]</ref>. Meanwhile, in another study, specifically presented in the context of human-robot interaction, the research shows that voice-based emotion recognition models can identify the four main emotions ''anger, sadness, happiness, and neutrality'' with high accuracy <ref type="bibr" target="#b35">[36]</ref>. These findings demonstrate the relevance of basic emotions in technological applications.</p><p>The following movie titles were used in creating the dataset: ''The Architecture of Love (ATOL),'' ''Ada Apa Dengan Cinta (AADC),'' ''Dua Hati Biru (DHB),'' ''Home Sweet Loan (HSL),'' ''Habibie and Ainun 3 (HA3),'' and ''Dilan 1990 (D1990).'' The six selected movie titles span a wide range of genres, including teen dramas, family dramas, adventures, and nationalism. They express a wide range of emotions including anger, sadness, happiness, and neutrality. Therefore, it is expected that selecting these six movies will yield audio files that include the four types of emotional expression to be developed.</p><p>A movie dialogue provides a powerful model for studying emotions. Although it does not capture authentic or spontaneous emotions, this limitation is recognized in dataset development. Nevertheless, movie dialogues offer several important advantages for dataset creation. First, they are delivered by professional actors, thus making emotional expressions more consistent. Second, the audio quality is generally superior to that of everyday recordings. Third, the emotions in movie dialogue are straightforward to interpret, as they are designed to be universally recognizable. Finally, movie dialogues are readily accessible data sources.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>B. DATASET COLLECTION</head><p>Data collection was conducted by automatically cutting the existing dialog using Python. The movie to be processed is observed scene by scene and observations are made to determine whether the written script that appears is relevant to the existing dialogue. If everything is correct, the next step is to trim the video based on phrases using CC timestamps in the Python software. A simple version of the data-collection process is presented in Figure <ref type="figure" target="#fig_1">2</ref>.</p><p>Process of converting movie audio into audio file fragments. First, we observed a full-length movie as an MP4 file. Next, we examined the SRT subtitle file, which includes dialogue and timestamps. Synchronization between the video and subtitle files is ensured by matching the timestamps in the SRT file. These timestamps are used to guide the MP4 trimming process. This trimming process divides the entire movie into smaller segments. Each segment matches the duration of the corresponding subtitle line. The result is a Trimmed Dataset of multiple video or audio files, each separated by a dialogue.</p><p>After the data were cut, cleaning and sorting were performed to ensure the quality of the dataset. In single-word sorting, the cut segments are broken down into smaller units (perhaps just a single word), or the data are sorted based on single-word transcriptions to achieve high accuracy.</p><p>The identification and separation of segments containing unwanted foreign language content (audio or transcript) are carried out in the Foreign Language Sorting section. The output of this process is a Cleaned Dataset consisting of adjusted and filtered files.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>C. DATASET CLEANING</head><p>In Data Cleaning, the processes of conversion and Dataset Editing were performed. Data Cleaning was performed by treating the data from the cuts, checking each manually, listening to it with a speaker to obtain a qualitative assessment, and observing its spectrogram shape to obtain a quantitative picture of the frequency-domain perspective. Signal recordings that were too weak or too strong were normalized. It is hoped that a relatively stable recording result can be obtained with these steps.</p><p>Data Cleaning represents a stage that starts from the denoising filter, canter channel extractor, noise print reduction, and batch process <ref type="bibr" target="#b7">[8]</ref>. The audio signal extraction process can be carried out using software such as Adobe Audition by following the flowchart shown in Figure <ref type="figure" target="#fig_2">3</ref>.</p><p>The process began with a video clip of the movie. The data were imported into the Adobe Audition software and automatically converted from video to audio. The audio signal was displayed in waveform view, which was used during the editing process. Several operations were performed during the editing process, including denoising filtering, normalization, canter-channel extraction, noise-print reduction, and batch processing. The denoising filter removed background audio signals adaptively and automatically from the overall data using Adobe Audition. Normalizing audio data adjusts the overall amplitude within a specific range. This normalization process to -3 dB results in a more consistent and optimal sound. The canter channel extractor (CCE) isolates the elements in the audio data located at the canter of the stereo spectrum.</p><p>In the Batch Process, the entire editing process for one sample was used as a template for the simultaneous editing of the entire dataset. The batch process performed on the entire dataset was used for further testing. From the entire data, to which features, filters, and functions have been applied through the batch process, the dataset can be tested for interrater reliability to determine the reliability of the data on the emotions contained in each audio file.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>D. INTER-RATER RELIABILITY</head><p>The validation process ensured that the dataset was correct, and inter-rater reliability testing was performed using Fleiss-Kappa <ref type="bibr" target="#b8">[9]</ref>. Thus, we obtained an overview of the feasibility of grouping the datasets according to the four types of emotions that were determined. The grouping method is based on the Majority Rule (MR), which is performed by selecting or determining a class of expression (one type of expression) if the rater who chooses it is more than half of the existing number of raters. If three raters were used, then if two raters determined the type of expression, it could have been used. If only one ratter chooses an emotional expression, the data will be rejected or cannot be used <ref type="bibr" target="#b36">[37]</ref>.</p><p>Data validation was performed by observing the statistical behavior of the dataset by measuring the inter-rater reliability (IRR) when more than two raters rated the dataset on the same emotion type. A simple IRR observation of the dataset was constructed as shown in Figure <ref type="figure" target="#fig_3">4</ref>.</p><p>Fleiss Kappa assessment is expressed as follows:</p><formula xml:id="formula_0">K = P o -P e 1 -P e (<label>1</label></formula><formula xml:id="formula_1">)</formula><p>where K is the Fleiss Kappa value at 0 ≤ K ≤ 1.P ing is the observed proportion agreement and P e is the expected proportion agreement. The P O value was obtained using Equation ( <ref type="formula">2</ref>) and P e was obtained using Equation <ref type="bibr" target="#b2">(3)</ref>.</p><formula xml:id="formula_2">P o = 1 Nn(n-1) N i=1 k j=1 n 2 ij -Nn (2) P e = N i=1 p 2 j (<label>3</label></formula><formula xml:id="formula_3">)</formula><p>where N is the number of elements to be analyzed, n is the number of assessments for each element, and k is the total number of assessors (annotators).</p><p>The results of the Fleiss-Kappa calculation were interpreted as data research variables (Table <ref type="table">1</ref>).</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>E. MEL-FREQUENCY CEPSTRAL COEFFICIENTS (MFCC)</head><p>MFCC is inspired by how the human ear responds to and processes sound <ref type="bibr" target="#b10">[11]</ref>, <ref type="bibr" target="#b11">[12]</ref>. The MFCC coefficients focused on important facets of voice, including vocal formant shapes and other traits that are essential for speech analysis and emotion recognition. MFCCs can provide a clear representation of speech signals by boosting frequency regions that carry crucial information regarding human hearing. The feature TABLE 1. Fleiss kappa interpretation.</p><p>extraction procedure for the MFCC technique is illustrated in Fig. <ref type="figure" target="#fig_4">5</ref>.</p><p>Pre-emphasis, which strengthens the high-frequency region to increase clarity, is the first step in the featureextraction process. The speech signal was then split into 50% overlapping frames, each measuring 25 ms. A Hamming window is used to multiply each frame to prevent discontinuities at the ends of the frames. An NFFT size of 512 is used in the conversion procedure from the time domain to the frequency domain. The next step is to utilize a Melbased filter bank, which is composed of 40 filters according to the Mel-scale. This scaling is based on a comparison of pitch values; therefore, the Mel-scaled frequency results are very close to the frequency response of the human ear. To organize the frequency range more precisely, compression was performed on a logarithmic scale corresponding to a scale of 0 and 1. A discrete cosine transform (DCT) was used to log-compress the signal and produce a set of mel-frequency cepstral coefficients (MFCCs). </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>F. BASELINE MODEL EVALUATION</head><p>The training set was used to build and train the model, and the test set was used to evaluate its performance and generalization to hidden data. This study used the Pareto approach with 80% of the training set and 20% of the testing set. The training and testing processes are then performed using a CNN algorithm <ref type="bibr" target="#b12">[13]</ref>, <ref type="bibr" target="#b13">[14]</ref>.</p><p>A CNN is a machine learning (ML) algorithm that is included in the Deep Neural Network category owing to its deep network level. CNNs are designed to process twodimensional data and are widely implemented in image-data processing through matrix convolution operations. CNNs use a feed-forward classification method and backpropagation learning stage. The CNN architecture is illustrated in Figure <ref type="figure" target="#fig_5">6</ref>.</p><p>A CNN is composed of several layers that work sequentially to extract and classify features. The first layer is the input layer, where the data are first inputted into the CNN model. The data were then entered into a convolution layer to extract the features from the input data. The convolution layer comprises several layers that attempt to label the input signal by referring to what has been learned in the past. The results of this process produce feature maps to capture various patterns in the data. Next, the data enter a pooling layer, which reduces the dimensionality of the data, speeds up the calculation process, and minimizes unimportant data. This layer is the final stage of the feature-extraction process, and the classification process is performed through a fully connected layer. This layer is a multilayer perceptron (MLP) layer consisting of several interconnected neurons that assist in the data classification process based on the extracted features. After the classification process, the final output is determined based on the probability level of each class. To compare the results of classification modeling with actual data, the terms ''True'' and ''False'' can be used to indicate when the model output (classifier prediction) matches the actual results. Meanwhile, the terms ''Positive'' and ''Negative'' are also used to refer to when the model output (classifier prediction) matches the actual results. Thus, a ''True Positive (TP)'' implies that the model correctly predicts positive output. Meanwhile, a ''True Negative (TN)'' implies that the model correctly predicted a negative output. On the other hand, a ''False Positive (FP)'' implies that the model predicted incorrectly for positive outputs, and a ''False Negative (FN)'' implies that the model predicted incorrectly for negative outputs.</p><p>In the next step, we can measure the model's performance using model evaluation metrics such as Precision, Recall, and F1 score. Precision represents the ratio of TP to all correct predictions, that is, TP and FP. This equation is expressed as follows:</p><formula xml:id="formula_4">Precision = TP TP + FP (4)</formula><p>Recall is the ratio between the TP and all correct predictions (TP and FN). This relationship can be expressed using the following simple equation:</p><formula xml:id="formula_5">Recall = TP TP + FP (5)</formula><p>The F1 score is the harmonic means of precision and recall. The F1 score is calculated using the following equation:</p><formula xml:id="formula_6">F1score = 1 × Precision×Recall Precision + Recall (6)</formula><p>Once the dataset has been constructed, cleaned, validated, and split, it will be ready for use by users, both for our own purposes and the needs of other users who require the same data. Circulation can involve publishing the dataset to a public repository or publishing it within a limited group, or it can also be used as material for scientific writing (research papers), thus enabling other researchers or practitioners to use the dataset for their purposes or to analyse a model that has been built. This stage cannot be completed at the end of this study because the resulting dataset still requires various improvements and is relatively small.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>IV. RESULT AND DISCUSSION</head><p>E-SERAVD was created from scratch and is publicly available in the following Kaggle repository: <ref type="url" target="https://www.kaggle">https://www.kaggle</ref>. com/datasets/ahmadnafibudianto/ e-seravd-speech-emotionrecognition-av-dataset/settings.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>A. DATA COLLECTION OUTPUT</head><p>At this stage, video segments of varying durations are generated according to the dialogues that occur. To maintain the quality of the automatic slicing results, checks were conducted to ensure the accuracy of the cutting process. Segments of scenes whose video content matched the existing script were sorted and labelled according to four emotion categories: happy, angry, neutral, and sad.</p><p>After the data collection process, the next step was to label the pretest dataset. Each dataset was labelled with the condition of having a unique name according to a specific code. The pre-tested labelling consisted of numbers and letters separated by a hyphen, as follows: DATA-FORMAT-MOVIE CODE-UT-ID FILE 01-AADC-UT-0001. Data format: 01 (audio), 02 (video); Movie Code: abbreviation of movie title; UT: under-tested (untested); ID file: 0001-XXXX. For example, the pre-test labelling is 01-02-AADC 001.wav.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>B. DATA CLEANING RESULT</head><p>Audio files that have undergone data denoising and normalization tend to be more stable and relatively easier to recognize. An additional process, the Center Channel Extractor, isolates elements in the audio data located at the center of the stereo spectrum. The type of CCE filter used was Acapella, which has been able to improve vocal quality by isolating the vocal sound spectrum that is usually recorded mono in the center of the stereo channel spectrum. The extracted spectrum was within the human-voice range of 300 -3000 Hz. The signal comparison when using the CCE filter is shown in the spectrogram in Figure <ref type="figure" target="#fig_6">7</ref>.</p><p>This image shows the difference in the audio data spectrum at low frequencies (&lt; 3 KHz), which correspond to the range of human vocals. Some harmonic details at low frequencies faded, indicating that some samples in the central component were removed to clarify the details of the vocal component. At high frequencies, there are fewer changes because the CCE filter focuses more on isolating or eliminating some components in the low-frequency spectrum. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>C. DATASET STATISTICS</head><p>The output of the movie dialogue cutting process provides a picture of the highly variable duration of the utterance of an emotional expression. This can provide more in-depth information about the nature of emotional in Indonesian, which in this case is represented in the form of a movie scene.</p><p>The duration of a movie audio file is strongly linked to the emotional expression of speech and is often used as a pseudo-feature in SER; changes in duration can signal various emotions, notably arousal and speech tempos. Emotions such as anger and sadness tend to be expressed in shorter segments, whereas complex emotions require longer speech <ref type="bibr" target="#b37">[38]</ref>. In SER models, the length of the speech segment directly affects accuracy; segments that are too short may lack sufficient emotion-specific information, whereas overly long segments may introduce variability or noise and reduce performance <ref type="bibr" target="#b38">[39]</ref>.</p><p>The data obtained from movie cutting were grouped into histogram display segments formed with a bin width of 0.2 seconds. Overall, there are approximately 23 segments, where the shortest segment is between 0.8 and 1 s, and the longest is between 5.4 and 5.6 seconds. For each emotional expression, there was a different average pronunciation as well as a minimum and maximum duration. The results are presented in Table <ref type="table">2</ref>.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>TABLE 2. Expression duration.</head><p>The table shows that angry and sad expressions can last for short periods of time. The data showed a duration of between 1 and 1.1 seconds. There was a phenomenon in which angry expressions generally lasted for a shorter duration, up to a maximum of 4.3 seconds. Meanwhile, sad expressions can last longer, reaching a maximum duration of up to 5.6 seconds. The neutral expression tended to have the longest duration. This is understandable because neutral expressions tend to require relatively low energy compared to others, and do not require emphasis for the speaker to convey their expression.</p><p>The analysis of each emotional expression generally showed that all four emotional expressions had file durations that tended to be normally distributed. The Happy expression has data that tends to be normally distributed, but not very strongly. The mean value is 2.45. The Angry expression has symmetrical and regular intervals, a good fit for a normal distribution with skewness to the right, and a mean value of approximately 2.3. The Neutral expression has a strong normal distribution pattern, with a peak right in the middle and a mean of 2.33. This is the most logical pattern of a state of emotional neutrality. Sad emotional expressions had a regular symmetrical interval pattern, supporting a normal distribution. For sad emotions in the general population, the distribution is often normal with a mean in the middle, which in this case is 2.93.</p><p>Based on the general normal distribution pattern, a t-test was conducted to determine the behavior of the paired emotional expression data. Data analysis was performed using an independent t-test with a significance level of α = 0.05 (two-tailed), which in this case had a critical t-value (+ 1.960) for datasets of more than 200. The analysis was conducted by pairwise comparisons of the duration of each expression. The Happy-Angry expression pair had a t-value of 2.988, which exceeded the critical t-value (±1.960), indicating a significant difference between the two sets of data.</p><p>For the Happy-Neutral expression pair, the t-value score was 2.467, whereas for the Happy-Sad expression pair, the t-value score was 1.980. In the data pair for the Angry-Neutral emotional expression, the t-value was 2.046; the Angry-Sad emotional expression pair had a tvalue of 2.093. For the Neutral-Sad expression pair, the t-value score was 2.074. Overall, these emotional expression pairs had t-values above the critical point (+1.960).</p><p>Overall, the emotional expressions had a minimum duration of approximately 1.0 seconds and a maximum duration of approximately 5.6 seconds, as shown in Figure <ref type="figure" target="#fig_8">8</ref>  The distribution pattern described above is understandable in the dataset created for SER. This occurs because audio clips are often chunked into single utterances, short phrases, or short sentences (as indicated by the high frequency of clips between 1.0 and 2.5 seconds). Meanwhile, clips that are too long (over 4 seconds) are deliberately avoided or broken up as they are predicted to make it difficult for the algorithm to process information or emotions efficiently.</p><p>The data collected during the dataset formation process indicates that most of the dialogue in an Indonesian movie is neutral. Overall, neutral expressions dominated the movie with a probability of 0.63. Three other expressions, Angry, Happy, and Sad, had relatively low probability values. In this case, Angry has a probability of 0.16, followed by Sad with a probability of 0.11, and Happy with a probability of 0.1. This is thought to be because the movie genre is a drama, with several conflicts occurring in the movie scenario. A simple illustration of the probability of the expression output in a movie is shown in Figure <ref type="figure" target="#fig_9">9</ref>. </p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>D. RATER QUALITY EVALUATION</head><p>The accuracy between the initial mapping and assessment results according to the perception of the annotator/rater is an important factor in preparing a dataset for SER <ref type="bibr" target="#b28">[29]</ref>. The process of determining the expression by the raters was carried out randomly. Each audio file was given a specific code, and the evaluation by the raters was carried out in a double-blind manner, where the audio files were randomly distributed for the four emotional expressions. In this case, the audio files were not grouped according to their respective expressions but were distributed randomly so that the raters did not know what type of expression was in the audio file. The raters assessed the type of expression independently; therefore, there was no mutual influence between them. The observation files processed by the hearing were carried out in a closed room using a handset to avoid the other sounds coming suddenly.</p><p>From the three raters, the extent to which each emotional expression resulted from mapping corresponded to the raters' assessments. An evaluation was conducted for each identified emotional expression, and the results from the three raters were averaged. A scale between 0 and 1 was obtained, as shown in Figure <ref type="figure" target="#fig_10">10</ref>.</p><p>The image shows that a neutral expression is easier to understand and provides results that are nearly perfect. In this case, the initial mapping results were very close to the rater's assessment with a score of 0.9. The Happy and Sad expressions tended to have a similar level of suitability and were still relatively good, with scores of 0.89 and 0.88, respectively. Meanwhile, the Angry expression was still relatively good, with a suitability of up to 0.81.</p><p>The abilities of the selected raters must also be evaluated. From the results of the observations of the inter-rater reliability process and the evaluation of the human perception process, it was found that not all raters were able to evaluate all the emotional expressions prepared in the initial version of the dataset. Of the three raters appointed, a picture of their average ability to evaluate the suitability between the dataset mapping and the resulting level of similarity was obtained, as shown in Figure <ref type="figure" target="#fig_11">11</ref>. From the figure, it appears that all raters were able to achieve a score above 86%, and even one rater achieved 91.4%. This shows that the appointment of raters assigned to determine the type of expression in each audio file is credible. This illustrates the diversity of emotional perceptions from the initial mapping to raters' perceptions. If we want more accurate results, we can increase the number of annotators (raters). However, it is important to consider that too many will slow down the completion process of mapping the emotional expression data set being built.</p><p>An assessment is associated with evaluating the performance of emotional actions obtained from the results of scenes obtained from a movie. Perceptual testing was conducted by asking observers (raters) to pay attention to each emotion evoked in the audio file that resulted from the cut movie scenes. Perceptual testing was performed by asking observers while listening to the audio file to identify the type of emotion that best fits the depiction of the audio file. In addition, an evaluation was conducted to determine the extent to which participants perceived other emotional expressions in the played audio file. The testing session involved listeners and an officer who played the audio file and recorded feedback. Listeners were allowed to replay the audio file before evaluation. However, in this case, the observer is not allowed to compare the performance of the two files before evaluating the first files <ref type="bibr" target="#b9">[10]</ref>, <ref type="bibr" target="#b23">[24]</ref>, and <ref type="bibr" target="#b36">[37]</ref>.</p><p>From the data observations in the Happy emotion expression file, 82% were perceived as Happy expressions, 4% as angry expressions, 11% as Neutral expressions, and 3% as Sad expressions. For the Angry expression data, 1.0% were perceived as Happy expressions, 92% as Angry expressions, and 7.0% as Neutral expressions, but none as sad expressions.</p><p>For the Neutral expression file data, 1.0%, 4.0%, 93%, and 2.0% were perceived as Happy, Angry, Neutral, and Sad expressions, respectively. Meanwhile, the data on sad expressions obtained a picture of 5.0% as angry, 7.0% as neutral, and 88% as Sad. The description of this data acquisition can be presented in the form of a confusion matrix for the human perception of emotional expressions, as shown in Table <ref type="table">3</ref>.</p><p>TABLE 3. Confusion matrix based on human perception.</p><p>Overall, not all files mapped in the initial version exhibited perceptual variations according to observations. This allows researchers to hypothesize that the emotion recognition process, constructed using a predefined algorithm, may not achieve 100% emotion recognition. This hypothesis is based on human perception and the SER model, which are based on Artificial Neural Networks or Artificial Intelligence and behave similarly to human perception.</p><p>Dataset analysis was performed based on the emotional expression files defined in the initial stage, specifically after the pre-processing stage. The next step was to analyze the agreement level between human annotators or raters using Fleiss' kappa. Based on the evaluation conducted using Fleiss' Kappa (refer to Subsection III. D); each emotional expression had a score of Pe = 0.434, Po = 0.780, and K = 0.611. Based on the Fleiss Kappa, it is very clear that the inter-rater reliability that has been carried out has met the good category because it is in the range (0.6 -0.79). Thus, the process of compiling this data set meets the requirements for the next process.</p><p>Based on the Fleiss Kappa (Table <ref type="table">1</ref>), Section III. D, it appears that the inter-rater reliability that has been carried out has met the good category because it is in the range (0.6-0.79). Thus, the process of compiling this dataset fulfills the requirements for continuing to the next process.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>E. BASELINE MODEL EVALUATION</head><p>The feature extraction process results in MFCC data in a numerical format, which we used as the input for training and validating the models. Feature extraction using MFCC provides an output in numeric format as follows: sampling frequency, Fs = 16 kHz representative for voice signal; pre-emphasis α ≈ 0.95 to amplify high-frequency signal; framing = 25 ms compromised between stationarity and information; FFT512, to achieve a good and efficient frequency resolution; filter bank 24 is good for human perception and computational efficiency; and DCT20 coefficients, take the major, and reject the noise.</p><p>Accuracy   To improve the performance with the described training and validation behaviours, we can do two things. First, we performed the Heed Stopping. This implies ending the training early, for example, around epoch 10-15. At this point, the gap between the training and validation is still small. Early termination is expected to provide a model that is more robust to new data. Second, additional data should be added to help model learn the general patterns better. According to the results of the experiments that have been carried out, outcomes were obtained for the testing of the dataset that was prepared for the 4 types of emotional expressions. The results for each emotional expression in the form of a normalized confusion matrix are shown in Figure <ref type="figure" target="#fig_15">13</ref>.</p><p>Based on this figure, the Happy expression correctly predicts 215 out of 250 data, the Angry expression correctly predicts 213 out of 250 data, the Neutral expression correctly predicts 200 out of 250 data, and the Sad expression correctly predicts 232 out of 250 data. In total, it provided 860 correct predictions out of the 1000 datasets. From the confusion matrix, it is concluded that the highest accuracy occurred with the sad expression, which was 232 out of 250 datasets.</p><p>From the results of the confusion matrix, we analyzed the F1 score performance. From this display, we referred to the variables of false positive (FP), false negative (FN), true positive (TP), and true negative (TN), which were taken from the data in the confusion matrix. These values provide an overview of the model's evaluation metric performance: Precision, Recall, and F1 score, as shown in Table <ref type="table">4</ref>.</p><p>TABLE 4. F1 score evaluation.</p><p>The table shows that the highest F1 score is for the expressions Happy and Sad, which can achieve a value of 88%, whereas the lowest is for the expression Angry, which achieves a value of 83%. The overall F1 score is 86%. This value is quite good for the initial model of a dataset that was tested using a CNN clustering model.</p><p>We compared the results of emotion expression mapping and its perception according to the confusion matrix of human perception (Table <ref type="table">3</ref>) with the confusion matrix obtained from learning with the CNN (Figure <ref type="figure" target="#fig_15">13</ref>). From both there was a tendency for patterns to have similarities between the two, with an average error of 0.05. The largest difference between the two, with the highest value of 0.17, occurs between Human Perception and the CNN version Confusion Matrix, for the Neutral expression perceived as neutral. The smallest difference, valued at 0.01, occurs between Human Perception and the CNN version Confusion Matrix, for the Angry expression perceived as Angry, and the Neutral expression perceived as happy.</p><p>A cross-corpus evaluation was conducted using the existing datasets (RADVESS, TESS, and SAVEE) for comparison. These three datasets were chosen because they are quite popular and share similar formation characteristics, the acted collection method. The outputs of the comparison are listed in Table <ref type="table">5</ref>.</p><p>The language used to record the dataset is important because emotions in speech are greatly influenced by the prosody of a language (intonation, stress, and rhythm). From the language used, it is known that the E-SERAVD Dataset uses Indonesian, while the other three comparisons, RAVDESS, TESS, and SAVEE, use English; specifically, SAVE is English with a British accent. These language differences are quite a consideration in model performance because the acoustic patterns of different languages may have different characteristics.</p><p>In terms of the number and categories of emotions used, E-SEVARD has four types of emotional expressions, RAVDESS has eight emotional expressions, TESS has eight types of emotional expressions, and SAVEE has seven emotional expressions (British accent). More emotional classes affect the classification process, which has the possibility of decreasing accuracy.</p><p>The total number of audio samples in a dataset determines the performance stability of the SER system. In this case, we found that E-SERAVD had 1000 voice files, RAVDESS had 1440, TESS had 2800, and SAVEE had 480. Another factor that can be influenced by the number of samples or audio files in a dataset is the potential to reduce the risk of overfitting and provide better generalization.</p><p>In the evaluation of Accuracy, F1-Score, Precision, and Recall, it provides an overview that the four metrics show the general performance of the SER model, as follows:</p><p>-The E-SEVARD dataset, with its relatively small number of emotion classes, facilitates the classification task. In this case, the dataset likely has a uniform recording quality, allowing the model to learn the patterns well. This high accuracy indicates that this dataset is effective for Indonesian-language SER research. Evaluations of the F1 score, Precision, and Recall were all consistent, indicating a balanced model for predicting each class. -Cross-corpus evaluation of the learning outcomes of E-SEVARD applied to the RAVDESS dataset affects the performance of the SER system. Because the RAVDESS dataset has varying intensities (normal and strong), the model must differentiate between emotional intensities. The resulting performance is lower than that of E-SERAVD, owing to this complexity. -A cross-corpus evaluation of the learning outcomes of E-SEVARD applied to the TESS dataset yielded 100% accuracy. This could be due to the very clean dataset, large number of samples (files), and possibly the specific nature of the model (overfitting in the experiment). This favourable outcome was predicted because of the highly controlled recording process and clear emotional patterns.</p></div><figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_0"><head>FIGURE 1 .</head><label>1</label><figDesc>FIGURE 1. Dataset development.</figDesc><graphic coords="3,298.68,221.66,238.00,52.10" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_1"><head>FIGURE 2 .</head><label>2</label><figDesc>FIGURE 2. Data collection flowchart.</figDesc><graphic coords="4,37.77,552.81,238.00,124.92" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_2"><head>FIGURE 3 .</head><label>3</label><figDesc>FIGURE 3. Data cleaning flowchart.</figDesc><graphic coords="5,37.77,66.06,238.00,125.57" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_3"><head>FIGURE 4 .</head><label>4</label><figDesc>FIGURE 4. Block diagram of inter-rater reliability with Fleiss-Kappa.</figDesc><graphic coords="5,298.68,66.06,238.00,117.87" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_4"><head>FIGURE 5 .</head><label>5</label><figDesc>FIGURE 5. MFCC block diagram.</figDesc><graphic coords="5,298.68,592.44,238.00,68.09" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_5"><head>FIGURE 6 .</head><label>6</label><figDesc>FIGURE 6. CNN block diagram.</figDesc><graphic coords="6,37.77,441.91,238.00,103.28" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_6"><head>FIGURE 7 .</head><label>7</label><figDesc>FIGURE 7. CCE effect on the spectrogram of the audio signal.</figDesc><graphic coords="7,37.77,320.37,238.00,118.84" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_7"><figDesc>. Durations appeared on the horizontal axis, grouped into bins from approximately 1.0 to over 5.0 seconds. The vertical axis displays probabilities, indicating how often the clips fall within each duration range. The highest probability is approximately 0.55. The highest peak appeared in the duration range of approximately 1.8 to 2.0 seconds. The probability value was 0.55. Audio clips between 1.0 and 2.5 seconds have a very high chance of occurring. This shows that the dataset contained mostly very short clips. The figure also indicates that the distribution has a long right tail, meaning that it is positively skewed. Durations above 3.0 seconds are less common; therefore, long audio clips are rare. The dataset does not seem to include clips longer than 5.6 seconds. The probability of having such long clips was almost zero.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_8"><head>FIGURE 8 .</head><label>8</label><figDesc>FIGURE 8. Description of speech signal duration in emotional expression.</figDesc><graphic coords="8,37.77,343.57,238.00,152.40" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_9"><head>FIGURE 9 .</head><label>9</label><figDesc>FIGURE 9. The probability of emotional expression resulting from the trimmed movie.</figDesc><graphic coords="8,304.04,102.37,227.28,137.84" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_10"><head>FIGURE 10 .</head><label>10</label><figDesc>FIGURE 10. The result of the agreement level of emotional expression initial mapping.</figDesc><graphic coords="9,37.77,66.06,238.00,143.83" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_11"><head>FIGURE 11 .</head><label>11</label><figDesc>FIGURE 11. Agreement level rater from the mapping result.</figDesc><graphic coords="9,37.77,342.93,238.00,144.02" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_12"><figDesc>testing was performed on the training dataset to understand how the model predictions matched the actual labels. Accuracy was calculated by comparing the number of correct predictions with real predictions made regarding the composition of the dataset. Training determines the ability of a model to learn from the training dataset. The second parameter, validation accuracy, measures the model's performance on a separate validation dataset, which was never used during the training process. If a high-accuracy condition is obtained, the model fits well with the training data. To determine the extent of the composition of our dataset, we present the first condition for a balanced dataset, where each emotional expression consists of 250 files for Angry, 250 files for Neutral, 250 files for Sad, and 250 files for Happy, totaling 1000 files. Although not the same, the composition is relatively balanced. After a series of experiments using simulations with the compiled dataset, an overview of the accuracy and validation results was obtained, as shown in Figure 12. This graph illustrates the training and validation processes of a CNN model with a focus on the accuracy metric. The horizontal (x) axis illustrates the epoch, which is a complete cycle in which the entire training dataset is processed by the model once. The axis indicates the number of iterations or rounds of learning performed by the model. The vertical (y) axis illustrates the accuracy, with a value range of 0.3 to 0.8. The blue line (training) shows the model's accuracy on the training data, whereas the orange line (validation) shows the model's accuracy on the validation data, using new data not seen by the model during training, and is used to test how well the model can generalize its knowledge.Based on the pattern shown by the two lines, we can see that the model performance improves as the number of epochs increases, as indicated by an upward trend in both lines (training and validation). This indicates that the learning process works well, with the model consistently improving in predicting both familiar data (training) and new data (validation).At the start of the epoch range, the training and validation accuracies remained very close. This indicates that the system was in an ideal state. However, as the epoch count approached 10, the training accuracy consistently exceeded the validation accuracy. The gap between these lines is more</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_13"><head>FIGURE 12 .</head><label>12</label><figDesc>FIGURE 12. Accuracy of Training and Validation Process.</figDesc><graphic coords="10,298.68,66.06,238.00,189.81" type="bitmap" /></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_14"><figDesc>pronounced. Overfitting begins as the model memorizes the patterns and noise in the training data. This prevents the model from learning the general patterns that are useful for new data. As a result, the performance on the validation data falls behind the performance on the training data. At epoch values approaching 25, the model achieved a training accuracy of approximately 78% and validation accuracy of approximately 73%. Although signs of overfitting emerged, the model still managed to generalize quite well, maintaining its validation accuracy in the 70s.</figDesc></figure>
+<figure xmlns="http://www.tei-c.org/ns/1.0" xml:id="fig_15"><head>FIGURE 13 .</head><label>13</label><figDesc>FIGURE 13. The confusion matrix.</figDesc><graphic coords="11,42.17,66.06,229.20,191.18" type="bitmap" /></figure>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="2026" xml:id="foot_0"><p>The Authors. This work is licensed under a Creative Commons Attribution 4.0 License.For more information, see https://creativecommons.org/licenses/by/4.0/ VOLUME 14, 2026</p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="6736" xml:id="foot_1"><p>  VOLUME 14, 2026   </p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" xml:id="foot_2"><p>VOLUME 14, 2026   </p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="6742" xml:id="foot_3"><p>  VOLUME 14, 2026   </p></note>
+			<note xmlns="http://www.tei-c.org/ns/1.0" place="foot" n="6744" xml:id="foot_4"><p>  VOLUME 14, 2026   </p></note>
+		</body>
+		<back>
+
+			<div type="funding">
+<div><p>This work was supported by <rs type="funder">Politeknik Elektronika Negeri Surabaya (PENS)</rs>, through the <rs type="funder">Ministry of Education, Culture, Research, and Technology, Republic of Indonesia</rs>, under Grant <rs type="grantNumber">174/PL14/PT/VII/2025</rs>.</p></div>
+			</div>
+			<listOrg type="funding">
+				<org type="funding" xml:id="_vxTvK9V">
+					<idno type="grant-number">174/PL14/PT/VII/2025</idno>
+				</org>
+			</listOrg>
+			<div type="annex">
+<div xmlns="http://www.tei-c.org/ns/1.0"><p>-A cross-corpus evaluation of the learning results from E-SEVARD applied to the TESS dataset shows that the performance is still quite good (&gt;90%). A small sample size increases the risk of overfitting; the performance remains stable.</p></div>
+<div xmlns="http://www.tei-c.org/ns/1.0"><head>V. CONCLUSION</head><p>This dataset is the initial step in the development of SER in Indonesian. It aims to reduce the gap between research development and related topics because of the relatively limited availability of the datasets. The assembled dataset satisfied the minimum standards for speech sources, including professionals in their fields and age diversity. The creation process followed correct dataset formation standards. This SER dataset was tested for interrater reliability with a Kappa score of 0.61. The rater confidence level was above 86%, and the agreement on each emotional expression exceeded 81%. The baseline performance was also tested using a CNN clustering model that achieved 90% accuracy and an F1 score of 86%.</p><p>For the near future, research will be conducted on how to develop an SER dataset with variations in dialects that could affect emotional consistency and noisy environmental conditions. Therefore, further development of algorithm types as support is required, as it will relate to the normalization process on cross-corpora and other issues, to produce an SER system that increasingly approaches human language naturally. At this stage, it is also expected to expand to include more emotions and support collaboration with psychologists for emotional validation. </p></div>			</div>
+			<div type="references">
+
+				<listBibl>
+
+<biblStruct xml:id="b0">
+	<analytic>
+		<title level="a" type="main">A comprehensive review of speech emotion recognition systems</title>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">M</forename><surname>Wani</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">S</forename><surname>Gunawan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">A A</forename><surname>Qadri</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Kartiwi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Ambikairajah</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/ACCESS.2021.3068045</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Access</title>
+		<imprint>
+			<biblScope unit="volume">9</biblScope>
+			<biblScope unit="page" from="47795" to="47814" />
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b1">
+	<analytic>
+		<title level="a" type="main">A review on speech emotion recognition: A survey, recent advances, challenges, and the influence of noise</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">M</forename><surname>George</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><forename type="middle">M</forename><surname>Ilyas</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.neucom.2023.127015</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Neurocomputing</title>
+		<imprint>
+			<biblScope unit="volume">568</biblScope>
+			<biblScope unit="page">127015</biblScope>
+			<date type="published" when="2024-02">Feb. 2024</date>
+			<pubPlace>Art</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b2">
+	<analytic>
+		<title level="a" type="main">E-speech: Development of a dataset for speech emotion recognition and analysis</title>
+		<author>
+			<persName><forename type="first">W</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Shi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Zhang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Zhou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Liu</surname></persName>
+		</author>
+		<idno type="DOI">10.1155/2024/5410080</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Int. J. Intell. Syst</title>
+		<imprint>
+			<biblScope unit="volume">2024</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="1" to="5" />
+			<date type="published" when="2024-01">Jan. 2024</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b3">
+	<analytic>
+		<title level="a" type="main">Multi-feature stacking order impact on speech emotion recognition performance</title>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Tanoko</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Zahra</surname></persName>
+		</author>
+		<idno type="DOI">10.11591/eei.v11i6.4287</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Bull. Electr. Eng. Informat</title>
+		<imprint>
+			<biblScope unit="volume">11</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page" from="3272" to="3278" />
+			<date type="published" when="2022-12">Dec. 2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b4">
+	<analytic>
+		<title level="a" type="main">Indonesian speech emotion recognition using cross-corpus method with the combination of MFCC and teager energy features</title>
+		<author>
+			<persName><forename type="first">O</forename><forename type="middle">U</forename><surname>Kumala</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Zahra</surname></persName>
+		</author>
+		<idno type="DOI">10.14569/ijacsa.2021.0120422</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Int. J. Adv. Comput. Sci. Appl</title>
+		<imprint>
+			<biblScope unit="volume">12</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="163" to="168" />
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b5">
+	<analytic>
+		<title level="a" type="main">IndoWaveSentiment: Indonesian audio dataset for emotion classification</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Bustamin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">M</forename><surname>Rizky</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Warni</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><forename type="middle">S</forename><surname>Areni</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Indrabayu</forename></persName>
+		</author>
+		<idno type="DOI">10.1016/j.dib.2024.111138</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Data Brief</title>
+		<imprint>
+			<biblScope unit="volume">57</biblScope>
+			<biblScope unit="page">111138</biblScope>
+			<date type="published" when="2024-12">Dec. 2024</date>
+			<pubPlace>Art</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b6">
+	<analytic>
+		<title level="a" type="main">Building better datasets: Seven recommendations for responsible design from dataset creators</title>
+		<author>
+			<persName><forename type="first">W</forename><surname>Orr</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Crawford</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="j">J. Data-Centric Mach. Learn. Res</title>
+		<imprint>
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="1" to="21" />
+			<date type="published" when="2024-08">Aug. 2024</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b7">
+	<monogr>
+		<title level="m" type="main">Datasets for large language models: A comprehensive survey</title>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Cao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Ding</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Jin</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2402.18041</idno>
+		<imprint>
+			<date type="published" when="2024">2024</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b8">
+	<monogr>
+		<title level="m" type="main">A new amharic speech emotion dataset and classification benchmark</title>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">A</forename><surname>Retta</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Almekhlafi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Sutcliffe</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Mhamed</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Ali</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Feng</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2201.02710</idno>
+		<imprint>
+			<date type="published" when="2022">2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b9">
+	<analytic>
+		<title level="a" type="main">Evaluation of an Arabic speech corpus of emotions: A perceptual and statistical analysis</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">H</forename><surname>Meftah</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><forename type="middle">A</forename><surname>Alotaibi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S.-A</forename><surname>Selouani</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/ACCESS.2018.2881096</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Access</title>
+		<imprint>
+			<biblScope unit="volume">6</biblScope>
+			<biblScope unit="page" from="72845" to="72861" />
+			<date type="published" when="2018">2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b10">
+	<analytic>
+		<title level="a" type="main">Classifying heart sounds using images of motifs, MFCC and temporal features</title>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">M</forename><surname>Nogueira</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><forename type="middle">A</forename><surname>Ferreira</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><forename type="middle">F</forename><surname>Gomes</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">M</forename><surname>Jorge</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s10916-019-1286-5</idno>
+	</analytic>
+	<monogr>
+		<title level="j">J. Med. Syst</title>
+		<imprint>
+			<biblScope unit="volume">43</biblScope>
+			<biblScope unit="issue">6</biblScope>
+			<biblScope unit="page">168</biblScope>
+			<date type="published" when="2019-06">Jun. 2019</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b11">
+	<analytic>
+		<title level="a" type="main">Stuttered isolated spoken Marathi speech recognition by using MFCC and LPC</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Waghmare</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Ratnadeep</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Pukhraj</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><forename type="middle">B</forename><surname>Waghmare</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><forename type="middle">B</forename><surname>Janvale</surname></persName>
+		</author>
+		<idno type="DOI">10.21172/ijiet.83.018</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Int. J. Innov. Eng. Technol</title>
+		<imprint>
+			<biblScope unit="volume">8</biblScope>
+			<biblScope unit="issue">3</biblScope>
+			<biblScope unit="page" from="122" to="129" />
+			<date type="published" when="2017">2017</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b12">
+	<analytic>
+		<title level="a" type="main">Speech emotion recognition using machine learning techniques: Feature extraction and comparison of convolutional neural network and random forest</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">M R</forename><surname>Mashhadi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Osei-Bonsu</surname></persName>
+		</author>
+		<idno type="DOI">10.1371/journal.pone.0291500</idno>
+	</analytic>
+	<monogr>
+		<title level="j">PLoS ONE</title>
+		<imprint>
+			<biblScope unit="volume">18</biblScope>
+			<biblScope unit="issue">11</biblScope>
+			<biblScope unit="page">291500</biblScope>
+			<date type="published" when="2023-11">Nov. 2023</date>
+			<pubPlace>Art</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b13">
+	<analytic>
+		<title level="a" type="main">3-D convolutional recurrent neural networks with attention model for speech emotion recognition</title>
+		<author>
+			<persName><forename type="first">M</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>He</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Yang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Zhang</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/LSP.2018.2860246</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Signal Process. Lett</title>
+		<imprint>
+			<biblScope unit="volume">25</biblScope>
+			<biblScope unit="issue">10</biblScope>
+			<biblScope unit="page" from="1440" to="1444" />
+			<date type="published" when="2018-10">Oct. 2018</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b14">
+	<analytic>
+		<title level="a" type="main">A database of German emotional speech</title>
+		<author>
+			<persName><forename type="first">F</forename><surname>Burkhardt</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Paeschke</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Rolfes</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><forename type="middle">F</forename><surname>Sendlmeier</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">B</forename><surname>Weiss</surname></persName>
+		</author>
+		<idno type="DOI">10.21437/INTERSPEECH.2005-446</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. Interspeech</title>
+		<meeting>Interspeech</meeting>
+		<imprint>
+			<date type="published" when="2005-09">Sep. 2005</date>
+			<biblScope unit="page" from="1517" to="1520" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b15">
+	<analytic>
+		<title level="a" type="main">The Ryerson audio-visual database of emotional speech and song (RAVDESS): A dynamic, multimodal set of facial and vocal expressions in North American english</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">R</forename><surname>Livingstone</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><forename type="middle">A</forename><surname>Russo</surname></persName>
+		</author>
+		<idno type="DOI">10.1371/journal.pone.0196391</idno>
+	</analytic>
+	<monogr>
+		<title level="j">PLoS ONE</title>
+		<imprint>
+			<biblScope unit="volume">13</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page">196391</biblScope>
+			<date type="published" when="2018-05">May 2018</date>
+			<pubPlace>Art</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b16">
+	<analytic>
+		<title level="a" type="main">IEMOCAP: Interactive emotional dyadic motion capture database</title>
+		<author>
+			<persName><forename type="first">C</forename><surname>Busso</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Bulut</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C.-C</forename><surname>Lee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Kazemzadeh</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Mower</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Kim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><forename type="middle">N</forename><surname>Chang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Lee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">S</forename><surname>Narayanan</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/s10579-008-9076-6</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Lang. Resour. Eval</title>
+		<imprint>
+			<biblScope unit="volume">42</biblScope>
+			<biblScope unit="issue">4</biblScope>
+			<biblScope unit="page" from="335" to="359" />
+			<date type="published" when="2008-12">Dec. 2008</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b17">
+	<analytic>
+		<title level="a" type="main">Acoustic model adaptation for emotional speech recognition using Twitter-based emotional speech corpus</title>
+		<author>
+			<persName><forename type="first">T</forename><surname>Kosaka</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Aizawa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Kato</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Nose</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. Asia-Pacific Signal Inf. Process. Assoc. Annu. Summit Conf. (APSIPA ASC)</title>
+		<meeting>Asia-Pacific Signal Inf. ess. Assoc. Annu. Summit Conf. (APSIPA ASC)</meeting>
+		<imprint>
+			<date type="published" when="2018-11">Nov. 2018</date>
+			<biblScope unit="page" from="1747" to="1751" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b18">
+	<analytic>
+		<title level="a" type="main">JVNV: A corpus of Japanese emotional speech with verbal content and nonverbal expressions</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Xin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Jiang</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Takamichi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Saito</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Aizawa</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">H</forename><surname>Saruwatari</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/ACCESS.2024.3360885</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Access</title>
+		<imprint>
+			<biblScope unit="volume">12</biblScope>
+			<biblScope unit="page" from="19752" to="19764" />
+			<date type="published" when="2024">2024</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b19">
+	<analytic>
+		<title level="a" type="main">Language model adaptation for emotional speech recognition using tweet data</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Saeki</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Kato</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Kosaka</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. Asia-Pacific Signal Inf. Process. Assoc. Annu. Summit Conf. (APSIPA ASC)</title>
+		<meeting>Asia-Pacific Signal Inf. ess. Assoc. Annu. Summit Conf. (APSIPA ASC)<address><addrLine>Auckland, New Zealand</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2020-12">Dec. 2020</date>
+			<biblScope unit="page" from="371" to="375" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b20">
+	<analytic>
+		<title level="a" type="main">The CASIA audio emotion recognition method for audio/visual emotion challenge</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Pan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Tao</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Li</surname></persName>
+		</author>
+		<idno type="DOI">10.1007/978-3-642-24571-8_50</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. Int. Conf. Affect</title>
+		<meeting>Int. Conf. Affect</meeting>
+		<imprint>
+			<date type="published" when="2011">2011. 2011</date>
+			<biblScope unit="page" from="388" to="395" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b21">
+	<analytic>
+		<title level="a" type="main">LSSED: A large-scale dataset and benchmark for speech emotion recognition</title>
+		<author>
+			<persName><forename type="first">W</forename><surname>Fan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Xu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Xing</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Huang</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/ICASSP39728.2021.9414542</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Proc. IEEE Int. Conf. Acoust., Speech Signal Process. (ICASSP)</title>
+		<imprint>
+			<biblScope unit="page" from="641" to="645" />
+			<date type="published" when="2021-06">Jun. 2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b22">
+	<analytic>
+		<title level="a" type="main">Design and evaluation of adult emotional speech corpus for natural environment</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Jia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Zheng</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">W</forename><surname>Sun</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/IHMSC49165.2020.00020</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. 12th Int. Conf. Intell</title>
+		<meeting>12th Int. Conf. Intell</meeting>
+		<imprint>
+			<date type="published" when="2020-08">Aug. 2020</date>
+			<biblScope unit="volume">1</biblScope>
+			<biblScope unit="page" from="53" to="56" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b23">
+	<analytic>
+		<title level="a" type="main">King Saud University emotions corpus: Construction, analysis, evaluation, and comparison</title>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">H</forename><surname>Meftah</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">A</forename><surname>Qamhan</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><surname>Seddiq</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Y</forename><forename type="middle">A</forename><surname>Alotaibi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">A</forename><surname>Selouani</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/ACCESS.2021.3070751</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Access</title>
+		<imprint>
+			<biblScope unit="volume">9</biblScope>
+			<biblScope unit="page" from="54201" to="54219" />
+			<date type="published" when="2021">2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b24">
+	<analytic>
+		<title level="a" type="main">Creation of speech corpus for emotion analysis in Gujarati language and its evaluation by various speech parameters</title>
+		<author>
+			<persName><forename type="first">V</forename><forename type="middle">P</forename><surname>Tank</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">K</forename><surname>Hadia</surname></persName>
+		</author>
+		<idno type="DOI">10.11591/ijece.v10i5.pp4752-4758</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Int. J. Electr. Comput. Eng. (IJECE)</title>
+		<imprint>
+			<biblScope unit="volume">10</biblScope>
+			<biblScope unit="issue">5</biblScope>
+			<biblScope unit="page" from="4752" to="4758" />
+			<date type="published" when="2020-10">Oct. 2020</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b25">
+	<analytic>
+		<title level="a" type="main">KBES: A dataset for realistic Bangla speech emotion recognition with intensity level</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">M</forename><surname>Billah</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">L</forename><surname>Sarker</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">A H</forename><surname>Akhand</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.dib.2023.109741</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Data Brief</title>
+		<imprint>
+			<biblScope unit="volume">51</biblScope>
+			<biblScope unit="page">109741</biblScope>
+			<date type="published" when="2023-12">Dec. 2023</date>
+			<pubPlace>Art</pubPlace>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b26">
+	<analytic>
+		<title level="a" type="main">LOTUS-BN: A Thai broadcast news corpus and its research applications</title>
+		<author>
+			<persName><forename type="first">A</forename><surname>Chotimongkol</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">K</forename><surname>Saykhum</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Chootrakool</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Thatphithakkul</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Wutiwiwatchai</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/ICSDA.2009.5278377</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. Oriental COCOSDA Int. Conf. Speech Database Assessments</title>
+		<meeting>Oriental COCOSDA Int. Conf. Speech Database Assessments<address><addrLine>Urumqi, China</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2009-08">Aug. 2009</date>
+			<biblScope unit="page" from="1" to="6" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b27">
+	<analytic>
+		<title level="a" type="main">LOTUS-BI: A Thai-english code-mixing speech corpus</title>
+		<author>
+			<persName><forename type="first">S</forename><surname>Thatphithakkul</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">V</forename><surname>Chunwijitra</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Sertsi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Chootrakool</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Kasuriya</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/O-COCOSDA46868.2019.9041195</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. 22nd Conf. Oriental COCOSDA Int. Committee Co-Ordination Standardisation Speech Databases Assessment Techn. (O-COCOSDA)</title>
+		<meeting>22nd Conf. Oriental COCOSDA Int. Committee Co-Ordination Standardisation Speech Databases Assessment Techn. (O-COCOSDA)</meeting>
+		<imprint>
+			<date type="published" when="2019-10">Oct. 2019</date>
+			<biblScope unit="page" from="1" to="5" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b28">
+	<analytic>
+		<title level="a" type="main">Construction and analysis of Indonesian emotional speech corpus</title>
+		<author>
+			<persName><forename type="first">N</forename><surname>Lubis</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><surname>Lestari</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Purwarianti</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Sakti</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><surname>Nakamura</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/ICSDA.2014.7051413</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. 17th Oriental Chapter Int. Committee Co-ordination Standardization Speech Databases Assessment Techniques (COCOSDA)</title>
+		<meeting>17th Oriental Chapter Int. Committee Co-ordination Standardization Speech Databases Assessment Techniques (COCOSDA)<address><addrLine>Phuket</addrLine></address></meeting>
+		<imprint>
+			<date type="published" when="2014-09">Sep. 2014</date>
+			<biblScope unit="page" from="1" to="5" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b29">
+	<analytic>
+		<title level="a" type="main">Speech emotion recognition on Indonesian YouTube web series using deep learning approach</title>
+		<author>
+			<persName><forename type="first">H</forename><forename type="middle">N</forename><surname>Zahra</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">O</forename><surname>Ibrohim</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Fahmi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Adelia</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><forename type="middle">A</forename><surname>Nur Febryanto</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">O</forename><surname>Riandi</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/ICIC50835.2020.9288650</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. 5th Int. Conf. Informat. Comput. (ICIC)</title>
+		<meeting>5th Int. Conf. Informat. Comput. (ICIC)</meeting>
+		<imprint>
+			<date type="published" when="2020-11">Nov. 2020</date>
+			<biblScope unit="page" from="1" to="6" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b30">
+	<analytic>
+		<title level="a" type="main">Model comparison in speech emotion recognition for Indonesian language</title>
+		<author>
+			<persName><forename type="first">R</forename><forename type="middle">Y</forename><surname>Rumagit</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">G</forename><surname>Alexander</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">I</forename><forename type="middle">F</forename><surname>Saputra</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.procs.2021.01.098</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Proc. Comput. Sci</title>
+		<imprint>
+			<biblScope unit="volume">179</biblScope>
+			<biblScope unit="page" from="789" to="797" />
+			<date type="published" when="2021-01">Jan. 2021</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b31">
+	<analytic>
+		<title level="a" type="main">Enhanced Indonesian ethnic speaker recognition using data augmentation deep neural network</title>
+		<author>
+			<persName><forename type="first">K</forename><surname>Nugroho</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">E</forename><surname>Noersasongko</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Purwanto</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">R I M</forename><surname>Muljono</surname></persName>
+		</author>
+		<author>
+			<persName><surname>Setiadi</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.jksuci.2021.04.002</idno>
+	</analytic>
+	<monogr>
+		<title level="j">J. King Saud Univ. Comput. Inf. Sci</title>
+		<imprint>
+			<biblScope unit="volume">34</biblScope>
+			<biblScope unit="issue">7</biblScope>
+			<biblScope unit="page" from="4375" to="4384" />
+			<date type="published" when="2022-07">Jul. 2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b32">
+	<analytic>
+		<title level="a" type="main">The Indonesian young-adult attachment (IYAA): An audio-video dataset for behavioral young-adult attachment assessment</title>
+		<author>
+			<persName><forename type="first">T</forename><forename type="middle">N</forename><surname>Maghfira</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">A</forename><surname>Krisnadhi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">T</forename><surname>Basaruddin</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">R R</forename><surname>Pudjiati</surname></persName>
+		</author>
+		<idno type="DOI">10.1016/j.dib.2023.109599</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Data Brief</title>
+		<imprint>
+			<biblScope unit="volume">50</biblScope>
+			<date type="published" when="2023-10">Oct. 2023</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b33">
+	<monogr>
+		<title level="m" type="main">Akan cinematic emotions (ACE): A multimodal multi-party dataset for emotion recognition in movie dialogues</title>
+		<author>
+			<persName><forename type="first">D</forename><surname>Sasu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Wu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Gong</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">R</forename><surname>Chen</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Shi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Ai</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">J</forename><surname>Hirschberg</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">N</forename><surname>Schluter</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2502.10973</idno>
+		<imprint>
+			<biblScope unit="page">2025</biblScope>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b34">
+	<monogr>
+		<author>
+			<persName><forename type="first">R</forename><surname>Thayer</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">Robert</forename><forename type="middle">E</forename><surname>Thayer</surname></persName>
+		</author>
+		<title level="m">The Biopsychology of Mood and Arousal</title>
+		<meeting><address><addrLine>London, U.K.</addrLine></address></meeting>
+		<imprint>
+			<publisher>Oxford Univ. Press</publisher>
+			<date type="published" when="1989">1989</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b35">
+	<analytic>
+		<title level="a" type="main">Subjective evaluation of basic emotions from audio-visual data</title>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">R</forename><surname>Kadiri</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">P</forename><surname>Alku</surname></persName>
+		</author>
+		<idno type="DOI">10.3390/s22134931</idno>
+	</analytic>
+	<monogr>
+		<title level="j">Sensors</title>
+		<imprint>
+			<biblScope unit="volume">22</biblScope>
+			<biblScope unit="issue">13</biblScope>
+			<biblScope unit="page">4931</biblScope>
+			<date type="published" when="2022-06">Jun. 2022</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b36">
+	<monogr>
+		<title level="m" type="main">Personalized speech emotion recognition in human-robot interaction using vision transformers</title>
+		<author>
+			<persName><forename type="first">R</forename><surname>Mishra</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><surname>Frye</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">M</forename><surname>Rayguru</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">D</forename><forename type="middle">O</forename><surname>Popa</surname></persName>
+		</author>
+		<idno type="arXiv">arXiv:2409.10687</idno>
+		<imprint>
+			<date type="published" when="2024">2024</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b37">
+	<analytic>
+		<title level="a" type="main">Minority views matter: Evaluating speech emotion classifiers with human subjective annotations by an all-inclusive aggregation rule</title>
+		<author>
+			<persName><forename type="first">H.-C</forename><surname>Chou</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">L</forename><surname>Goncalves</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S.-G</forename><surname>Leem</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">A</forename><forename type="middle">N</forename><surname>Salman</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C.-C</forename><surname>Lee</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">C</forename><surname>Busso</surname></persName>
+		</author>
+		<idno type="DOI">10.1109/TAFFC.2024.3411290</idno>
+	</analytic>
+	<monogr>
+		<title level="j">IEEE Trans. Affect. Comput</title>
+		<imprint>
+			<biblScope unit="volume">16</biblScope>
+			<biblScope unit="issue">1</biblScope>
+			<biblScope unit="page" from="41" to="55" />
+			<date type="published" when="2025-01">Jan. 2025</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b38">
+	<analytic>
+		<title level="a" type="main">On the time course of vocal emotion recognition</title>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">D</forename><surname>Pell</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">S</forename><forename type="middle">A</forename><surname>Kotz</surname></persName>
+		</author>
+		<idno type="DOI">10.1371/journal.pone.0027256</idno>
+	</analytic>
+	<monogr>
+		<title level="j">PLoS ONE</title>
+		<imprint>
+			<biblScope unit="volume">6</biblScope>
+			<biblScope unit="issue">11</biblScope>
+			<date type="published" when="2011-11">Nov. 2011. 27256</date>
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b39">
+	<analytic>
+		<title level="a" type="main">Research on the effect of different speech segment lengths on speech emotion recognition based on LSTM</title>
+		<author>
+			<persName><forename type="first">Z</forename><surname>Liu</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">F</forename><surname>Ren</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">X</forename><surname>Kang</surname></persName>
+		</author>
+		<idno type="DOI">10.18178/wcse.2019.06.073</idno>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. 9th Int</title>
+		<meeting>9th Int</meeting>
+		<imprint>
+			<date type="published" when="2019-06">Jun. 2019</date>
+			<biblScope unit="page" from="491" to="499" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+<biblStruct xml:id="b40">
+	<analytic>
+		<title level="a" type="main">Speech-emotion detection in an Indonesian movie</title>
+		<author>
+			<persName><forename type="first">F</forename><surname>Fahmi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><forename type="middle">A</forename><surname>Jiwanggi</surname></persName>
+		</author>
+		<author>
+			<persName><forename type="first">M</forename><surname>Adriani</surname></persName>
+		</author>
+	</analytic>
+	<monogr>
+		<title level="m">Proc. 1st Joint SLTU CCURL Workshop (SLTU-CCURL)</title>
+		<meeting>1st Joint SLTU CCURL Workshop (SLTU-CCURL)</meeting>
+		<imprint>
+			<date type="published" when="2020-05">May 2020</date>
+			<biblScope unit="page" from="185" to="193" />
+		</imprint>
+	</monogr>
+</biblStruct>
+
+				</listBibl>
+			</div>
+		</back>
+	</text>
+</TEI>
+
+=====================================

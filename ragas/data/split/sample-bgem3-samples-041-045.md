@@ -45,7 +45,7 @@ Pulse sensor digunakan untuk mengukur denyut nadi seseorang, dan data denyut nad
 
 ### reference
 
-Heart rate penting karena data denyut jantung digunakan untuk menentukan apakah pendaki mengalami tachycardia, bradycardia, atau kondisi normal, serta menjadi bagian dari sistem deteksi kondisi tubuh.
+Heart rate penting karena digunakan untuk menilai kondisi tubuh pendaki. Pulse sensor mengambil data heart rate, lalu data tersebut digunakan untuk menentukan apakah pendaki berada dalam kondisi normal, tachycardia, atau bradycardia sebagai bagian dari deteksi kondisi kesehatan. [Source: Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network]
 
 ---
 
@@ -91,7 +91,7 @@ Pulse sensor digunakan untuk mengukur denyut nadi tubuh, dan data denyut nadi te
 
 ### reference
 
-Heart rate diukur menggunakan pulse sensor. Konteks juga menyebut sensor denyut nadi bertipe XD-58C sebagai sensor yang digunakan untuk mengukur denyut nadi.
+Heart rate diukur menggunakan pulse sensor pada sistem smart jacket. Sensor tersebut mengambil data denyut jantung tubuh pendaki, kemudian data digunakan untuk menentukan kondisi normal, tachycardia, atau bradycardia. [Source: Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network]
 
 ---
 
@@ -137,7 +137,7 @@ Tidak ada definisi spesifik tentang "heart rate tinggi" di dalam konteks yang te
 
 ### reference
 
-Heart rate tinggi dalam konteks ini berkaitan dengan kondisi tachycardia. Data dari pulse sensor digunakan untuk menentukan apakah pendaki mengalami tachycardia, bradycardia, atau kondisi normal.
+Retrieved context tidak memberikan definisi rinci tentang arti heart rate tinggi, tetapi menyebut bahwa data heart rate digunakan untuk menentukan kondisi tachycardia, bradycardia, atau normal. Dengan demikian, heart rate tinggi hanya dapat dikaitkan dengan kemungkinan tachycardia sesuai konteks. [Source: Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network]
 
 ---
 
@@ -185,7 +185,7 @@ Bradikardia (jantung berdetak dengan kecepatan lebih lambat dari biasa) adalah k
 
 ### reference
 
-Heart rate rendah dalam konteks ini berkaitan dengan bradycardia. Data denyut nadi dari sensor digunakan untuk menentukan apakah kondisi tubuh termasuk bradycardia, tachycardia, atau normal.
+Retrieved context menyebut bahwa data heart rate digunakan untuk menentukan apakah pendaki mengalami bradycardia, tachycardia, atau kondisi normal. Heart rate rendah dapat dikaitkan dengan bradycardia dalam batas informasi yang tersedia pada konteks. [Source: Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network]
 
 ---
 
@@ -233,6 +233,6 @@ Sumber: [Source: Design and Implementation of Hypothermia Symptoms Early Detecti
 
 ### reference
 
-Hypothermia adalah kondisi ketika mekanisme pengaturan suhu tubuh sulit menghadapi tekanan dingin. Konteks juga menyebut hypothermia sebagai suhu internal di bawah 35 derajat Celcius dan kondisi ketika tubuh kehilangan panas.
+Hypothermia adalah kondisi ketika tubuh tidak dapat menyeimbangkan panas tubuh akibat tekanan suhu dingin yang berlebihan sehingga terjadi kehilangan panas. Akibatnya, suhu tubuh menurun dengan cepat dan dapat menyebabkan kondisi berbahaya. [Source: Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network]
 
 ---

@@ -41,7 +41,7 @@ Robot Goalkeeper adalah bagian dari tim ERSOW (EEPIS Robot Soccer On Wheeled) ya
 
 ### reference
 
-Robot goalkeeper adalah robot penjaga gawang pada tim robot sepak bola beroda ERSOW yang digunakan dalam konteks kompetisi robot sepak bola dan bertugas merespons bola yang datang.
+Robot goalkeeper adalah robot penjaga gawang pada tim ERSOW yang bertugas merespons bola yang menuju gawang. Dalam dokumen ini, robot goalkeeper menggunakan sistem prediksi posisi bola agar dapat mengambil tindakan yang sesuai untuk memblokir bola. [Source: Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application]
 
 ---
 
@@ -85,7 +85,7 @@ Tugas robot goalkeeper adalah mendeteksi dan mencegah bola dari masuk ke gawang.
 
 ### reference
 
-Tugas robot goalkeeper adalah menggunakan informasi prediksi posisi kedatangan bola agar sistem kontrol dapat mengambil tindakan yang tepat untuk memblokir bola.
+Tugas robot goalkeeper adalah mencegah bola masuk ke gawang dengan menggunakan informasi prediksi posisi kedatangan bola. Output prediksi tersebut digunakan oleh sistem kontrol robot untuk menentukan tindakan pemblokiran yang tepat. [Source: Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application]
 
 ---
 
@@ -129,7 +129,7 @@ Sebelum mendeteksinya, kamera yang terpasang di robot harus dinyalakan. Setelah 
 
 ### reference
 
-Robot goalkeeper mendeteksi bola dengan mengaktifkan kamera yang terpasang pada robot, menangkap gambar dan video lingkungan sekitar, lalu menggunakan data tersebut dalam proses deteksi dan prediksi posisi bola.
+Robot goalkeeper mendeteksi bola melalui sistem kamera ZED dan model prediksi berbasis CNN. Data gambar ditangkap, objek bola diberi label untuk pelatihan, lalu model object detection digunakan agar sistem dapat mengenali bola pada berbagai posisi dan kondisi pencahayaan. [Source: Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application]
 
 ---
 
@@ -173,7 +173,7 @@ Sumber: [Source: Prediction of Ball Position Using CNN Methods With Zed Camera o
 
 ### reference
 
-Robot goalkeeper menentukan arah bola melalui model prediksi yang menganalisis input posisi bola dan memprediksi arah serta posisi bola di masa depan. Prediksi ini membantu robot menentukan gerakan yang perlu dilakukan.
+Robot goalkeeper menentukan arah atau posisi bola menggunakan sistem prediksi posisi bola berbasis kamera ZED dan CNN. Sistem menganalisis input posisi bola lalu memprediksi arah serta posisi bola berikutnya agar robot dapat menentukan gerakan yang perlu dilakukan untuk memblokir bola. [Source: Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application]
 
 ---
 
@@ -215,6 +215,6 @@ Informasi tersebut digunakan oleh sistem kontrol robot goalkeeper untuk mengambi
 
 ### reference
 
-Robot goalkeeper bergerak berdasarkan informasi hasil prediksi posisi kedatangan bola. Informasi ini digunakan oleh sistem kontrol untuk menentukan tindakan yang sesuai dalam memblokir bola.
+Robot goalkeeper bergerak menuju bola berdasarkan output prediksi posisi kedatangan bola. Informasi prediksi ini digunakan oleh sistem kontrol robot penjaga gawang untuk mengambil tindakan yang sesuai dalam memblokir bola. [Source: Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application]
 
 ---

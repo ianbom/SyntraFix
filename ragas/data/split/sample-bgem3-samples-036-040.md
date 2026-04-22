@@ -43,7 +43,7 @@ Informasi tersebut tidak ditemukan pada dokumen yang tersedia.
 
 ### reference
 
-Retrieved context tidak menjelaskan penggunaan eHealth secara langsung. Konteks hanya memuat informasi tentang PKI, Android, RBAC, dan rencana pekerjaan terkait protokol keamanan.
+Retrieved context tidak menjelaskan penggunaan eHealth secara langsung. Konteks hanya memuat PKI dan protokol keamanan kendaraan listrik, Android sebagai sistem operasi untuk smartphone, serta beberapa potongan terkait sistem smart jacket; karena itu penggunaan eHealth tidak ditemukan secara jelas pada konteks ini.
 
 ---
 
@@ -93,7 +93,7 @@ Dengan demikian, eHealth membantu meningkatkan keselamatan dan kenyamanan pasien
 
 ### reference
 
-Dalam konteks smart jacket berbasis WBAN, sistem membantu pasien atau pendaki dengan mendeteksi gejala hipotermia melalui sensor suhu tubuh dan detak jantung, lalu mendukung pemantauan kondisi tubuh.
+Sistem monitoring kesehatan berbasis smart jacket membantu pasien atau pengguna dengan memantau suhu tubuh dan detak jantung secara real-time. Sistem ini dirancang untuk mendeteksi gejala hypothermia sejak dini, memberikan peringatan, dan membantu penanganan awal melalui perangkat yang dipakai pendaki. [Source: Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network]
 
 ---
 
@@ -139,7 +139,7 @@ Informasi tersebut tidak ditemukan pada dokumen yang tersedia.
 
 ### reference
 
-Retrieved context tidak menjelaskan manfaat eHealth untuk dokter. Konteks hanya menyebut bahwa pendaki dapat memakai aplikasi Android untuk mengakses data kondisi tubuh seperti suhu dan heart rate.
+Retrieved context tidak memuat manfaat eHealth untuk dokter secara eksplisit. Konteks yang tersedia lebih banyak membahas monitoring tubuh pengguna, sensor suhu, sensor denyut nadi, aplikasi Android, dan deteksi gejala hypothermia. [Source: Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network]
 
 ---
 
@@ -189,7 +189,7 @@ Informasi tersebut dapat ditemukan pada dokumen [Source: Design and Implementati
 
 ### reference
 
-Sistem memantau kondisi tubuh dengan prototype berbasis WBAN untuk mendeteksi gejala hipotermia. Perangkat menggunakan sensor suhu tubuh dan data denyut jantung untuk memantau kondisi pendaki.
+Sistem memantau kondisi tubuh dengan sensor yang dipasang pada smart jacket berbasis WBAN. Sensor tubuh mengumpulkan data seperti suhu tubuh dan denyut nadi, lalu data dikirim ke aplikasi Android melalui Bluetooth secara real-time untuk memantau kondisi pengguna. [Source: Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network]
 
 ---
 
@@ -245,6 +245,6 @@ Jadi, jawaban singkatnya adalah: Detak jantung.
 
 ### reference
 
-Heart rate dalam konteks ini adalah data denyut jantung tubuh pendaki yang diambil menggunakan pulse sensor. Data heart rate digunakan untuk menentukan kondisi tachycardia, bradycardia, atau normal.
+Heart rate adalah data denyut jantung atau denyut nadi yang diambil menggunakan pulse sensor. Dalam dokumen smart jacket, data heart rate digunakan untuk menentukan apakah pendaki mengalami tachycardia, bradycardia, atau kondisi normal. [Source: Design and Implementation of Hypothermia Symptoms Early Detection With Smart Jacket Based on Wireless Body Area Network]
 
 ---

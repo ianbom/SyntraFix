@@ -45,7 +45,7 @@ Sumber: [Source: Prediction of Ball Position Using CNN Methods With Zed Camera o
 
 ### reference
 
-CNN atau Convolutional Neural Network adalah jenis deep neural network yang efektif untuk analisis dan pemrosesan data visual seperti gambar. Dalam konteks dokumen, model CNN dilatih menggunakan dataset yang sudah disiapkan.
+CNN atau Convolutional Neural Network adalah jenis deep neural network yang efektif untuk analisis dan pemrosesan data visual seperti gambar. Pada dokumen ini, model CNN dilatih menggunakan dataset yang telah disiapkan untuk mendukung deteksi dan prediksi posisi bola. [Source: Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application]
 
 ---
 
@@ -93,7 +93,7 @@ CNN (Convolutional Neural Network) digunakan untuk menganalisis dan mengolah dat
 
 ### reference
 
-CNN digunakan untuk menganalisis dan memproses data visual, termasuk untuk aplikasi deteksi objek dan prediksi posisi objek seperti bola pada robot goalkeeper.
+CNN digunakan untuk menganalisis dan memproses data visual serta dapat digunakan pada aplikasi object detection dan prediksi posisi objek seperti bola. Pada sistem robot penjaga gawang, CNN dipakai bersama kamera ZED untuk mendukung prediksi posisi bola. [Source: Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application]
 
 ---
 
@@ -139,7 +139,7 @@ CNN mengenali gambar menggunakan lapisan konvolusi. Lapisan konvolusi ini melaku
 
 ### reference
 
-CNN mengenali gambar melalui proses pelatihan pada dataset gambar. Gambar ditangkap, objek yang akan dideteksi diberi label, lalu dataset digunakan untuk melatih model agar dapat mendeteksi objek dalam berbagai posisi dan kondisi pencahayaan.
+CNN mengenali gambar dengan memanfaatkan data latih yang sudah diberi label objek. Dalam dokumen ini, gambar ditangkap lalu diberi label dengan menandai objek bola agar model object detection dapat belajar mendeteksi bola pada berbagai posisi dan kondisi pencahayaan. [Source: Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application]
 
 ---
 
@@ -185,7 +185,7 @@ Informasi tersebut tidak ditemukan pada dokumen yang tersedia.
 
 ### reference
 
-Retrieved context tidak memuat informasi tentang kegunaan CNN dalam deteksi kanker. Konteks hanya membahas CNN untuk deteksi/prediksi objek seperti bola dan contoh lain di luar deteksi kanker.
+Retrieved context tidak memuat informasi tentang kegunaan CNN dalam deteksi kanker. Konteks yang tersedia membahas CNN untuk prediksi posisi bola pada robot penjaga gawang, bukan aplikasi medis atau deteksi kanker. [Source: Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application]
 
 ---
 
@@ -239,6 +239,6 @@ Informasi tersebut didukung oleh konsep dasar CNN sebagai jaringan saraf tiruan 
 
 ### reference
 
-Kelebihan CNN dalam konteks klasifikasi atau pengolahan gambar adalah kemampuannya menganalisis data visual secara efektif serta digunakan untuk deteksi objek dan prediksi posisi objek.
+Kelebihan CNN untuk klasifikasi atau pengenalan gambar adalah kemampuannya sebagai deep neural network yang efektif untuk analisis dan pemrosesan data visual. Dalam dokumen ini, CNN digunakan untuk object detection dan prediksi posisi bola, serta hasil deteksi dievaluasi dengan confusion matrix. [Source: Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application]
 
 ---

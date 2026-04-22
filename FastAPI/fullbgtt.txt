@@ -1,0 +1,244 @@
+Development of a Speech Emotion Recognition Dataset for Indonesian
+
+Authors: Budi Tri, Santoso, Ahmad Nafi Budianto, Titon Dutono, TriBudi Santoso, TM Wani, TS Gunawan, SA A Qadri, M Kartiwi, E Ambikairajah, SM George, PM Ilyas, W Liu, J Shi, S Zhang, L Zhou, H Liu, Y Tanoko, A Zahra, OU Kumala, A Zahra, A Bustamin, AM Rizky, E Warni, IS Areni, Indrabayu, W Orr, K Crawford, Y Liu, J Cao, C Liu, K Ding, L Jin, EA Retta, E Almekhlafi, R Sutcliffe, M Mhamed, H Ali, J Feng, AH Meftah, YA Alotaibi, S.-A Selouani, DM Nogueira, CA Ferreira, EF Gomes, AM Jorge, S Waghmare, R Ratnadeep, P Pukhraj, VB Waghmare, GB Janvale, MM R Mashhadi, K Osei-Bonsu, M Chen, X He, J Yang, H Zhang, F Burkhardt, A Paeschke, M Rolfes, WF Sendlmeier, B Weiss, SR Livingstone, FA Russo, C Busso, M Bulut, C.-C Lee, A Kazemzadeh, E Mower, S Kim, JN Chang, S Lee, SS Narayanan, T Kosaka, Y Aizawa, M Kato, T Nose, D Xin, J Jiang, S Takamichi, Y Saito, A Aizawa, H Saruwatari, K Saeki, M Kato, T Kosaka, S Pan, J Tao, Y Li, W Fan, X Xu, X Xing, W Chen, D Huang, N Jia, C Zheng, W Sun, AH Meftah, MA Qamhan, Y Seddiq, YA Alotaibi, SA Selouani, VP Tank, SK Hadia, MM Billah, ML Sarker, MA H Akhand, A Chotimongkol, K Saykhum, P Chootrakool, N Thatphithakkul, C Wutiwiwatchai, S Thatphithakkul, V Chunwijitra, P Sertsi, P Chootrakool, S Kasuriya, N Lubis, D Lestari, A Purwarianti, S Sakti, S Nakamura, HN Zahra, MO Ibrohim, J Fahmi, R Adelia, FA Nur Febryanto, O Riandi, RY Rumagit, G Alexander, IF Saputra, K Nugroho, E Noersasongko, Purwanto, DR I M Muljono, Setiadi, TN Maghfira, AA Krisnadhi, T Basaruddin, SR R Pudjiati, D Sasu, Z Wu, Z Gong, R Chen, P Shi, L Ai, J Hirschberg, N Schluter, R Thayer, RobertE Thayer, SR Kadiri, P Alku, R Mishra, A Frye, MM Rayguru, DO Popa, H.-C Chou, L Goncalves, S.-G Leem, AN Salman, C.-C Lee, C Busso, MD Pell, SA Kotz, Z Liu, F Ren, X Kang, F Fahmi, MA Jiwanggi, M Adriani
+
+Abstract: Speech emotion recognition (SER) is a crucial technology for applications such as humancomputer interaction, mental health monitoring, and call centre analytics. However, SER research in Indonesia is still limited by a lack of annotated speech emotion datasets. In this study, we provided EEPIS's Speech Emotion Recognition Audio Video Dataset (E-SERAVD), an Indonesian speech emotion recognition dataset that contains four basic emotions: Happy, Angry, Neutral, and Sad. The data obtained from the Indonesian movies and scenes were trimmed to capture emotional expressions. The dataset creation process was based on a model that has been widely used by previous researchers. In this case, the dataset creation begins with the process of defining the parameters and types of audio recordings to be targeted. The next step is data collection, followed by data cleaning. The data validation stage involved testing by three raters to prepare for the labelling process. The three raters' observations showed satisfactory performance, with agreement scores of 88.8, 68.8, and 91.4%. The constructed dataset was evaluated using the inter-rater reliability metric, which showed a Fleiss Kappa value of 0.61. Therefore, it was included in the good category and was then determined. The final step is to separate the data for training and testing. The baseline model accuracy was evaluated with a value of 90% and F1 score of 86%. The E-SERAVD Dataset for Indonesian SER was prepared as an open-source dataset, with complete documentation and model benchmarks. INDEX TERMS Agreement, dataset, labelling, mel-frequency cepstral coefficient (MFCC), speech emotion recognition (SER).
+
+I. INTRODUCTION
+
+Speech Emotion Recognition (SER) systems aim to develop devices that can recognize emotional states from voice signals. Its development points toward making technology more human, improving services, and assisting in healthcare, security, and more. Current developments indicate that the performance of SER models is highly dependent on the quality and diversity of the datasets used for training and evaluation. Therefore, the availability of datasets that accurately represent real-world conditions is a prerequisite for producing a model that is generally applicable to realworld conditions [1], [2], [3].
+
+The associate editor coordinating the review of this manuscript and approving it for publication was Jon Atli Benediktsson .
+
+Indonesian is the 10th most widely spoken language in the world, but resources for SER are still limited. The current situation shows that there is not yet an Indonesian language dataset that has achieved the same level of performance as global datasets, such as EMO-DB, the Ryerson Audio-Visual Database of Emotional Speech and Song (RAVDESS), or Interactive Emotional Dyadic Motion Capture (IEMO-CAP). Existing datasets often suffer from dialect diversity (Javanese, Sundanese, etc.). When researchers attempt to adapt existing datasets, such as RADVESS, the performance drops significantly. The emotion ''anger'' is often expressed more subtly in Indonesian than in English. When the SER model was trained on a Western dataset (RAVDESS), its accuracy decreased by 25% when tested on Indonesian data. Conventional features Mel Frequency Cepstral Coefficient (MFCC) and pitch were less effective because of the unique intonation patterns of Indonesians. The emotion ''sadness'' is often characterized by word-final stress rather than pitch variation. [4], [5].
+
+Efforts have been made to create an emotion corpus in Indonesian; however, they are still small-scale and tend to be fragmented. One dataset, the IDN SER corpus, was proposed in 2020, but its use has not yet been made public. Meanwhile, IEMO-IN, with a corpus of 500 and four types of emotional expressions, was proposed for free use in 2022. However, the recording quality is still not natural because of the limited number of speakers. There was also IndoWaveSentiment in 2024, but the number of datasets provided was still limited. Most of these datasets are not publicly available, have a limited number of participants (<30 people), and have not yet been standardized in terms of sampling rate, annotation agreement, or metadata completeness [6].
+
+In this study, an Indonesian SER dataset was constructed using a systematic methodology based on the dataset formation patterns from previous studies [7], [8]. The quality of the dataset formed was also analyzed through interrater reliability [9], statistical behaviour [10], and feature evaluation [11], [12] and tested using Convolutional Neural Network (CNN) clustering [13], [14].
+
+Furthermore, this dataset will be shared as open access to obtain various feedback and enrichments in terms of the amount of supporting data. This paper proposes the development of a dataset utilizing Indonesian movie dialogue. This method is expected to build a dataset derived from the speeches of trained professionals.
+
+The main contributions of this paper are:
+
+-Presenting the EEPIS Speech Emotion Recognition Audio Video Dataset (E-SERAVD), an Indonesian speech emotion recognition dataset that utilizes movie dialogues, the recording process is carried out professionally in a studio, and the voice is expressed by professional speakers in expressing emotions. -The compilation of the dataset followed a proven compilation model [7], [8], which was tested and compared with datasets generated using the latest public corpora. This comparison demonstrates how dataset design affects the performance and generalization of the SER model. -E-SEVARD is a public dataset for SER and making it available to the scientific community allows various inputs from other researchers to facilitate further development. The remainder of this paper is organized as follows.
+
+Section II provides a background review of various related studies on SER tasks. The method proposed in this study is explained in Section III. Section IV discusses the experimental results and evaluations performed on the dataset. Finally, Section V concludes the study and discusses the scope of future research in this field.
+
+II. RELATED METHODS
+
+The Berlin Database of Emotional Speech (EMO-DB) is a well-known and widely used dataset for emotion recognition. This German language dataset was developed from the speech of ten speakers (five men and five women). The recordings totaled approximately 800, with emotions including anger, boredom, disgust, fear, happiness, sadness, and neutrality. The speakers (actors/actresses) read sentences with a planned expression of a specific emotion and the results were assessed by listeners and validated through acoustic measurements. This type of dataset is very good; however, it exhibits gender bias (higher accuracy for female voices) and makes it difficult to recognize emotions (boredom) [15].
+
+The next dataset, RAVDESS, was produced by researchers in the UK. This dataset is popular in research on SER and facial expressions [16]. English speech data (North America) were generated from 24 professional speakers (12 male and 12 female). A total of 1,440 audio files (speech) and 1,012 audio files (singing) were used. There are eight types of emotional expression: neutral, calm, happy, sad, angry, fearful, disgusted, and surprised. This dataset has a standard file and naming structure and has since been widely adopted by other researchers to build datasets for emotional recognition. One weakness of this dataset is the emergence of gender bias (higher accuracy for female voices, +7%).
+
+The Interactive Emotional Dyadic Motion Capture Database (IEMOCAP) is the most popular and comprehensive dataset for research on emotion recognition from voice (speech emotion recognition/SER), facial expressions, and body movements in natural conversational interactions. This dataset was created to study emotions during natural conversations (spontaneous speech) and structured scenarios (scripted speech). There are eight emotional expressions: anger, happiness, sadness, neutrality, fear, surprise, excitement, and frustration, which is a unique expression found in IEMOCAP. The dataset consisted of audio recordings of conversational voices (WAV format, 16 kHz); facial expression videos (MPEG-4 format); motion capture for lips, eyebrows, and body movements (3D markers); and transcripts in the form of conversational text with timestamps. One of the advantages of IEMOCAP is that the recordings are the result of natural conversations, such that emotions emerge spontaneously, unlike EMO-DB/RAVDESS, which are scripted [17].
+
+Researchers in Japan were the first to develop the SER datasets. Various datasets have emerged from around 2000 until now, such as the Japanese Speech Corpus of Saruwatari Lab (JUST), the Japanese Emotional Speech Database (JEMO), the Multimodal Dialogue Dataset (MMD), the Orientale Corp. Emotional speech database, Japanese adaptation of EMO-DB, and recent deep-learningbased SER. This has led to a cross-cultural system that can be used for the adaptation of existing datasets and various developments for applications in game and social media technology [18], [19], [20]. VOLUME 14, 2026 Researchers in China have been actively building datasets for the development of audio-based emotion recognition systems [21]. The emotional recognition method developed here is slightly different because it does not specify the type of expression for emotions but rather establishes a baseline feature set for classifying arousal and power dimensions. Separately, another research group in China developed a large-scale SER dataset [22] and natural-behavior-based speech signal corpus for SER [23]. Research on the development of Speech Emotion Recognition, supported by datasets according to the language used, has been conducted in various Middle Eastern and South Asian countries [10], [24], [25], [26]. In general, this study utilized MFCC feature processing and ANN clustering. The dataset prepared to support this research was developed according to the local speakers in which the system was built. Thai researchers have also developed a speech emotion recognition dataset called LOTUS [27]. This dataset was subsequently widely used by researchers in Thailand to develop various SER algorithms and applications [28].
+
+In Indonesia, there have been many SER dataset development activities, such as the Indonesian Emotion Speech Corpus (IDESC), Emotional Speech Dataset (ESD), Indonesian Emotional Speech Dataset (IESD), Crowdsourced Indonesian SER Dataset, and Indonesian Dialect Speech Emotion Recognition (IDSER). Researchers have attempted this in various applications [29], [30], [31], [32], [33]. In general, these datasets were constructed using dedicated speakers who pronounce specific words and sentences according to their intended emotional expressions. Some also utilize dialogue from TV shows or YouTube. The resulting datasets exhibit diversity but not all feature dialectal variations and diverse acoustic conditions.
+
+This paper proposes the development of a dataset utilizing Indonesian movie dialogue. This method is expected to build a dataset derived from the speeches of trained professionals. This step is expected to increase the diversity of the SER datasets in Indonesia. Compared to existing datasets, such as RAVDESS and EMODB built in the laboratory, where scripts are prepared to generate an emotional expression, the E-SEVARD dataset is built with different characteristics. E-SEVARD is built using movie dialogue, so it has a directed performance with a complete narrative context and can bridge the gap between lab control and natural realism. This dataset is shared for all users, both for researchers who are engaged in the field of SER and practitioners who want to utilize the E-SEVARD Dataset for other purposes. Thus, this Dataset provides an opportunity for the Indonesian-speaking SER research community to test the system they have designed as one of many datasets from which researchers can choose.
+
+On the other hand, the research also has its own characteristics, where E-SEVARD is the first large-scale SER Dataset for Indonesians from natural but structured sources and is a resource for linguistic and anthropological research on the expression of Indonesian cultural emotions.
+
+In relation to the theme of developing new research topics, it is also possible for researchers to explore whether the acoustic characteristics of angry emotions in Indonesia are like or different from the acoustic characteristics of emotions in other places (countries).
+
+III. PROPOSED METHOD
+
+Six stages are generally conducted in the process of dataset development: parameter and population definitions, data collection, data cleaning, data validation, splitting into training and test sets, and circulation [7], [8]. This process is illustrated in Figure 1.
+
+A. DATASET DESIGN
+
+In the parameter definition, it was determined that the recorded sound was the result of emotional expressions carried out by a professional in Indonesia. This stage was carried out during the dataset design process, which began by defining and setting parameters for the data to be collected. At this stage, Indonesian-language movies are prepared in full-length video formats (MP4, MOV, etc.). The movie data used was not limited to a particular movie genre, with various emotional characters displayed by movie actors [33].
+
+Movies were selected with a focus on dominant vocals and emotional characterization, while using minimal background music. The emotional characteristics of the movies used as the dataset were angry, sad, neutral, and happy, according to Thayer's basic emotional model [34]. These categories were selected based on their relevance to several previous studies and represented the fundamental emotional elements of human expression, making them more applicable across a wide range of fields.
+
+The four emotions anger, sadness, happiness, and neutrality are basic categories in Speech Emotion Recognition (SER). These emotions can be expressed universally through voice and are easily recognizable in verbal communication. Research provides an overview of human perception evaluation of basic emotions in speech, ''anger, sadness, happiness, and neutrality.'' The results indicate that these four emotions can be accurately recognized through audio visual analysis [35]. Meanwhile, in another study, specifically presented in the context of human-robot interaction, the research shows that voice-based emotion recognition models can identify the four main emotions ''anger, sadness, happiness, and neutrality'' with high accuracy [36]. These findings demonstrate the relevance of basic emotions in technological applications.
+
+The following movie titles were used in creating the dataset: ''The Architecture of Love (ATOL),'' ''Ada Apa Dengan Cinta (AADC),'' ''Dua Hati Biru (DHB),'' ''Home Sweet Loan (HSL),'' ''Habibie and Ainun 3 (HA3),'' and ''Dilan 1990 (D1990).'' The six selected movie titles span a wide range of genres, including teen dramas, family dramas, adventures, and nationalism. They express a wide range of emotions including anger, sadness, happiness, and neutrality. Therefore, it is expected that selecting these six movies will yield audio files that include the four types of emotional expression to be developed.
+
+A movie dialogue provides a powerful model for studying emotions. Although it does not capture authentic or spontaneous emotions, this limitation is recognized in dataset development. Nevertheless, movie dialogues offer several important advantages for dataset creation. First, they are delivered by professional actors, thus making emotional expressions more consistent. Second, the audio quality is generally superior to that of everyday recordings. Third, the emotions in movie dialogue are straightforward to interpret, as they are designed to be universally recognizable. Finally, movie dialogues are readily accessible data sources.
+
+B. DATASET COLLECTION
+
+Data collection was conducted by automatically cutting the existing dialog using Python. The movie to be processed is observed scene by scene and observations are made to determine whether the written script that appears is relevant to the existing dialogue. If everything is correct, the next step is to trim the video based on phrases using CC timestamps in the Python software. A simple version of the data-collection process is presented in Figure 2.
+
+Process of converting movie audio into audio file fragments. First, we observed a full-length movie as an MP4 file. Next, we examined the SRT subtitle file, which includes dialogue and timestamps. Synchronization between the video and subtitle files is ensured by matching the timestamps in the SRT file. These timestamps are used to guide the MP4 trimming process. This trimming process divides the entire movie into smaller segments. Each segment matches the duration of the corresponding subtitle line. The result is a Trimmed Dataset of multiple video or audio files, each separated by a dialogue.
+
+After the data were cut, cleaning and sorting were performed to ensure the quality of the dataset. In single-word sorting, the cut segments are broken down into smaller units (perhaps just a single word), or the data are sorted based on single-word transcriptions to achieve high accuracy.
+
+The identification and separation of segments containing unwanted foreign language content (audio or transcript) are carried out in the Foreign Language Sorting section. The output of this process is a Cleaned Dataset consisting of adjusted and filtered files.
+
+C. DATASET CLEANING
+
+In Data Cleaning, the processes of conversion and Dataset Editing were performed. Data Cleaning was performed by treating the data from the cuts, checking each manually, listening to it with a speaker to obtain a qualitative assessment, and observing its spectrogram shape to obtain a quantitative picture of the frequency-domain perspective. Signal recordings that were too weak or too strong were normalized. It is hoped that a relatively stable recording result can be obtained with these steps.
+
+Data Cleaning represents a stage that starts from the denoising filter, canter channel extractor, noise print reduction, and batch process [8]. The audio signal extraction process can be carried out using software such as Adobe Audition by following the flowchart shown in Figure 3.
+
+The process began with a video clip of the movie. The data were imported into the Adobe Audition software and automatically converted from video to audio. The audio signal was displayed in waveform view, which was used during the editing process. Several operations were performed during the editing process, including denoising filtering, normalization, canter-channel extraction, noise-print reduction, and batch processing. The denoising filter removed background audio signals adaptively and automatically from the overall data using Adobe Audition. Normalizing audio data adjusts the overall amplitude within a specific range. This normalization process to -3 dB results in a more consistent and optimal sound. The canter channel extractor (CCE) isolates the elements in the audio data located at the canter of the stereo spectrum.
+
+In the Batch Process, the entire editing process for one sample was used as a template for the simultaneous editing of the entire dataset. The batch process performed on the entire dataset was used for further testing. From the entire data, to which features, filters, and functions have been applied through the batch process, the dataset can be tested for interrater reliability to determine the reliability of the data on the emotions contained in each audio file.
+
+D. INTER-RATER RELIABILITY
+
+The validation process ensured that the dataset was correct, and inter-rater reliability testing was performed using Fleiss-Kappa [9]. Thus, we obtained an overview of the feasibility of grouping the datasets according to the four types of emotions that were determined. The grouping method is based on the Majority Rule (MR), which is performed by selecting or determining a class of expression (one type of expression) if the rater who chooses it is more than half of the existing number of raters. If three raters were used, then if two raters determined the type of expression, it could have been used. If only one ratter chooses an emotional expression, the data will be rejected or cannot be used [37].
+
+Data validation was performed by observing the statistical behavior of the dataset by measuring the inter-rater reliability (IRR) when more than two raters rated the dataset on the same emotion type. A simple IRR observation of the dataset was constructed as shown in Figure 4.
+
+Fleiss Kappa assessment is expressed as follows:
+
+where K is the Fleiss Kappa value at 0 ≤ K ≤ 1.P ing is the observed proportion agreement and P e is the expected proportion agreement. The P O value was obtained using Equation ( 2) and P e was obtained using Equation (3).
+
+where N is the number of elements to be analyzed, n is the number of assessments for each element, and k is the total number of assessors (annotators).
+
+The results of the Fleiss-Kappa calculation were interpreted as data research variables (Table 1).
+
+E. MEL-FREQUENCY CEPSTRAL COEFFICIENTS (MFCC)
+
+MFCC is inspired by how the human ear responds to and processes sound [11], [12]. The MFCC coefficients focused on important facets of voice, including vocal formant shapes and other traits that are essential for speech analysis and emotion recognition. MFCCs can provide a clear representation of speech signals by boosting frequency regions that carry crucial information regarding human hearing. The feature TABLE 1. Fleiss kappa interpretation.
+
+extraction procedure for the MFCC technique is illustrated in Fig. 5.
+
+Pre-emphasis, which strengthens the high-frequency region to increase clarity, is the first step in the featureextraction process. The speech signal was then split into 50% overlapping frames, each measuring 25 ms. A Hamming window is used to multiply each frame to prevent discontinuities at the ends of the frames. An NFFT size of 512 is used in the conversion procedure from the time domain to the frequency domain. The next step is to utilize a Melbased filter bank, which is composed of 40 filters according to the Mel-scale. This scaling is based on a comparison of pitch values; therefore, the Mel-scaled frequency results are very close to the frequency response of the human ear. To organize the frequency range more precisely, compression was performed on a logarithmic scale corresponding to a scale of 0 and 1. A discrete cosine transform (DCT) was used to log-compress the signal and produce a set of mel-frequency cepstral coefficients (MFCCs).
+
+F. BASELINE MODEL EVALUATION
+
+The training set was used to build and train the model, and the test set was used to evaluate its performance and generalization to hidden data. This study used the Pareto approach with 80% of the training set and 20% of the testing set. The training and testing processes are then performed using a CNN algorithm [13], [14].
+
+A CNN is a machine learning (ML) algorithm that is included in the Deep Neural Network category owing to its deep network level. CNNs are designed to process twodimensional data and are widely implemented in image-data processing through matrix convolution operations. CNNs use a feed-forward classification method and backpropagation learning stage. The CNN architecture is illustrated in Figure 6.
+
+A CNN is composed of several layers that work sequentially to extract and classify features. The first layer is the input layer, where the data are first inputted into the CNN model. The data were then entered into a convolution layer to extract the features from the input data. The convolution layer comprises several layers that attempt to label the input signal by referring to what has been learned in the past. The results of this process produce feature maps to capture various patterns in the data. Next, the data enter a pooling layer, which reduces the dimensionality of the data, speeds up the calculation process, and minimizes unimportant data. This layer is the final stage of the feature-extraction process, and the classification process is performed through a fully connected layer. This layer is a multilayer perceptron (MLP) layer consisting of several interconnected neurons that assist in the data classification process based on the extracted features. After the classification process, the final output is determined based on the probability level of each class. To compare the results of classification modeling with actual data, the terms ''True'' and ''False'' can be used to indicate when the model output (classifier prediction) matches the actual results. Meanwhile, the terms ''Positive'' and ''Negative'' are also used to refer to when the model output (classifier prediction) matches the actual results. Thus, a ''True Positive (TP)'' implies that the model correctly predicts positive output. Meanwhile, a ''True Negative (TN)'' implies that the model correctly predicted a negative output. On the other hand, a ''False Positive (FP)'' implies that the model predicted incorrectly for positive outputs, and a ''False Negative (FN)'' implies that the model predicted incorrectly for negative outputs.
+
+In the next step, we can measure the model's performance using model evaluation metrics such as Precision, Recall, and F1 score. Precision represents the ratio of TP to all correct predictions, that is, TP and FP. This equation is expressed as follows:
+
+Recall is the ratio between the TP and all correct predictions (TP and FN). This relationship can be expressed using the following simple equation:
+
+The F1 score is the harmonic means of precision and recall. The F1 score is calculated using the following equation:
+
+Once the dataset has been constructed, cleaned, validated, and split, it will be ready for use by users, both for our own purposes and the needs of other users who require the same data. Circulation can involve publishing the dataset to a public repository or publishing it within a limited group, or it can also be used as material for scientific writing (research papers), thus enabling other researchers or practitioners to use the dataset for their purposes or to analyse a model that has been built. This stage cannot be completed at the end of this study because the resulting dataset still requires various improvements and is relatively small.
+
+IV. RESULT AND DISCUSSION
+
+E-SERAVD was created from scratch and is publicly available in the following Kaggle repository: https://www.kaggle. com/datasets/ahmadnafibudianto/ e-seravd-speech-emotionrecognition-av-dataset/settings.
+
+A. DATA COLLECTION OUTPUT
+
+At this stage, video segments of varying durations are generated according to the dialogues that occur. To maintain the quality of the automatic slicing results, checks were conducted to ensure the accuracy of the cutting process. Segments of scenes whose video content matched the existing script were sorted and labelled according to four emotion categories: happy, angry, neutral, and sad.
+
+After the data collection process, the next step was to label the pretest dataset. Each dataset was labelled with the condition of having a unique name according to a specific code. The pre-tested labelling consisted of numbers and letters separated by a hyphen, as follows: DATA-FORMAT-MOVIE CODE-UT-ID FILE 01-AADC-UT-0001. Data format: 01 (audio), 02 (video); Movie Code: abbreviation of movie title; UT: under-tested (untested); ID file: 0001-XXXX. For example, the pre-test labelling is 01-02-AADC 001.wav.
+
+B. DATA CLEANING RESULT
+
+Audio files that have undergone data denoising and normalization tend to be more stable and relatively easier to recognize. An additional process, the Center Channel Extractor, isolates elements in the audio data located at the center of the stereo spectrum. The type of CCE filter used was Acapella, which has been able to improve vocal quality by isolating the vocal sound spectrum that is usually recorded mono in the center of the stereo channel spectrum. The extracted spectrum was within the human-voice range of 300 -3000 Hz. The signal comparison when using the CCE filter is shown in the spectrogram in Figure 7.
+
+This image shows the difference in the audio data spectrum at low frequencies (< 3 KHz), which correspond to the range of human vocals. Some harmonic details at low frequencies faded, indicating that some samples in the central component were removed to clarify the details of the vocal component. At high frequencies, there are fewer changes because the CCE filter focuses more on isolating or eliminating some components in the low-frequency spectrum.
+
+C. DATASET STATISTICS
+
+The output of the movie dialogue cutting process provides a picture of the highly variable duration of the utterance of an emotional expression. This can provide more in-depth information about the nature of emotional in Indonesian, which in this case is represented in the form of a movie scene.
+
+The duration of a movie audio file is strongly linked to the emotional expression of speech and is often used as a pseudo-feature in SER; changes in duration can signal various emotions, notably arousal and speech tempos. Emotions such as anger and sadness tend to be expressed in shorter segments, whereas complex emotions require longer speech [38]. In SER models, the length of the speech segment directly affects accuracy; segments that are too short may lack sufficient emotion-specific information, whereas overly long segments may introduce variability or noise and reduce performance [39].
+
+The data obtained from movie cutting were grouped into histogram display segments formed with a bin width of 0.2 seconds. Overall, there are approximately 23 segments, where the shortest segment is between 0.8 and 1 s, and the longest is between 5.4 and 5.6 seconds. For each emotional expression, there was a different average pronunciation as well as a minimum and maximum duration. The results are presented in Table 2.
+
+TABLE 2. Expression duration.
+
+The table shows that angry and sad expressions can last for short periods of time. The data showed a duration of between 1 and 1.1 seconds. There was a phenomenon in which angry expressions generally lasted for a shorter duration, up to a maximum of 4.3 seconds. Meanwhile, sad expressions can last longer, reaching a maximum duration of up to 5.6 seconds. The neutral expression tended to have the longest duration. This is understandable because neutral expressions tend to require relatively low energy compared to others, and do not require emphasis for the speaker to convey their expression.
+
+The analysis of each emotional expression generally showed that all four emotional expressions had file durations that tended to be normally distributed. The Happy expression has data that tends to be normally distributed, but not very strongly. The mean value is 2.45. The Angry expression has symmetrical and regular intervals, a good fit for a normal distribution with skewness to the right, and a mean value of approximately 2.3. The Neutral expression has a strong normal distribution pattern, with a peak right in the middle and a mean of 2.33. This is the most logical pattern of a state of emotional neutrality. Sad emotional expressions had a regular symmetrical interval pattern, supporting a normal distribution. For sad emotions in the general population, the distribution is often normal with a mean in the middle, which in this case is 2.93.
+
+Based on the general normal distribution pattern, a t-test was conducted to determine the behavior of the paired emotional expression data. Data analysis was performed using an independent t-test with a significance level of α = 0.05 (two-tailed), which in this case had a critical t-value (+ 1.960) for datasets of more than 200. The analysis was conducted by pairwise comparisons of the duration of each expression. The Happy-Angry expression pair had a t-value of 2.988, which exceeded the critical t-value (±1.960), indicating a significant difference between the two sets of data.
+
+For the Happy-Neutral expression pair, the t-value score was 2.467, whereas for the Happy-Sad expression pair, the t-value score was 1.980. In the data pair for the Angry-Neutral emotional expression, the t-value was 2.046; the Angry-Sad emotional expression pair had a tvalue of 2.093. For the Neutral-Sad expression pair, the t-value score was 2.074. Overall, these emotional expression pairs had t-values above the critical point (+1.960).
+
+Overall, the emotional expressions had a minimum duration of approximately 1.0 seconds and a maximum duration of approximately 5.6 seconds, as shown in Figure 8  The distribution pattern described above is understandable in the dataset created for SER. This occurs because audio clips are often chunked into single utterances, short phrases, or short sentences (as indicated by the high frequency of clips between 1.0 and 2.5 seconds). Meanwhile, clips that are too long (over 4 seconds) are deliberately avoided or broken up as they are predicted to make it difficult for the algorithm to process information or emotions efficiently.
+
+The data collected during the dataset formation process indicates that most of the dialogue in an Indonesian movie is neutral. Overall, neutral expressions dominated the movie with a probability of 0.63. Three other expressions, Angry, Happy, and Sad, had relatively low probability values. In this case, Angry has a probability of 0.16, followed by Sad with a probability of 0.11, and Happy with a probability of 0.1. This is thought to be because the movie genre is a drama, with several conflicts occurring in the movie scenario. A simple illustration of the probability of the expression output in a movie is shown in Figure 9.
+
+D. RATER QUALITY EVALUATION
+
+The accuracy between the initial mapping and assessment results according to the perception of the annotator/rater is an important factor in preparing a dataset for SER [29]. The process of determining the expression by the raters was carried out randomly. Each audio file was given a specific code, and the evaluation by the raters was carried out in a double-blind manner, where the audio files were randomly distributed for the four emotional expressions. In this case, the audio files were not grouped according to their respective expressions but were distributed randomly so that the raters did not know what type of expression was in the audio file. The raters assessed the type of expression independently; therefore, there was no mutual influence between them. The observation files processed by the hearing were carried out in a closed room using a handset to avoid the other sounds coming suddenly.
+
+From the three raters, the extent to which each emotional expression resulted from mapping corresponded to the raters' assessments. An evaluation was conducted for each identified emotional expression, and the results from the three raters were averaged. A scale between 0 and 1 was obtained, as shown in Figure 10.
+
+The image shows that a neutral expression is easier to understand and provides results that are nearly perfect. In this case, the initial mapping results were very close to the rater's assessment with a score of 0.9. The Happy and Sad expressions tended to have a similar level of suitability and were still relatively good, with scores of 0.89 and 0.88, respectively. Meanwhile, the Angry expression was still relatively good, with a suitability of up to 0.81.
+
+The abilities of the selected raters must also be evaluated. From the results of the observations of the inter-rater reliability process and the evaluation of the human perception process, it was found that not all raters were able to evaluate all the emotional expressions prepared in the initial version of the dataset. Of the three raters appointed, a picture of their average ability to evaluate the suitability between the dataset mapping and the resulting level of similarity was obtained, as shown in Figure 11. From the figure, it appears that all raters were able to achieve a score above 86%, and even one rater achieved 91.4%. This shows that the appointment of raters assigned to determine the type of expression in each audio file is credible. This illustrates the diversity of emotional perceptions from the initial mapping to raters' perceptions. If we want more accurate results, we can increase the number of annotators (raters). However, it is important to consider that too many will slow down the completion process of mapping the emotional expression data set being built.
+
+An assessment is associated with evaluating the performance of emotional actions obtained from the results of scenes obtained from a movie. Perceptual testing was conducted by asking observers (raters) to pay attention to each emotion evoked in the audio file that resulted from the cut movie scenes. Perceptual testing was performed by asking observers while listening to the audio file to identify the type of emotion that best fits the depiction of the audio file. In addition, an evaluation was conducted to determine the extent to which participants perceived other emotional expressions in the played audio file. The testing session involved listeners and an officer who played the audio file and recorded feedback. Listeners were allowed to replay the audio file before evaluation. However, in this case, the observer is not allowed to compare the performance of the two files before evaluating the first files [10], [24], and [37].
+
+From the data observations in the Happy emotion expression file, 82% were perceived as Happy expressions, 4% as angry expressions, 11% as Neutral expressions, and 3% as Sad expressions. For the Angry expression data, 1.0% were perceived as Happy expressions, 92% as Angry expressions, and 7.0% as Neutral expressions, but none as sad expressions.
+
+For the Neutral expression file data, 1.0%, 4.0%, 93%, and 2.0% were perceived as Happy, Angry, Neutral, and Sad expressions, respectively. Meanwhile, the data on sad expressions obtained a picture of 5.0% as angry, 7.0% as neutral, and 88% as Sad. The description of this data acquisition can be presented in the form of a confusion matrix for the human perception of emotional expressions, as shown in Table 3.
+
+TABLE 3. Confusion matrix based on human perception.
+
+Overall, not all files mapped in the initial version exhibited perceptual variations according to observations. This allows researchers to hypothesize that the emotion recognition process, constructed using a predefined algorithm, may not achieve 100% emotion recognition. This hypothesis is based on human perception and the SER model, which are based on Artificial Neural Networks or Artificial Intelligence and behave similarly to human perception.
+
+Dataset analysis was performed based on the emotional expression files defined in the initial stage, specifically after the pre-processing stage. The next step was to analyze the agreement level between human annotators or raters using Fleiss' kappa. Based on the evaluation conducted using Fleiss' Kappa (refer to Subsection III. D); each emotional expression had a score of Pe = 0.434, Po = 0.780, and K = 0.611. Based on the Fleiss Kappa, it is very clear that the inter-rater reliability that has been carried out has met the good category because it is in the range (0.6 -0.79). Thus, the process of compiling this data set meets the requirements for the next process.
+
+Based on the Fleiss Kappa (Table 1), Section III. D, it appears that the inter-rater reliability that has been carried out has met the good category because it is in the range (0.6-0.79). Thus, the process of compiling this dataset fulfills the requirements for continuing to the next process.
+
+E. BASELINE MODEL EVALUATION
+
+The feature extraction process results in MFCC data in a numerical format, which we used as the input for training and validating the models. Feature extraction using MFCC provides an output in numeric format as follows: sampling frequency, Fs = 16 kHz representative for voice signal; pre-emphasis α ≈ 0.95 to amplify high-frequency signal; framing = 25 ms compromised between stationarity and information; FFT512, to achieve a good and efficient frequency resolution; filter bank 24 is good for human perception and computational efficiency; and DCT20 coefficients, take the major, and reject the noise.
+
+Accuracy   To improve the performance with the described training and validation behaviours, we can do two things. First, we performed the Heed Stopping. This implies ending the training early, for example, around epoch 10-15. At this point, the gap between the training and validation is still small. Early termination is expected to provide a model that is more robust to new data. Second, additional data should be added to help model learn the general patterns better. According to the results of the experiments that have been carried out, outcomes were obtained for the testing of the dataset that was prepared for the 4 types of emotional expressions. The results for each emotional expression in the form of a normalized confusion matrix are shown in Figure 13.
+
+Based on this figure, the Happy expression correctly predicts 215 out of 250 data, the Angry expression correctly predicts 213 out of 250 data, the Neutral expression correctly predicts 200 out of 250 data, and the Sad expression correctly predicts 232 out of 250 data. In total, it provided 860 correct predictions out of the 1000 datasets. From the confusion matrix, it is concluded that the highest accuracy occurred with the sad expression, which was 232 out of 250 datasets.
+
+From the results of the confusion matrix, we analyzed the F1 score performance. From this display, we referred to the variables of false positive (FP), false negative (FN), true positive (TP), and true negative (TN), which were taken from the data in the confusion matrix. These values provide an overview of the model's evaluation metric performance: Precision, Recall, and F1 score, as shown in Table 4.
+
+TABLE 4. F1 score evaluation.
+
+The table shows that the highest F1 score is for the expressions Happy and Sad, which can achieve a value of 88%, whereas the lowest is for the expression Angry, which achieves a value of 83%. The overall F1 score is 86%. This value is quite good for the initial model of a dataset that was tested using a CNN clustering model.
+
+We compared the results of emotion expression mapping and its perception according to the confusion matrix of human perception (Table 3) with the confusion matrix obtained from learning with the CNN (Figure 13). From both there was a tendency for patterns to have similarities between the two, with an average error of 0.05. The largest difference between the two, with the highest value of 0.17, occurs between Human Perception and the CNN version Confusion Matrix, for the Neutral expression perceived as neutral. The smallest difference, valued at 0.01, occurs between Human Perception and the CNN version Confusion Matrix, for the Angry expression perceived as Angry, and the Neutral expression perceived as happy.
+
+A cross-corpus evaluation was conducted using the existing datasets (RADVESS, TESS, and SAVEE) for comparison. These three datasets were chosen because they are quite popular and share similar formation characteristics, the acted collection method. The outputs of the comparison are listed in Table 5.
+
+The language used to record the dataset is important because emotions in speech are greatly influenced by the prosody of a language (intonation, stress, and rhythm). From the language used, it is known that the E-SERAVD Dataset uses Indonesian, while the other three comparisons, RAVDESS, TESS, and SAVEE, use English; specifically, SAVE is English with a British accent. These language differences are quite a consideration in model performance because the acoustic patterns of different languages may have different characteristics.
+
+In terms of the number and categories of emotions used, E-SEVARD has four types of emotional expressions, RAVDESS has eight emotional expressions, TESS has eight types of emotional expressions, and SAVEE has seven emotional expressions (British accent). More emotional classes affect the classification process, which has the possibility of decreasing accuracy.
+
+The total number of audio samples in a dataset determines the performance stability of the SER system. In this case, we found that E-SERAVD had 1000 voice files, RAVDESS had 1440, TESS had 2800, and SAVEE had 480. Another factor that can be influenced by the number of samples or audio files in a dataset is the potential to reduce the risk of overfitting and provide better generalization.
+
+In the evaluation of Accuracy, F1-Score, Precision, and Recall, it provides an overview that the four metrics show the general performance of the SER model, as follows:
+
+-The E-SEVARD dataset, with its relatively small number of emotion classes, facilitates the classification task. In this case, the dataset likely has a uniform recording quality, allowing the model to learn the patterns well. This high accuracy indicates that this dataset is effective for Indonesian-language SER research. Evaluations of the F1 score, Precision, and Recall were all consistent, indicating a balanced model for predicting each class. -Cross-corpus evaluation of the learning outcomes of E-SEVARD applied to the RAVDESS dataset affects the performance of the SER system. Because the RAVDESS dataset has varying intensities (normal and strong), the model must differentiate between emotional intensities. The resulting performance is lower than that of E-SERAVD, owing to this complexity. -A cross-corpus evaluation of the learning outcomes of E-SEVARD applied to the TESS dataset yielded 100% accuracy. This could be due to the very clean dataset, large number of samples (files), and possibly the specific nature of the model (overfitting in the experiment). This favourable outcome was predicted because of the highly controlled recording process and clear emotional patterns.
+
+FIGURE 1 .
+
+FIGURE 2 .
+
+FIGURE 3 .
+
+FIGURE 4 .
+
+FIGURE 5 .
+
+FIGURE 6 .
+
+FIGURE 7 .
+
+FIGURE 8 .
+
+FIGURE 9 .
+
+FIGURE 10 .
+
+FIGURE 11 .
+
+FIGURE 12 .
+
+FIGURE 13 .
+
+The Authors. This work is licensed under a Creative Commons Attribution 4.0 License.For more information, see https://creativecommons.org/licenses/by/4.0/ VOLUME 14, 2026
+
+VOLUME 14, 2026
+
+VOLUME 14, 2026
+
+VOLUME 14, 2026
+
+VOLUME 14, 2026
+=====================================

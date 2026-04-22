@@ -4,6 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.api.routes import auth
 from app.api.routes import documents
 from app.api.routes import chats
+from app.api.routes import prompt_search
 from app.database import engine, Base
 from app.services.minio import get_minio_client, ensure_bucket_exists
 from app.services.document import ensure_documents_bucket_exists
@@ -50,6 +51,7 @@ app.add_middleware(
 app.include_router(auth.router)
 app.include_router(documents.router)
 app.include_router(chats.router)
+app.include_router(prompt_search.router)
 
 
 @app.get("/", tags=["Health"])

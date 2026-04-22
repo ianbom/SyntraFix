@@ -47,7 +47,7 @@ Kamera ZED adalah perangkat yang digunakan dalam penelitian ini untuk mendeteksi
 
 ### reference
 
-Kamera ZED adalah kamera stereo/3D yang digunakan dalam penelitian robot goalkeeper untuk menangkap data visual, termasuk RGB dan depth, sehingga dapat membantu deteksi dan prediksi posisi bola.
+Kamera ZED adalah kamera yang digunakan dalam sistem prediksi posisi bola pada robot penjaga gawang. Kamera ZED dipilih karena mampu mendeteksi objek bola, termasuk pada kondisi pencahayaan ekstrem, dan digunakan bersama metode CNN untuk memprediksi posisi bola. [Source: Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application]
 
 ---
 
@@ -97,7 +97,7 @@ Kamera ZED digunakan sebagai perangkat penginderaan yang memiliki kemampuan untu
 
 ### reference
 
-Kamera ZED digunakan untuk menangkap citra dan depth image, mendeteksi objek bola, serta mendukung prediksi posisi bola pada robot goalkeeper, termasuk pada kondisi pencahayaan ekstrem.
+Kamera ZED digunakan untuk menangkap data visual yang menjadi masukan sistem prediksi posisi bola. Kamera ZED 2i dipasang pada sisi tengah dan depan robot goalkeeper agar cakupan visual lapangan optimal, serta digunakan karena mampu mendeteksi bola pada kondisi pencahayaan ekstrem. [Source: Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application]
 
 ---
 
@@ -143,7 +143,7 @@ Depth images yang dihasilkan oleh kamera ZED dapat memberikan informasi tentang 
 
 ### reference
 
-Kamera ZED melihat kedalaman dengan menghasilkan depth image yang memberi informasi jarak setiap piksel dari kamera. Informasi depth bersama citra RGB digunakan untuk mengekstraksi koordinat bola dalam tiga dimensi.
+Kamera ZED melihat kedalaman melalui depth images yang memberikan informasi jarak setiap piksel dalam gambar dari kamera. Informasi kedalaman ini membantu sistem mengetahui posisi bola dalam ruang tiga dimensi, sedangkan gambar RGB menyediakan informasi warna. [Source: Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application]
 
 ---
 
@@ -188,7 +188,7 @@ Sumber:
 
 ### reference
 
-Fungsi kamera ZED pada robot adalah menangkap data visual dan depth, membantu mendeteksi bola, dan mendukung sistem prediksi posisi bola pada robot goalkeeper.
+Fungsi kamera ZED pada robot adalah menangkap data gambar untuk mendeteksi objek bola dan membantu prediksi posisi bola. Pada sistem ini, kamera ZED digunakan bersama ROS dan metode artificial intelligence agar sensor kamera dapat terintegrasi dengan sistem robot. [Source: Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application]
 
 ---
 
@@ -236,6 +236,6 @@ Sumber: [Source: Prediction of Ball Position Using CNN Methods With Zed Camera o
 
 ### reference
 
-Kamera ZED membantu robot dengan menyediakan data posisi bola. Hasil prediksi posisi kedatangan bola digunakan oleh sistem kontrol goalkeeper untuk mengambil tindakan yang sesuai dalam memblokir bola.
+Kamera ZED membantu robot bergerak dengan menyediakan informasi visual tentang bola yang kemudian digunakan oleh sistem prediksi posisi bola. Hasil prediksi posisi kedatangan bola digunakan oleh sistem kontrol robot penjaga gawang untuk menentukan tindakan yang tepat dalam memblokir bola. [Source: Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application]
 
 ---
