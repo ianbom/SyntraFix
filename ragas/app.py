@@ -7,6 +7,7 @@ from typing import Any
 from datasets import Dataset
 from dotenv import load_dotenv
 from langchain_ollama import ChatOllama, OllamaEmbeddings
+import pandas as pd
 from ragas import evaluate
 from ragas.metrics import AnswerRelevancy, ContextPrecision, ContextRecall, Faithfulness
 
@@ -14,12 +15,8 @@ from ragas.metrics import AnswerRelevancy, ContextPrecision, ContextRecall, Fait
 load_dotenv(override=True)
 
 BASE_DIR = Path(__file__).resolve().parents[1]
-DEFAULT_RAGAS_SAMPLE_PATHS = [
-    Path(__file__).resolve().parent / "data" / "sample-conv6.md",
-    Path(__file__).resolve().parent / "data" / "sample-conv7.md",
-]
+SPLIT_SAMPLE_DIR = Path(__file__).resolve().parent / "data" / "split"
 EVALUATE_OUTPUT_DIR = Path(__file__).resolve().parent / "evaluate"
-OUTPUT_CSV_PATH = EVALUATE_OUTPUT_DIR / "score-test.csv"
 MAX_EVALUATION_ATTEMPTS = int(os.getenv("RAGAS_MAX_EVALUATION_ATTEMPTS", "5"))
 RETRY_DELAY_SECONDS = float(os.getenv("RAGAS_RETRY_DELAY_SECONDS", "3"))
 
@@ -125,22 +122,70 @@ def _find_invalid_dataframe_cells(df) -> list[str]:
     return invalid_cells
 
 
+def _replace_invalid_dataframe_values(df, replacement: Any = pd.NA):
+    """Replace invalid result cells with a visible fallback value."""
+    cleaned_df = df.copy().astype(object)
+
+    for column in cleaned_df.columns:
+        for row_index, value in enumerate(cleaned_df[column].tolist()):
+            is_invalid = False
+            try:
+                is_invalid = bool(cleaned_df[column].isna().iloc[row_index])
+            except TypeError:
+                is_invalid = False
+
+            if is_invalid or _is_empty_value(value):
+                cleaned_df.at[row_index, column] = replacement
+
+    return cleaned_df
+
+
+def _fallback_nan_score_dataframe(dataset: Dataset):
+    """Build a NaN-score result row when RAGAS evaluation cannot complete."""
+    df = dataset.to_pandas()
+    for column in [
+        "faithfulness",
+        "answer_relevancy",
+        "context_precision",
+        "context_recall",
+    ]:
+        if column not in df.columns:
+            df[column] = pd.NA
+    return df
+
+
 def evaluate_until_complete(dataset: Dataset, label: str = ""):
     """Run RAGAS repeatedly until the result has no NaN/null/empty values."""
     last_invalid_cells = []
+    last_df = None
     label_suffix = f" for {label}" if label else ""
 
     for attempt in range(1, MAX_EVALUATION_ATTEMPTS + 1):
         print(f"\nRAGAS evaluation attempt {attempt}/{MAX_EVALUATION_ATTEMPTS}{label_suffix}")
-        score = evaluate(
-            dataset,
-            metrics=METRICS,
-            llm=llm,
-            embeddings=embeddings,
-            batch_size=2,
-        )
+        try:
+            score = evaluate(
+                dataset,
+                metrics=METRICS,
+                llm=llm,
+                embeddings=embeddings,
+                batch_size=2,
+            )
+        except Exception as error:
+            last_invalid_cells = [f"evaluation error: {error}"]
+            print(f"RAGAS evaluation failed: {error}")
+            if attempt < MAX_EVALUATION_ATTEMPTS:
+                print(f"Retrying in {RETRY_DELAY_SECONDS} seconds...")
+                time.sleep(RETRY_DELAY_SECONDS)
+                continue
+
+            print(
+                "RAGAS failed after max attempts. "
+                "Writing this sample with NaN score values."
+            )
+            return _fallback_nan_score_dataframe(dataset)
 
         df = score.to_pandas()
+        last_df = df
         invalid_cells = _find_invalid_dataframe_cells(df)
         if not invalid_cells:
             print("RAGAS result is complete. No NaN/null/empty values found.")
@@ -157,11 +202,18 @@ def evaluate_until_complete(dataset: Dataset, label: str = ""):
             print(f"Retrying in {RETRY_DELAY_SECONDS} seconds...")
             time.sleep(RETRY_DELAY_SECONDS)
 
-    joined_cells = "\n".join(f"- {cell}" for cell in last_invalid_cells)
-    raise RuntimeError(
+    print(
         "RAGAS evaluation still produced NaN/null/empty values after "
-        f"{MAX_EVALUATION_ATTEMPTS} attempts:\n{joined_cells}"
+        f"{MAX_EVALUATION_ATTEMPTS} attempts. Keeping the last result as-is "
+        "and writing NaN/null/empty values to CSV."
     )
+    for cell in last_invalid_cells[:20]:
+        print(f"  - {cell}")
+
+    if last_df is None:
+        return _fallback_nan_score_dataframe(dataset)
+
+    return last_df
 
 
 def load_ragas_markdown(path: Path) -> dict:
@@ -263,7 +315,10 @@ def _slice_data_samples(data_samples: dict, start_index: int, end_index: int) ->
 def _get_sample_paths() -> list[Path]:
     configured_paths = os.getenv("RAGAS_SAMPLE_PATHS")
     if not configured_paths:
-        return DEFAULT_RAGAS_SAMPLE_PATHS
+        paths = sorted(SPLIT_SAMPLE_DIR.glob("*.md"))
+        if not paths:
+            raise FileNotFoundError(f"No split sample files found in {SPLIT_SAMPLE_DIR}")
+        return paths
 
     paths = []
     for raw_path in configured_paths.split(";"):
@@ -280,62 +335,58 @@ def _get_sample_paths() -> list[Path]:
     return paths
 
 
-def _append_sample_result(df, sample_number: int) -> Path:
-    EVALUATE_OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+def _get_file_output_path(sample_path: Path) -> Path:
+    return EVALUATE_OUTPUT_DIR / f"{sample_path.stem}.csv"
 
-    df.insert(0, "sample_number", sample_number)
+
+def _clear_previous_outputs() -> None:
+    EVALUATE_OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    for output_path in EVALUATE_OUTPUT_DIR.glob("sample-conv*-samples-*.csv"):
+        output_path.unlink()
+
+
+def _save_file_result(df, sample_path: Path) -> Path:
+    EVALUATE_OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    output_path = _get_file_output_path(sample_path)
+    df.insert(0, "source_file", sample_path.name)
     df.to_csv(
-        OUTPUT_CSV_PATH,
-        mode="a",
-        header=not OUTPUT_CSV_PATH.exists(),
+        output_path,
         index=False,
+        na_rep="NaN",
     )
-    return OUTPUT_CSV_PATH
+    return output_path
 
 
 def main() -> None:
     sample_paths = _get_sample_paths()
-    sample_sets = []
-    for sample_path in sample_paths:
-        sample_set = load_ragas_markdown(sample_path)
-        _validate_samples(sample_set)
-        sample_sets.append(sample_set)
-        print(f"Loaded {len(sample_set['user_input'])} RAGAS samples from {sample_path}")
+    _clear_previous_outputs()
 
-    data_samples = _merge_data_samples(sample_sets)
-    _validate_samples(data_samples)
-    total_samples = len(data_samples["user_input"])
+    print(f"Loaded {len(sample_paths)} split sample file(s)")
+    print("Evaluation step: 1 split file at a time")
+    print("CSV file size: follows each split sample file")
+    print(f"CSV output folder: {EVALUATE_OUTPUT_DIR}")
 
-    EVALUATE_OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-    if OUTPUT_CSV_PATH.exists():
-        OUTPUT_CSV_PATH.unlink()
-
-    print(f"Loaded {total_samples} total RAGAS samples from {len(sample_paths)} file(s)")
-    print("Evaluation chunk size: 1 sample")
-    print(f"CSV output file: {OUTPUT_CSV_PATH}")
-
-    for sample_index in range(total_samples):
-        sample_number = sample_index + 1
-        sample_data = _slice_data_samples(data_samples, sample_index, sample_index + 1)
-        _validate_samples(sample_data)
-        sample_dataset = Dataset.from_dict(sample_data)
-        label = f"sample {sample_number}"
+    output_paths = []
+    for file_index, sample_path in enumerate(sample_paths, start=1):
+        data_samples = load_ragas_markdown(sample_path)
+        _validate_samples(data_samples)
+        dataset = Dataset.from_dict(data_samples)
+        sample_count = len(data_samples["user_input"])
+        label = f"{sample_path.name} ({sample_count} samples)"
 
         print("\n" + "=" * 80)
-        print(f"Evaluating {label}/{total_samples}")
+        print(f"Evaluating file {file_index}/{len(sample_paths)}: {label}")
         print("=" * 80)
 
-        df = evaluate_until_complete(sample_dataset, label=label)
-        invalid_cells = _find_invalid_dataframe_cells(df)
-        if invalid_cells:
-            raise RuntimeError(f"Sample {sample_number} still contains invalid values: {invalid_cells}")
+        df = evaluate_until_complete(dataset, label=label)
+        output_path = _save_file_result(df, sample_path)
+        output_paths.append(output_path)
+        print(f"File {sample_path.name} selesai. CSV dibuat di {output_path}")
 
-        output_path = _append_sample_result(df, sample_number)
-        print(f"Sample {sample_number} selesai. CSV diupdate di {output_path}")
-
-    print("\nEvaluasi selesai untuk semua sample.")
-    print(f"CSV final: {OUTPUT_CSV_PATH}")
-    print("\nTidak ada NaN/null/kosong pada sample yang disimpan.")
+    print("\nEvaluasi selesai untuk semua file sample.")
+    print(f"CSV tersimpan di folder: {EVALUATE_OUTPUT_DIR}")
+    for output_path in output_paths:
+        print(f"- {output_path}")
 
 
 if __name__ == "__main__":

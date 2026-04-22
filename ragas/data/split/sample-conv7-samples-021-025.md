@@ -1,0 +1,246 @@
+# RAGAS Test Data
+
+File ini digenerate dari tabel `chats` dan `chat_references`.
+`reference` sengaja dikosongkan agar dapat diisi manual.
+
+## Sample 21
+
+- conversation_id: 7
+- user_chat_id: 145
+- bot_chat_id: 146
+
+### user_input
+
+Apa perbedaan RAG tradisional dan DynamicRAG?
+
+### retrieved_context
+
+1. In this section, we propose DynamicRAG. Unlike traditional RAG systems that rely on static ranking methods, DynamicRAG introduces a dynamic reranking mechanism and leverages feedback from LLM output t (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 4)
+
+2. Table 6: Performance comparison across different settings and datasets menunjukkan hasil perbandingan kinerja sistem Retrieval-Augmented Generation (RAG) dengan beberapa pengaturan dan dataset. Data t (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 18)
+
+3. Table 9: Case Study for DynamicRAG. We compare our method with Vanilla-RAG with Reranker Table 9: Case Study for DynamicRAG. Kami membandingkan metode kami dengan Vanilla-RAG dengan Reranker.
+
+Data ya (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 21)
+
+4. Traditional reranking approaches rely on static ranking models that determine the relevance of retrieved documents independently of the generation task. These models typically operate within a fixed-l (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 4)
+
+5. Table 7: Performance Improvement Using Dynamic Reranker on Closed-Source Models.
+
+Pada tabel ini kita dapat melihat hasil penggunaan teknologi reranking dinamis pada model GPT-4o. Model ini merupakan (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 19)
+
+6. Table 10: Case Study for DynamicRAG. We compare our method with Vanilla-RAG with Reranker Table 10: Case Study for DynamicRAG. We compare our metode dengan Vanilla-RAG dengan Reranker adalah tabel yan (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 22)
+
+7. Table 1 presents a comprehensive comparison of our proposed DynamicRAG approach against various baseline models, categorized into those without retrieval and those incorporating retrieval mechanisms. (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 8)
+
+8. Table 1: The DynamicRAG results for different datasets among different backbone models. Results menampilkan hasil evaluasi model Retrieval-Augmented Generation (RAG) dalam beberapa dataset. Analisis i (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 7)
+
+### response
+
+Perbedaan antara RAG tradisional dan DynamicRAG adalah bahwa RAG tradisional tergantung pada metode ranking statis, sedangkan DynamicRAG menggunakan mekanisme peringkatan dinamis yang dipengaruhi oleh output generator untuk menyesuaikan jumlah dan urutan dokumen yang diambil.
+
+DynamicRAG juga memiliki beberapa komponen utama seperti: (1) retriever beku, (2) reranker yang dapat dipelajari, dan (3) generator yang dioptimalkan untuk mengoptimalkan input dari reranker. Dengan menggunakan mekanisme peringkatan dinamis, DynamicRAG dapat menyesuaikan diri dengan kebutuhan proses generasi dan meningkatkan kualitas output.
+
+Sumber: [Source: DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation]
+
+### reference
+
+Berdasarkan retrieved context, In this section, we propose DynamicRAG. Unlike traditional RAG systems that rely on static ranking methods, DynamicRAG introduces a dynamic reranking mechanism and leverages feedback from LLM output t (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 4) Table 6: Performance comparison across different settings and datasets menunjukkan hasil perbandingan kinerja sistem Retrieval-Augmented Generation (RAG) dengan beberapa pengaturan dan dataset. Data t (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 18) Table 1: The DynamicRAG results for different datasets among different backbone models. Results menampilkan hasil evaluasi model Retrieval-Augmented Generation (RAG) dalam beberapa dataset. Analisis i (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 7)
+---
+
+## Sample 22
+
+- conversation_id: 7
+- user_chat_id: 147
+- bot_chat_id: 148
+
+### user_input
+
+Bagaimana AI dapat meningkatkan akurasi retrieval dan generation pada sistem RAG?
+
+### retrieved_context
+
+1. Table 6: Performance comparison across different settings and datasets menunjukkan hasil perbandingan kinerja sistem Retrieval-Augmented Generation (RAG) dengan beberapa pengaturan dan dataset. Data t (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 18)
+
+2. Table 1 presents a comprehensive comparison of our proposed DynamicRAG approach against beberapa metode lainnya dalam pembangunan model generatif. Tabel ini menguraikan hasil evaluasi dari beberapa mo (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 8)
+
+3. In this section, we propose DynamicRAG. Unlike traditional RAG systems that rely on static ranking methods, DynamicRAG introduces a dynamic reranking mechanism and leverages feedback from LLM output t (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 4)
+
+4. Retrieval-augmented generation (RAG) systems combine large language models (LLMs) with external knowledge retrieval, making them highly effective for knowledge-intensive tasks. A crucial but often und (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 1)
+
+5. This work introduces DynamicRAG, a new reinforcement learning framework to optimize reranking in RAG. By modeling the reranker as an RL agent and using LLM response quality as rewards, it dynamically (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 11)
+
+6. Based on these insights, we propose DynamicRAG, a novel RAG framework where the reranker dynamically adjusts both the order and number of retrieved documents based on the query. In DynamicRAG, the rer (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 2)
+
+7. The algorithm of our main method is shown in Algorithm 1. Update reranker via:
+
+5: end for 6: STEP 2: GENERATOR TRAINING 7: for each sample (q, D, y gt ) ∈ D train do 8:
+
+Optimize generator π θg via: (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 17)
+
+8. The first step in the RAG framework is to retrieve relevant documents or passages from a large corpus. This is typically done using an information retrieval (IR) system. Given a query q, the IR system (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 3)
+
+### response
+
+Dalam sistem Retrieval-Augmented Generation (RAG), akurasi retrieval dan generation dapat ditingkatkan dengan menggunakan metode yang efektif dalam mengatur dan menangani informasi dari dokumen yang telah diretrieval. Berdasarkan penelitian yang dilakukan oleh tim DynamicRAG, dapat diketahui bahwa salah satu cara untuk meningkatkan akurasi tersebut adalah dengan menggunakan dynamic reranking.
+
+Dynamic reranking merupakan metode yang memungkinkan sistem RAG untuk mere-ranking dokumen yang telah diretrieval secara dinamis berdasarkan query dan kondisi lainnya. Dengan demikian, dapat diperoleh hasil retrieval yang lebih relevan dan akurat.
+
+Dalam penelitian tersebut juga ditemukan bahwa penggunaan reward function yang tepat dapat meningkatkan nilai Exact Match (EM) pada beberapa dataset. Hal ini menunjukkan bahwa penggunaan reward function yang tepat dapat berperan besar dalam meningkatkan kinerja sistem RAG.
+
+Selain itu, penelitian DynamicRAG juga menggunakan reinforcement learning (RL) untuk mengoptimalkan reranker dan generator secara bersamaan. Dengan demikian, sistem RAG dapat belajar dari feedback yang diterima dan menyesuaikan diri dengan query dan kondisi lainnya.
+
+Dalam kesimpulan, metode dynamic reranking dan penggunaan reward function yang tepat dapat berperan besar dalam meningkatkan akurasi retrieval dan generation pada sistem RAG. Selain itu, penggunaan reinforcement learning (RL) juga dapat membantu sistem RAG untuk belajar dan menyesuaikan diri dengan query dan kondisi lainnya.
+
+[Source: DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation]
+
+### reference
+
+Berdasarkan retrieved context, Retrieval-augmented generation (RAG) systems combine large language models (LLMs) with external knowledge retrieval, making them highly effective for knowledge-intensive tasks. A crucial but often und (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 1) The first step in the RAG framework is to retrieve relevant documents or passages from a large corpus. This is typically done using an information retrieval (IR) system. Given a query q, the IR system (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 3) Table 6: Performance comparison across different settings and datasets menunjukkan hasil perbandingan kinerja sistem Retrieval-Augmented Generation (RAG) dengan beberapa pengaturan dan dataset. Data t (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 18)
+---
+
+## Sample 23
+
+- conversation_id: 7
+- user_chat_id: 149
+- bot_chat_id: 150
+
+### user_input
+
+Bagaimana LLM menggunakan retrieved context untuk menghasilkan jawaban?
+
+### retrieved_context
+
+1. LLMs are increasingly used for passage reranking, with methods generally being point-wise (assessing individual relevance via relevance or query generation [27,9,47]), pair-wise (comparing passage pai (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 11)
+
+2. To evaluate the quality of the generated response ŷ in relation to the ground-truth answer y gt and the contribution of reranked documents {D i } K i=1 , we employ a multi-dimensional reward function. (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 1)
+
+3. We split the corpus into smaller passages (or chunks). For each chunk, we prompt an LLM to generate a set of questions that the chunk can answer. While question generation is a well studied topic in N (QuOTE: Question-Oriented Text Embeddings, page 3)
+
+4. Retrieval-augmented generation (RAG [35,36,40]) serves as a significant contribution to the deployment and acceptance of LLMs in practice. Given a user's prompt, RAG retrieves relevant information fro (QuOTE: Question-Oriented Text Embeddings, page 1)
+
+5. To systematically investigate the effect of varying the number of generated questions, we parameterize our LLM prompt to either generate:
+
+• Fixed # Questions: If a desired quantity num_questions is p (QuOTE: Question-Oriented Text Embeddings, page 5)
+
+6. After encoding, the next phase is to generate an answer or response based on the query and retrieved documents. The generation model takes both the query and the retrieved documents as input and gener (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 3)
+
+7. Baselines without Retrieval We evaluate publicly available close-sourced LLMs, including GPT-3.5-turbo, GPT-4, and GPT-4o. These models represent state-of-the-art LLMs that are not augmented with exte (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 7)
+
+8. Generation?
+
+An important practical consideration in RAG-based pipelines is whether cheaper, smaller models can generate effective questions for indexing, or if premium, large-scale LLMs (e.g., GPT-4) (QuOTE: Question-Oriented Text Embeddings, page 8)
+
+### response
+
+LLM menggunakan retrieved context dengan cara yang kompleks melalui proses generatif. Proses ini terdiri dari beberapa tahap, mulai dari encoding dokumen yang relevan hingga menghasilkan jawaban.
+
+Pertama, LLM menerima query dan dokumen-dokumen yang relevan sebagai input. Dokumen-dokumen tersebut kemudian diencode ke dalam representasi vektor melalui proses embedding [Source: QuOTE: Question-Oriented Text Embeddings].
+
+Kemudian, proses generatif dimulai dengan model generator yang mengambil query dan dokumen yang telah diekoding sebagai input. Model ini kemudian memaksimalkan kemungkinan menghasilkan jawaban yang tepat berdasarkan query dan dokumen-dokumen tersebut [Source: DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation].
+
+Dalam proses generatif ini, LLM juga mempertimbangkan beberapa faktor, seperti kualitas jawaban (Exact Match, Semantic Similarity, Textual Fluency, dan Length Penalty), serta evaluasi berdasarkan model LLM lainnya (LLM-Eval) [Source: DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation].
+
+Proses ini berlanjut dengan menggunakan fungsi reward yang kompleks untuk menilai kualitas jawaban yang dihasilkan. Fungsi reward ini mencakup beberapa dimensi, seperti Exact Match (EM), Semantic Similarity (SS), Textual Fluency (TF), dan Length Penalty (LP) [Source: DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation].
+
+Dengan menggunakan kombinasi dari proses encoding dokumen, generatif, dan evaluasi berdasarkan model LLM lainnya, LLM dapat menghasilkan jawaban yang lebih akurat dan relevan.
+
+### reference
+
+Berdasarkan retrieved context, We split the corpus into smaller passages (or chunks). For each chunk, we prompt an LLM to generate a set of questions that the chunk can answer. While question generation is a well studied topic in N (QuOTE: Question-Oriented Text Embeddings, page 3) To systematically investigate the effect of varying the number of generated questions, we parameterize our LLM prompt to either generate: • Fixed # Questions: If a desired quantity num_questions is p (QuOTE: Question-Oriented Text Embeddings, page 5) After encoding, the next phase is to generate an answer or response based on the query and retrieved documents. The generation model takes both the query and the retrieved documents as input and gener (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 3)
+---
+
+## Sample 24
+
+- conversation_id: 7
+- user_chat_id: 151
+- bot_chat_id: 152
+
+### user_input
+
+Apa risiko jika retrieved context pada RAG tidak relevan dengan pertanyaan?
+
+### retrieved_context
+
+1. Table 1: Overview of candidate datasets for RAG evaluation. SQuAD, MultiHop-RAG, and Natural Questions are included to Table 1: Overview of candidate datasets untuk evaluasi model RAG menunjukkan bebe (QuOTE: Question-Oriented Text Embeddings, page 4)
+
+2. In many QA scenarios, particularly in customer support and enterprise search, there exists a fundamental asymmetry: user queries are often brief, while answers require detailed, structured information (QuOTE: Question-Oriented Text Embeddings, page 1)
+
+3. Retrieval-augmented generation (RAG [35,36,40]) serves as a significant contribution to the deployment and acceptance of LLMs in practice. Given a user's prompt, RAG retrieves relevant information fro (QuOTE: Question-Oriented Text Embeddings, page 1)
+
+4. Context is provided in disjointed sentence lists, complicating chunk-based retrieval. MultiHop-RAG's more document-centric structure provides a natural benchmark.
+
+Frames [29] 824 multi-hop questions (QuOTE: Question-Oriented Text Embeddings, page 4)
+
+5. Cuconasu et al. [5] study the performance of RAG for QA tasks in the presence of so-called distracting and noise documents. Distracting documents are those with high retrieval scores, but that do not (QuOTE: Question-Oriented Text Embeddings, page 2)
+
+6. The first step in the RAG framework is to retrieve relevant documents or passages from a large corpus. This is typically done using an information retrieval (IR) system. Given a query q, the IR system (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 3)
+
+7. One key factor in question-oriented retrieval is deciding how many questions an LLM should generate for each chunk of text. Generating too few may overlook critical details, while generating too many (QuOTE: Question-Oriented Text Embeddings, page 5)
+
+8. This work has demonstrated how the use of questions to augment representations of documents can yield significant improvement in information retrieval for RAG applications. The need for deduplication (QuOTE: Question-Oriented Text Embeddings, page 9)
+
+### response
+
+Risiko yang mungkin terjadi jika retrieved context pada RAG tidak relevan dengan pertanyaan adalah performance sistem akan menurun. Seperti yang disebutkan dalam [Source: QuOTE: Question-Oriented Text Embeddings], distracting documents (dokumen yang tidak relevan) dapat menyebabkan penurunan performa sistem, karena system mungkin akan mengandalkan dokumen-dokumen tersebut sebagai referensi.
+
+Selain itu, jika retrieved context tidak relevan dengan pertanyaan, maka sistem RAG juga berisiko menghasilkan jawaban yang tidak akurat atau tidak bermanfaat. Hal ini dapat menyebabkan pengguna merasa frustrasi dan kecewa dengan hasil pencarian.
+
+Dalam [Source: DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation], disebutkan bahwa salah satu langkah penting dalam framework RAG adalah memastikan relevansi dokumen yang di-retrieve dengan pertanyaan pengguna. Oleh karena itu, sangatlah penting untuk melakukan evaluasi dan penyempurnaan sistem agar dapat meningkatkan kualitas retrieved context dan mengurangi risiko kesalahan.
+
+Sumber: [Source: QuOTE: Question-Oriented Text Embeddings], [Source: DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation]
+
+### reference
+
+Berdasarkan retrieved context, Table 1: Overview of candidate datasets for RAG evaluation. SQuAD, MultiHop-RAG, and Natural Questions are included to Table 1: Overview of candidate datasets untuk evaluasi model RAG menunjukkan bebe (QuOTE: Question-Oriented Text Embeddings, page 4) Retrieval-augmented generation (RAG [35,36,40]) serves as a significant contribution to the deployment and acceptance of LLMs in practice. Given a user's prompt, RAG retrieves relevant information fro (QuOTE: Question-Oriented Text Embeddings, page 1) Context is provided in disjointed sentence lists, complicating chunk-based retrieval. MultiHop-RAG's more document-centric structure provides a natural benchmark. Frames [29] 824 multi-hop questions (QuOTE: Question-Oriented Text Embeddings, page 4)
+---
+
+## Sample 25
+
+- conversation_id: 7
+- user_chat_id: 153
+- bot_chat_id: 154
+
+### user_input
+
+Bagaimana embedding membantu sistem RAG menemukan dokumen yang relevan?
+
+### retrieved_context
+
+1. Retrieval-augmented generation (RAG [35,36,40]) serves as a significant contribution to the deployment and acceptance of LLMs in practice. Given a user's prompt, RAG retrieves relevant information fro (QuOTE: Question-Oriented Text Embeddings, page 1)
+
+2. This work has demonstrated how the use of questions to augment representations of documents can yield significant improvement in information retrieval for RAG applications. The need for deduplication (QuOTE: Question-Oriented Text Embeddings, page 9)
+
+3. We present QuOTE (Question-Oriented Text Embeddings), a novel enhancement to retrieval-augmented generation (RAG) systems, aimed at improving document representation for accurate and nuanced retrieval (QuOTE: Question-Oriented Text Embeddings, page 1)
+
+4. The first step in the RAG framework is to retrieve relevant documents or passages from a large corpus. This is typically done using an information retrieval (IR) system. Given a query q, the IR system (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 3)
+
+5. In many QA scenarios, particularly in customer support and enterprise search, there exists a fundamental asymmetry: user queries are often brief, while answers require detailed, structured information (QuOTE: Question-Oriented Text Embeddings, page 1)
+
+6. Contextual retrieval techniques, such as Anthropic's approach to augmenting chunks with additional information before embedding, have emerged as promising ways to reduce retrieval errors. Similarly, H (QuOTE: Question-Oriented Text Embeddings, page 1)
+
+7. Context is provided in disjointed sentence lists, complicating chunk-based retrieval. MultiHop-RAG's more document-centric structure provides a natural benchmark.
+
+Frames [29] 824 multi-hop questions (QuOTE: Question-Oriented Text Embeddings, page 4)
+
+8. The debate between dense and sparse retrievers continues into RAG research [3,30]. Dense retrievers, such as those based on vector embeddings, excel at capturing semantic similarity, making them parti (QuOTE: Question-Oriented Text Embeddings, page 2)
+
+### response
+
+Sistem Retrieval-Augmented Generation (RAG) menggunakan teknik embedding untuk meningkatkan kemampuan sistem dalam menemukan dokumen yang relevan. Menurut [Source: QuOTE: Question-Oriented Text Embeddings], teknik ini membantu dengan cara mengambil informasi dari dokumen dan menyimpannya sebagai vektor embedding. Saat menerima query, sistem RAG mencari vektor embedding yang paling dekat dengan query tersebut.
+
+Selain itu, karya [Source: DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation] menjelaskan bahwa kemampuan sistem dalam menemukan dokumen relevan juga dipengaruhi oleh fungsi Score(•), yang merupakan kelebihan dari teknik retrieval tertentu (seperti BM25 atau cosine similarity). Fungsi ini membantu sistem untuk memilih dokumen yang paling relevan berdasarkan query.
+
+Dalam karya [Source: QuOTE: Question-Oriented Text Embeddings], juga dijelaskan bahwa kombinasi antara vektor embedding dan teknik retrieval lain (seperti BM25 atau TF-IDF) dapat meningkatkan kemampuan sistem RAG dalam menemukan dokumen relevan. 
+
+Secara keseluruhan, dapat disimpulkan bahwa embedding membantu sistem RAG menemukan dokumen yang relevan dengan cara:
+
+* Mengambil informasi dari dokumen dan menyimpannya sebagai vektor embedding
+* Mencari vektor embedding yang paling dekat dengan query
+* Menggunakan fungsi Score(•) untuk memilih dokumen yang paling relevan
+
+### reference
+
+Berdasarkan retrieved context, Retrieval-augmented generation (RAG [35,36,40]) serves as a significant contribution to the deployment and acceptance of LLMs in practice. Given a user's prompt, RAG retrieves relevant information fro (QuOTE: Question-Oriented Text Embeddings, page 1) This work has demonstrated how the use of questions to augment representations of documents can yield significant improvement in information retrieval for RAG applications. The need for deduplication (QuOTE: Question-Oriented Text Embeddings, page 9) We present QuOTE (Question-Oriented Text Embeddings), a novel enhancement to retrieval-augmented generation (RAG) systems, aimed at improving document representation for accurate and nuanced retrieval (QuOTE: Question-Oriented Text Embeddings, page 1)
+---
+
