@@ -1,4 +1,5 @@
 from pathlib import Path
+from datetime import datetime
 import os
 import re
 import time
@@ -335,19 +336,33 @@ def _get_sample_paths() -> list[Path]:
     return paths
 
 
-def _get_file_output_path(sample_path: Path) -> Path:
-    return EVALUATE_OUTPUT_DIR / f"{sample_path.stem}.csv"
+def _create_run_output_dir() -> Path:
+    run_id = os.getenv("RAGAS_RUN_ID") or datetime.now().strftime("%Y%m%d-%H%M%S")
+    output_dir = EVALUATE_OUTPUT_DIR / f"run-{run_id}"
+    suffix = 1
+
+    while output_dir.exists():
+        output_dir = EVALUATE_OUTPUT_DIR / f"run-{run_id}-{suffix:02d}"
+        suffix += 1
+
+    output_dir.mkdir(parents=True, exist_ok=False)
+    return output_dir
 
 
-def _clear_previous_outputs() -> None:
-    EVALUATE_OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-    for output_path in EVALUATE_OUTPUT_DIR.glob("sample-conv*-samples-*.csv"):
-        output_path.unlink()
+def _get_file_output_path(sample_path: Path, output_dir: Path) -> Path:
+    output_path = output_dir / f"{sample_path.stem}.csv"
+    suffix = 1
+
+    while output_path.exists():
+        output_path = output_dir / f"{sample_path.stem}-{suffix:02d}.csv"
+        suffix += 1
+
+    return output_path
 
 
-def _save_file_result(df, sample_path: Path) -> Path:
-    EVALUATE_OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-    output_path = _get_file_output_path(sample_path)
+def _save_file_result(df, sample_path: Path, output_dir: Path) -> Path:
+    output_dir.mkdir(parents=True, exist_ok=True)
+    output_path = _get_file_output_path(sample_path, output_dir)
     df.insert(0, "source_file", sample_path.name)
     df.to_csv(
         output_path,
@@ -359,12 +374,12 @@ def _save_file_result(df, sample_path: Path) -> Path:
 
 def main() -> None:
     sample_paths = _get_sample_paths()
-    _clear_previous_outputs()
+    run_output_dir = _create_run_output_dir()
 
     print(f"Loaded {len(sample_paths)} split sample file(s)")
     print("Evaluation step: 1 split file at a time")
     print("CSV file size: follows each split sample file")
-    print(f"CSV output folder: {EVALUATE_OUTPUT_DIR}")
+    print(f"CSV output folder: {run_output_dir}")
 
     output_paths = []
     for file_index, sample_path in enumerate(sample_paths, start=1):
@@ -379,12 +394,12 @@ def main() -> None:
         print("=" * 80)
 
         df = evaluate_until_complete(dataset, label=label)
-        output_path = _save_file_result(df, sample_path)
+        output_path = _save_file_result(df, sample_path, run_output_dir)
         output_paths.append(output_path)
         print(f"File {sample_path.name} selesai. CSV dibuat di {output_path}")
 
     print("\nEvaluasi selesai untuk semua file sample.")
-    print(f"CSV tersimpan di folder: {EVALUATE_OUTPUT_DIR}")
+    print(f"CSV tersimpan di folder: {run_output_dir}")
     for output_path in output_paths:
         print(f"- {output_path}")
 
