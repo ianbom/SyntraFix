@@ -18,7 +18,8 @@ DEFAULT_RAGAS_SAMPLE_PATHS = [
     Path(__file__).resolve().parent / "data" / "sample-conv6.md",
     Path(__file__).resolve().parent / "data" / "sample-conv7.md",
 ]
-OUTPUT_CSV_PATH = Path(__file__).resolve().parent / "score_ragas_conv6_conv7.csv"
+EVALUATE_OUTPUT_DIR = Path(__file__).resolve().parent / "evaluate"
+EVALUATION_CHUNK_SIZE = int(os.getenv("RAGAS_EVALUATION_CHUNK_SIZE", "5"))
 MAX_EVALUATION_ATTEMPTS = int(os.getenv("RAGAS_MAX_EVALUATION_ATTEMPTS", "5"))
 RETRY_DELAY_SECONDS = float(os.getenv("RAGAS_RETRY_DELAY_SECONDS", "3"))
 
@@ -124,12 +125,13 @@ def _find_invalid_dataframe_cells(df) -> list[str]:
     return invalid_cells
 
 
-def evaluate_until_complete(dataset: Dataset):
+def evaluate_until_complete(dataset: Dataset, label: str = ""):
     """Run RAGAS repeatedly until the result has no NaN/null/empty values."""
     last_invalid_cells = []
+    label_suffix = f" for {label}" if label else ""
 
     for attempt in range(1, MAX_EVALUATION_ATTEMPTS + 1):
-        print(f"\nRAGAS evaluation attempt {attempt}/{MAX_EVALUATION_ATTEMPTS}")
+        print(f"\nRAGAS evaluation attempt {attempt}/{MAX_EVALUATION_ATTEMPTS}{label_suffix}")
         score = evaluate(
             dataset,
             metrics=METRICS,
@@ -250,6 +252,14 @@ def _merge_data_samples(sample_sets: list[dict]) -> dict:
     return merged
 
 
+def _slice_data_samples(data_samples: dict, start_index: int, end_index: int) -> dict:
+    """Slice row-oriented RAGAS sample dict from start_index inclusive to end_index exclusive."""
+    return {
+        field: values[start_index:end_index]
+        for field, values in data_samples.items()
+    }
+
+
 def _get_sample_paths() -> list[Path]:
     configured_paths = os.getenv("RAGAS_SAMPLE_PATHS")
     if not configured_paths:
@@ -270,6 +280,19 @@ def _get_sample_paths() -> list[Path]:
     return paths
 
 
+def _save_chunk_result(df, chunk_number: int, start_index: int, end_index: int) -> Path:
+    EVALUATE_OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    output_path = EVALUATE_OUTPUT_DIR / (
+        f"ragas_batch_{chunk_number:03d}_"
+        f"samples_{start_index + 1:04d}_{end_index:04d}.csv"
+    )
+
+    df.insert(0, "sample_number", range(start_index + 1, end_index + 1))
+    df.insert(1, "evaluation_batch", chunk_number)
+    df.to_csv(output_path, index=False)
+    return output_path
+
+
 def main() -> None:
     sample_paths = _get_sample_paths()
     sample_sets = []
@@ -281,22 +304,43 @@ def main() -> None:
 
     data_samples = _merge_data_samples(sample_sets)
     _validate_samples(data_samples)
-    dataset = Dataset.from_dict(data_samples)
+    total_samples = len(data_samples["user_input"])
 
-    print(f"Loaded {len(dataset)} total RAGAS samples from {len(sample_paths)} file(s)")
+    if EVALUATION_CHUNK_SIZE <= 0:
+        raise ValueError("RAGAS_EVALUATION_CHUNK_SIZE must be greater than 0")
 
-    df = evaluate_until_complete(dataset)
-    df.to_csv(OUTPUT_CSV_PATH, index=False)
+    print(f"Loaded {total_samples} total RAGAS samples from {len(sample_paths)} file(s)")
+    print(f"Evaluation chunk size: {EVALUATION_CHUNK_SIZE}")
+    print(f"CSV output folder: {EVALUATE_OUTPUT_DIR}")
 
-    print(f"Evaluasi selesai! Hasil disimpan di {OUTPUT_CSV_PATH}")
-    print("\nHasil Evaluasi:")
-    print(df)
+    output_paths = []
+    chunk_number = 1
+    for start_index in range(0, total_samples, EVALUATION_CHUNK_SIZE):
+        end_index = min(start_index + EVALUATION_CHUNK_SIZE, total_samples)
+        chunk_samples = _slice_data_samples(data_samples, start_index, end_index)
+        _validate_samples(chunk_samples)
+        chunk_dataset = Dataset.from_dict(chunk_samples)
+        label = f"samples {start_index + 1}-{end_index}"
 
-    invalid_cells = _find_invalid_dataframe_cells(df)
-    if invalid_cells:
-        raise RuntimeError(f"CSV output still contains invalid values: {invalid_cells}")
+        print("\n" + "=" * 80)
+        print(f"Evaluating batch {chunk_number}: {label}")
+        print("=" * 80)
 
-    print("\nTidak ada NaN/null/kosong.")
+        df = evaluate_until_complete(chunk_dataset, label=label)
+        invalid_cells = _find_invalid_dataframe_cells(df)
+        if invalid_cells:
+            raise RuntimeError(f"Batch {chunk_number} still contains invalid values: {invalid_cells}")
+
+        output_path = _save_chunk_result(df, chunk_number, start_index, end_index)
+        output_paths.append(output_path)
+        print(f"Batch {chunk_number} selesai. CSV disimpan di {output_path}")
+        chunk_number += 1
+
+    print("\nEvaluasi selesai untuk semua sample.")
+    print("CSV yang dihasilkan:")
+    for output_path in output_paths:
+        print(f"- {output_path}")
+    print("\nTidak ada NaN/null/kosong pada batch yang disimpan.")
 
 
 if __name__ == "__main__":
