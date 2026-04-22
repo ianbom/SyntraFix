@@ -1,0 +1,220 @@
+# RAGAS Test Data
+
+File ini digenerate dari tabel `chats` dan `chat_references`.
+`reference` sengaja dikosongkan agar dapat diisi manual.
+
+## Sample 11
+
+- conversation_id: 8
+- user_chat_id: 255
+- bot_chat_id: 256
+
+### user_input
+
+Apa itu robot goalkeeper?
+
+### retrieved_context
+
+1. EEPIS Robot Soccer On Wheeled (ERSOW) is a wheeled soccer robot team competing in the Indonesian Wheeled Soccer Robot Contest. The ERSOW goalkeeper robot currently faces a challenge in responding to i (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 1)
+
+2. The result of the ball arrival position prediction is output. This information is used by the goalkeeping robot control system to take appropriate actions in blocking the ball. This output allows the (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 9)
+
+3. The process of system completion involves multiple stages that are intended to accomplish the objectives of the research.
+
+Every phase is meticulously organized to guarantee that every facet of the in (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 3)
+
+4. EEPIS Robot Soccer On Wheeled (ERSOW) is one of the robotics teams at Politeknik Elektronika Negeri Surabaya. In addition, the ERSOW team participated in an international level competition in the fiel (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 1)
+
+5. The ball detection process begins by activating the camera attached to the robot goalkeeper. This camera is tasked with capturing images and videos of the robot's surroundings with high resolution and (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 6)
+
+6. Research on computer vision for accurate and fast ball detection is conducted by comparing the performance of two detection methods based on convolutional neural networks. Testing techniques are speci (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 2)
+
+7. The prediction model then analyzes the ball position input and predicts the future direction and position of the ball. This prediction helps the robot goalkeeper determine the movements to be made to (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 9)
+
+8. • Proposing a system for predicting the position of the ball using the ZED camera because the ZED camera has the ability to detect ball objects with extreme lighting conditions on the Goalkeeper Robot (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 2)
+
+### response
+
+Robot Goalkeeper adalah bagian dari tim ERSOW (EEPIS Robot Soccer On Wheeled) yang bertanggung jawab untuk memblokir bola masuk ke gawang. 
+
+[Source: Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application]
+
+### reference
+
+Robot goalkeeper adalah robot penjaga gawang pada tim robot sepak bola beroda ERSOW yang digunakan dalam konteks kompetisi robot sepak bola dan bertugas merespons bola yang datang.
+
+---
+
+---
+
+## Sample 12
+
+- conversation_id: 8
+- user_chat_id: 257
+- bot_chat_id: 258
+
+### user_input
+
+Apa tugas robot goalkeeper?
+
+### retrieved_context
+
+1. The result of the ball arrival position prediction is output. This information is used by the goalkeeping robot control system to take appropriate actions in blocking the ball. This output allows the (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 9)
+
+2. EEPIS Robot Soccer On Wheeled (ERSOW) is one of the robotics teams at Politeknik Elektronika Negeri Surabaya. In addition, the ERSOW team participated in an international level competition in the fiel (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 1)
+
+3. EEPIS Robot Soccer On Wheeled (ERSOW) is a wheeled soccer robot team competing in the Indonesian Wheeled Soccer Robot Contest. The ERSOW goalkeeper robot currently faces a challenge in responding to i (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 1)
+
+4. The ball detection process begins by activating the camera attached to the robot goalkeeper. This camera is tasked with capturing images and videos of the robot's surroundings with high resolution and (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 6)
+
+5. Research on computer vision for accurate and fast ball detection is conducted by comparing the performance of two detection methods based on convolutional neural networks. Testing techniques are speci (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 2)
+
+6. With this further development, it is expected that the ball position prediction model is not only more accurate in the ''right'' and ''left'' classes, but can also provide better performance on ball p (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 11)
+
+7. • Proposing a system for predicting the position of the ball using the ZED camera because the ZED camera has the ability to detect ball objects with extreme lighting conditions on the Goalkeeper Robot (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 2)
+
+8. The process of system completion involves multiple stages that are intended to accomplish the objectives of the research.
+
+Every phase is meticulously organized to guarantee that every facet of the in (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 3)
+
+### response
+
+Tugas robot goalkeeper adalah mendeteksi dan mencegah bola dari masuk ke gawang. Ini dilakukan dengan menggunakan teknologi ZED camera untuk mendeteksi posisi bola dan mengirimkan informasi tersebut ke sistem kontrol robot untuk memprediksi arah bola dan mengambil tindakan yang tepat.
+
+[Sumber: Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application]
+
+### reference
+
+Tugas robot goalkeeper adalah menggunakan informasi prediksi posisi kedatangan bola agar sistem kontrol dapat mengambil tindakan yang tepat untuk memblokir bola.
+
+---
+
+---
+
+## Sample 13
+
+- conversation_id: 8
+- user_chat_id: 259
+- bot_chat_id: 260
+
+### user_input
+
+Bagaimana robot goalkeeper mendeteksi bola?
+
+### retrieved_context
+
+1. The ball detection process begins by activating the camera attached to the robot goalkeeper. This camera is tasked with capturing images and videos of the robot's surroundings with high resolution and (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 6)
+
+2. Research on computer vision for accurate and fast ball detection is conducted by comparing the performance of two detection methods based on convolutional neural networks. Testing techniques are speci (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 2)
+
+3. The prediction model then analyzes the ball position input and predicts the future direction and position of the ball. This prediction helps the robot goalkeeper determine the movements to be made to (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 9)
+
+4. The result of the ball arrival position prediction is output. This information is used by the goalkeeping robot control system to take appropriate actions in blocking the ball. This output allows the (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 9)
+
+5. EEPIS Robot Soccer On Wheeled (ERSOW) is a wheeled soccer robot team competing in the Indonesian Wheeled Soccer Robot Contest. The ERSOW goalkeeper robot currently faces a challenge in responding to i (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 1)
+
+6. TABLE 2. Computer Specification.
+
+Tabel ini mencatat spesifikasi komputer yang digunakan dalam pengembangan robot penjaga gawang menggunakan metode CNN (Convolutional Neural Network) dengan kamera Zed (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 10)
+
+7. Once the camera is activated, a pre-trained ball detection model using the YOLO (You Only Look Once) algorithm is loaded into the system. The YOLO model is designed to analyze images and videos captur (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 6)
+
+8. The dataset creation process starts with data capture, where the robot goalkeeper is placed in the goal area, and the ball is kicked from three different directions. Data was recorded using a ZED came (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 7)
+
+### response
+
+Sebelum mendeteksinya, kamera yang terpasang di robot harus dinyalakan. Setelah itu, model deteksi bola pra-teliti menggunakan algoritma YOLO (You Only Look Once) dimuatkan ke dalam sistem. Algoritma YOLO membagi gambar menjadi grid dan mengolahnya pada satu tahap untuk mendeteksi objek, termasuk bola, dengan tingkat akurasi tinggi.
+
+[Source: Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application]
+
+### reference
+
+Robot goalkeeper mendeteksi bola dengan mengaktifkan kamera yang terpasang pada robot, menangkap gambar dan video lingkungan sekitar, lalu menggunakan data tersebut dalam proses deteksi dan prediksi posisi bola.
+
+---
+
+---
+
+## Sample 14
+
+- conversation_id: 8
+- user_chat_id: 261
+- bot_chat_id: 262
+
+### user_input
+
+Bagaimana robot goalkeeper menentukan arah bola?
+
+### retrieved_context
+
+1. The prediction model then analyzes the ball position input and predicts the future direction and position of the ball. This prediction helps the robot goalkeeper determine the movements to be made to (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 9)
+
+2. The result of the ball arrival position prediction is output. This information is used by the goalkeeping robot control system to take appropriate actions in blocking the ball. This output allows the (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 9)
+
+3. EEPIS Robot Soccer On Wheeled (ERSOW) is a wheeled soccer robot team competing in the Indonesian Wheeled Soccer Robot Contest. The ERSOW goalkeeper robot currently faces a challenge in responding to i (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 1)
+
+4. The ball detection process begins by activating the camera attached to the robot goalkeeper. This camera is tasked with capturing images and videos of the robot's surroundings with high resolution and (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 6)
+
+5. Research on computer vision for accurate and fast ball detection is conducted by comparing the performance of two detection methods based on convolutional neural networks. Testing techniques are speci (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 2)
+
+6. • Proposing a system for predicting the position of the ball using the ZED camera because the ZED camera has the ability to detect ball objects with extreme lighting conditions on the Goalkeeper Robot (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 2)
+
+7. The process of system completion involves multiple stages that are intended to accomplish the objectives of the research.
+
+Every phase is meticulously organized to guarantee that every facet of the in (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 3)
+
+8. EEPIS Robot Soccer On Wheeled (ERSOW) is one of the robotics teams at Politeknik Elektronika Negeri Surabaya. In addition, the ERSOW team participated in an international level competition in the fiel (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 1)
+
+### response
+
+Berdasarkan konteks yang disediakan, robot goalkeper menentukan arah bola dengan menggunakan sistem prediksi posisi bola. Sistem ini menggunakan kamera ZED untuk mendeteksi dan menganalisis posisi bola, serta menggunakannya sebagai input untuk algoritma prediksi yang melibatkan Convolutional Neural Networks (CNN). Dengan demikian, robot goalkeper dapat memprediksi arah bola dan bergerak ke tempat yang tepat untuk mencegah bola masuk ke dalam gawang.
+
+Sumber: [Source: Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application]
+
+### reference
+
+Robot goalkeeper menentukan arah bola melalui model prediksi yang menganalisis input posisi bola dan memprediksi arah serta posisi bola di masa depan. Prediksi ini membantu robot menentukan gerakan yang perlu dilakukan.
+
+---
+
+---
+
+## Sample 15
+
+- conversation_id: 8
+- user_chat_id: 263
+- bot_chat_id: 264
+
+### user_input
+
+Bagaimana robot goalkeeper bergerak ke bola?
+
+### retrieved_context
+
+1. The ball detection process begins by activating the camera attached to the robot goalkeeper. This camera is tasked with capturing images and videos of the robot's surroundings with high resolution and (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 6)
+
+2. EEPIS Robot Soccer On Wheeled (ERSOW) is a wheeled soccer robot team competing in the Indonesian Wheeled Soccer Robot Contest. The ERSOW goalkeeper robot currently faces a challenge in responding to i (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 1)
+
+3. EEPIS Robot Soccer On Wheeled (ERSOW) is one of the robotics teams at Politeknik Elektronika Negeri Surabaya. In addition, the ERSOW team participated in an international level competition in the fiel (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 1)
+
+4. • Proposing a system for predicting the position of the ball using the ZED camera because the ZED camera has the ability to detect ball objects with extreme lighting conditions on the Goalkeeper Robot (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 2)
+
+5. The dataset creation process starts with data capture, where the robot goalkeeper is placed in the goal area, and the ball is kicked from three different directions. Data was recorded using a ZED came (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 7)
+
+6. Research on computer vision for accurate and fast ball detection is conducted by comparing the performance of two detection methods based on convolutional neural networks. Testing techniques are speci (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 2)
+
+7. The result of the ball arrival position prediction is output. This information is used by the goalkeeping robot control system to take appropriate actions in blocking the ball. This output allows the (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 9)
+
+8. The prediction model then analyzes the ball position input and predicts the future direction and position of the ball. This prediction helps the robot goalkeeper determine the movements to be made to (Prediction of Ball Position Using CNN Methods With Zed Camera on Goalkeeper Robot Application, page 9)
+
+### response
+
+Robot goalkeeper bergerak ke bola dengan menggunakan informasi posisi bola yang telah diprediksi oleh sistem prediksi posisi bola. Sistem ini menggunakan data dari kamera ZED untuk menganalisis gerakan bola dan memprediksi lokasi bola di masa depan.
+
+Informasi tersebut digunakan oleh sistem kontrol robot goalkeeper untuk mengambil aksi yang tepat dalam menghalangi bola, sehingga meningkatkan kemampuan pertahanan robot.
+
+### reference
+
+Robot goalkeeper bergerak berdasarkan informasi hasil prediksi posisi kedatangan bola. Informasi ini digunakan oleh sistem kontrol untuk menentukan tindakan yang sesuai dalam memblokir bola.
+
+---

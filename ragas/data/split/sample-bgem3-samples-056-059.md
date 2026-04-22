@@ -1,0 +1,191 @@
+# RAGAS Test Data
+
+File ini digenerate dari tabel `chats` dan `chat_references`.
+`reference` sengaja dikosongkan agar dapat diisi manual.
+
+## Sample 56
+
+- conversation_id: 8
+- user_chat_id: 345
+- bot_chat_id: 346
+
+### user_input
+
+Mengapa revocation diperlukan?
+
+### retrieved_context
+
+1. There exists an effective access control algorithm to protect either information or any other resources in small-scale, medium-scale, large-scale and even enterprise systems called RBAC [1]. National (Ephemeral Secret Leakage-Free ID-Role-Based Access Control Authentication and Key Exchange Protocol for Securing Electric Vehicle Data, page 1)
+
+2. The associate editor coordinating the review of this manuscript and approving it for publication was Mahdi Zareei . and can be given to the user when it is necessary. The administrator of RBAC system (Ephemeral Secret Leakage-Free ID-Role-Based Access Control Authentication and Key Exchange Protocol for Securing Electric Vehicle Data, page 1)
+
+3. ‚ an ID-RBAC-AKE based protocol that is able to protect ephemeral secret leakage attack as well as [8], [9], [10], and [11] while considering access control for EV users to access cloud resources secu (Ephemeral Secret Leakage-Free ID-Role-Based Access Control Authentication and Key Exchange Protocol for Securing Electric Vehicle Data, page 3)
+
+4. Our main motivation in incorporating RBAC and IBC to achieve an efficient mutual authentication and key exchange is securing EV data stored in the cloud server with considering to the ephemeral secret (Ephemeral Secret Leakage-Free ID-Role-Based Access Control Authentication and Key Exchange Protocol for Securing Electric Vehicle Data, page 5)
+
+5. Security evaluation is an essential component of physical channel-based key generation systems. The system is designed to allow only legitimate parties (Alice and Bob) to generate identical keys, whil (LoRa-PRIME: A Novel Secret Key Generation Framework Based on Periodic Bit Reversal and Modified Adaptive Quantization for Robust Cooperative Jamming LoRa Relay Networks, page 16)
+
+6. Deduplication is essential in QuOTE because each chunk can be indexed multiple times-once per generated question-leading to redundant matches at query time. Again, We compare Naive RAG, HyDE and QuOTE (QuOTE: Question-Oriented Text Embeddings, page 8)
+
+7. FIGURE 2. Proposed model of ID-based RBAC for securing EV data in the cloud server.
+
+Gambar ini menggambarkan model keamanan baru untuk proteksi data EV di server awan, yang didasarkan pada prinsip RB (Ephemeral Secret Leakage-Free ID-Role-Based Access Control Authentication and Key Exchange Protocol for Securing Electric Vehicle Data, page 6)
+
+8. Differences in quantization bits can arise between Alice and Bob because of channel variations, device noise, or environmental disturbances during the channel probing process.
+
+To improve key agreemen (LoRa-PRIME: A Novel Secret Key Generation Framework Based on Periodic Bit Reversal and Modified Adaptive Quantization for Robust Cooperative Jamming LoRa Relay Networks, page 8)
+
+### response
+
+Informasi tersebut tidak ditemukan pada dokumen yang tersedia.
+
+### reference
+
+Retrieved context tidak menjelaskan secara jelas mengapa revocation diperlukan. Konteks hanya menyebut access control, RBAC, keamanan data EV, dan rencana future work terkait algoritma revocation.
+
+---
+
+---
+
+## Sample 57
+
+- conversation_id: 8
+- user_chat_id: 347
+- bot_chat_id: 348
+
+### user_input
+
+Apa itu received signal strength?
+
+### retrieved_context
+
+1. TABLE 10. Number of RSSI measurements successfully received by each node.
+
+Tabel ini memperlihatkan hasil pengukuran nilai RSSI (Received Signal Strength Indicator) oleh setiap nodus dalam jaringan Lo (LoRa-PRIME: A Novel Secret Key Generation Framework Based on Periodic Bit Reversal and Modified Adaptive Quantization for Robust Cooperative Jamming LoRa Relay Networks, page 17)
+
+2. Various studies have developed the implementation of secret key generation on various devices using various methods, as summarized in Table 1. Yuliana et al. introduced the Signal Strength Exchange (S (LoRa-PRIME: A Novel Secret Key Generation Framework Based on Periodic Bit Reversal and Modified Adaptive Quantization for Robust Cooperative Jamming LoRa Relay Networks, page 3)
+
+3. An Anonymous Authentication With Received Signal Strength Based Pseudonymous Identities Generation for VANETs (An Anonymous Authentication With Received Signal Strength Based Pseudonymous Identities Generation for VANETs, page 1)
+
+4. TABLE 3. Equipment specifications in the implementation. FIGURE 8. Measurement location at Jl. Raya ITS Surabaya.
+
+to always attempt collecting RSS values from the communications either between Mobile (An Anonymous Authentication With Received Signal Strength Based Pseudonymous Identities Generation for VANETs, page 11)
+
+5. We start from the scenario of our experiment to evaluate the system performance of join protocol in generating PIDs derived from SKG process. This is an interactive registration process of a joining m (An Anonymous Authentication With Received Signal Strength Based Pseudonymous Identities Generation for VANETs, page 11)
+
+6. TABLE 1. Notations and descriptions. TABLE 1. Notations dan deskripsi.
+
+Dalam penelitian ini, beberapa variabel utama didefinisikan sebagai berikut:
+Sud adalah singkatan dari anonymanus Autentikasi.
+Y (An Anonymous Authentication With Received Signal Strength Based Pseudonymous Identities Generation for VANETs, page 3)
+
+7. Unlike conventional communication systems based on linear modulation, LoRa uses the Chirp Spread Spectrum (CSS) technique, which has unique handling interference. LoRa only allows the reception of one (LoRa-PRIME: A Novel Secret Key Generation Framework Based on Periodic Bit Reversal and Modified Adaptive Quantization for Robust Cooperative Jamming LoRa Relay Networks, page 5)
+
+8. FIGURE 4. Experimental setups: (a) indoor LOS (b) indoor NLOS (c) outdoor NLOS.
+
+Gambar ini menampilkan tiga setup eksperimental yang berbeda untuk menguji keefektifan sistem komunikasi tanpa sinyal ( (LoRa-PRIME: A Novel Secret Key Generation Framework Based on Periodic Bit Reversal and Modified Adaptive Quantization for Robust Cooperative Jamming LoRa Relay Networks, page 10)
+
+### response
+
+Received Signal Strength (RSS) adalah indikator kekuatan sinyal yang diterima oleh perangkat. Dalam konteks penelitian ini, RSS digunakan sebagai salah satu cara untuk menghasilkan kunci rahasia berbasis bit reversal dan kuantisasi adaptif.
+
+[Source: LoRa-PRIME: A Novel Secret Key Generation Framework Based on Periodic Bit Reversal and Modified Adaptive Quantization for Robust Cooperative Jamming LoRa Relay Networks]
+
+### reference
+
+Received Signal Strength atau RSS/RSSI adalah indikator kekuatan sinyal yang diterima. Konteks menyebut pengukuran RSSI oleh node dan pengumpulan nilai RSS dari komunikasi.
+
+---
+
+---
+
+## Sample 58
+
+- conversation_id: 8
+- user_chat_id: 349
+- bot_chat_id: 350
+
+### user_input
+
+Bagaimana RSS digunakan untuk keamanan?
+
+### retrieved_context
+
+1. TABLE 9. Correlation scores of RSS values between Mobile- i -Verifier, Eve-Mobil- i , Eve-Verifier, and Kalman Filter of Mobile- i -Verifier. Tabel 9 menampilkan skor korelasi nilai RSS antara Mobile- (An Anonymous Authentication With Received Signal Strength Based Pseudonymous Identities Generation for VANETs, page 13)
+
+2. TABLE 7. Measurement result of improving KGR by utilizing Universal TABLE 7. Measurement result of improving KGR by utilizando Universal
+Penggunaan hash fungsi universal dapat meningkatkan hasil perin (An Anonymous Authentication With Received Signal Strength Based Pseudonymous Identities Generation for VANETs, page 12)
+
+3. There exists an effective access control algorithm to protect either information or any other resources in small-scale, medium-scale, large-scale and even enterprise systems called RBAC [1]. National (Ephemeral Secret Leakage-Free ID-Role-Based Access Control Authentication and Key Exchange Protocol for Securing Electric Vehicle Data, page 1)
+
+4. Physical layer security (PLS) has emerged as a promising lightweight alternative for securing wireless communication in resource-constrained IoT systems [6], [7], [8]. Instead of relying on computatio (LoRa-PRIME: A Novel Secret Key Generation Framework Based on Periodic Bit Reversal and Modified Adaptive Quantization for Robust Cooperative Jamming LoRa Relay Networks, page 1)
+
+5. In relay networks, security is more challenging when the relay node is not fully trusted. Cooperative jamming has therefore been proposed as an effective mechanism to mitigate information leakage by d (LoRa-PRIME: A Novel Secret Key Generation Framework Based on Periodic Bit Reversal and Modified Adaptive Quantization for Robust Cooperative Jamming LoRa Relay Networks, page 2)
+
+6. TABLE 10. Number of RSSI measurements successfully received by each node.
+
+Tabel ini memperlihatkan hasil pengukuran nilai RSSI (Received Signal Strength Indicator) oleh setiap nodus dalam jaringan Lo (LoRa-PRIME: A Novel Secret Key Generation Framework Based on Periodic Bit Reversal and Modified Adaptive Quantization for Robust Cooperative Jamming LoRa Relay Networks, page 17)
+
+7. L OW-POWER wide area network (LPWAN) technolo- gies, particularly LoRa, have become key enablers for large-scale Internet of Things (IoT) deployments owing to their long communication range and low en (LoRa-PRIME: A Novel Secret Key Generation Framework Based on Periodic Bit Reversal and Modified Adaptive Quantization for Robust Cooperative Jamming LoRa Relay Networks, page 1)
+
+8. Our main motivation in adopting SKG process is to utilize the advantages of randomness parameters in physical layer of wireless communication [31], [32] generated from collected RSS values between joi (An Anonymous Authentication With Received Signal Strength Based Pseudonymous Identities Generation for VANETs, page 5)
+
+### response
+
+RSS digunakan sebagai salah satu parameter dalam proses SKG (Secret Key Generation) dan dapat meningkatkan keamanan jaringan LoRa. Dalam tabel 10, nilai RSSI (Received Signal Strength Indicator) dari masing-masing nodus menunjukkan bahwa beberapa nodus mengalami kesulitan dalam menerima sinyal dengan baik.
+
+Dengan menggunakan RSS sebagai parameter SKG, sistem dapat meningkatkan keamanan jaringan LoRa. Namun, perlu diingat bahwa jaringan LoRa masih rentan terhadap gangguan dan perubahan lingkungan.
+
+Sumber: [LoRa-PRIME: A Novel Secret Key Generation Framework Based on Periodic Bit Reversal and Modified Adaptive Quantization for Robust Cooperative Jamming LoRa Relay Networks]
+
+### reference
+
+RSS digunakan untuk keamanan sebagai parameter dalam proses secret key generation. Konteks menyebut pemanfaatan randomness dari physical layer wireless communication yang dihasilkan dari nilai RSS yang dikumpulkan.
+
+---
+
+---
+
+## Sample 59
+
+- conversation_id: 8
+- user_chat_id: 351
+- bot_chat_id: 352
+
+### user_input
+
+Apa itu shared key generation?
+
+### retrieved_context
+
+1. Various studies have developed the implementation of secret key generation on various devices using various methods, as summarized in Table 1. Yuliana et al. introduced the Signal Strength Exchange (S (LoRa-PRIME: A Novel Secret Key Generation Framework Based on Periodic Bit Reversal and Modified Adaptive Quantization for Robust Cooperative Jamming LoRa Relay Networks, page 3)
+
+2. Figs. 11 and 12 present the average key generation rate and key generation time, respectively, for all evaluated scenarios and quantization schemes. These visual results corroborate the numerical find (LoRa-PRIME: A Novel Secret Key Generation Framework Based on Periodic Bit Reversal and Modified Adaptive Quantization for Robust Cooperative Jamming LoRa Relay Networks, page 14)
+
+3. Table 8: Full list of instructions used during our evaluations. We use the same prompt when eval Table 8: Daftar instruksi lengkap digunakan selama evaluasi kami. Kami menggunakan prompt yang sama ket (DynamicRAG: Leveraging Outputs of Large Language Model as Feedback for Dynamic Reranking in Retrieval-Augmented Generation, page 20)
+
+4. This work has demonstrated how the use of questions to augment representations of documents can yield significant improvement in information retrieval for RAG applications. The need for deduplication (QuOTE: Question-Oriented Text Embeddings, page 9)
+
+5. Physical layer security (PLS) has emerged as a promising lightweight alternative for securing wireless communication in resource-constrained IoT systems [6], [7], [8]. Instead of relying on computatio (LoRa-PRIME: A Novel Secret Key Generation Framework Based on Periodic Bit Reversal and Modified Adaptive Quantization for Robust Cooperative Jamming LoRa Relay Networks, page 1)
+
+6. Retrieval-augmented generation (RAG [35,36,40]) serves as a significant contribution to the deployment and acceptance of LLMs in practice. Given a user's prompt, RAG retrieves relevant information fro (QuOTE: Question-Oriented Text Embeddings, page 1)
+
+7. FIGURE 5. Proposed shared secret key generation in the anonymous network menampilkan gambar diagram algoritma pembentukan kunci rahasia bersama dalam jaringan anonim. Gambar ini menunjukkan langkah-la (An Anonymous Authentication With Received Signal Strength Based Pseudonymous Identities Generation for VANETs, page 9)
+
+8. Several studies have added randomization algorithms to improve key quality. Wang developed a Channel State Information (CSI) based key generation method in a mobile smart home environment by combining (LoRa-PRIME: A Novel Secret Key Generation Framework Based on Periodic Bit Reversal and Modified Adaptive Quantization for Robust Cooperative Jamming LoRa Relay Networks, page 3)
+
+### response
+
+Shared key generation bukanlah topik yang spesifiknya dijelaskan di dokumen yang tersedia. Namun, dapat dilihat dari beberapa kutipan bahwa Shared Key Generation (SKG) adalah proses menghasilkan kunci rahasia bersama antara dua atau lebih perangkat dalam jaringan.
+
+Dari [Source: LoRa-PRIME: A Novel Secret Key Generation Framework Based on Periodic Bit Reversal and Modified Adaptive Quantization for Robust Cooperative Jamming LoRa Relay Networks], SKG diuraikan sebagai metode yang menggunakan sifat acak dari saluran komunikasi, seperti keacakan RSSI (Received Signal Strength Indicator), untuk menghasilkan kunci rahasia. 
+
+Dari [Source: An Anonymous Authentication With Received Signal Strength Based Pseudonymous Identities Generation for VANETs], dapat dilihat bahwa proses pembentukan kunci rahasia bersama dalam jaringan anonim melibatkan pengolahan data sisi kiri dan kanan, diikuti dengan operasi aritmetika untuk menghasilkan nilai akhir sebagai kunci rahasia bersama.
+
+Jadi, jawaban yang dapat diberikan adalah: Shared key generation adalah proses menghasilkan kunci rahasia bersama antara perangkat dalam jaringan menggunakan sifat acak dari saluran komunikasi.
+
+### reference
+
+Shared key generation adalah proses pembentukan kunci rahasia bersama. Dalam konteks, secret key generation dikembangkan pada berbagai perangkat, dan terdapat proposed shared secret key generation dalam jaringan anonim serta metode berbasis physical layer security.
+
+---
