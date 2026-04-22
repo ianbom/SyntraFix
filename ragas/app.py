@@ -19,7 +19,7 @@ DEFAULT_RAGAS_SAMPLE_PATHS = [
     Path(__file__).resolve().parent / "data" / "sample-conv7.md",
 ]
 EVALUATE_OUTPUT_DIR = Path(__file__).resolve().parent / "evaluate"
-EVALUATION_CHUNK_SIZE = int(os.getenv("RAGAS_EVALUATION_CHUNK_SIZE", "5"))
+OUTPUT_CSV_PATH = EVALUATE_OUTPUT_DIR / "score-test.csv"
 MAX_EVALUATION_ATTEMPTS = int(os.getenv("RAGAS_MAX_EVALUATION_ATTEMPTS", "5"))
 RETRY_DELAY_SECONDS = float(os.getenv("RAGAS_RETRY_DELAY_SECONDS", "3"))
 
@@ -280,17 +280,17 @@ def _get_sample_paths() -> list[Path]:
     return paths
 
 
-def _save_chunk_result(df, chunk_number: int, start_index: int, end_index: int) -> Path:
+def _append_sample_result(df, sample_number: int) -> Path:
     EVALUATE_OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-    output_path = EVALUATE_OUTPUT_DIR / (
-        f"ragas_batch_{chunk_number:03d}_"
-        f"samples_{start_index + 1:04d}_{end_index:04d}.csv"
-    )
 
-    df.insert(0, "sample_number", range(start_index + 1, end_index + 1))
-    df.insert(1, "evaluation_batch", chunk_number)
-    df.to_csv(output_path, index=False)
-    return output_path
+    df.insert(0, "sample_number", sample_number)
+    df.to_csv(
+        OUTPUT_CSV_PATH,
+        mode="a",
+        header=not OUTPUT_CSV_PATH.exists(),
+        index=False,
+    )
+    return OUTPUT_CSV_PATH
 
 
 def main() -> None:
@@ -306,41 +306,36 @@ def main() -> None:
     _validate_samples(data_samples)
     total_samples = len(data_samples["user_input"])
 
-    if EVALUATION_CHUNK_SIZE <= 0:
-        raise ValueError("RAGAS_EVALUATION_CHUNK_SIZE must be greater than 0")
+    EVALUATE_OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    if OUTPUT_CSV_PATH.exists():
+        OUTPUT_CSV_PATH.unlink()
 
     print(f"Loaded {total_samples} total RAGAS samples from {len(sample_paths)} file(s)")
-    print(f"Evaluation chunk size: {EVALUATION_CHUNK_SIZE}")
-    print(f"CSV output folder: {EVALUATE_OUTPUT_DIR}")
+    print("Evaluation chunk size: 1 sample")
+    print(f"CSV output file: {OUTPUT_CSV_PATH}")
 
-    output_paths = []
-    chunk_number = 1
-    for start_index in range(0, total_samples, EVALUATION_CHUNK_SIZE):
-        end_index = min(start_index + EVALUATION_CHUNK_SIZE, total_samples)
-        chunk_samples = _slice_data_samples(data_samples, start_index, end_index)
-        _validate_samples(chunk_samples)
-        chunk_dataset = Dataset.from_dict(chunk_samples)
-        label = f"samples {start_index + 1}-{end_index}"
+    for sample_index in range(total_samples):
+        sample_number = sample_index + 1
+        sample_data = _slice_data_samples(data_samples, sample_index, sample_index + 1)
+        _validate_samples(sample_data)
+        sample_dataset = Dataset.from_dict(sample_data)
+        label = f"sample {sample_number}"
 
         print("\n" + "=" * 80)
-        print(f"Evaluating batch {chunk_number}: {label}")
+        print(f"Evaluating {label}/{total_samples}")
         print("=" * 80)
 
-        df = evaluate_until_complete(chunk_dataset, label=label)
+        df = evaluate_until_complete(sample_dataset, label=label)
         invalid_cells = _find_invalid_dataframe_cells(df)
         if invalid_cells:
-            raise RuntimeError(f"Batch {chunk_number} still contains invalid values: {invalid_cells}")
+            raise RuntimeError(f"Sample {sample_number} still contains invalid values: {invalid_cells}")
 
-        output_path = _save_chunk_result(df, chunk_number, start_index, end_index)
-        output_paths.append(output_path)
-        print(f"Batch {chunk_number} selesai. CSV disimpan di {output_path}")
-        chunk_number += 1
+        output_path = _append_sample_result(df, sample_number)
+        print(f"Sample {sample_number} selesai. CSV diupdate di {output_path}")
 
     print("\nEvaluasi selesai untuk semua sample.")
-    print("CSV yang dihasilkan:")
-    for output_path in output_paths:
-        print(f"- {output_path}")
-    print("\nTidak ada NaN/null/kosong pada batch yang disimpan.")
+    print(f"CSV final: {OUTPUT_CSV_PATH}")
+    print("\nTidak ada NaN/null/kosong pada sample yang disimpan.")
 
 
 if __name__ == "__main__":
