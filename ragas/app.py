@@ -2,6 +2,7 @@ from pathlib import Path
 from datetime import datetime
 import os
 import re
+import sys
 import time
 from typing import Any
 
@@ -9,15 +10,28 @@ from datasets import Dataset
 from dotenv import load_dotenv
 from langchain_ollama import ChatOllama, OllamaEmbeddings
 import pandas as pd
-from ragas import evaluate
-from ragas.metrics import AnswerRelevancy, ContextPrecision, ContextRecall, Faithfulness
+
+
+CURRENT_DIR = Path(__file__).resolve().parent
+current_dir_text = str(CURRENT_DIR)
+removed_current_dir = False
+if sys.path and Path(sys.path[0]).resolve() == CURRENT_DIR:
+    sys.path.pop(0)
+    removed_current_dir = True
+
+try:
+    from ragas import evaluate
+    from ragas.metrics import AnswerRelevancy, ContextPrecision, ContextRecall, Faithfulness
+finally:
+    if removed_current_dir:
+        sys.path.insert(0, current_dir_text)
 
 
 load_dotenv(override=True)
 
 BASE_DIR = Path(__file__).resolve().parents[1]
-SPLIT_SAMPLE_DIR = Path(__file__).resolve().parent / "data" / "split"
-EVALUATE_OUTPUT_DIR = Path(__file__).resolve().parent / "evaluate"
+SPLIT_SAMPLE_DIR = CURRENT_DIR / "data" / "split"
+EVALUATE_OUTPUT_DIR = CURRENT_DIR / "evaluate"
 MAX_EVALUATION_ATTEMPTS = int(os.getenv("RAGAS_MAX_EVALUATION_ATTEMPTS", "5"))
 RETRY_DELAY_SECONDS = float(os.getenv("RAGAS_RETRY_DELAY_SECONDS", "3"))
 
