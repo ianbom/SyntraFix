@@ -1,14 +1,14 @@
 import { type CSSProperties } from "react"
 import { IconArrowLeft, IconRefresh } from "@tabler/icons-react"
-import { useQuery } from "@tanstack/react-query"
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query"
 import { useNavigate } from "react-router-dom"
 import { AppSidebar } from "@/components/app-sidebar"
 import { SiteHeader } from "@/components/site-header"
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
 import { Button } from "@/components/ui/button"
 import { ProcessStatistics, ProcessTable } from "./components"
-import { listProcessingDocuments } from "./api"
-import type { ProcessMonitorResponse } from "./types"
+import { generatePossiblyQuestions, listProcessingDocuments } from "./api"
+import type { ProcessDocument, ProcessMonitorResponse } from "./types"
 
 const PROCESS_MONITOR_REFETCH_INTERVAL_MS = 3000
 
@@ -24,6 +24,7 @@ const EMPTY_PROCESS_MONITOR_RESPONSE: ProcessMonitorResponse = {
 
 const ProcessDocumentPage = () => {
   const navigate = useNavigate()
+  const queryClient = useQueryClient()
 
   const processingDocumentsQuery = useQuery({
     queryKey: ["documents", "processing-monitor"],
@@ -37,14 +38,32 @@ const ProcessDocumentPage = () => {
   const isRefreshing =
     processingDocumentsQuery.isFetching && !processingDocumentsQuery.isPending
 
+  const generateQuestionsMutation = useMutation({
+    mutationFn: (documentId: number) => generatePossiblyQuestions({ documentId }),
+    onSuccess: async () => {
+      await queryClient.invalidateQueries({
+        queryKey: ["documents", "processing-monitor"],
+      })
+    },
+  })
+
   const handleRefresh = () => {
     void processingDocumentsQuery.refetch()
+  }
+
+  const handleGenerateQuestions = (document: ProcessDocument) => {
+    generateQuestionsMutation.mutate(Number(document.id))
   }
 
   const errorMessage =
     processingDocumentsQuery.error instanceof Error
       ? processingDocumentsQuery.error.message
       : "Gagal memuat data proses dokumen."
+
+  const generateQuestionError =
+    generateQuestionsMutation.error instanceof Error
+      ? generateQuestionsMutation.error.message
+      : "Gagal menjalankan generate question."
 
   return (
     <SidebarProvider
@@ -100,11 +119,27 @@ const ProcessDocumentPage = () => {
                 </div>
               )}
 
+              {generateQuestionsMutation.isError && (
+                <div className="px-4 lg:px-6">
+                  <div className="rounded-md bg-destructive/10 p-3 text-sm text-destructive">
+                    {generateQuestionError}
+                  </div>
+                </div>
+              )}
+
               {/* Statistics Cards */}
               <ProcessStatistics documents={documents} />
 
               {/* Process Table */}
-              <ProcessTable documents={documents} />
+              <ProcessTable
+                documents={documents}
+                generatingDocumentId={
+                  generateQuestionsMutation.isPending
+                    ? String(generateQuestionsMutation.variables)
+                    : null
+                }
+                onGenerateQuestions={handleGenerateQuestions}
+              />
             </div>
           </div>
         </div>

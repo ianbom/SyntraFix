@@ -1,7 +1,13 @@
 import { type ColumnDef } from "@tanstack/react-table"
 import { IconArrowUp, IconArrowDown } from "@tabler/icons-react"
 import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
 import type { ProcessDocument } from "../types"
+
+interface ProcessColumnsOptions {
+  generatingDocumentId?: string | null
+  onGenerateQuestions?: (document: ProcessDocument) => void
+}
 
 const formatDate = (dateStr: string): string => {
   return new Date(dateStr).toLocaleDateString("id-ID", {
@@ -47,7 +53,37 @@ const ProgressBar = ({ progress }: { progress: number }) => {
   )
 }
 
-export const processColumns: ColumnDef<ProcessDocument>[] = [
+const PossiblyQuestionStatus = ({ document }: { document: ProcessDocument }) => {
+  const isComplete =
+    document.chunkCount === 0 ||
+    document.possiblyQuestionCount >= document.chunkCount
+  const isEmpty = document.possiblyQuestionCount === 0 && document.chunkCount > 0
+
+  return (
+    <div className="flex min-w-[140px] flex-col gap-1">
+      <span className="text-sm font-medium tabular-nums">
+        {document.possiblyQuestionCount} / {document.chunkCount}
+      </span>
+      <Badge
+        variant={isComplete ? "default" : isEmpty ? "secondary" : "outline"}
+        className={
+          isComplete
+            ? "w-fit bg-green-500"
+            : isEmpty
+              ? "w-fit"
+              : "w-fit border-yellow-500 text-yellow-700"
+        }
+      >
+        {isComplete ? "Complete" : isEmpty ? "Belum Generate" : "Partial"}
+      </Badge>
+    </div>
+  )
+}
+
+export const createProcessColumns = ({
+  generatingDocumentId = null,
+  onGenerateQuestions,
+}: ProcessColumnsOptions = {}): ColumnDef<ProcessDocument>[] => [
   {
     accessorKey: "title",
     header: ({ column }) => {
@@ -152,4 +188,35 @@ export const processColumns: ColumnDef<ProcessDocument>[] = [
     cell: ({ row }) => getStatusBadge(row.original.status),
     enableSorting: false,
   },
+  {
+    accessorKey: "possiblyQuestionCount",
+    header: "Possibly Question",
+    cell: ({ row }) => <PossiblyQuestionStatus document={row.original} />,
+  },
+  {
+    id: "actions",
+    header: "Action",
+    cell: ({ row }) => {
+      const document = row.original
+      const isGenerating = generatingDocumentId === document.id
+      const canGenerate =
+        document.status === "completed" &&
+        document.chunkCount > 0 &&
+        document.possiblyQuestionCount < document.chunkCount
+
+      return (
+        <Button
+          variant="outline"
+          size="sm"
+          disabled={!canGenerate || isGenerating || !onGenerateQuestions}
+          onClick={() => onGenerateQuestions?.(document)}
+        >
+          {isGenerating ? "Generating..." : "Generate Question"}
+        </Button>
+      )
+    },
+    enableSorting: false,
+  },
 ]
+
+export const processColumns = createProcessColumns()

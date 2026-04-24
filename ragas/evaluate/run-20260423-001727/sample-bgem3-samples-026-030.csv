@@ -1,0 +1,14 @@
+source_file,user_input,retrieved_contexts,response,reference,faithfulness,answer_relevancy,context_precision,context_recall
+sample-bgem3-samples-026-030.md,Apa itu eHealth?,['-'],"I apologize, but I encountered an error processing your request.","Tidak ada retrieved context yang tersedia pada sample ini, sehingga reference yang didukung konteks tidak dapat dibuat untuk pertanyaan tentang eHealth.
+
+---",0.5,0.0,0.0,0.0
+sample-bgem3-samples-026-030.md,Bagaimana AI membantu manusia?,['-'],"I apologize, but I encountered an error processing your request.","Tidak ada retrieved context yang tersedia pada sample ini, sehingga reference yang didukung konteks tidak dapat dibuat untuk pertanyaan tentang bagaimana AI membantu manusia.
+
+---",0.0,0.0,0.0,0.0
+sample-bgem3-samples-026-030.md,Apa contoh penggunaan AI?,['-'],"I apologize, but I encountered an error processing your request.","Tidak ada retrieved context yang tersedia pada sample ini, sehingga reference yang didukung konteks tidak dapat dibuat untuk pertanyaan tentang contoh penggunaan AI.
+
+---",0.0,0.0,0.0,0.0
+sample-bgem3-samples-026-030.md,Apa hubungan AI dan kesehatan?,['-'],"I apologize, but I encountered an error processing your request.","Tidak ada retrieved context yang tersedia pada sample ini, sehingga reference yang didukung konteks tidak dapat dibuat untuk pertanyaan tentang hubungan AI dan kesehatan.
+
+---",0.5,0.0,0.0,0.0
+sample-bgem3-samples-026-030.md,Apa itu eHealth?,['-'],"I apologize, but I encountered an error processing your request.","Tidak ada retrieved context yang tersedia pada sample ini, sehingga reference yang didukung konteks tidak dapat dibuat untuk pertanyaan tentang eHealth.",0.0,0.0,0.0,0.0

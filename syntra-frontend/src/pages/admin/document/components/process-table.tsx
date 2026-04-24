@@ -46,14 +46,20 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination"
-import { processColumns } from "./process-columns"
+import { createProcessColumns } from "./process-columns"
 import type { ProcessDocument } from "../types"
 
 interface ProcessTableProps {
   documents: ProcessDocument[]
+  generatingDocumentId?: string | null
+  onGenerateQuestions?: (document: ProcessDocument) => void
 }
 
-export function ProcessTable({ documents }: ProcessTableProps) {
+export function ProcessTable({
+  documents,
+  generatingDocumentId = null,
+  onGenerateQuestions,
+}: ProcessTableProps) {
   const [sorting, setSorting] = useState<SortingState>([
     { id: "uploadedAt", desc: true }
   ])
@@ -66,9 +72,18 @@ export function ProcessTable({ documents }: ProcessTableProps) {
     return documents.filter((doc) => doc.status === statusFilter)
   }, [documents, statusFilter])
 
+  const columns = useMemo(
+    () =>
+      createProcessColumns({
+        generatingDocumentId,
+        onGenerateQuestions,
+      }),
+    [generatingDocumentId, onGenerateQuestions]
+  )
+
   const table = useReactTable({
     data: filteredDocuments,
-    columns: processColumns,
+    columns,
     state: {
       sorting,
       columnFilters,
@@ -212,7 +227,7 @@ export function ProcessTable({ documents }: ProcessTableProps) {
             ) : (
               <TableRow>
                 <TableCell
-                  colSpan={processColumns.length}
+                  colSpan={columns.length}
                   className="h-24 text-center"
                 >
                   Tidak ada dokumen ditemukan.

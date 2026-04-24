@@ -147,6 +147,10 @@ class ProcessingMonitorItem(BaseModel):
     processing_status: str
     processing_progress: int = Field(default=0, ge=0, le=100)
     processing_error: Optional[str] = None
+    chunk_count: int = 0
+    possibly_question_count: int = 0
+    possibly_question_missing_count: int = 0
+    possibly_question_progress: int = Field(default=100, ge=0, le=100)
 
 
 class ProcessingMonitorSummary(BaseModel):

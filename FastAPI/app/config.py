@@ -34,7 +34,7 @@ class Settings(BaseSettings):
     # OLLAMA_EMBEDDING_MODEL: str = "embeddinggemma:latest"
     # OLLAMA_EMBEDDING_DIMENSION: int = 768
     OLLAMA_EMBEDDING_MODEL: str = "bge-m3:567m"
-    OLLAMA_GENERATION_MODEL: str = "llama3.1:8b"
+    OLLAMA_GENERATION_MODEL: str = "llama3.1:8b-instruct-q8_0"
     OLLAMA_EMBEDDING_DIMENSION: int = 1024
 
     # Google Gemini

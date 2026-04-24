@@ -34,9 +34,38 @@ from app.services.document import (
 from app.websockets import manager
 from fastapi import WebSocket
 from app.services.grobid import extract_header, extract_fulltext, extract_references
-from app.tasks.document_tasks import process_document_task
+from app.tasks.document_tasks import generate_possibly_questions_task, process_document_task
 
 router = APIRouter(prefix="/documents", tags=["Documents"])
+
+
+def _get_possibly_question_counts(db: Session, document_id: int) -> dict:
+    """Count eligible chunks and generated possibly question coverage."""
+    eligible_chunks = (
+        db.query(DocumentChunk)
+        .filter(
+            DocumentChunk.document_id == document_id,
+            DocumentChunk.content.isnot(None),
+            DocumentChunk.content != "",
+            DocumentChunk.token_count >= 30,
+        )
+        .all()
+    )
+    chunk_count = len(eligible_chunks)
+    possibly_question_count = sum(
+        1
+        for chunk in eligible_chunks
+        if bool(chunk.possibly_questions) and chunk.possibly_question_embedding is not None
+    )
+    missing_count = max(0, chunk_count - possibly_question_count)
+    progress = 100 if chunk_count == 0 else int((possibly_question_count / chunk_count) * 100)
+
+    return {
+        "chunk_count": chunk_count,
+        "possibly_question_count": possibly_question_count,
+        "possibly_question_missing_count": missing_count,
+        "possibly_question_progress": progress,
+    }
 
 
 @router.websocket("/ws/{client_id}")
@@ -65,7 +94,7 @@ async def upload_document(
     2. Processed in background by Celery pipeline:
        - GROBID metadata + structure extraction
        - PyMuPDF text/table/image extraction
-       - Smart chunking + question generation + embeddings
+       - Smart chunking + content embeddings
     
     Returns immediately with processing_status='processing'.
     Use GET /documents/{id}/status to poll for completion.
@@ -129,9 +158,7 @@ async def get_document_status(
     if not document:
         raise HTTPException(status_code=404, detail="Document not found")
     
-    chunk_count = db.query(func.count(DocumentChunk.id)).filter(
-        DocumentChunk.document_id == document.id
-    ).scalar() or 0
+    question_counts = _get_possibly_question_counts(db, document.id)
     
     return {
         "id": document.id,
@@ -142,8 +169,34 @@ async def get_document_status(
             document.processing_status,
         ),
         "processing_error": document.processing_error,
-        "chunk_count": chunk_count,
+        **question_counts,
         "is_metadata_complete": document.is_metadata_complete or False
+    }
+
+
+@router.post("/{document_id}/possibly-questions/generate")
+async def generate_document_possibly_questions(
+    document_id: int,
+    db: Session = Depends(get_db),
+):
+    """Queue background generation of possibly questions for one document."""
+    document = db.query(Document).filter(Document.id == document_id).first()
+    if not document:
+        raise HTTPException(status_code=404, detail="Document not found")
+
+    question_counts = _get_possibly_question_counts(db, document.id)
+    if question_counts["chunk_count"] == 0:
+        raise HTTPException(status_code=400, detail="Document has no eligible chunks")
+
+    task = generate_possibly_questions_task.delay(document.id)
+
+    return {
+        "document_id": document.id,
+        "task_id": task.id,
+        "status": "queued",
+        "chunk_count": question_counts["chunk_count"],
+        "possibly_question_count": question_counts["possibly_question_count"],
+        "missing_possibly_question_count": question_counts["possibly_question_missing_count"],
     }
 
 
@@ -169,6 +222,7 @@ async def list_processing_monitor_documents(
     for document in documents:
         normalized_status = normalize_processing_status(document.processing_status)
         summary[normalized_status] += 1
+        question_counts = _get_possibly_question_counts(db, document.id)
 
         monitor_documents.append(
             ProcessingMonitorItem(
@@ -182,6 +236,7 @@ async def list_processing_monitor_documents(
                     normalized_status,
                 ),
                 processing_error=document.processing_error,
+                **question_counts,
             )
         )
 

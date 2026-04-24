@@ -61,6 +61,19 @@ export interface ProcessDocument {
   uploadedAt: string
   progress: number
   status: ProcessDocumentStatus
+  chunkCount: number
+  possiblyQuestionCount: number
+  possiblyQuestionMissingCount: number
+  possiblyQuestionProgress: number
+}
+
+export interface GeneratePossiblyQuestionsResponse {
+  documentId: number
+  taskId: string
+  status: "queued"
+  chunkCount: number
+  possiblyQuestionCount: number
+  missingPossiblyQuestionCount: number
 }
 
 export interface ProcessMonitorSummary {

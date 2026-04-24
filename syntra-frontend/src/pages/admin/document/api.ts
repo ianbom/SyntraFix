@@ -4,6 +4,7 @@ import type {
   DocumentListItem,
   DocumentListResponse,
   DocumentType,
+  GeneratePossiblyQuestionsResponse,
   ProcessDocument,
   ProcessDocumentStatus,
   ProcessMonitorResponse,
@@ -353,6 +354,11 @@ interface ListProcessingDocumentsParams {
   signal?: AbortSignal
 }
 
+interface GeneratePossiblyQuestionsParams {
+  documentId: number
+  signal?: AbortSignal
+}
+
 interface ProcessingMonitorApiItem {
   id: number
   title: string
@@ -361,6 +367,10 @@ interface ProcessingMonitorApiItem {
   processing_status: string
   processing_progress: number
   processing_error: string | null
+  chunk_count: number
+  possibly_question_count: number
+  possibly_question_missing_count: number
+  possibly_question_progress: number
 }
 
 interface ProcessingMonitorApiSummary {
@@ -373,6 +383,15 @@ interface ProcessingMonitorApiSummary {
 interface ProcessingMonitorApiResponse {
   documents: ProcessingMonitorApiItem[]
   summary: ProcessingMonitorApiSummary
+}
+
+interface GeneratePossiblyQuestionsApiResponse {
+  document_id: number
+  task_id: string
+  status: "queued"
+  chunk_count: number
+  possibly_question_count: number
+  missing_possibly_question_count: number
 }
 
 const mapBulkUploadResult = (item: BulkUploadApiItemResult): BulkUploadItemResult => ({
@@ -397,6 +416,10 @@ const mapProcessingDocument = (item: ProcessingMonitorApiItem): ProcessDocument 
   uploadedAt: item.uploaded_at,
   progress: item.processing_progress,
   status: mapProcessingStatus(item.processing_status),
+  chunkCount: item.chunk_count ?? 0,
+  possiblyQuestionCount: item.possibly_question_count ?? 0,
+  possiblyQuestionMissingCount: item.possibly_question_missing_count ?? 0,
+  possiblyQuestionProgress: item.possibly_question_progress ?? 100,
 })
 
 export const uploadDocumentsBulk = async ({
@@ -462,5 +485,33 @@ export const listProcessingDocuments = async ({
   return {
     documents: payload.documents.map(mapProcessingDocument),
     summary: payload.summary,
+  }
+}
+
+export const generatePossiblyQuestions = async ({
+  documentId,
+  signal,
+}: GeneratePossiblyQuestionsParams): Promise<GeneratePossiblyQuestionsResponse> => {
+  const response = await fetch(
+    `${API_BASE_URL}/documents/${documentId}/possibly-questions/generate`,
+    {
+      method: "POST",
+      signal,
+    }
+  )
+
+  if (!response.ok) {
+    throw new Error(await getErrorMessage(response, "Gagal menjalankan generate question."))
+  }
+
+  const payload = (await response.json()) as GeneratePossiblyQuestionsApiResponse
+
+  return {
+    documentId: payload.document_id,
+    taskId: payload.task_id,
+    status: payload.status,
+    chunkCount: payload.chunk_count,
+    possiblyQuestionCount: payload.possibly_question_count,
+    missingPossiblyQuestionCount: payload.missing_possibly_question_count,
   }
 }

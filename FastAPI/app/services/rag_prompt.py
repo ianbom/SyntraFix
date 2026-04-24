@@ -96,8 +96,7 @@ ATURAN KETAT:
 
 FORMAT:
 - Jawaban langsung dan ringkas.
-- Gunakan bullet point hanya jika jawaban memiliki beberapa poin.
-- Akhiri dengan sumber dokumen dalam format [Source: nama dokumen]."""
+- Gunakan bullet point hanya jika jawaban memiliki beberapa poin."""
 
         return f"""{system_prompt}
 

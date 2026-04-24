@@ -118,9 +118,8 @@ def process_document_task(self, document_id: int, file_path: str):
     3. Extract text, tables, and images with PyMuPDF
     4. Merge/validate metadata and update document record
     5. Build smart chunks (text + table + image + references) with context in metadata
-    6. Generate hypothetical questions
-    7. Generate embeddings
-    8. Persist chunks and mark document complete
+    6. Generate content embeddings
+    7. Persist chunks and mark document complete
     """
     db = SessionLocal()
     storage = MinIOStorage()
@@ -271,55 +270,6 @@ def process_document_task(self, document_id: int, file_path: str):
         
         total_chunks = len(chunks)
 
-        # Step 6: Generate hypothetical questions
-        print("[6/8] Generating hypothetical questions...")
-        for i, chunk_data in enumerate(chunks):
-            content = chunk_data.get("content") or ""
-            possibly_questions = None
-            possibly_question_embedding = None
-            token_count = chunk_data.get("token_count", len(content.split()) if content else 0)
-
-            try:
-                section_title = chunk_data.get("section_title")
-                doc_title = chunk_data.get("chunk_metadata", {}).get("source_document")
-                questions = _run_async(generate_possibly_questions(
-                    chunk_content=content,
-                    section_title=section_title,
-                    document_title=doc_title,
-                ))
-                if questions:
-                    possibly_questions = questions
-                    combined_questions = " ".join(questions)
-                    possibly_question_embedding = generate_embedding(combined_questions)
-            except Exception as e:
-                print(f"  Warning: question generation failed for chunk {i+1}: {e}")
-                if token_count >= 30:
-                    possibly_questions = _build_fallback_questions(
-                        content,
-                        section_title=chunk_data.get("section_title"),
-                        document_title=chunk_data.get("chunk_metadata", {}).get("source_document"),
-                    )
-
-            if token_count >= 30 and not possibly_questions:
-                possibly_questions = _build_fallback_questions(
-                    content,
-                    section_title=chunk_data.get("section_title"),
-                    document_title=chunk_data.get("chunk_metadata", {}).get("source_document"),
-                )
-
-            chunk_data["_possibly_questions"] = possibly_questions
-            chunk_data["_possibly_question_embedding"] = possibly_question_embedding
-
-            if (i + 1) % 5 == 0 or (i + 1) == total_chunks:
-                _update_processing_state(
-                    db,
-                    document_id,
-                    progress=_calculate_phase_progress(65, 75, i, total_chunks),
-                )
-
-        if total_chunks == 0:
-            _update_processing_state(db, document_id, progress=75)
-
         # Markdown export for chunk inspection is disabled.
         # Uncomment this block when manual PDF coverage/RAGAS debugging is needed.
         # content_export_path, ragas_export_path = export_document_chunk_markdown_files(
@@ -329,8 +279,8 @@ def process_document_task(self, document_id: int, file_path: str):
         # print(f"  Chunk content markdown exported to: {content_export_path}")
         # print(f"  RAGAS markdown exported to: {ragas_export_path}")
 
-        # Step 7: Generate content embeddings
-        print("[7/8] Generating content embeddings...")
+        # Step 6: Generate content embeddings
+        print("[6/7] Generating content embeddings...")
         for i, chunk_data in enumerate(chunks):
             try:
                 embedding_text = build_embedding_text(chunk_data)
@@ -343,14 +293,14 @@ def process_document_task(self, document_id: int, file_path: str):
                 _update_processing_state(
                     db,
                     document_id,
-                    progress=_calculate_phase_progress(75, 90, i, total_chunks),
+                    progress=_calculate_phase_progress(65, 90, i, total_chunks),
                 )
 
         if total_chunks == 0:
             _update_processing_state(db, document_id, progress=90)
 
-        # Step 8: Persist chunks
-        print("[8/8] Saving chunks to database...")
+        # Step 7: Persist chunks
+        print("[7/7] Saving chunks to database...")
         total_chunks = len(chunks)
 
         for i, chunk_data in enumerate(chunks):
@@ -365,8 +315,8 @@ def process_document_task(self, document_id: int, file_path: str):
                 page_number=chunk_data.get("page_number"),
                 section_title=chunk_data.get("section_title"),
                 chunk_metadata=chunk_data.get("chunk_metadata"),
-                possibly_questions=chunk_data.get("_possibly_questions"),
-                possibly_question_embedding=chunk_data.get("_possibly_question_embedding"),
+                possibly_questions=None,
+                possibly_question_embedding=None,
             )
             db.add(chunk)
             
@@ -411,6 +361,115 @@ def process_document_task(self, document_id: int, file_path: str):
         
         return {"status": "failed", "document_id": document_id, "error": error_msg}
     
+    finally:
+        db.close()
+
+
+def _chunk_has_possibly_questions(chunk: DocumentChunk) -> bool:
+    """Return True when both generated questions and their embedding are present."""
+    questions = chunk.possibly_questions
+    return bool(questions) and chunk.possibly_question_embedding is not None
+
+
+@shared_task(name="generate_possibly_questions_task", bind=True, max_retries=2)
+def generate_possibly_questions_task(self, document_id: int):
+    """Generate possibly questions for one document after ingestion has completed."""
+    db = SessionLocal()
+
+    try:
+        document = db.query(Document).filter(Document.id == document_id).first()
+        if not document:
+            print(f"Document {document_id} not found for possibly question generation")
+            return {"status": "error", "document_id": document_id, "message": "Document not found"}
+
+        eligible_chunks = (
+            db.query(DocumentChunk)
+            .filter(
+                DocumentChunk.document_id == document_id,
+                DocumentChunk.content.isnot(None),
+                DocumentChunk.content != "",
+                DocumentChunk.token_count >= 30,
+            )
+            .order_by(DocumentChunk.chunk_index.asc())
+            .all()
+        )
+        chunks_to_update = [
+            chunk for chunk in eligible_chunks if not _chunk_has_possibly_questions(chunk)
+        ]
+
+        print(f"{'='*60}")
+        print(
+            f"CELERY TASK: Generating possibly questions for document {document_id} "
+            f"({len(chunks_to_update)}/{len(eligible_chunks)} missing)"
+        )
+        print(f"{'='*60}")
+
+        updated_count = 0
+        for i, chunk in enumerate(chunks_to_update):
+            content = chunk.content or ""
+            questions = chunk.possibly_questions if chunk.possibly_questions else None
+
+            try:
+                if not questions:
+                    questions = _run_async(
+                        generate_possibly_questions(
+                            chunk_content=content,
+                            section_title=chunk.section_title,
+                            document_title=(chunk.chunk_metadata or {}).get("source_document")
+                            or document.title,
+                        )
+                    )
+
+                if not questions:
+                    questions = _build_fallback_questions(
+                        content,
+                        section_title=chunk.section_title,
+                        document_title=(chunk.chunk_metadata or {}).get("source_document")
+                        or document.title,
+                    )
+
+                if questions:
+                    chunk.possibly_questions = questions
+                    if chunk.possibly_question_embedding is None:
+                        chunk.possibly_question_embedding = generate_embedding(" ".join(questions))
+                    if _chunk_has_possibly_questions(chunk):
+                        updated_count += 1
+            except Exception as e:
+                print(f"  Warning: possibly question generation failed for chunk {chunk.id}: {e}")
+
+            if (i + 1) % 5 == 0 or (i + 1) == len(chunks_to_update):
+                db.commit()
+                print(f"  Processed possibly questions {i + 1}/{len(chunks_to_update)}")
+
+        if not chunks_to_update:
+            db.commit()
+
+        completed_count = sum(
+            1 for chunk in eligible_chunks if _chunk_has_possibly_questions(chunk)
+        )
+        print(f"{'='*60}")
+        print(
+            f"CELERY TASK COMPLETE: Possibly questions for document {document_id} - "
+            f"{completed_count}/{len(eligible_chunks)} complete"
+        )
+        print(f"{'='*60}")
+
+        return {
+            "status": "completed",
+            "document_id": document_id,
+            "updated_count": updated_count,
+            "chunk_count": len(eligible_chunks),
+            "possibly_question_count": completed_count,
+        }
+
+    except Exception as e:
+        db.rollback()
+        error_msg = f"{type(e).__name__}: {str(e)}"
+        print(f"CELERY TASK FAILED: Possibly questions for document {document_id} - {error_msg}")
+        if self.request.retries < self.max_retries:
+            raise self.retry(exc=e, countdown=30)
+        return {"status": "failed", "document_id": document_id, "error": error_msg}
+
     finally:
         db.close()
 

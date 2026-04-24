@@ -1,5 +1,13 @@
 import type { Document, ProcessDocument } from "./types"
 
+type MockProcessDocumentRow = Omit<
+  ProcessDocument,
+  | "chunkCount"
+  | "possiblyQuestionCount"
+  | "possiblyQuestionMissingCount"
+  | "possiblyQuestionProgress"
+>
+
 export const mockDocuments: Document[] = [
   {
     id: "1",
@@ -83,7 +91,7 @@ export const mockDocuments: Document[] = [
   },
 ]
 
-export const mockProcessDocuments: ProcessDocument[] = [
+const mockProcessDocumentRows: MockProcessDocumentRow[] = [
   {
     id: "p1",
     title: "Pengaruh Teknologi AI dalam Pendidikan Modern",
@@ -165,3 +173,18 @@ export const mockProcessDocuments: ProcessDocument[] = [
     status: "processing",
   },
 ]
+
+export const mockProcessDocuments: ProcessDocument[] = mockProcessDocumentRows.map((document, index) => {
+  const chunkCount = 40 + index * 6
+  const possiblyQuestionCount =
+    document.status === "completed" ? Math.max(0, chunkCount - (index % 3) * 12) : 0
+
+  return {
+    ...document,
+    chunkCount,
+    possiblyQuestionCount,
+    possiblyQuestionMissingCount: Math.max(0, chunkCount - possiblyQuestionCount),
+    possiblyQuestionProgress:
+      chunkCount === 0 ? 100 : Math.floor((possiblyQuestionCount / chunkCount) * 100),
+  }
+})
