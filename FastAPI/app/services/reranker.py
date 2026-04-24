@@ -1,9 +1,14 @@
 """LLM-based reranking for retrieved document chunks."""
 import json
 import re
+import time
 from typing import Any, Dict, List
 
 from app.services.llm import generate_response
+
+
+def _print_reranker_timing(function_name: str, elapsed_seconds: float):
+    print(f"[SERVICE TIMING] {function_name}: {elapsed_seconds:.4f}s")
 
 
 def _fallback_rank(candidates: List[Dict[str, Any]], limit: int) -> List[Dict[str, Any]]:
@@ -144,7 +149,9 @@ async def rerank_chunks(
     limit: int = 8,
 ) -> List[Dict[str, Any]]:
     """Rerank retrieved chunks with an LLM, falling back to hybrid order."""
+    started_at = time.perf_counter()
     if not candidates:
+        _print_reranker_timing("rerank_chunks", time.perf_counter() - started_at)
         return []
 
     fallback = _fallback_rank(candidates, limit)
@@ -155,9 +162,11 @@ async def rerank_chunks(
         parsed = parse_rerank_response(response_text, candidates)
     except Exception as error:
         print(f"  Reranker failed: {error}")
+        _print_reranker_timing("rerank_chunks", time.perf_counter() - started_at)
         return fallback
 
     if not parsed:
+        _print_reranker_timing("rerank_chunks", time.perf_counter() - started_at)
         return fallback
 
     ranked = parsed[:limit]
@@ -170,4 +179,5 @@ async def rerank_chunks(
             ranked.append(item)
             ranked_ids.add(item["chunk_id"])
 
+    _print_reranker_timing("rerank_chunks", time.perf_counter() - started_at)
     return ranked

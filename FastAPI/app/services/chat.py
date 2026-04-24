@@ -3,6 +3,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy import desc, func, extract, or_, case, literal
 from fastapi import HTTPException
 import re
+import time
 
 from app.models.chat import Conversation, Chat, ChatReference, ChatRole
 from app.models.document_chunk import DocumentChunk
@@ -16,6 +17,10 @@ from app.models.document import Document, DocumentType
 class ChatService:
     def __init__(self, db: Session):
         self.db = db
+
+    @staticmethod
+    def _print_timing(function_name: str, elapsed_seconds: float):
+        print(f"[SERVICE TIMING] {function_name}: {elapsed_seconds:.4f}s")
 
     def create_conversation(self, user_id: int, title: str) -> Conversation:
         conversation = Conversation(user_id=user_id, title=title)
@@ -677,54 +682,75 @@ Pertanyaan asli: {query}"""
     # =========================================================================
 
     async def process_chat(self, user_id: int, request: ChatRequest) -> ChatResponse:
+        total_started_at = time.perf_counter()
         # 1. Handle Conversation
+        started_at = time.perf_counter()
         conversation = self._handle_conversation(user_id, request)
+        self._print_timing("ChatService._handle_conversation", time.perf_counter() - started_at)
 
         # 2. Save User Message
+        started_at = time.perf_counter()
         self._save_chat_message(conversation.id, ChatRole.USER, request.message)
+        self._print_timing("ChatService._save_chat_message[user]", time.perf_counter() - started_at)
 
         # 3. Query Processing: clean + extract entities
+        started_at = time.perf_counter()
         query_info = self._process_query(request.message)
+        self._print_timing("ChatService._process_query", time.perf_counter() - started_at)
         print("========== QUERY INFO ==========")
         print(query_info)
         print("============================================")
 
         # 4. Build metadata filters from extracted entities
+        started_at = time.perf_counter()
         metadata_filters = self._build_metadata_filters(query_info["entities"])
+        self._print_timing("ChatService._build_metadata_filters", time.perf_counter() - started_at)
         print("========== METADATA FILTERS ==========")
         print(metadata_filters)
         print("============================================")
 
         # 5. Query Expansion — generate bilingual variations
         print("========== QUERY EXPANSION ==========")
+        expansion_started_at = time.perf_counter()
         expanded_queries = await self._expand_query(query_info["cleaned_query"])
+        self._print_timing("ChatService._expand_query", time.perf_counter() - expansion_started_at)
         query_embeddings = []
+        embedding_batch_started_at = time.perf_counter()
         for q in expanded_queries:
             emb = generate_embedding(q)
             if emb is not None:
                 query_embeddings.append(emb)
+        self._print_timing("ChatService.generate_query_embeddings", time.perf_counter() - embedding_batch_started_at)
         print(f"  Generated {len(query_embeddings)} valid embeddings from {len(expanded_queries)} queries")
         print("============================================")
 
         # 6. RAG: Retrieve Context (multi-query + metadata filtering)
+        retrieval_started_at = time.perf_counter()
         chunks, similarities = await self._retrieve_and_rerank_chunks(
             query=query_info["cleaned_query"],
             metadata_filters=metadata_filters,
             query_embeddings=query_embeddings,
         )
+        self._print_timing("ChatService._retrieve_and_rerank_chunks", time.perf_counter() - retrieval_started_at)
         print("========== SIMILARITIES ==========")
         print(similarities)
         print("============================================")
         
+        context_started_at = time.perf_counter()
         context_text = self._construct_context_text(chunks)
+        self._print_timing("ChatService._construct_context_text", time.perf_counter() - context_started_at)
         
         # 6. Construct Prompt
+        prompt_started_at = time.perf_counter()
         full_prompt = self._construct_rag_prompt(request.message, context_text)
+        self._print_timing("ChatService._construct_rag_prompt", time.perf_counter() - prompt_started_at)
         print("========== FULL PROMPT ==========")
         print(full_prompt[:2000])
         print("============================================")
         # 7. Generate Response
+        generation_started_at = time.perf_counter()
         answer = await generate_response(full_prompt)
+        self._print_timing("ChatService.generate_response", time.perf_counter() - generation_started_at)
 
         # Print RAGAS evaluation data
         retrieved_docs = [chunk.content for chunk in chunks]
@@ -738,10 +764,15 @@ Pertanyaan asli: {query}"""
         print("============================================")
 
         # 8. Save Bot Message
+        started_at = time.perf_counter()
         bot_chat = self._save_chat_message(conversation.id, ChatRole.BOT, answer)
+        self._print_timing("ChatService._save_chat_message[bot]", time.perf_counter() - started_at)
 
         # 9. Save References
+        started_at = time.perf_counter()
         self._save_rag_references(bot_chat.id, chunks, similarities)
+        self._print_timing("ChatService._save_rag_references", time.perf_counter() - started_at)
+        self._print_timing("ChatService.process_chat.total", time.perf_counter() - total_started_at)
 
         return ChatResponse(
             id=bot_chat.id,
@@ -755,59 +786,86 @@ Pertanyaan asli: {query}"""
     async def process_chat_stream(
         self, user_id: int, request: ChatRequest
     ) -> AsyncGenerator[Dict[str, Any], None]:
+        total_started_at = time.perf_counter()
         # 1. Handle Conversation
+        started_at = time.perf_counter()
         conversation = self._handle_conversation(user_id, request)
+        self._print_timing("ChatService._handle_conversation[stream]", time.perf_counter() - started_at)
 
         # 2. Save User Message
+        started_at = time.perf_counter()
         self._save_chat_message(conversation.id, ChatRole.USER, request.message)
+        self._print_timing("ChatService._save_chat_message[user][stream]", time.perf_counter() - started_at)
         yield {"type": "start", "conversation_id": conversation.id}
 
         # 3. Query Processing: clean + extract entities
+        started_at = time.perf_counter()
         query_info = self._process_query(request.message)
+        self._print_timing("ChatService._process_query[stream]", time.perf_counter() - started_at)
         print("========== QUERY INFO ==========")
         print(query_info)
         print("============================================")
 
         # 4. Build metadata filters from extracted entities
+        started_at = time.perf_counter()
         metadata_filters = self._build_metadata_filters(query_info["entities"])
+        self._print_timing("ChatService._build_metadata_filters[stream]", time.perf_counter() - started_at)
         print("========== METADATA FILTERS ==========")
         print(metadata_filters)
         print("============================================")
 
         # 5. Query Expansion — generate bilingual variations
         print("========== QUERY EXPANSION ==========")
+        expansion_started_at = time.perf_counter()
         expanded_queries = await self._expand_query(query_info["cleaned_query"])
+        self._print_timing("ChatService._expand_query[stream]", time.perf_counter() - expansion_started_at)
         query_embeddings = []
+        embedding_batch_started_at = time.perf_counter()
         for q in expanded_queries:
             emb = generate_embedding(q)
             if emb is not None:
                 query_embeddings.append(emb)
+        self._print_timing(
+            "ChatService.generate_query_embeddings[stream]",
+            time.perf_counter() - embedding_batch_started_at,
+        )
         print(f"  Generated {len(query_embeddings)} valid embeddings from {len(expanded_queries)} queries")
         print("============================================")
 
         # 6. RAG: Retrieve Context (multi-query + metadata filtering)
+        retrieval_started_at = time.perf_counter()
         chunks, similarities = await self._retrieve_and_rerank_chunks(
             query=query_info["cleaned_query"],
             metadata_filters=metadata_filters,
             query_embeddings=query_embeddings,
         )
+        self._print_timing(
+            "ChatService._retrieve_and_rerank_chunks[stream]",
+            time.perf_counter() - retrieval_started_at,
+        )
         print("========== SIMILARITIES ==========")
         print(similarities)
         print("============================================")
 
+        context_started_at = time.perf_counter()
         context_text = self._construct_context_text(chunks)
+        self._print_timing("ChatService._construct_context_text[stream]", time.perf_counter() - context_started_at)
 
         # 6. Construct Prompt
+        prompt_started_at = time.perf_counter()
         full_prompt = self._construct_rag_prompt(request.message, context_text)
+        self._print_timing("ChatService._construct_rag_prompt[stream]", time.perf_counter() - prompt_started_at)
         print("========== FULL PROMPT ==========")
         print(full_prompt[:2000])
         print("============================================")
 
         # 7. Generate Streaming Response
         answer_chunks: List[str] = []
+        generation_started_at = time.perf_counter()
         async for chunk in generate_response_stream(full_prompt):
             answer_chunks.append(chunk)
             yield {"type": "chunk", "content": chunk}
+        self._print_timing("ChatService.generate_response_stream", time.perf_counter() - generation_started_at)
 
         answer = "".join(answer_chunks).strip()
         if not answer:
@@ -825,11 +883,16 @@ Pertanyaan asli: {query}"""
         print("============================================")
 
         # 8. Save Bot Message
+        started_at = time.perf_counter()
         bot_chat = self._save_chat_message(conversation.id, ChatRole.BOT, answer)
+        self._print_timing("ChatService._save_chat_message[bot][stream]", time.perf_counter() - started_at)
 
         # 9. Save References
+        started_at = time.perf_counter()
         self._save_rag_references(bot_chat.id, chunks, similarities)
         references_payload = self._serialize_chat_references(bot_chat.id)
+        self._print_timing("ChatService._save_rag_references[stream]", time.perf_counter() - started_at)
+        self._print_timing("ChatService.process_chat_stream.total", time.perf_counter() - total_started_at)
 
         yield {
             "type": "done",

@@ -30,7 +30,7 @@ METRICS = [
 
 
 llm = ChatOllama(
-    model="llama3.1:8b",
+    model="llama3.1:8b-instruct-q8_0",
     base_url="http://localhost:11435",
     temperature=0.1,
 )

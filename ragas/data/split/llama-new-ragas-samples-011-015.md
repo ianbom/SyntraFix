@@ -1,0 +1,217 @@
+# RAGAS Test Data
+
+File ini digenerate dari tabel `chats` dan `chat_references`.
+`reference` sengaja dikosongkan agar dapat diisi manual.
+
+## Sample 11
+- conversation_id: 11
+- user_chat_id: 417
+- bot_chat_id: 418
+
+### user_input
+
+Apa tujuan software engineering?
+
+### retrieved_context
+
+1. The software engineering (SE) community is continuously looking for better and more efficient ways of building high-quality software systems. However, in practice, the strong emphasis on time to marke (A Literature Review of Using Machine Learning in Software Development Life Cycle Stages, page 1)
+
+2. As software products become pervasive in all areas of society, the productive building of high-quality software has become crucial to the software industry. The rise of artificial intelligence (AI) ap (Systematic Mapping: Artificial Intelligence Techniques in Software Engineering, page 1)
+
+3. Software requirements outline the purpose of the development and design. It serves as the foundation of software intended to develop [1]. Requirements are defined in the beginning and act as a develop (Integration of Software Architecture in Requirements Elicitation for Rapid Software Development, page 1)
+
+4. Secure Software Engineering (SSE) has become a significant paradigm in the development of secure software for the software industry in recent years as security problems in the SDLC are difficult to ad (Systematic Literature Review on Security Risks and its Practices in Secure Software Development, page 1)
+
+5. Software engineering is a discipline that is concerned with various phases of software production from the preliminary requirement gathering stage through to maintenance of the software system. It is (Software Standards and Software Failures: A Review With the Perspective of Varying Situational Contexts, page 11)
+
+6. In pursuance of the issues raised from the empirical literature, it is necessary for process theory to transform software engineering body of knowledge especially paying attention to SSCs. Additionall (Software Engineering in Small Software Companies: Consolidating and Integrating Empirical Literature Into a Process Tool Adoption Framework, page 1)
+
+7. Knowledge areas are a vital realm of knowledge with which all software engineers should be acquainted. This research question focuses on evaluating the extent to which the SSCS utilise software engine (Software Engineering in Small Software Companies: Consolidating and Integrating Empirical Literature Into a Process Tool Adoption Framework, page 4)
+
+8. Our review demonstrates that agentic software engineering has transformative potential for software development practices. The incorporation of autonomous agents, which are driven by large language mo (Methods and Techniques of Agentic Software Engineering: A Systematic Literature Review, page 20)
+
+### response
+
+Menurut konteks [Source: Software Engineering in Small Software Companies: Consolidating and Integrating Empirical Literature Into a Process Tool Adoption Framework], "Software engineering is a discipline that leads to a systematic approach where cost effective software development is performed."
+
+Namun, tidak ada informasi spesifik tentang tujuan software engineering yang jelas.
+
+### reference
+
+Tujuan software engineering yang paling jelas dari konteks adalah membangun sistem perangkat lunak berkualitas tinggi dengan cara yang lebih baik dan lebih efisien, sambil mencakup seluruh fase produksi software dari requirement gathering hingga maintenance.
+
+Sumber: [A Literature Review of Using Machine Learning in Software Development Life Cycle Stages], [Systematic Mapping: Artificial Intelligence Techniques in Software Engineering], dan [Software Standards and Software Failures: A Review With the Perspective of Varying Situational Contexts]
+---
+
+## Sample 12
+- conversation_id: 11
+- user_chat_id: 419
+- bot_chat_id: 420
+
+### user_input
+
+Apa manfaat software engineering?
+
+### retrieved_context
+
+1. The software engineering (SE) community is continuously looking for better and more efficient ways of building high-quality software systems. However, in practice, the strong emphasis on time to marke (A Literature Review of Using Machine Learning in Software Development Life Cycle Stages, page 1)
+
+2. As software products become pervasive in all areas of society, the productive building of high-quality software has become crucial to the software industry. The rise of artificial intelligence (AI) ap (Systematic Mapping: Artificial Intelligence Techniques in Software Engineering, page 1)
+
+3. The software development activity is a set of procedures that yields software as an outcome. The procedure and standards in the software development have improved over time and practices like CMM (Cap (Build Software or Buy: A Study on Developing Large Scale Software, page 1)
+
+4. The software development activity is a set of procedures that yields software as an outcome. The procedure and standards in the software development have improved over time and practices like CMM (Cap (Build Software or Buy: A Study on Developing Large Scale Software, page 1)
+
+5. Secure Software Engineering (SSE) has become a significant paradigm in the development of secure software for the software industry in recent years as security problems in the SDLC are difficult to ad (Systematic Literature Review on Security Risks and its Practices in Secure Software Development, page 1)
+
+6. As a result, there are numerous research reports made by the academy. As it can be noticed, SBSET allows to reduce software design time, decrease the cost of software testing and maintenance, and ther (The Acceptance of Search-Based Software Engineering Techniques: An Empirical Evaluation Using the Technology Acceptance Model, page 2)
+
+7. Agentic software engineering techniques have been applied across various domains and use cases:
+
+Agents based on LLM progressively aid human developers with advanced programming assistants that provid (Methods and Techniques of Agentic Software Engineering: A Systematic Literature Review, page 13)
+
+8. Perceived effectiveness (PE) refers to ''the degree to which using a technology will provide benefits to consumers in performing certain activities'' [51]. In terms of SE, research indicated that PE i (The Acceptance of Search-Based Software Engineering Techniques: An Empirical Evaluation Using the Technology Acceptance Model, page 1)
+
+### response
+
+Berikut adalah jawaban berdasarkan konteks yang diberikan:
+
+Manfaat software engineering antara lain:
+
+* Membangun sistem software yang berkualitas tinggi
+* Mengurangi biaya pengembangan dan perawatan software
+* Meningkatkan produktivitas developer dengan menggunakan tools seperti code generation dan completion
+* Mempertahankan keamanan data dan layanan melalui penerapan security dalam SDLC fase
+
+Informasi tersebut didapatkan dari beberapa sumber yang terkait, yaitu:
+
+* "The software engineering (SE) community is continuously looking for better and more efficient ways of building high-quality software systems."
+* "Software security ensures that the CIA (Confidentiality, Integrity, and Availability) of data and services are not compromised [1], [2]."
+* "It is also anticipated that SBSET can help avoiding error-prone work in the different aspects of software engineering process."
+
+### reference
+
+Manfaat software engineering yang didukung konteks adalah membantu membangun software berkualitas tinggi, menurunkan biaya design, testing, dan maintenance dalam beberapa pendekatan software engineering, serta memperkuat keamanan software melalui secure software engineering di sepanjang SDLC. Konteks juga menyebut agentic software engineering membantu developer melalui advanced programming assistants.
+
+Sumber: [A Literature Review of Using Machine Learning in Software Development Life Cycle Stages], [Systematic Literature Review on Security Risks and its Practices in Secure Software Development], [The Acceptance of Search-Based Software Engineering Techniques: An Empirical Evaluation Using the Technology Acceptance Model], dan [Methods and Techniques of Agentic Software Engineering: A Systematic Literature Review]
+---
+
+## Sample 13
+- conversation_id: 11
+- user_chat_id: 421
+- bot_chat_id: 422
+
+### user_input
+
+Apa itu software quality?
+
+### retrieved_context
+
+1. Quality is defined by ISO 8042 [18] as ''the totality of characteristics of an entity that bear on its ability to satisfy stated and implied needs''. This definition is too abstract to be operationali (Continuously Assessing and Improving Software Quality With Software Analytics Tools: A Case Study, page 1)
+
+2. Quality is defined by ISO 8042 [18] as ''the totality of characteristics of an entity that bear on its ability to satisfy stated and implied needs''. This definition is too abstract to be operationali (Continuously Assessing and Improving Software Quality With Software Analytics Tools: A Case Study, page 1)
+
+3. Software quality is defined by how closely a software system meets a desired combination of quality attributes [6], [7]. These attributes include complexity, reliability, scalability, functionality, e (Architectural Styles and Quality Attributes in AI-Based Video Software: A Systematic Literature Review, page 1)
+
+4. In order to effectively coordinate and evaluate software quality management efforts, software companies use software quality models [34], [37], [44], [45]. The earliest software quality model was prop (How Software Quality Mediates the Impact of Intellectual Capital on Commercial Open-Source Software Company Success, page 1)
+
+5. In general, quality is considered as the most vital factor for meeting customer expectations and organizational growth [12], [34], [40]. More specifically, software quality is a critical success facto (How Software Quality Mediates the Impact of Intellectual Capital on Commercial Open-Source Software Company Success, page 3)
+
+6. Software quality is the total characteristics of an entity that depends on its capacity to satisfy explicit and implicit VOLUME 10, 2022 needs [34]- [36]. Hence, poor software quality negatively impac (How Software Quality Mediates the Impact of Intellectual Capital on Commercial Open-Source Software Company Success, page 2)
+
+7. Software quality is calculated in the following formula (4):  In formula (4), q is Software quality; b is Open bugs; l is Total changed codes. Software quality is expressed by the bug rate, which is e (Change-Oriented Open Source Software Process Simulation, page 1)
+
+8. Software analytics is defined as ''analytics on software data for managers and software engineers with the aim of empowering software development individuals and teams to gain and share insight from t (Continuously Assessing and Improving Software Quality With Software Analytics Tools: A Case Study, page 1)
+
+### response
+
+Software quality adalah totalitas karakteristik suatu entitas yang terkait dengan kemampuannya untuk memenuhi kebutuhan yang terucap dan tersirat.
+
+### reference
+
+Software quality adalah totalitas karakteristik suatu entitas yang berkaitan dengan kemampuannya memenuhi kebutuhan yang dinyatakan maupun yang tersirat. Pada sistem software, kualitas juga dilihat dari seberapa dekat sistem memenuhi kombinasi atribut kualitas yang diinginkan.
+
+Sumber: [Continuously Assessing and Improving Software Quality With Software Analytics Tools: A Case Study] dan [Architectural Styles and Quality Attributes in AI-Based Video Software: A Systematic Literature Review]
+---
+
+## Sample 14
+- conversation_id: 11
+- user_chat_id: 423
+- bot_chat_id: 424
+
+### user_input
+
+Jelaskan software quality dengan sederhana.
+
+### retrieved_context
+
+1. Quality is defined by ISO 8042 [18] as ''the totality of characteristics of an entity that bear on its ability to satisfy stated and implied needs''. This definition is too abstract to be operationali (Continuously Assessing and Improving Software Quality With Software Analytics Tools: A Case Study, page 1)
+
+2. Quality is defined by ISO 8042 [18] as ''the totality of characteristics of an entity that bear on its ability to satisfy stated and implied needs''. This definition is too abstract to be operationali (Continuously Assessing and Improving Software Quality With Software Analytics Tools: A Case Study, page 1)
+
+3. Software quality is defined by how closely a software system meets a desired combination of quality attributes [6], [7]. These attributes include complexity, reliability, scalability, functionality, e (Architectural Styles and Quality Attributes in AI-Based Video Software: A Systematic Literature Review, page 1)
+
+4. Software quality is calculated in the following formula (4):  In formula (4), q is Software quality; b is Open bugs; l is Total changed codes. Software quality is expressed by the bug rate, which is e (Change-Oriented Open Source Software Process Simulation, page 1)
+
+5. In order to effectively coordinate and evaluate software quality management efforts, software companies use software quality models [34], [37], [44], [45]. The earliest software quality model was prop (How Software Quality Mediates the Impact of Intellectual Capital on Commercial Open-Source Software Company Success, page 1)
+
+6. Among the ten studies (7.2%) that discussed software quality attributes, the most frequently mentioned were efficiency, complexity, robustness, performance, and scalability. Efficiency was the most co (Architectural Styles and Quality Attributes in AI-Based Video Software: A Systematic Literature Review, page 1)
+
+7. This section describes two scenarios where the Q-Rapids tool can be used by decision makers to assess or improve the quality of their products. We follow the definitions of ''assessing'' and ''improvi (Continuously Assessing and Improving Software Quality With Software Analytics Tools: A Case Study, page 5)
+
+8. This section describes two scenarios where the Q-Rapids tool can be used by decision makers to assess or improve the quality of their products. We follow the definitions of ''assessing'' and ''improvi (Continuously Assessing and Improving Software Quality With Software Analytics Tools: A Case Study, page 5)
+
+### response
+
+Software Quality dapat dijelaskan sebagai "kesesuaian suatu perangkat lunak untuk memenuhi kebutuhan yang telah ditetapkan".
+
+### reference
+
+Secara sederhana, software quality berarti seberapa baik perangkat lunak memenuhi kebutuhan yang dinyatakan maupun yang tersirat, serta seberapa dekat ia memenuhi atribut kualitas yang diinginkan.
+
+Sumber: [Continuously Assessing and Improving Software Quality With Software Analytics Tools: A Case Study] dan [Architectural Styles and Quality Attributes in AI-Based Video Software: A Systematic Literature Review]
+---
+
+## Sample 15
+- conversation_id: 11
+- user_chat_id: 425
+- bot_chat_id: 426
+
+### user_input
+
+Mengapa software quality penting?
+
+### retrieved_context
+
+1. In general, quality is considered as the most vital factor for meeting customer expectations and organizational growth [12], [34], [40]. More specifically, software quality is a critical success facto (How Software Quality Mediates the Impact of Intellectual Capital on Commercial Open-Source Software Company Success, page 3)
+
+2. Software quality is the total characteristics of an entity that depends on its capacity to satisfy explicit and implicit VOLUME 10, 2022 needs [34]- [36]. Hence, poor software quality negatively impac (How Software Quality Mediates the Impact of Intellectual Capital on Commercial Open-Source Software Company Success, page 2)
+
+3. The quality of software continues to be a significant challenge in the software industry, and this challenge is more visible in the Small Software Companies (SSCs) to the extent that up to 70 percent (Theory on Non-Technical Characteristics Affecting Process Adoption in Small Software Companies: A Grounded Theory Study, page 1)
+
+4. Software quality is defined by how closely a software system meets a desired combination of quality attributes [6], [7]. These attributes include complexity, reliability, scalability, functionality, e (Architectural Styles and Quality Attributes in AI-Based Video Software: A Systematic Literature Review, page 1)
+
+5. Nowadays, a company's ability to innovate is increasingly driven by software. Digital technologies play a key role in The associate editor coordinating the review of this manuscript and approving it f (Continuously Assessing and Improving Software Quality With Software Analytics Tools: A Case Study, page 1)
+
+6. Nowadays, a company's ability to innovate is increasingly driven by software. Digital technologies play a key role in The associate editor coordinating the review of this manuscript and approving it f (Continuously Assessing and Improving Software Quality With Software Analytics Tools: A Case Study, page 1)
+
+7. The use of measurement is common in all aspects of human life such as scales for buying vegetables, fruits, grocery items, gold or making estimations for reaching to the home of a friend. The applicat (An Evaluation of Software Measurement Processes in Pakistani Software Industry, page 1)
+
+8. Quality of a software product is an intransigence factor. For executable software components, quality comes first and foremost. Addressing quality requirements has always been a challenge for the requ (Integration of Software Architecture in Requirements Elicitation for Rapid Software Development, page 8)
+
+### response
+
+Software quality penting karena:
+
+* Ia merupakan faktor kritis untuk mencapai kepuasan pelanggan dan pertumbuhan organisasi [12], [34], [40].
+* Mempengaruhi kemampuan software dalam memenuhi kebutuhan eksplisit dan implisit, serta mempengaruhi kualitas software secara keseluruhan [34]-[36].
+* Mempengaruhi efektivitas sistem, sehingga mempengaruhi kemampuan software untuk mencapai tujuan yang diinginkan.
+* Melindungi aset intelektual perusahaan dan memungkinkan perusahaan untuk bersaing dalam pasar [1], [2].
+* Mempengaruhi kemampuan perusahaan untuk berinovasi dan meningkatkan daya saing [1], [3].
+
+### reference
+
+Software quality penting karena menjadi faktor vital untuk memenuhi customer expectations dan pertumbuhan organisasi. Kualitas software juga menentukan kemampuan sistem memenuhi kebutuhan eksplisit dan implisit; jika kualitasnya buruk, dampaknya negatif pada organisasi dan keberhasilan software.
+
+Sumber: [How Software Quality Mediates the Impact of Intellectual Capital on Commercial Open-Source Software Company Success] dan [Architectural Styles and Quality Attributes in AI-Based Video Software: A Systematic Literature Review]
+---

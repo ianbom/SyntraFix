@@ -8,6 +8,9 @@ from app.config import get_settings
 settings = get_settings()
 
 
+def _print_embedding_timing(function_name: str, elapsed_seconds: float):
+    print(f"[SERVICE TIMING] {function_name}: {elapsed_seconds:.4f}s")
+
 
 def generate_embedding(text: str, max_retries: int = 3) -> Optional[list[float]]:
     """
@@ -16,7 +19,8 @@ def generate_embedding(text: str, max_retries: int = 3) -> Optional[list[float]]
     """
     if not text or not text.strip():
         return None
-    
+
+    started_at = time.perf_counter()
     # Truncate text if too long (nomic-embed-text has context limit)
     text = text.strip()[:8000]  # Keep first 8000 chars
     
@@ -43,8 +47,10 @@ def generate_embedding(text: str, max_retries: int = 3) -> Optional[list[float]]
                             f"got {actual_dimension} for model {settings.OLLAMA_EMBEDDING_MODEL}"
                         )
                         return None
+                    _print_embedding_timing("generate_embedding", time.perf_counter() - started_at)
                     return embedding
                 print("No embedding in response")
+                _print_embedding_timing("generate_embedding", time.perf_counter() - started_at)
                 return None
             elif response.status_code == 500:
                 error_text = response.text[:200]
@@ -55,24 +61,30 @@ def generate_embedding(text: str, max_retries: int = 3) -> Optional[list[float]]
                     continue
                 else:
                     print(f"Ollama server error: {error_text}")
+                    _print_embedding_timing("generate_embedding", time.perf_counter() - started_at)
                     return None
             else:
                 print(f"Embedding generation failed: {response.status_code}")
+                _print_embedding_timing("generate_embedding", time.perf_counter() - started_at)
                 return None
                 
         except requests.exceptions.ConnectionError:
             print("Cannot connect to Ollama. Make sure Ollama is running.")
+            _print_embedding_timing("generate_embedding", time.perf_counter() - started_at)
             return None
         except requests.exceptions.Timeout:
             print(f"Ollama request timed out (attempt {attempt + 1}/{max_retries})")
             if attempt < max_retries - 1:
                 time.sleep(1)
                 continue
+            _print_embedding_timing("generate_embedding", time.perf_counter() - started_at)
             return None
         except Exception as e:
             print(f"Embedding error: {str(e)}")
+            _print_embedding_timing("generate_embedding", time.perf_counter() - started_at)
             return None
-    
+
+    _print_embedding_timing("generate_embedding", time.perf_counter() - started_at)
     return None
 
 

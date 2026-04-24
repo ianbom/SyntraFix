@@ -1,4 +1,5 @@
 import json
+import time
 from typing import AsyncGenerator
 
 import httpx
@@ -10,10 +11,15 @@ settings = get_settings()
 OLLAMA_BASE_URL = settings.OLLAMA_BASE_URL  # Default Ollama URL
 GENERATION_MODEL = settings.OLLAMA_GENERATION_MODEL
 
+
+def _print_llm_timing(function_name: str, elapsed_seconds: float):
+    print(f"[SERVICE TIMING] {function_name}: {elapsed_seconds:.4f}s")
+
 async def generate_response(prompt: str, model: str = GENERATION_MODEL) -> str:
     """
     Generate a response from the LLM using Ollama.
     """
+    started_at = time.perf_counter()
     try:
         # Timeout lebih lama untuk model yang lebih besar (5 menit)
         timeout = httpx.Timeout(500000.0, connect=500000.0)
@@ -30,16 +36,20 @@ async def generate_response(prompt: str, model: str = GENERATION_MODEL) -> str:
             response.raise_for_status()
             data = response.json()
             print(f"✅ LLM response received successfully")
+            _print_llm_timing(f"generate_response[{model}]", time.perf_counter() - started_at)
             return data.get("response", "")
     except httpx.TimeoutException as e:
         print(f"⏱️ Timeout error calling LLM ({model}): {str(e)}")
+        _print_llm_timing(f"generate_response[{model}]", time.perf_counter() - started_at)
         return "Maaf, request timeout. Model mungkin membutuhkan waktu lebih lama untuk memproses."
     except httpx.HTTPStatusError as e:
         print(f"❌ HTTP error calling LLM ({model}): {e.response.status_code} - {e.response.text}")
+        _print_llm_timing(f"generate_response[{model}]", time.perf_counter() - started_at)
         return f"I apologize, but I encountered an HTTP error: {e.response.status_code}"
     except Exception as e:
         print(f"❌ Error calling LLM ({model}): {type(e).__name__} - {str(e)}")
         # Fallback or re-raise
+        _print_llm_timing(f"generate_response[{model}]", time.perf_counter() - started_at)
         return "I apologize, but I encountered an error processing your request."
 
 
@@ -49,6 +59,7 @@ async def generate_response_stream(
     """
     Stream a response from Ollama token-by-token.
     """
+    started_at = time.perf_counter()
     try:
         timeout = httpx.Timeout(500000.0, connect=500000.0)
         async with httpx.AsyncClient(timeout=timeout) as client:
@@ -79,14 +90,18 @@ async def generate_response_stream(
 
                     if payload.get("done"):
                         break
+            _print_llm_timing(f"generate_response_stream[{model}]", time.perf_counter() - started_at)
     except httpx.TimeoutException as e:
         print(f"⏱️ Timeout error streaming LLM ({model}): {str(e)}")
+        _print_llm_timing(f"generate_response_stream[{model}]", time.perf_counter() - started_at)
         yield "Maaf, request timeout. Model mungkin membutuhkan waktu lebih lama untuk memproses."
     except httpx.HTTPStatusError as e:
         print(f"❌ HTTP error streaming LLM ({model}): {e.response.status_code} - {e.response.text}")
+        _print_llm_timing(f"generate_response_stream[{model}]", time.perf_counter() - started_at)
         yield f"I apologize, but I encountered an HTTP error: {e.response.status_code}"
     except Exception as e:
         print(f"❌ Error streaming LLM ({model}): {type(e).__name__} - {str(e)}")
+        _print_llm_timing(f"generate_response_stream[{model}]", time.perf_counter() - started_at)
         yield "I apologize, but I encountered an error processing your request."
 
 

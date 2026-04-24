@@ -1,5 +1,7 @@
 import json
+import time
 from typing import List, Optional
+from functools import wraps
 from fastapi import APIRouter, Depends, HTTPException, Query
 from fastapi.responses import FileResponse, StreamingResponse
 from sqlalchemy.orm import Session
@@ -17,6 +19,29 @@ from app.config import get_settings
 router = APIRouter(prefix="/chats", tags=["Chats"])
 settings = get_settings()
 
+
+def _print_timing(function_name: str, elapsed_seconds: float):
+    """Print timing information for route-level instrumentation."""
+    print(f"[CHAT API TIMING] {function_name}: {elapsed_seconds:.4f}s")
+
+
+def _timed_async_route(function_name: str):
+    """Decorator to print execution time for async route handlers."""
+    def decorator(func):
+        @wraps(func)
+        async def wrapper(*args, **kwargs):
+            started_at = time.perf_counter()
+            try:
+                return await func(*args, **kwargs)
+            finally:
+                _print_timing(function_name, time.perf_counter() - started_at)
+
+        return wrapper
+
+    return decorator
+
+
+@_timed_async_route("chat_interaction")
 @router.post("/", response_model=ChatResponse)
 async def chat_interaction(
     request: ChatRequest,
@@ -28,14 +53,25 @@ async def chat_interaction(
     Creates conversation if not exists, saves user message,
     generates bot response via LLM + RAG, and saves references.
     """
+    total_started_at = time.perf_counter()
     chat_service = ChatService(db)
+    process_chat_started_at = time.perf_counter()
     response = await chat_service.process_chat(current_user.id, request)
+    _print_timing("chat_interaction.process_chat", time.perf_counter() - process_chat_started_at)
     try:
+        export_started_at = time.perf_counter()
         export_chat_test_markdown_for_bot_chat(db, response.id)
+        _print_timing(
+            "chat_interaction.export_chat_test_markdown_for_bot_chat",
+            time.perf_counter() - export_started_at,
+        )
     except Exception as error:
         print(f"Warning: failed to export chat_test markdown for chat {response.id}: {error}")
+    _print_timing("chat_interaction.total", time.perf_counter() - total_started_at)
     return response
 
+
+@_timed_async_route("chat_interaction_stream")
 @router.post("/stream")
 async def chat_interaction_stream(
     request: ChatRequest,
@@ -48,13 +84,24 @@ async def chat_interaction_stream(
     chat_service = ChatService(db)
 
     async def stream_generator():
+        total_started_at = time.perf_counter()
+        process_stream_started_at = time.perf_counter()
         try:
             async for event in chat_service.process_chat_stream(current_user.id, request):
                 if event.get("type") == "done":
+                    _print_timing(
+                        "chat_interaction_stream.process_chat_stream",
+                        time.perf_counter() - process_stream_started_at,
+                    )
                     chat_id = event.get("chat", {}).get("id")
                     if chat_id is not None:
                         try:
+                            export_started_at = time.perf_counter()
                             export_chat_test_markdown_for_bot_chat(db, chat_id)
+                            _print_timing(
+                                "chat_interaction_stream.export_chat_test_markdown_for_bot_chat",
+                                time.perf_counter() - export_started_at,
+                            )
                         except Exception as export_error:
                             print(
                                 "Warning: failed to export chat_test markdown "
@@ -66,9 +113,13 @@ async def chat_interaction_stream(
                 {"type": "error", "message": str(error)},
                 ensure_ascii=False,
             ) + "\n"
+        finally:
+            _print_timing("chat_interaction_stream.total", time.perf_counter() - total_started_at)
 
     return StreamingResponse(stream_generator(), media_type="application/x-ndjson")
 
+
+@_timed_async_route("list_conversations")
 @router.get("/conversations", response_model=List[ConversationResponse])
 async def list_conversations(
     limit: int = Query(20, le=100),
@@ -81,6 +132,8 @@ async def list_conversations(
     conversations = chat_service.list_conversations(current_user.id, limit, offset)
     return conversations
 
+
+@_timed_async_route("get_conversation")
 @router.get("/conversations/{conversation_id}", response_model=ConversationResponse)
 async def get_conversation(
     conversation_id: int,
@@ -95,6 +148,7 @@ async def get_conversation(
     return conversation
 
 
+@_timed_async_route("export_ragas_test_data")
 @router.get("/ragas/export")
 async def export_ragas_test_data(
     conversation_id: Optional[int] = Query(default=None),
@@ -129,6 +183,7 @@ async def export_ragas_test_data(
     )
 
 
+@_timed_async_route("list_embedding_models")
 @router.get("/models/embedding")
 async def list_embedding_models():
     """
