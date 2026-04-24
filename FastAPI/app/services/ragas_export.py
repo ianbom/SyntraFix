@@ -2,11 +2,12 @@
 from datetime import datetime
 from pathlib import Path
 import re
-from typing import Iterable, List, Optional
+from typing import Dict, Iterable, List, Mapping, Optional, Set
 
 from sqlalchemy.orm import Session
 
 from app.models.chat import Chat, ChatReference, ChatRole, Conversation
+from app.models.document_chunk import DocumentChunk
 
 
 EXPORT_DIR = Path(__file__).resolve().parents[1] / "ragas_exports"
@@ -23,10 +24,27 @@ def _normalize_markdown_text(value: Optional[str]) -> str:
     return text if text else "-"
 
 
-def _format_retrieved_context(references: Iterable[ChatReference]) -> str:
+def _reference_context_text(
+    reference: ChatReference,
+    chunk_content_by_id: Mapping[int, str],
+) -> str:
+    if reference.chunk_id and reference.chunk_id in chunk_content_by_id:
+        chunk_content = _normalize_markdown_text(chunk_content_by_id[reference.chunk_id])
+        if chunk_content != "-":
+            return chunk_content
+
+    return _normalize_markdown_text(reference.quote)
+
+
+def _format_retrieved_context(
+    references: Iterable[ChatReference],
+    chunk_content_by_id: Optional[Mapping[int, str]] = None,
+) -> str:
     quotes = []
+    chunk_content_by_id = chunk_content_by_id or {}
+
     for index, reference in enumerate(references, start=1):
-        quote = _normalize_markdown_text(reference.quote)
+        quote = _reference_context_text(reference, chunk_content_by_id)
         source_parts = []
         if reference.document_title:
             source_parts.append(reference.document_title)
@@ -39,6 +57,28 @@ def _format_retrieved_context(references: Iterable[ChatReference]) -> str:
     return "\n\n".join(quotes) if quotes else "-"
 
 
+def _collect_reference_chunk_ids(conversations: Iterable[Conversation]) -> Set[int]:
+    chunk_ids: Set[int] = set()
+    for conversation in conversations:
+        for chat in conversation.chats:
+            for reference in chat.references:
+                if reference.chunk_id:
+                    chunk_ids.add(reference.chunk_id)
+    return chunk_ids
+
+
+def _load_chunk_content_by_id(db: Session, chunk_ids: Set[int]) -> Dict[int, str]:
+    if not chunk_ids:
+        return {}
+
+    rows = (
+        db.query(DocumentChunk.id, DocumentChunk.content)
+        .filter(DocumentChunk.id.in_(chunk_ids))
+        .all()
+    )
+    return {chunk_id: content for chunk_id, content in rows if content}
+
+
 def _find_previous_user_chat(chats: List[Chat], bot_index: int) -> Optional[Chat]:
     for index in range(bot_index - 1, -1, -1):
         if chats[index].role == ChatRole.USER:
@@ -46,14 +86,19 @@ def _find_previous_user_chat(chats: List[Chat], bot_index: int) -> Optional[Chat
     return None
 
 
-def _build_ragas_markdown(conversations: List[Conversation]) -> str:
+def _build_ragas_markdown(
+    conversations: List[Conversation],
+    chunk_content_by_id: Optional[Mapping[int, str]] = None,
+) -> str:
     lines = [
         "# RAGAS Test Data",
         "",
-        "File ini digenerate dari tabel `chats` dan `chat_references`.",
+        "File ini digenerate dari tabel `chats`, `chat_references`, dan `document_chunks`.",
+        "`retrieved_context` memakai `document_chunks.content` jika tersedia, lalu fallback ke `chat_references.quote`.",
         "`reference` sengaja dikosongkan agar dapat diisi manual.",
         "",
     ]
+    chunk_content_by_id = chunk_content_by_id or {}
 
     sample_index = 1
     for conversation in conversations:
@@ -88,7 +133,7 @@ def _build_ragas_markdown(conversations: List[Conversation]) -> str:
                     "",
                     "### retrieved_context",
                     "",
-                    _format_retrieved_context(references),
+                    _format_retrieved_context(references, chunk_content_by_id),
                     "",
                     "### response",
                     "",
@@ -129,7 +174,11 @@ def export_ragas_markdown(
         query = query.filter(Conversation.id == conversation_id)
 
     conversations = query.all()
-    markdown = _build_ragas_markdown(conversations)
+    chunk_content_by_id = _load_chunk_content_by_id(
+        db,
+        _collect_reference_chunk_ids(conversations),
+    )
+    markdown = _build_ragas_markdown(conversations, chunk_content_by_id)
 
     EXPORT_DIR.mkdir(parents=True, exist_ok=True)
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")

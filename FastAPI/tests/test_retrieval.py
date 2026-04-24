@@ -76,3 +76,30 @@ def test_merge_candidate_scores_keeps_question_candidate_when_content_score_is_l
     assert scored[0]["retrieval_source"] == "question"
     assert scored[0]["question_score"] == 0.88
 
+
+def test_noisy_visual_or_table_summary_is_filtered():
+    candidate = {
+        "chunk_type": ChunkType.IMAGE.value,
+        "content": "Maaf, saya tidak dapat menginterpretasikan gambar tersebut.",
+    }
+
+    assert ChatService._is_noisy_visual_or_table_summary(candidate) is True
+
+
+def test_valid_table_chunk_is_not_filtered():
+    candidate = {
+        "chunk_type": ChunkType.TABLE.value,
+        "content": "Tabel hasil eksperimen menunjukkan accuracy CNN sebesar 95%.",
+    }
+
+    assert ChatService._is_noisy_visual_or_table_summary(candidate) is False
+
+
+def test_paragraph_chunk_is_not_filtered_even_with_visual_phrase():
+    candidate = {
+        "chunk_type": ChunkType.PARAGRAPH.value,
+        "content": "Penulis menjelaskan bahwa model tidak dapat melihat fitur tertentu.",
+    }
+
+    assert ChatService._is_noisy_visual_or_table_summary(candidate) is False
+

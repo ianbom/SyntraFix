@@ -1,0 +1,342 @@
+[
+  {
+    "index": 1,
+    "question": "Apa itu software engineering?",
+    "conversation_id_before_request": null,
+    "status": "success",
+    "chat_id": 442,
+    "conversation_id": 12,
+    "response_message": "Software engineering adalah suatu disiplin ilmu yang terkait dengan berbagai fase produksi perangkat lunak dari tahap pengumpulan kebutuhan awal hingga pemeliharaan sistem perangkat lunak.",
+    "raw_response": {
+      "id": 442,
+      "conversation_id": 12,
+      "role": "bot",
+      "message": "Software engineering adalah suatu disiplin ilmu yang terkait dengan berbagai fase produksi perangkat lunak dari tahap pengumpulan kebutuhan awal hingga pemeliharaan sistem perangkat lunak.",
+      "created_at": "2026-04-24T06:17:07.835535-07:00",
+      "references": []
+    }
+  },
+  {
+    "index": 2,
+    "question": "Bagaimana software engineering membantu meningkatkan software quality dan software maintenance?",
+    "conversation_id_before_request": 12,
+    "status": "success",
+    "chat_id": 444,
+    "conversation_id": 12,
+    "response_message": "Berikut adalah jawaban berdasarkan konteks:\n\nSoftware Engineering (SE) dapat membantu meningkatkan software quality dan software maintenance dengan menggunakan teknik-teknik artificial intelligence (AI). Beberapa cara yang disebutkan dalam konteks termasuk:\n\n* Menggunakan AI untuk mendeteksi potensi keamanan dan memberikan peringatan tentang masalah tersebut.\n* Meningkatkan kemampuan analisis data untuk membantu pengembang membuat keputusan yang lebih baik.\n* Menggunakan agen-agen otomatis untuk melakukan pemeliharaan software, seperti bug-fixing, refactoring, dan migrasi.\n\nSelain itu, konteks juga menyebutkan bahwa software analytics sangat penting dalam meningkatkan kualitas perangkat lunak dan pemeliharaannya. Dengan menggunakan data dari berbagai sumber, pengembang dapat memahami perilaku pengguna, mengidentifikasi pola yang tidak terduga, dan mengoptimalkan kinerja sistem.\n\nJadi, jawaban singkat adalah: Menggunakan teknik-teknik AI dan software analytics untuk mendeteksi potensi keamanan, meningkatkan analisis data, dan menggunakan agen-agen otomatis untuk pemeliharaan software.",
+    "raw_response": {
+      "id": 444,
+      "conversation_id": 12,
+      "role": "bot",
+      "message": "Berikut adalah jawaban berdasarkan konteks:\n\nSoftware Engineering (SE) dapat membantu meningkatkan software quality dan software maintenance dengan menggunakan teknik-teknik artificial intelligence (AI). Beberapa cara yang disebutkan dalam konteks termasuk:\n\n* Menggunakan AI untuk mendeteksi potensi keamanan dan memberikan peringatan tentang masalah tersebut.\n* Meningkatkan kemampuan analisis data untuk membantu pengembang membuat keputusan yang lebih baik.\n* Menggunakan agen-agen otomatis untuk melakukan pemeliharaan software, seperti bug-fixing, refactoring, dan migrasi.\n\nSelain itu, konteks juga menyebutkan bahwa software analytics sangat penting dalam meningkatkan kualitas perangkat lunak dan pemeliharaannya. Dengan menggunakan data dari berbagai sumber, pengembang dapat memahami perilaku pengguna, mengidentifikasi pola yang tidak terduga, dan mengoptimalkan kinerja sistem.\n\nJadi, jawaban singkat adalah: Menggunakan teknik-teknik AI dan software analytics untuk mendeteksi potensi keamanan, meningkatkan analisis data, dan menggunakan agen-agen otomatis untuk pemeliharaan software.",
+      "created_at": "2026-04-24T06:17:42.532055-07:00",
+      "references": []
+    }
+  },
+  {
+    "index": 3,
+    "question": "Apa itu software quality?",
+    "conversation_id_before_request": 12,
+    "status": "success",
+    "chat_id": 446,
+    "conversation_id": 12,
+    "response_message": "Jawaban:\nSoftware quality adalah totalitas sifat-sifat suatu entitas yang menentukan kemampuannya untuk memenuhi kebutuhan yang telah dinyatakan dan implisit.\n\n(Sumber: [Source: Continuously Assessing and Improving Software Quality With Software Analytics Tools: A Case Study])",
+    "raw_response": {
+      "id": 446,
+      "conversation_id": 12,
+      "role": "bot",
+      "message": "Jawaban:\nSoftware quality adalah totalitas sifat-sifat suatu entitas yang menentukan kemampuannya untuk memenuhi kebutuhan yang telah dinyatakan dan implisit.\n\n(Sumber: [Source: Continuously Assessing and Improving Software Quality With Software Analytics Tools: A Case Study])",
+      "created_at": "2026-04-24T06:18:17.262713-07:00",
+      "references": []
+    }
+  },
+  {
+    "index": 4,
+    "question": "Bagaimana software quality dinilai menggunakan software metrics dan software testing?",
+    "conversation_id_before_request": 12,
+    "status": "success",
+    "chat_id": 448,
+    "conversation_id": 12,
+    "response_message": "Berikut adalah jawaban berdasarkan konteks yang diberikan:\n\nSoftware quality dapat dinilai menggunakan software metrics dan software testing melalui beberapa cara, seperti:\n\n* Menggunakan metrik internal untuk mengukur kualitas sumber kode\n* Menggunakan metrik eksternal untuk mengukur perilaku atau fungsi dari software\n* Menggunakan analisis fungsi titik (function point analysis) untuk menilai kualitas software\n* Menggunakan kompleksitas siklus (cyclomatic complexity) untuk menilai kompleksitas software\n\nSelain itu, software testing juga dapat digunakan untuk mengevaluasi kualitas software dengan cara:\n\n* Melakukan tes berdasarkan metrik yang paling rentan terhadap kesalahan\n* Menggunakan model prediksi kecacatan (software fault prediction) untuk memprediksi kemungkinan kecacatan pada klas-klas tertentu\n\nDengan demikian, software quality dapat dinilai menggunakan kombinasi dari software metrics dan software testing.",
+    "raw_response": {
+      "id": 448,
+      "conversation_id": 12,
+      "role": "bot",
+      "message": "Berikut adalah jawaban berdasarkan konteks yang diberikan:\n\nSoftware quality dapat dinilai menggunakan software metrics dan software testing melalui beberapa cara, seperti:\n\n* Menggunakan metrik internal untuk mengukur kualitas sumber kode\n* Menggunakan metrik eksternal untuk mengukur perilaku atau fungsi dari software\n* Menggunakan analisis fungsi titik (function point analysis) untuk menilai kualitas software\n* Menggunakan kompleksitas siklus (cyclomatic complexity) untuk menilai kompleksitas software\n\nSelain itu, software testing juga dapat digunakan untuk mengevaluasi kualitas software dengan cara:\n\n* Melakukan tes berdasarkan metrik yang paling rentan terhadap kesalahan\n* Menggunakan model prediksi kecacatan (software fault prediction) untuk memprediksi kemungkinan kecacatan pada klas-klas tertentu\n\nDengan demikian, software quality dapat dinilai menggunakan kombinasi dari software metrics dan software testing.",
+      "created_at": "2026-04-24T06:18:55.561608-07:00",
+      "references": []
+    }
+  },
+  {
+    "index": 5,
+    "question": "Apa itu machine learning?",
+    "conversation_id_before_request": 12,
+    "status": "success",
+    "chat_id": 450,
+    "conversation_id": 12,
+    "response_message": "Machine Learning adalah teknik yang digunakan dalam rekayasa perangkat lunak untuk mendeteksi kelemahan atau kesalahan dalam kode program, serta untuk melakukan automasi tes perangkat lunak. Machine learning menggunakan algoritma-algoritma seperti pembelajaran mesin (ML) untuk menganalisis data dan membuat prediksi.\n\nDalam konteks ini, machine learning digunakan untuk:\n\n* Mendeteksi kelemahan atau kesalahan dalam kode program dengan menggunakan teknik supervised learning\n* Melakukan automasi tes perangkat lunak dengan menggunakan teknik pembelajaran mesin (ML)\n* Membantu meningkatkan efisiensi dalam pengembangan perangkat lunak dengan menggunakan teknik AI\n\nJadi, jawaban singkatnya adalah: Machine Learning adalah teknologi yang digunakan untuk mendeteksi kelemahan atau kesalahan dalam kode program dan melakukan automasi tes perangkat lunak.",
+    "raw_response": {
+      "id": 450,
+      "conversation_id": 12,
+      "role": "bot",
+      "message": "Machine Learning adalah teknik yang digunakan dalam rekayasa perangkat lunak untuk mendeteksi kelemahan atau kesalahan dalam kode program, serta untuk melakukan automasi tes perangkat lunak. Machine learning menggunakan algoritma-algoritma seperti pembelajaran mesin (ML) untuk menganalisis data dan membuat prediksi.\n\nDalam konteks ini, machine learning digunakan untuk:\n\n* Mendeteksi kelemahan atau kesalahan dalam kode program dengan menggunakan teknik supervised learning\n* Melakukan automasi tes perangkat lunak dengan menggunakan teknik pembelajaran mesin (ML)\n* Membantu meningkatkan efisiensi dalam pengembangan perangkat lunak dengan menggunakan teknik AI\n\nJadi, jawaban singkatnya adalah: Machine Learning adalah teknologi yang digunakan untuk mendeteksi kelemahan atau kesalahan dalam kode program dan melakukan automasi tes perangkat lunak.",
+      "created_at": "2026-04-24T06:19:35.905881-07:00",
+      "references": []
+    }
+  },
+  {
+    "index": 6,
+    "question": "Bagaimana machine learning dapat digunakan dalam software engineering untuk meningkatkan kualitas perangkat lunak?",
+    "conversation_id_before_request": 12,
+    "status": "success",
+    "chat_id": 452,
+    "conversation_id": 12,
+    "response_message": "Machine learning dapat digunakan dalam beberapa cara untuk meningkatkan kualitas perangkat lunak:\n\n• Membantu deteksi kerusakan pada kode dengan menggunakan algoritma seperti Support Vector Machines (SVM), Naive Bayes (NB), Decision Trees, dan Neural Networks.\n• Menggunakan metrik pengukuran yang dapat membantu dalam menilai kinerja software dan mendeteksi potensi masalah sebelumnya ditemukan.\n• Membantu dalam meningkatkan efisiensi testing dengan memprediksi bagian kode mana yang paling rentan terhadap kerusakan sehingga perlu diuji lebih lanjut.\n\nJadi, machine learning dapat digunakan untuk mendeteksi kerusakan pada kode, mengidentifikasi potensi masalah, dan meningkatkan efisiensi testing.",
+    "raw_response": {
+      "id": 452,
+      "conversation_id": 12,
+      "role": "bot",
+      "message": "Machine learning dapat digunakan dalam beberapa cara untuk meningkatkan kualitas perangkat lunak:\n\n• Membantu deteksi kerusakan pada kode dengan menggunakan algoritma seperti Support Vector Machines (SVM), Naive Bayes (NB), Decision Trees, dan Neural Networks.\n• Menggunakan metrik pengukuran yang dapat membantu dalam menilai kinerja software dan mendeteksi potensi masalah sebelumnya ditemukan.\n• Membantu dalam meningkatkan efisiensi testing dengan memprediksi bagian kode mana yang paling rentan terhadap kerusakan sehingga perlu diuji lebih lanjut.\n\nJadi, machine learning dapat digunakan untuk mendeteksi kerusakan pada kode, mengidentifikasi potensi masalah, dan meningkatkan efisiensi testing.",
+      "created_at": "2026-04-24T06:20:14.638925-07:00",
+      "references": []
+    }
+  },
+  {
+    "index": 7,
+    "question": "Apa itu software development?",
+    "conversation_id_before_request": 12,
+    "status": "success",
+    "chat_id": 454,
+    "conversation_id": 12,
+    "response_message": "Software development adalah aktivitas yang melibatkan serangkaian prosedur yang menghasilkan perangkat lunak sebagai keluaran.",
+    "raw_response": {
+      "id": 454,
+      "conversation_id": 12,
+      "role": "bot",
+      "message": "Software development adalah aktivitas yang melibatkan serangkaian prosedur yang menghasilkan perangkat lunak sebagai keluaran.",
+      "created_at": "2026-04-24T06:20:51.142986-07:00",
+      "references": []
+    }
+  },
+  {
+    "index": 8,
+    "question": "Bagaimana software development berhubungan dengan Agile software development dan software testing?",
+    "conversation_id_before_request": 12,
+    "status": "success",
+    "chat_id": 456,
+    "conversation_id": 12,
+    "response_message": "Agile development methodologies digunakan oleh perusahaan pengembangan software untuk meningkatkan efisiensi dan kualitas produk. Meskipun demikian, manajemen proyek Agile dapat menjadi tantangan, terutama dalam kasus kecil dan menengah (SMEs). Product Owner dan Scrum Master harus memastikan kualitas produk dan efektifitas tim serta proses.\n\nAgile development tidak secara langsung berhubungan dengan software testing. Namun, beberapa sumber menyebutkan bahwa Agile digunakan dalam konteks software development yang melibatkan kegiatan tes (testing).\n\nAgile development dihubungkan dengan software analytics tools untuk meningkatkan kualitas produk melalui feedback cycle yang singkat dan adaptasi terhadap perubahan pasar.\n\nPerlu diperhatikan bahwa beberapa sumber tidak secara eksplisit menyebutkan hubungan antara Agile development, software testing, dan pengembangan software.",
+    "raw_response": {
+      "id": 456,
+      "conversation_id": 12,
+      "role": "bot",
+      "message": "Agile development methodologies digunakan oleh perusahaan pengembangan software untuk meningkatkan efisiensi dan kualitas produk. Meskipun demikian, manajemen proyek Agile dapat menjadi tantangan, terutama dalam kasus kecil dan menengah (SMEs). Product Owner dan Scrum Master harus memastikan kualitas produk dan efektifitas tim serta proses.\n\nAgile development tidak secara langsung berhubungan dengan software testing. Namun, beberapa sumber menyebutkan bahwa Agile digunakan dalam konteks software development yang melibatkan kegiatan tes (testing).\n\nAgile development dihubungkan dengan software analytics tools untuk meningkatkan kualitas produk melalui feedback cycle yang singkat dan adaptasi terhadap perubahan pasar.\n\nPerlu diperhatikan bahwa beberapa sumber tidak secara eksplisit menyebutkan hubungan antara Agile development, software testing, dan pengembangan software.",
+      "created_at": "2026-04-24T06:21:24.983553-07:00",
+      "references": []
+    }
+  },
+  {
+    "index": 9,
+    "question": "Apa itu software maintenance?",
+    "conversation_id_before_request": 12,
+    "status": "success",
+    "chat_id": 458,
+    "conversation_id": 12,
+    "response_message": "Software maintenance adalah fase di mana pengguna atau developer menemukan masalah dan memperbaikinya sebelum atau setelah rilis berikutnya, tergantung pada tingkat keparahan.",
+    "raw_response": {
+      "id": 458,
+      "conversation_id": 12,
+      "role": "bot",
+      "message": "Software maintenance adalah fase di mana pengguna atau developer menemukan masalah dan memperbaikinya sebelum atau setelah rilis berikutnya, tergantung pada tingkat keparahan.",
+      "created_at": "2026-04-24T06:22:00.436861-07:00",
+      "references": []
+    }
+  },
+  {
+    "index": 10,
+    "question": "Bagaimana software maintenance membantu menjaga software quality setelah proses software development selesai?",
+    "conversation_id_before_request": 12,
+    "status": "success",
+    "chat_id": 460,
+    "conversation_id": 12,
+    "response_message": "Melalui kegiatan pemeliharaan, para pengguna atau pengembang dapat menemukan masalah dan memperbaikinya sebelum rilis berikutnya, tergantung pada tingkat keseriusannya. Software maintenance juga membantu meningkatkan software quality dengan mengurangi biaya testing dan perawatan.",
+    "raw_response": {
+      "id": 460,
+      "conversation_id": 12,
+      "role": "bot",
+      "message": "Melalui kegiatan pemeliharaan, para pengguna atau pengembang dapat menemukan masalah dan memperbaikinya sebelum rilis berikutnya, tergantung pada tingkat keseriusannya. Software maintenance juga membantu meningkatkan software quality dengan mengurangi biaya testing dan perawatan.",
+      "created_at": "2026-04-24T06:22:21.093940-07:00",
+      "references": []
+    }
+  },
+  {
+    "index": 11,
+    "question": "Apa itu deep learning?",
+    "conversation_id_before_request": 12,
+    "status": "success",
+    "chat_id": 462,
+    "conversation_id": 12,
+    "response_message": "Deep Learning adalah desain yang dirancang untuk meneruskan analisis data dengan struktur logika seperti bagaimana seorang manusia dapat menarik kesimpulan. Deep Learning membutuhkan jumlah besar dataset untuk menggunakan input dalam algoritma untuk menghasilkan prediksi yang lebih akurat.",
+    "raw_response": {
+      "id": 462,
+      "conversation_id": 12,
+      "role": "bot",
+      "message": "Deep Learning adalah desain yang dirancang untuk meneruskan analisis data dengan struktur logika seperti bagaimana seorang manusia dapat menarik kesimpulan. Deep Learning membutuhkan jumlah besar dataset untuk menggunakan input dalam algoritma untuk menghasilkan prediksi yang lebih akurat.",
+      "created_at": "2026-04-24T06:22:51.157979-07:00",
+      "references": []
+    }
+  },
+  {
+    "index": 12,
+    "question": "Bagaimana deep learning berbeda dari machine learning dan bagaimana manfaatnya untuk pengembangan sistem AI?",
+    "conversation_id_before_request": 12,
+    "status": "success",
+    "chat_id": 464,
+    "conversation_id": 12,
+    "response_message": "Deep Learning memiliki perbedaan mendasar dengan Machine Learning, yaitu:\n\n• **Struktur Logika**: Deep Learning dirancang untuk terus menganalisis data dengan struktur logika yang meniru cara manusia mengambil kesimpulan.\n• **Penggunaan Data Besar**: Deep Learning memerlukan jumlah data besar sebagai input dalam algoritma untuk mendapatkan prediksi yang lebih akurat.\n\nManfaat dari Deep Learning adalah:\n\n• **Penyempurnaan Prediksi**: Dengan penggunaan data besar, Deep Learning dapat meningkatkan akurasi prediksi.\n• **Pengembangan Sistem AI yang Lebih Baik**: Deep Learning membantu mengembangkan sistem AI yang lebih baik dengan meniru cara manusia berpikir.\n\nNamun, perlu diingat bahwa manfaat Deep Learning juga dipengaruhi oleh kualitas data yang digunakan.",
+    "raw_response": {
+      "id": 464,
+      "conversation_id": 12,
+      "role": "bot",
+      "message": "Deep Learning memiliki perbedaan mendasar dengan Machine Learning, yaitu:\n\n• **Struktur Logika**: Deep Learning dirancang untuk terus menganalisis data dengan struktur logika yang meniru cara manusia mengambil kesimpulan.\n• **Penggunaan Data Besar**: Deep Learning memerlukan jumlah data besar sebagai input dalam algoritma untuk mendapatkan prediksi yang lebih akurat.\n\nManfaat dari Deep Learning adalah:\n\n• **Penyempurnaan Prediksi**: Dengan penggunaan data besar, Deep Learning dapat meningkatkan akurasi prediksi.\n• **Pengembangan Sistem AI yang Lebih Baik**: Deep Learning membantu mengembangkan sistem AI yang lebih baik dengan meniru cara manusia berpikir.\n\nNamun, perlu diingat bahwa manfaat Deep Learning juga dipengaruhi oleh kualitas data yang digunakan.",
+      "created_at": "2026-04-24T06:23:21.331479-07:00",
+      "references": []
+    }
+  },
+  {
+    "index": 13,
+    "question": "Apa itu software metrics?",
+    "conversation_id_before_request": 12,
+    "status": "success",
+    "chat_id": 466,
+    "conversation_id": 12,
+    "response_message": "Software metrics adalah ukuran-ukuran yang digunakan untuk mengukur kualitas dan kompleksitas perangkat lunak. Contoh software metrics antara lain function point analysis, cyclomatic complexity metric, ESM (Error-Severity Metric) values, dll.",
+    "raw_response": {
+      "id": 466,
+      "conversation_id": 12,
+      "role": "bot",
+      "message": "Software metrics adalah ukuran-ukuran yang digunakan untuk mengukur kualitas dan kompleksitas perangkat lunak. Contoh software metrics antara lain function point analysis, cyclomatic complexity metric, ESM (Error-Severity Metric) values, dll.",
+      "created_at": "2026-04-24T06:24:21.063773-07:00",
+      "references": []
+    }
+  },
+  {
+    "index": 14,
+    "question": "Bagaimana software metrics dapat digunakan untuk mengevaluasi software quality dan software maintenance?",
+    "conversation_id_before_request": 12,
+    "status": "success",
+    "chat_id": 468,
+    "conversation_id": 12,
+    "response_message": "Software metrics dapat digunakan untuk mengevaluasi software quality dengan cara:\n\n* Membantu pengembang software dalam memantau kualitas software secara berkala\n* Mengukur kompleksitas software dan mengidentifikasi potensi kesalahan\n* Menganalisis efisiensi dan keamanan sistem software\n\nSelain itu, software metrics juga dapat digunakan untuk mengevaluasi software maintenance dengan cara:\n\n* Mengukur perubahan kode yang dilakukan selama proses pemeliharaan\n* Mengidentifikasi lokasi yang paling rentan terhadap kesalahan\n* Menganalisis kemampuan sistem dalam mendukung perubahan dan perkembangan.",
+    "raw_response": {
+      "id": 468,
+      "conversation_id": 12,
+      "role": "bot",
+      "message": "Software metrics dapat digunakan untuk mengevaluasi software quality dengan cara:\n\n* Membantu pengembang software dalam memantau kualitas software secara berkala\n* Mengukur kompleksitas software dan mengidentifikasi potensi kesalahan\n* Menganalisis efisiensi dan keamanan sistem software\n\nSelain itu, software metrics juga dapat digunakan untuk mengevaluasi software maintenance dengan cara:\n\n* Mengukur perubahan kode yang dilakukan selama proses pemeliharaan\n* Mengidentifikasi lokasi yang paling rentan terhadap kesalahan\n* Menganalisis kemampuan sistem dalam mendukung perubahan dan perkembangan.",
+      "created_at": "2026-04-24T06:25:04.590560-07:00",
+      "references": []
+    }
+  },
+  {
+    "index": 15,
+    "question": "Apa itu software testing?",
+    "conversation_id_before_request": 12,
+    "status": "success",
+    "chat_id": 470,
+    "conversation_id": 12,
+    "response_message": "Software testing adalah \"aktivitas di mana suatu sistem dieksekusi di bawah kondisi yang spesifik, hasilnya diamati atau direkam, dan evaluasi dilakukan terhadap aspek tertentu dari sistem\" (ISO/IEC 24765, 2006) [6].",
+    "raw_response": {
+      "id": 470,
+      "conversation_id": 12,
+      "role": "bot",
+      "message": "Software testing adalah \"aktivitas di mana suatu sistem dieksekusi di bawah kondisi yang spesifik, hasilnya diamati atau direkam, dan evaluasi dilakukan terhadap aspek tertentu dari sistem\" (ISO/IEC 24765, 2006) [6].",
+      "created_at": "2026-04-24T06:25:39.921349-07:00",
+      "references": []
+    }
+  },
+  {
+    "index": 16,
+    "question": "Bagaimana software testing membantu menemukan masalah dan meningkatkan software quality?",
+    "conversation_id_before_request": 12,
+    "status": "success",
+    "chat_id": 472,
+    "conversation_id": 12,
+    "response_message": "Software testing membantu menemukan masalah dan meningkatkan software quality dengan:\n\n* Mengevaluasi perilaku sistem perangkat lunak untuk memastikan bahwa itu sesuai dengan spesifikasinya (ISO/IEC 24765, 2006) [6]\n* Mengidentifikasi klas yang paling rentan terhadap kesalahan dan mengoptimalkan alokasi sumber daya tes (Sumber: Experimental Validation of Inheritance Metrics' Impact on Software Fault Prediction)\n* Meningkatkan efektivitas tes dengan menggunakan metrik software untuk meningkatkan efektifitas tes (Sumber: Efficacy of Inheritance Aspect in Software Fault Prediction—A Survey Paper)",
+    "raw_response": {
+      "id": 472,
+      "conversation_id": 12,
+      "role": "bot",
+      "message": "Software testing membantu menemukan masalah dan meningkatkan software quality dengan:\n\n* Mengevaluasi perilaku sistem perangkat lunak untuk memastikan bahwa itu sesuai dengan spesifikasinya (ISO/IEC 24765, 2006) [6]\n* Mengidentifikasi klas yang paling rentan terhadap kesalahan dan mengoptimalkan alokasi sumber daya tes (Sumber: Experimental Validation of Inheritance Metrics' Impact on Software Fault Prediction)\n* Meningkatkan efektivitas tes dengan menggunakan metrik software untuk meningkatkan efektifitas tes (Sumber: Efficacy of Inheritance Aspect in Software Fault Prediction—A Survey Paper)",
+      "created_at": "2026-04-24T06:26:15.967033-07:00",
+      "references": []
+    }
+  },
+  {
+    "index": 17,
+    "question": "Apa itu systematic literature review?",
+    "conversation_id_before_request": 12,
+    "status": "success",
+    "chat_id": 474,
+    "conversation_id": 12,
+    "response_message": "Systematic Literature Review (SLR) adalah metode penelitian yang kompleks, melibatkan tiga fase utama: perencanaan, pelaksanaan, dan tinjauan. SLR adalah jenis studi sekunder di mana studi primer dipelajari secara tidak berpihak dan berulang-ulang untuk mendefinisikan, menerjemahkan, dan membahas bukti yang relevan dengan pertanyaan penelitian.\n\nSLR memiliki beberapa fase, yaitu:\n- Fase perencanaan: menentukan topik atau pertanyaan penelitian, serta mengidentifikasi sumber-sumber informasi yang relevan.\n- Fase pelaksanaan: mencari dan menganalisis artikel-artikel yang telah dipilih berdasarkan kriteria sebelumnya.\n- Fase tinjauan: meninjau dan menganalisis hasil-hasil dari fase sebelumnya.\n\nSLR digunakan dalam beberapa domain, seperti informasi keamanan (security), pengembangan perangkat lunak (software development) dan sebagainya.",
+    "raw_response": {
+      "id": 474,
+      "conversation_id": 12,
+      "role": "bot",
+      "message": "Systematic Literature Review (SLR) adalah metode penelitian yang kompleks, melibatkan tiga fase utama: perencanaan, pelaksanaan, dan tinjauan. SLR adalah jenis studi sekunder di mana studi primer dipelajari secara tidak berpihak dan berulang-ulang untuk mendefinisikan, menerjemahkan, dan membahas bukti yang relevan dengan pertanyaan penelitian.\n\nSLR memiliki beberapa fase, yaitu:\n- Fase perencanaan: menentukan topik atau pertanyaan penelitian, serta mengidentifikasi sumber-sumber informasi yang relevan.\n- Fase pelaksanaan: mencari dan menganalisis artikel-artikel yang telah dipilih berdasarkan kriteria sebelumnya.\n- Fase tinjauan: meninjau dan menganalisis hasil-hasil dari fase sebelumnya.\n\nSLR digunakan dalam beberapa domain, seperti informasi keamanan (security), pengembangan perangkat lunak (software development) dan sebagainya.",
+      "created_at": "2026-04-24T06:26:59.403304-07:00",
+      "references": []
+    }
+  },
+  {
+    "index": 18,
+    "question": "Bagaimana systematic literature review membantu peneliti membandingkan metode machine learning dan deep learning?",
+    "conversation_id_before_request": 12,
+    "status": "success",
+    "chat_id": 476,
+    "conversation_id": 12,
+    "response_message": "Informasi tersebut tidak ditemukan pada dokumen yang tersedia.",
+    "raw_response": {
+      "id": 476,
+      "conversation_id": 12,
+      "role": "bot",
+      "message": "Informasi tersebut tidak ditemukan pada dokumen yang tersedia.",
+      "created_at": "2026-04-24T06:27:42.728162-07:00",
+      "references": []
+    }
+  },
+  {
+    "index": 19,
+    "question": "Apa itu Agile software development?",
+    "conversation_id_before_request": 12,
+    "status": "success",
+    "chat_id": 478,
+    "conversation_id": 12,
+    "response_message": "Agile software development adalah metodologi pengembangan perangkat lunak yang fleksibel dan mendukung kerja sama tim. Ini digunakan oleh banyak pengembang karena ketersediaan dan keleluasaannya dalam menghadapi tantangan pengembangan perangkat lunak yang kompleks.\n\n(Sumber: Gambar 6 dari \"An Evaluation of Software Measurement Processes in Pakistani Software Industry\")",
+    "raw_response": {
+      "id": 478,
+      "conversation_id": 12,
+      "role": "bot",
+      "message": "Agile software development adalah metodologi pengembangan perangkat lunak yang fleksibel dan mendukung kerja sama tim. Ini digunakan oleh banyak pengembang karena ketersediaan dan keleluasaannya dalam menghadapi tantangan pengembangan perangkat lunak yang kompleks.\n\n(Sumber: Gambar 6 dari \"An Evaluation of Software Measurement Processes in Pakistani Software Industry\")",
+      "created_at": "2026-04-24T06:28:12.998601-07:00",
+      "references": []
+    }
+  },
+  {
+    "index": 20,
+    "question": "Bagaimana Agile software development mempengaruhi software development, software testing, dan software maintenance?",
+    "conversation_id_before_request": 12,
+    "status": "success",
+    "chat_id": 480,
+    "conversation_id": 12,
+    "response_message": "Berikut adalah jawaban berdasarkan konteks:\n\nAgile software development memiliki beberapa dampak pada software development, software testing, dan software maintenance.\n\n* Agile mempengaruhi software development dengan:\n + Menggunakan praktek-praktek agile seperti continuous integration untuk mendeteksi dan memperbaiki kesalahan secepat mungkin.\n + Meningkatkan fleksibilitas dan adaptasi terhadap perubahan pasar dengan menggunakan siklus umpan balik yang singkat.\n* Agile mempengaruhi software testing dengan:\n + Meningkatkan kemampuan untuk mendeteksi dan memperbaiki kesalahan secepat mungkin melalui continuous integration.\n + Menggunakan praktek-praktek agile seperti continuous testing untuk meningkatkan efisiensi testing.\n* Agile mempengaruhi software maintenance dengan:\n + Meningkatkan kemampuan untuk mendeteksi dan memperbaiki kesalahan secepat mungkin melalui continuous integration dan continuous testing.\n + Menggunakan praktek-praktek agile seperti continuous delivery untuk meningkatkan efisiensi dalam merilis perubahan software.\n\nInformasi tersebut ditemukan pada beberapa sumber yang berbeda, yaitu [Source: Measuring and Improving Agile Processes in a Small-Size Software Development Company] dan [Source: Continuously Assessing and Improving Software Quality With Software Analytics Tools: A Case Study].",
+    "raw_response": {
+      "id": 480,
+      "conversation_id": 12,
+      "role": "bot",
+      "message": "Berikut adalah jawaban berdasarkan konteks:\n\nAgile software development memiliki beberapa dampak pada software development, software testing, dan software maintenance.\n\n* Agile mempengaruhi software development dengan:\n + Menggunakan praktek-praktek agile seperti continuous integration untuk mendeteksi dan memperbaiki kesalahan secepat mungkin.\n + Meningkatkan fleksibilitas dan adaptasi terhadap perubahan pasar dengan menggunakan siklus umpan balik yang singkat.\n* Agile mempengaruhi software testing dengan:\n + Meningkatkan kemampuan untuk mendeteksi dan memperbaiki kesalahan secepat mungkin melalui continuous integration.\n + Menggunakan praktek-praktek agile seperti continuous testing untuk meningkatkan efisiensi testing.\n* Agile mempengaruhi software maintenance dengan:\n + Meningkatkan kemampuan untuk mendeteksi dan memperbaiki kesalahan secepat mungkin melalui continuous integration dan continuous testing.\n + Menggunakan praktek-praktek agile seperti continuous delivery untuk meningkatkan efisiensi dalam merilis perubahan software.\n\nInformasi tersebut ditemukan pada beberapa sumber yang berbeda, yaitu [Source: Measuring and Improving Agile Processes in a Small-Size Software Development Company] dan [Source: Continuously Assessing and Improving Software Quality With Software Analytics Tools: A Case Study].",
+      "created_at": "2026-04-24T06:28:51.528651-07:00",
+      "references": []
+    }
+  }
+]

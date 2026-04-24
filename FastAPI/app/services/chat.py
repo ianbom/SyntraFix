@@ -6,7 +6,7 @@ import re
 import time
 
 from app.models.chat import Conversation, Chat, ChatReference, ChatRole
-from app.models.document_chunk import DocumentChunk
+from app.models.document_chunk import ChunkType, DocumentChunk
 from app.schemas.chat import ChatRequest, ChatResponse, ConversationResponse
 from app.services.llm import generate_response, generate_response_stream
 from app.services.embedding import generate_embedding
@@ -21,6 +21,40 @@ class ChatService:
     @staticmethod
     def _print_timing(function_name: str, elapsed_seconds: float):
         print(f"[SERVICE TIMING] {function_name}: {elapsed_seconds:.4f}s")
+
+    @staticmethod
+    def _chunk_type_value(chunk: DocumentChunk) -> Optional[str]:
+        if chunk.chunk_type is None:
+            return None
+        return getattr(chunk.chunk_type, "value", str(chunk.chunk_type))
+
+    @staticmethod
+    def _is_noisy_visual_or_table_summary(candidate: Dict[str, Any]) -> bool:
+        chunk_type = str(candidate.get("chunk_type") or "").lower()
+        if chunk_type not in {ChunkType.IMAGE.value, ChunkType.TABLE.value}:
+            return False
+
+        content = " ".join(str(candidate.get("content") or "").lower().split())
+        if not content:
+            return True
+
+        noisy_phrases = (
+            "maaf, saya tidak dapat",
+            "tidak dapat menginterpretasikan",
+            "tidak dapat melihat",
+            "tidak bisa melihat",
+            "gambar tersebut tidak tersedia",
+            "gambar tidak tersedia",
+            "table tidak tersedia",
+            "tabel tidak tersedia",
+            "tidak tersedia dalam konteks",
+            "unable to interpret",
+            "cannot interpret",
+            "cannot see",
+            "image is not available",
+            "table is not available",
+        )
+        return any(phrase in content for phrase in noisy_phrases)
 
     def create_conversation(self, user_id: int, title: str) -> Conversation:
         conversation = Conversation(user_id=user_id, title=title)
@@ -479,6 +513,15 @@ Pertanyaan asli: {query}"""
                 self._build_candidate_score(row, "question")
                 for row in question_rows
             )
+            before_filter_count = len(candidate_rows)
+            candidate_rows = [
+                candidate
+                for candidate in candidate_rows
+                if not self._is_noisy_visual_or_table_summary(candidate)
+            ]
+            removed_count = before_filter_count - len(candidate_rows)
+            if removed_count:
+                print(f"  [emb#{emb_idx}] Removed {removed_count} noisy table/image candidates")
 
             best_scores = self._merge_candidate_scores(best_scores, candidate_rows)
 
@@ -562,6 +605,7 @@ Pertanyaan asli: {query}"""
             "document_title": doc.title,
             "section_title": chunk.section_title,
             "page_number": chunk.page_number,
+            "chunk_type": self._chunk_type_value(chunk),
             "content": chunk.content,
             "semantic_score": sem_score,
             "question_score": q_score,

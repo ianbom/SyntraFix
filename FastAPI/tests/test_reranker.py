@@ -28,6 +28,29 @@ def test_parse_rerank_response_returns_empty_for_invalid_json():
     assert reranker.parse_rerank_response("bukan json", candidates) == []
 
 
+def test_build_rerank_prompt_prioritizes_direct_answers_over_keywords():
+    prompt = reranker._build_rerank_prompt(
+        "Apa hasil akurasi model CNN?",
+        [
+            {
+                "chunk_id": 10,
+                "document_title": "Dokumen CNN",
+                "section_title": "Results",
+                "page_number": 4,
+                "chunk_type": "table",
+                "hybrid_score": 0.8,
+                "content": "Tabel hasil akurasi model CNN mencapai 95%.",
+            }
+        ],
+        limit=1,
+    )
+
+    assert "bukan berdasarkan kemunculan keyword saja" in prompt
+    assert "maksimal 0.35" in prompt
+    assert "figure/table/image summary" in prompt
+    assert "tipe_chunk: table" in prompt
+
+
 @pytest.mark.asyncio
 async def test_rerank_chunks_falls_back_to_hybrid_order_when_llm_fails(monkeypatch):
     async def fake_generate_response(_prompt: str) -> str:

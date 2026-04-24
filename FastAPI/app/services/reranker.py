@@ -113,6 +113,7 @@ def _build_rerank_prompt(query: str, candidates: List[Dict[str, Any]], limit: in
                     f"dokumen: {candidate.get('document_title') or 'Unknown Document'}",
                     f"bagian: {candidate.get('section_title') or '-'}",
                     f"halaman: {candidate.get('page_number') or '-'}",
+                    f"tipe_chunk: {candidate.get('chunk_type') or '-'}",
                     f"skor_awal: {float(candidate.get('hybrid_score') or 0.0):.4f}",
                     f"konten: {content[:1200]}",
                 ]
@@ -124,13 +125,18 @@ def _build_rerank_prompt(query: str, candidates: List[Dict[str, Any]], limit: in
 Pertanyaan user:
 {query}
 
-Nilai setiap kandidat berdasarkan seberapa langsung kandidat tersebut menjawab pertanyaan user.
+Nilai setiap kandidat berdasarkan seberapa langsung kandidat tersebut menjawab pertanyaan user, bukan berdasarkan kemunculan keyword saja.
 Pilih maksimal {limit} kandidat paling relevan.
 
 ATURAN:
 - Gunakan hanya chunk_id yang tersedia pada daftar kandidat.
 - Score harus angka 0 sampai 1.
-- Semakin langsung menjawab pertanyaan, semakin tinggi score.
+- Beri score tinggi hanya jika konten memuat fakta yang langsung menjawab pertanyaan user.
+- Jika kandidat hanya mengandung keyword yang sama tetapi tidak menjawab pertanyaan, beri score rendah maksimal 0.35.
+- Penalti chunk background umum, metadata dokumen, daftar referensi, atau definisi yang tidak ditanyakan.
+- Chunk figure/table/image summary hanya boleh dipilih jika summary tersebut memuat jawaban langsung.
+- Jika chunk figure/table/image hanya menjelaskan keterbatasan, gambar tidak tersedia, atau tidak dapat diinterpretasikan, beri score sangat rendah.
+- Reason harus menyebutkan bukti singkat yang membuat kandidat menjawab langsung.
 - Jawab HANYA JSON array, tanpa markdown.
 
 KANDIDAT:

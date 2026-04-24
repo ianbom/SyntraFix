@@ -1,51 +1,20 @@
 Apa itu software engineering?
-Jelaskan software engineering secara singkat.
-Mengapa software engineering penting?
-Mengapa Agile software development penting?
-Apa manfaat Agile software development?
-Bagaimana Agile software development dilakukan?
-Jelaskan machine learning secara singkat.
-Mengapa machine learning digunakan?
-Apa manfaat machine learning?
-Mengapa software maintenance penting?
-Apa tujuan software engineering?
-Apa manfaat software engineering?
+Bagaimana software engineering membantu meningkatkan software quality dan software maintenance?
 Apa itu software quality?
-Jelaskan software quality dengan sederhana.
-Mengapa software quality penting?
-Apa manfaat software quality?
-Bagaimana software quality dinilai?
+Bagaimana software quality dinilai menggunakan software metrics dan software testing?
 Apa itu machine learning?
-Bagaimana machine learning bekerja?
+Bagaimana machine learning dapat digunakan dalam software engineering untuk meningkatkan kualitas perangkat lunak?
 Apa itu software development?
-Jelaskan software development dengan sederhana.
-Mengapa software development penting?
-Apa tujuan software development?
-Apa manfaat software development?
+Bagaimana software development berhubungan dengan Agile software development dan software testing?
 Apa itu software maintenance?
-Jelaskan software maintenance secara singkat.
-Apa manfaat software maintenance?
-Kapan software maintenance dilakukan?
+Bagaimana software maintenance membantu menjaga software quality setelah proses software development selesai?
 Apa itu deep learning?
-Jelaskan deep learning dengan sederhana.
-Mengapa deep learning digunakan?
-Apa manfaat deep learning?
-Bagaimana deep learning bekerja?
+Bagaimana deep learning berbeda dari machine learning dan bagaimana manfaatnya untuk pengembangan sistem AI?
 Apa itu software metrics?
-Jelaskan software metrics secara singkat.
-Mengapa software metrics penting?
-Apa manfaat software metrics?
-Bagaimana software metrics digunakan?
+Bagaimana software metrics dapat digunakan untuk mengevaluasi software quality dan software maintenance?
 Apa itu software testing?
-Jelaskan software testing dengan sederhana.
-Mengapa software testing penting?
-Apa manfaat software testing?
-Kapan software testing dilakukan?
+Bagaimana software testing membantu menemukan masalah dan meningkatkan software quality?
 Apa itu systematic literature review?
-Jelaskan systematic literature review secara singkat.
-Mengapa systematic literature review penting?
-Apa tujuan systematic literature review?
-Apa manfaat systematic literature review?
+Bagaimana systematic literature review membantu peneliti membandingkan metode machine learning dan deep learning?
 Apa itu Agile software development?
-Jelaskan Agile software development dengan sederhana.
-
+Bagaimana Agile software development mempengaruhi software development, software testing, dan software maintenance?
