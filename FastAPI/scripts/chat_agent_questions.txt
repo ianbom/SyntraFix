@@ -1,20 +1,40 @@
-Apa itu software engineering?
-Bagaimana software engineering membantu meningkatkan software quality dan software maintenance?
-Apa itu software quality?
-Bagaimana software quality dinilai menggunakan software metrics dan software testing?
-Apa itu machine learning?
-Bagaimana machine learning dapat digunakan dalam software engineering untuk meningkatkan kualitas perangkat lunak?
-Apa itu software development?
-Bagaimana software development berhubungan dengan Agile software development dan software testing?
-Apa itu software maintenance?
-Bagaimana software maintenance membantu menjaga software quality setelah proses software development selesai?
-Apa itu deep learning?
-Bagaimana deep learning berbeda dari machine learning dan bagaimana manfaatnya untuk pengembangan sistem AI?
-Apa itu software metrics?
-Bagaimana software metrics dapat digunakan untuk mengevaluasi software quality dan software maintenance?
+Apa hubungan software metrics dengan software testing?
+Bagaimana software metrics membantu software maintenance?
+Bagaimana software metrics dapat memantau software development?
+Bagaimana machine learning dapat memanfaatkan software metrics untuk prediksi defect?
 Apa itu software testing?
-Bagaimana software testing membantu menemukan masalah dan meningkatkan software quality?
+Mengapa software testing penting?
+Apa tujuan software testing?
+Bagaimana software testing meningkatkan software quality?
+Apa hubungan software testing dengan software development?
+Bagaimana software testing membantu software maintenance?
+Bagaimana software metrics digunakan untuk mengevaluasi hasil software testing?
+Bagaimana Agile software development mempengaruhi software testing?
+Bagaimana software testing dilakukan pada sistem machine learning?
 Apa itu systematic literature review?
-Bagaimana systematic literature review membantu peneliti membandingkan metode machine learning dan deep learning?
+Mengapa systematic literature review penting?
+Apa tujuan systematic literature review dalam penelitian software engineering?
+Bagaimana systematic literature review membantu membandingkan metode machine learning?
+Bagaimana systematic literature review digunakan untuk menemukan faktor software quality?
+Apa hubungan systematic literature review dengan software metrics?
+Bagaimana systematic literature review membantu memilih metode software testing?
+Bagaimana systematic literature review dapat mengevaluasi penelitian deep learning?
+Mengapa systematic literature review berguna untuk topik software maintenance?
 Apa itu Agile software development?
-Bagaimana Agile software development mempengaruhi software development, software testing, dan software maintenance?
+Mengapa Agile software development penting?
+Apa manfaat Agile software development?
+Bagaimana Agile software development berbeda dari metode tradisional?
+Bagaimana Agile software development mendukung software quality?
+Bagaimana Agile software development mempengaruhi software testing?
+Bagaimana Agile software development membantu software maintenance?
+Bagaimana Agile software development diterapkan dalam software engineering?
+Bagaimana Agile software development dapat digunakan pada proyek machine learning?
+Apa itu CNN?
+Mengapa CNN digunakan dalam deep learning?
+Bagaimana CNN bekerja secara sederhana?
+Apa manfaat CNN dalam pengolahan citra?
+Bagaimana CNN berbeda dari machine learning tradisional?
+Bagaimana software engineering membantu pengembangan sistem CNN?
+Bagaimana software testing dilakukan untuk model CNN?
+Bagaimana software metrics dapat mengevaluasi performa CNN?
+Bagaimana systematic literature review membantu membandingkan metode CNN?

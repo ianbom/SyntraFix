@@ -1,0 +1,345 @@
+# RAGAS Test Data
+
+File ini digenerate dari tabel `chats`, `chat_references`, dan `document_chunks`.
+`retrieved_context` memakai `document_chunks.content` jika tersedia, lalu fallback ke `chat_references.quote`.
+`reference` sengaja dikosongkan agar dapat diisi manual.
+
+## Sample 16
+
+- conversation_id: 13
+- user_chat_id: 621
+- bot_chat_id: 622
+
+### user_input
+
+Bagaimana systematic literature review digunakan untuk menemukan faktor software quality?
+
+### retrieved_context
+
+1. To present a comprehensive picture of quality for AI-based software, we conducted a systematic literature analysis following the approach by Kitchenham [14]. Systematic literature studies in software engineering can include reviews and syntheses of prior work, enabling researchers to gain an understanding of the state of a particular research subject. The findings of this SLR research should provide a more comprehensive picture of the gaps and support for software quality in the context of AI-based software systems. The following sections conduct key processes such as literature selection, string searches, and data extraction techniques in accordance with the guidelines of Peterson [15]. (Taxonomy of Quality Assessment for Intelligent Software Systems: A Systematic Literature Review, page 2)
+
+2. Table 1 show a large number of results found by using the Tabel ini membahas tentang taksonomi penilaian kualitas untuk sistem perangkat lunak cerdas. Tabel ini menjelaskan langkah-langkah dalam melakukan tinjauan pustaka sistematis, termasuk identifikasi pertanyaan penelitian individu yang dapat memandu pengembangan dan informasi bagi pembaca tentang fokus utama dari studi tersebut.
+
+Dari tabel ini kita bisa melihat bahwa ada beberapa langkah penting dalam melakukan tinjauan pustaka sistematis. Pertama, kita harus menentukan tujuan dan objek penelitian dengan jelas. Kemudian, kita harus mengidentifikasi pertanyaan penelitian individu yang dapat memandu pengembangan dan informasi bagi pembaca tentang fokus utama dari studi tersebut.
+
+Kita juga bisa melihat bahwa tabel ini membahas tentang beberapa hal penting seperti:
+
+* Identifikasi pertanyaan penelitian individu
+* Menentukan tujuan dan objek penelitian
+* Mengidentifikasi database literatur yang relevan
+* Menggunakan teknik ekstraksi data untuk memperoleh hasil
+
+Dari analisis tabel ini, kita bisa menyimpulkan bahwa melakukan tinjauan pustaka sistematis memerlukan langkah-langkah yang sistematis dan metodeologi. Kita harus memiliki pertanyaan penelitian individu yang jelas, menentukan tujuan dan objek penelitian dengan baik, serta menggunakan database literatur yang relevan untuk memperoleh hasil yang akurat. (Taxonomy of Quality Assessment for Intelligent Software Systems: A Systematic Literature Review, page 3)
+
+3. In order to effectively coordinate and evaluate software quality management efforts, software companies use software quality models [34], [37], [44], [45]. The earliest software quality model was proposed by McCall in 1976. The McCall model was later revised by Boehm and Dromey [41], [44], [46], [47]. Recently developed software quality evaluation models include ISO/IEC 25010 which outlines 8 attributes to be used for software quality assessment. In contrast, the earlier version ISO/IEC 9126 adopts 6 characteristics [44], [45], [48].
+
+Despite being viewed as a useful tool for quality assurance [44], software standards or models lack functionality and practical application owing to the ambiguity involved [37], [47]. Gorla and Lin as cited in [49] propose a software quality assessment model that includes relevance and usefulness (i.e., functionality), usability, maintainability, and reliability attributes. On the other hand, other scholars identify usability, reliability, functionality, performance efficiency, portability, and maintainability as important quality measurements [40], [46]. Similarly, several studies identify functionality, usability, reliability, performance efficiency, and maintainability as the most impactful measures of software quality [14], [41], [43], [45]. Consequently, functionality, usability, performance efficiency, reliability, and maintainability indicators are adopted for the evaluation of software quality in this study. (How Software Quality Mediates the Impact of Intellectual Capital on Commercial Open-Source Software Company Success, page 1)
+
+4. TABLE 20. Quality assessment criterion.
+
+Data dari tabel ini memuat informasi tentang kriteria penilaian kualitas dalam sistem literatur ulasan yang sistematis. Data menunjukkan bahwa ada dua buah karya ilmiah yang dinilai, yaitu "SA Degradation in OSS" oleh Baabad et al. dan beberapa artikel lainnya. Dua kolom utama di tabel ini adalah 'QUALITY ASSESSMENT CRI' (kriteria penilaian kualitas) dan 'TERION' (terdapat nilai yang dituliskan). Namun, dari data yang tersedia, tidak jelas arti dari isi pada kolom 'TERION'. Data juga mencakup daftar referensi yang menunjukkan beberapa artikel ilmiah terkait arsitektur perangkat lunak dan sistem penilaian kualitas. (Software Architecture Degradation in Open Source Software: A Systematic Literature Review, page 27)
+
+5. • Purpose -Systematic literature review.
+
+• Objective -Peer-reviewed research papers in computer science and software engineering.
+
+• Issue -Taxonomies for evaluating the quality of intelligent software systems.
+
+• Viewpoint -Software engineers and industry practitioners.
+
+This SLR aims to answer the general question, ''How is quality defined or studied for AI-based software?'' Using the formulated GQM model above, this review focused on AIbased software attributes and attempted to find answers to the following research questions: RQ1: What are the existing approaches for assessing the quality of software systems for artificial intelligence? RQ2: Which measurable attributes of software systems for artificial intelligence, and which statistical or machine learning models are commonly used for estimating the quality of such systems? RQ3: How effective are such attributes and models?
+
+The motivation for RQ1 was to understand what existing research has produced in terms of general approaches to evaluate the quality of AI-based software projects originating from open-source software project sources.
+
+The motivation for RQ2 was to identify which particular subsets of measurable software attributes are used to define the ongoing status of intelligent systems and which methods are commonly used for the quality assessment of such systems.
+
+The motivation for RQ3 was to rank such methods, approaches, and attributes in terms of effectiveness and reliability. (Taxonomy of Quality Assessment for Intelligent Software Systems: A Systematic Literature Review, page 1)
+
+6. TABLE 8. Methods used in the reviewed papers.
+
+Tabel ini menjabarkan metode-metode yang digunakan dalam kajian-kajian literatur terkait asesmen mutu sistem perangkat lunak cerdas. Terdapat 29 baris data dan 9 kolom variabel utama, meliputi: nama penulis, judul publikasi, tahun publikasi, metode pengukuran atribut kualitas, model pengukuran, metode analisis, alat analisis, hasil penelitian, dan catatan tambahan.
+
+Variabel utama dalam tabel ini adalah 'Metode Pengukuran Atribut Kualitas' yang menjabarkan berbagai cara untuk mengukur atribut-atribut mutu sistem perangkat lunak cerdas. Nilai penting yang dapat dilihat dari tabel ini adalah bahwa mayoritas penelitian fokus pada pengembangan model khusus yang disesuaikan dengan konteks aplikasi tertentu, serta adanya kesenjangan dalam penggunaan metode pengukuran atribut mutu.
+
+Insight singkat yang dapat diambil dari tabel ini adalah bahwa masih banyak penelitian yang memfokuskan pada adaptasi model kualitas yang sudah ada tanpa mengembangkan model yang lebih luas dan fleksibel untuk konteks aplikasi berbeda. (Taxonomy of Quality Assessment for Intelligent Software Systems: A Systematic Literature Review, page 12)
+
+7. TABLE 1. Examples of actions to improve software quality for the adalah tabel yang menyajikan contoh tindakan untuk meningkatkan kualitas perangkat lunak dengan menggunakan alat analitik perangkat lunak. Tabel ini terdiri dari 38 baris dan memiliki 8 kolom.
+
+Tabel tersebut menjelaskan beberapa indikator strategis yang digunakan untuk mengevaluasi kinerja perangkat lunak, seperti "Blocking" yang merupakan indikator strategis untuk mengidentifikasi potensi masalah dalam proses pengembangan. Dalam tabel ini juga dapat dilihat bahwa ada empat faktor utama yang digunakan untuk menilai kualitas perangkat lunak: Code Smells, Design Issues, Performance, dan Security.
+
+Salah satu contoh kasus yang disajikan dalam tabel adalah "Blocking" files problem yang dialami oleh perusahaan NeverLate. Dalam kasus ini, analis perangkat lunak dapat menggunakan alat analitik untuk mengidentifikasi klas-klas file yang memiliki kualitas rendah dan membutuhkan perbaikan.
+
+Analisis dari tabel menunjukkan bahwa perusahaan yang menggunakan Q-Rapids dapat meningkatkan kualitas perangkat lunak mereka dengan menggunakan data historis dan visualisasi data. Dengan demikian, mereka dapat mengidentifikasi masalah-masalah yang signifikan dan mengambil tindakan untuk memperbaiki kinerja perangkat lunak.
+
+Dalam kesimpulan, tabel ini menunjukkan bahwa penggunaan alat analitik perangkat lunak dapat membantu meningkatkan kualitas perangkat lunak dengan cara yang lebih objektif dan data-driven. (Continuously Assessing and Improving Software Quality With Software Analytics Tools: A Case Study, page 6)
+
+8. There are two different techniques to identify the primary sources for literature review studies [44]. In the first technique, which is common in the software engineering community, search strings are developed and then executed on different digital libraries (e.g., ACM Digital Library) [45].
+
+The second one is more common in the information systems community and starts with identifying a pool of initial papers, followed by the backward snowballing technique [23]. Jalali and Wohlin [44] applied both techniques on Agile practices in Global Software Engineering (GSD) and realized that although these techniques led to the identification of different sets of studies, no significant differences were observed in the findings. Human values have been researched in many domains across different research areas. In Section II, we discussed that there is no consensus on what human values are, and there are many values models that cover a different number of human values with various terminologies. Further to this, there is no established theory on human values within the software engineering community [19]. Due to these limitations, it was not possible for us to build a search string that covers all human values and execute it on different digital libraries. Hence, we decided to follow the approach proposed by Webster and Watson in the information systems community, which includes the following two steps [23]. Figure 2 shows our paper collection process. (Operationalizing Human Values in Software Engineering: A Survey, page 6)
+
+### response
+
+Systematic literature review digunakan untuk menemukan faktor-faktor yang mempengaruhi kualitas perangkat lunak melalui analisis literatur yang sistematis. Berdasarkan konteks yang diberikan, systematic literature review digunakan untuk:
+
+* Menentukan tujuan dan objek penelitian dengan jelas
+* Mengidentifikasi pertanyaan penelitian individu yang dapat memandu pengembangan dan informasi bagi pembaca tentang fokus utama dari studi tersebut
+* Menggunakan teknik ekstraksi data untuk memperoleh hasil
+* Menganalisis hasil penelitian untuk menemukan faktor-faktor yang mempengaruhi kualitas perangkat lunak
+
+Dalam konteks ini, systematic literature review digunakan untuk menemukan faktor-faktor yang mempengaruhi kualitas perangkat lunak melalui analisis literatur yang sistematis dan metodeologi.
+
+### reference
+
+
+Kita juga bisa melihat bahwa tabel ini membahas tentang beberapa hal penting seperti: * Identifikasi pertanyaan penelitian individu * Menentukan tujuan dan objek penelitian * Mengidentifikasi database literatur yang relevan * Menggunakan teknik ekstraksi data untuk memperoleh hasil Dari analisis tabel ini, kita bisa menyimpulkan bahwa melakukan tinjauan pustaka sistematis memerlukan langkah-langkah yang sistematis dan metodeologi. Tabel ini menjelaskan langkah-langkah dalam melakukan tinjauan pustaka sistematis, termasuk identifikasi pertanyaan penelitian individu yang dapat memandu pengembangan dan informasi bagi pembaca tentang fokus utama dari studi tersebut. Kita harus memiliki pertanyaan penelitian individu yang jelas, menentukan tujuan dan objek penelitian dengan baik, serta menggunakan database literatur yang relevan untuk memperoleh hasil yang akurat. (Taxonomy of Quality Assessment for Intelligent Software Systems: A Systematic Literature Review, page 3)
+
+---
+
+## Sample 17
+
+- conversation_id: 13
+- user_chat_id: 623
+- bot_chat_id: 624
+
+### user_input
+
+Apa hubungan systematic literature review dengan software metrics?
+
+### retrieved_context
+
+1. Software metrics are foundation to quantify complexity, quality of software, and project costs with effort estimation. Function points and cyclomatic complexity are traditional metrics. These are being utilized in the paradigm of procedure language. Nonetheless, these may not merely be utilized in the context of object-oriented [21]. The procedural languages are less complex while comparing with object-oriented programming language [22]. The majority of studies specified hurdles in moving from a procedural approach towards an objectoriented paradigm [23].In object-oriented, it is problematic to comprehend how inheritance, abstraction, and encapsulation associated with each other. (Efficacy of Inheritance Aspect in Software Fault Prediction—A Survey Paper, page 1)
+
+2. The software metrics are the basis to measure the complexity, quality of software and estimate cost along with efforts of projects. Traditional metrics such as function point and cyclomatic complexity have been employed in the procedure paradigm. But, these are not simply used in object-oriented paradigm [39], [40]. Object Oriented programming is complex while comparing it with procedural languages [41]. Most studies stated difficulty in switching to the object-oriented paradigm from the procedural approach [42]. In Objectoriented Programming, it is difficult to understand how features, for example abstraction, inheritance and encapsulation relate to each other [43]. (Experimental Validation of Inheritance Metrics’ Impact on Software Fault Prediction, page 1)
+
+3. Kupiainen et al. [22] conducted a systematic review of the use and impact of software metrics in ASD in industry. The authors reported that software metrics are mainly used for sprint planning, tracking progress, improving software quality, fixing software process, and motivating people. The authors reported that metrics like velocity, effort estimation, customer satisfaction, defect count, technical debt and build are used prominently in ASD. In their systematic review, Tahir et al. [46] observed that metrics for defects, effort, size, duration, productivity, employee commitment, and customer satisfaction are commonly reported in the state of the art. These findings complement another review by Gómez et al. [15], where complexity and size were found to be the most measured attributes in MPs. Other usage of metrics in ASD discussed in the literature are for planning and tracking software development [22], understanding development performance and product quality [48], measuring process quality [50], estimating effort [47], and reporting progress and quality to stakeholders not involved in the actual development [4]. Taken together, metrics targeting sprint planning, fixing software process, effort estimation, development performance, and software defects can be used to measure an organization's process performance. However, this objective is not expressly stated in any of the reviews mentioned above. On the contrary, [22] remarked that more studies are needed to explore the rationale behind utilizing the metrics the authors found in their review. (Measuring and Improving Agile Processes in a Small-Size Software Development Company, page 3)
+
+4. TABLE 1. Rank wise comparison of success factors across SLR and empirical study.
+
+Data di dalam tabel menampilkan perbandingan antara faktor keberhasilan (success factors) dari studi literatur sistematis (SLR) dan penelitian empiris. Ada dua kolom utama yang dapat dilihat, yaitu peringkat (rank) untuk setiap faktor keberhasilan di SLR dan penelitian empiris.
+
+Dari data yang tersedia, tidak ada informasi tentang variabel/kolom yang lebih spesifik selain nama-nama faktor keberhasilan. Namun, nilai atau pola penting dapat dilihat dari perbandingan antara kedua metode. Contohnya, faktor "SF20: proses evaluasi peningkatan" menerima peringkat yang lebih tinggi di penelitian empiris dibandingkan dengan SLR.
+
+Insight singkat yang dapat disimpulkan adalah bahwa ada perbedaan dalam prioritas penilaian faktor keberhasilan antara studi literatur sistematis dan penelitian empiris. Penelitian ini menunjukkan pentingnya memahami bagaimana praktisi melihat kriteria keberhasilan dalam implementasi proses perbaikan software, yang berbeda dari apa yang telah ditulis di literatur. (SPIIMM: Toward a Model for Software Process Improvement Implementation and Management in Global Software Development, page 5)
+
+5. Metrics and roles play a fundamental role in SD, as supported by GAI. The utilization of these metrics enables the establishment of an objective for evaluating the quality of AI-generated codes, including their accuracy and efficiency. These measures empower developers to evaluate the congruence between the resulting artifacts and original objectives, thereby identifying opportunities for enhancement [21], [22]. More broadly, metrics support software engineering quality assessment by quantifying the key characteristics of the development process, including efficiency and maintainability. A review of the literature reveals that commonly reported metrics include structural complexity measures, which assess software architecture using indicators such as the number of modules and interconnections [23]. Quality metrics are used to forecast software reliability and support decision-making throughout the SDLC [24]. Finally, productivity metrics are reported, and these assess the impact of GAI-based tools on development speed, quality, and overall efficiency [6], [25]. (Generative Artificial Intelligence for Software Development Using ISO/IEC 29110 Basic Profile: Gaps and Opportunities, page 2)
+
+6. Metrics and roles play a fundamental role in SD, as supported by GAI. The utilization of these metrics enables the establishment of an objective for evaluating the quality of AI-generated codes, including their accuracy and efficiency. These measures empower developers to evaluate the congruence between the resulting artifacts and original objectives, thereby identifying opportunities for enhancement [21], [22]. More broadly, metrics support software engineering quality assessment by quantifying the key characteristics of the development process, including efficiency and maintainability. A review of the literature reveals that commonly reported metrics include structural complexity measures, which assess software architecture using indicators such as the number of modules and interconnections [23]. Quality metrics are used to forecast software reliability and support decision-making throughout the SDLC [24]. Finally, productivity metrics are reported, and these assess the impact of GAI-based tools on development speed, quality, and overall efficiency [6], [25]. (Generative Artificial Intelligence for Software Development Using ISO/IEC 29110 Basic Profile: Gaps and Opportunities, page 2)
+
+7. There is a long history of research on metrics programs (MPs) [24], and plenty of literature recommending success factors for their implementation [17], [28], [34], [44]. However, literature on SMEs using MPs in the context of Agile is rather scarce. Moreover, the literature on measuring software processes and their role in improving SME processes is even scarcer. Measuring software processes with the use of process metrics enables objective and quantitative evaluation of software processes, which can lead to continuous improvement and learning [34], [42]. However, measuring process metrics is a challenge [43]. Software processes are inherently complex and intangible, which makes their measurement more difficult than their product counterparts [19], [41]. Ideally, measurement activities should consume little effort and time, while being adequate enough to meet an organization's measurement demands. Software organizations need to weigh in cost-efficiency while prioritizing measurement objectives and targets. SMEs have the added constraints of limited budget, ambitious deadlines, and short-term strategy [45]. Due to these reasons, measuring software processes, especially in an SME, becomes a bigger challenge. (Measuring and Improving Agile Processes in a Small-Size Software Development Company, page 3)
+
+8. To present a comprehensive picture of quality for AI-based software, we conducted a systematic literature analysis following the approach by Kitchenham [14]. Systematic literature studies in software engineering can include reviews and syntheses of prior work, enabling researchers to gain an understanding of the state of a particular research subject. The findings of this SLR research should provide a more comprehensive picture of the gaps and support for software quality in the context of AI-based software systems. The following sections conduct key processes such as literature selection, string searches, and data extraction techniques in accordance with the guidelines of Peterson [15]. (Taxonomy of Quality Assessment for Intelligent Software Systems: A Systematic Literature Review, page 2)
+
+### response
+
+Systematic Literature Review digunakan untuk melakukan analisis literatur sistematis mengenai software metrics, seperti yang disebutkan dalam konteks "Measuring and Improving Agile Processes in a Small-Size Software Development Company" [24] dan "Taxonomy of Quality Assessment for Intelligent Software Systems: A Systematic Literature Review".
+
+### reference
+
+
+On the contrary, [22] remarked that more studies are needed to explore the rationale behind utilizing the metrics the authors found in their review. (Measuring and Improving Agile Processes in a Small-Size Software Development Company, page 3) Due to these reasons, measuring software processes, especially in an SME, becomes a bigger challenge. (Measuring and Improving Agile Processes in a Small-Size Software Development Company, page 3) The following sections conduct key processes such as literature selection, string searches, and data extraction techniques in accordance with the guidelines of Peterson [15]. (Taxonomy of Quality Assessment for Intelligent Software Systems: A Systematic Literature Review, page 2)
+
+---
+
+## Sample 18
+
+- conversation_id: 13
+- user_chat_id: 627
+- bot_chat_id: 628
+
+### user_input
+
+Bagaimana systematic literature review dapat mengevaluasi penelitian deep learning?
+
+### retrieved_context
+
+1. A comprehensive literature review is imperative to identify and analyze recent advances and contributions to GAI in SD. To facilitate a systematic and rigorous examination, it is essential to implement well-defined review protocols and structured methodologies. These protocols and methodologies must be employed to ensure the efficient organization, synthesis, and interpretation of the collected evidence.
+
+The methodology adopted for this systematic literature review followed a modified version of the guidelines for systematic literature reviews in software engineering proposed by Kitchenham and Charters [45]. This approach has been extensively applied in the field of software engineering research, including software testing [46], software quality assessment [47], software defect prediction using artificial intelligence [40], application of AI in software design [41], [48], and more recently, GAI in software design [11].
+
+The review process consists of a sequence of structured stages, as illustrated in Fig. 1, and is aligned with the PRISMA workflow, shown in Fig. 2  [49]. The methodology comprises three main phases: planning, execution, and reporting. During the planning phase, the review scope was defined, including the study period, research questions, inclusion and exclusion criteria, and the search strategy. In the execution phase, the previously defined protocol was applied to identify, screen, and select primary studies that addressed the research
+
+TABLE 1. SD dimension in the GAI.
+
+questions. The selected studies were systematically analyzed and synthesized during the final phase of the study.
+
+The results of the review included statistical analyses of the publication trends, journal distributions, and quartile rankings. These findings were examined in detail to address the research questions formulated during the planning phase and provide a comprehensive understanding of the current state of research on GAI in the SDLC.
+
+To identify GAI opportunities for SD, it is necessary to examine the following research questions, which correspond to the four aspects of this study. (Generative Artificial Intelligence for Software Development Using ISO/IEC 29110 Basic Profile: Gaps and Opportunities, page 4)
+
+2. A comprehensive literature review is imperative to identify and analyze recent advances and contributions to GAI in SD. To facilitate a systematic and rigorous examination, it is essential to implement well-defined review protocols and structured methodologies. These protocols and methodologies must be employed to ensure the efficient organization, synthesis, and interpretation of the collected evidence.
+
+The methodology adopted for this systematic literature review followed a modified version of the guidelines for systematic literature reviews in software engineering proposed by Kitchenham and Charters [45]. This approach has been extensively applied in the field of software engineering research, including software testing [46], software quality assessment [47], software defect prediction using artificial intelligence [40], application of AI in software design [41], [48], and more recently, GAI in software design [11].
+
+The review process consists of a sequence of structured stages, as illustrated in Fig. 1, and is aligned with the PRISMA workflow, shown in Fig. 2  [49]. The methodology comprises three main phases: planning, execution, and reporting. During the planning phase, the review scope was defined, including the study period, research questions, inclusion and exclusion criteria, and the search strategy. In the execution phase, the previously defined protocol was applied to identify, screen, and select primary studies that addressed the research
+
+TABLE 1. SD dimension in the GAI.
+
+questions. The selected studies were systematically analyzed and synthesized during the final phase of the study.
+
+The results of the review included statistical analyses of the publication trends, journal distributions, and quartile rankings. These findings were examined in detail to address the research questions formulated during the planning phase and provide a comprehensive understanding of the current state of research on GAI in the SDLC.
+
+To identify GAI opportunities for SD, it is necessary to examine the following research questions, which correspond to the four aspects of this study. (Generative Artificial Intelligence for Software Development Using ISO/IEC 29110 Basic Profile: Gaps and Opportunities, page 4)
+
+3. To present a comprehensive picture of quality for AI-based software, we conducted a systematic literature analysis following the approach by Kitchenham [14]. Systematic literature studies in software engineering can include reviews and syntheses of prior work, enabling researchers to gain an understanding of the state of a particular research subject. The findings of this SLR research should provide a more comprehensive picture of the gaps and support for software quality in the context of AI-based software systems. The following sections conduct key processes such as literature selection, string searches, and data extraction techniques in accordance with the guidelines of Peterson [15]. (Taxonomy of Quality Assessment for Intelligent Software Systems: A Systematic Literature Review, page 2)
+
+4. Many kinds of research attempt to find solutions for the current obstacles of Machine Learning Systems. To draw optimal decision making, approaches such as Fault Tree Analysis, Fuzzy Logic, Metaheuristic Algorithm, and Artificial Neural Network are developed to test with a huge amount of training data by using different algorithms. However, the sufficiency and versatility of Deep Learning systems are based on the accuracy of the test data set. It is difficult to provide adequate support due to the accessibility of test data quality issue. The current Deep Learning systems have various vulnerabilities and their system analysis and defect detection are extremely difficult. Unlike traditional software systems, Machine Intelligence does not have a clear controllable logic and understandability since the process to make decisions rely on the training data. The recent study shows two major vulnerabilities in Deep Learning systems: Software quality from the output of Deep Learning alone is not adequate; and Failure in unseen attacks even though Deep Learning is immune to known types of attacks [18], [19]. (Testing and Quality Validation for AI Software–Perspectives, Issues, and Practices, page 1)
+
+5. A systematic literature review (SLR) was selected as the research method for this study. ''An SLR is a type of secondary study in which primary studies are examined impartially and iteratively to define, interpret, and discuss evidence relevant to the research questions'' [49]. According to Kitchenham [49], [50], an SLR has three main phases: planning, conducting and reviewing the review, as shown in Table 1. Researchers have used the SLR process in several domains [2], [51]- [55].
+
+The authors of this work completed all three phases of the SLR. Inter-rate reliability analyses were undertaken during the initial and final selection phases of the SLR to reduce inter-person bias. The findings of the inter-rater reliability review are discussed in Section 3.2. We followed all of the processes in the three phases of the SLR, as stated in Table 1.
+
+TABLE 1. SLR phases. (Systematic Literature Review on Security Risks and its Practices in Secure Software Development, page 4)
+
+6. The present study was carried out using one of the SLR methods most successfully and widely applied in software engineering field. Specially, the Kitchenham's method [30]. This method present rigorous stages to analyze research knowledge using a trustworthy and auditable methodology. Some authors, however, have criticized Kitchenham's method and/or proposed improvements on this one [15], [31].
+
+In the wake of these criticisms and suggestions for improvement, Kitchenham published an updated version of her method in [30]. But, at present, some authors [15] admit that an important gap still exists regarding the evaluation of quality in studies based on empirical methods.
+
+This SLR follows the latest version of Kitchenham's method, referenced above. It describes three phases for executing a systematic review: (1) planning, which defines aspects such as the need for the research, review protocol and research questions; (2) conducting, which the previously established protocol is carried out; and (3) reporting, which presents the final analysis to answer each research question.
+
+Figure 1 shows these phases and their tasks on a timeline to achieve research objective of this article. (Model-Based Software Design and Testing in Blockchain Smart Contracts: A Systematic Literature Review, page 2)
+
+7. Deep Learning is designed to continually analyze data with a logic structure as mimicking how a human can draw a conclusion. The deep learning needs a huge number of data sets to use input in the algorithms in order to result in a more accurate prediction. For instance, Google's AlphaGo, a sharp intellect and intuition game, learns by itself without predefined data. It makes a more specific move and becomes the greatest player of all. Deep Learning defines a new paradigm based on data-driven programming. Since Machine Intelligence or Deep Learning depends on the training data, the accuracy and quality of data play a vital role for public safety using machine learning in autonomous vehicles. (Testing and Quality Validation for AI Software–Perspectives, Issues, and Practices, page 5)
+
+8. [50] AF Agarap. Deep learning using rectified linear units (ReLU). (2018)
+
+[51] D Boob, SS Dey, G Lan. Complexity of training ReLU neural network. (2020-05)
+
+[52] M Jørgensen. Unit effects in software project effort estimation: Workhours gives lower effort estimates than workdays. (2016-07)
+
+[53] A Idri, M Hosni, A Abran. Systematic literature review of ensemble effort estimation. (2016-08)
+
+[54] Y Mahmood, N Kama, A Azmi, AS Khan, M Ali. Software effort estimation accuracy prediction of machine learning techniques: A systematic performance evaluation. (2022-01)
+
+[55] SS Ali, MS Zafar, MT Saeed. Effort estimation problems in software maintenance-A survey. (2020-01)
+
+[56] CF Kemerer. An empirical validation of software cost estimation models. (1987-05)
+
+[57] Z Li. Intelligently predict project effort by reduced models based on multiple regressions and genetic algorithms with neural networks. (2010-05)
+
+[58] A Idri, I Abnane, A Abran. Evaluating Pred(p) and standardized accuracy criteria in software development effort estimation. (2018-04)
+
+[59] S.-J Huang, N.-H Chiu. Applying fuzzy neural network to estimate software development effort. (2009-04)
+
+[60] SH S Moosavi, VK Bardsiri. Satin bowerbird optimizer: A new optimization algorithm to optimize ANFIS for software development effort estimation. (2017-04)
+
+[61] F González-Ladrón-De-Guevara, M Fernández-Diego, C Lokan. The usage of ISBSG data fields in software effort estimation: A systematic mapping study. (2016-03)
+
+[62] WD O Bussab, PA Morettin, Estatística Básica. (2010)
+
+[63] G Schneider, JP Winters. Applying Use Cases: A Practical Guide. (2001) (Heterogeneous Ensemble Model to Optimize Software Effort Estimation Accuracy, page 1)
+
+### response
+
+Menurut konteks yang diberikan, systematic literature review dapat mengevaluasi penelitian deep learning dengan menggunakan metode Kitchenham. Metode ini terdiri dari tiga fase: planning (perencanaan), conducting (pengembangan), dan reporting (laporan). Fase planning meliputi definisi aspek-aspek seperti kebutuhan penelitian, protokol tinjauan, dan pertanyaan penelitian. Fase conducting melibatkan pelaksanaan protokol yang telah ditetapkan sebelumnya, sedangkan fase reporting melibatkan presentasi hasil analisis akhir untuk menjawab masing-masing pertanyaan penelitian.
+
+Sumber: [Source: Model-Based Software Design and Testing in Blockchain Smart Contracts: A Systematic Literature Review]
+The present study was carried out using one of the SLR methods most successfully and widely applied in software engineering field. Specially, the Kitchenham's method [30]. This method present rigorous stages to analyze research knowledge using a trustworthy and auditable methodology. 
+
+Pertanyaan lainnya tidak dapat dijawab berdasarkan konteks yang diberikan.
+
+### reference
+
+
+The present study was carried out using one of the SLR methods most successfully and widely applied in software engineering field. This method present rigorous stages to analyze research knowledge using a trustworthy and auditable methodology. It describes three phases for executing a systematic review: (1) planning, which defines aspects such as the need for the research, review protocol and research questions; (2) conducting, which the previously established protocol is carried out; and (3) reporting, which presents the final analysis to answer each research question.
+
+---
+
+## Sample 19
+
+- conversation_id: 13
+- user_chat_id: 629
+- bot_chat_id: 630
+
+### user_input
+
+Mengapa systematic literature review berguna untuk topik software maintenance?
+
+### retrieved_context
+
+1. To present a comprehensive picture of quality for AI-based software, we conducted a systematic literature analysis following the approach by Kitchenham [14]. Systematic literature studies in software engineering can include reviews and syntheses of prior work, enabling researchers to gain an understanding of the state of a particular research subject. The findings of this SLR research should provide a more comprehensive picture of the gaps and support for software quality in the context of AI-based software systems. The following sections conduct key processes such as literature selection, string searches, and data extraction techniques in accordance with the guidelines of Peterson [15]. (Taxonomy of Quality Assessment for Intelligent Software Systems: A Systematic Literature Review, page 2)
+
+2. The current research involves collecting data through an online questionnaire based survey. Adopting online survey for data collection is more effective technique compared to other observational approaches as it allows for a broader reach within the population [30], [31], [32], [33]. The questionnaire is designed using the online survey tool (Google form) to receive the experts' responses. It consists of questions that focus on the importance of software maintenance in GSD context. Specifically, the designing purpose of questionnaire is to uncover the interconnectedness among the factors. (An Integrated Approach for Criteria Evaluation and Software Maintenance Process Management: Insights From Global Software Development Perspective, page 4)
+
+3. The current research involves collecting data through an online questionnaire based survey. Adopting online survey for data collection is more effective technique compared to other observational approaches as it allows for a broader reach within the population [30], [31], [32], [33]. The questionnaire is designed using the online survey tool (Google form) to receive the experts' responses. It consists of questions that focus on the importance of software maintenance in GSD context. Specifically, the designing purpose of questionnaire is to uncover the interconnectedness among the factors. (An Integrated Approach for Criteria Evaluation and Software Maintenance Process Management: Insights From Global Software Development Perspective, page 4)
+
+4. We group all those articles in this category, which deal with software adherence activities in order to meet new or changed operating environments such as refactoring, maintenance cost estimation, defect correctness, and factors related to software aging (e.g., resource depletion). The SE stages and the number of articles that are associated with those stages are shown in Fig. 3. 136 out of 263 (52%) articles belong to quality assurance and analytic. 44 out of 263 (17%) articles have focused on architecture and design. 29 out of 263 (11%) articles have addressed the implementation followed by requirements engineering stage with 24 out of 263 (9%) articles. 11 (4%) articles were focusing on the maintenance phase. The rest of the articles were not particularly focusing on any stage but were generally applicable to SE. (A Literature Review of Using Machine Learning in Software Development Life Cycle Stages, page 5)
+
+5. This systematic review follows a structured approach aligned with prior systematic reviews on LLM-based agents in software engineering [1], [13]. The methodology ensures comprehensive coverage of relevant literature while maintaining rigor and transparency throughout the review process. (Methods and Techniques of Agentic Software Engineering: A Systematic Literature Review, page 3)
+
+6. First, a list of factors is finalized for the decision making of software maintenance in the context of global software development. For this purpose the most relevant published literature [4], [6], [7], [8], [10], [14], [15], [16] showing the lists of relevant factors is thoroughly reviewed. After an in-depth analysis the similar factors are merged based on their relevancy and impact on software maintenance that results into a list of 10 factors. In the next step these factors are evaluated to extract their interrelationships, and also utilized in the proposed integrated approach of software maintenance process. (An Integrated Approach for Criteria Evaluation and Software Maintenance Process Management: Insights From Global Software Development Perspective, page 3)
+
+7. First, a list of factors is finalized for the decision making of software maintenance in the context of global software development. For this purpose the most relevant published literature [4], [6], [7], [8], [10], [14], [15], [16] showing the lists of relevant factors is thoroughly reviewed. After an in-depth analysis the similar factors are merged based on their relevancy and impact on software maintenance that results into a list of 10 factors. In the next step these factors are evaluated to extract their interrelationships, and also utilized in the proposed integrated approach of software maintenance process. (An Integrated Approach for Criteria Evaluation and Software Maintenance Process Management: Insights From Global Software Development Perspective, page 3)
+
+8. Although not explicitly studying SSCs, different researchers have expressed concern over the gaps in the literature on software development practice. For example, the different researchers in [2], [7], [40] explored the gaps in the literature using SMS to look at software engineering in start-ups, while others have explored gaps in software engineering in SSCs through Systematic Literature Reviews [1], [4] Studying these gaps helps researchers appreciate how research has transformed software engineering practices and is helpful to map existing studies. (Software Engineering in Small Software Companies: Consolidating and Integrating Empirical Literature Into a Process Tool Adoption Framework, page 3)
+
+### response
+
+Menurut [Source: An Integrated Approach for Criteria Evaluation and Software Maintenance Process Management: Insights From Global Software Development Perspective], systematic literature review membantu dalam menentukan daftar faktor yang relevan untuk pengambilan keputusan software maintenance dalam konteks GSD (Global Software Development), serta memungkinkan untuk menganalisis interrelasinya.
+
+### reference
+
+
+Specifically, the designing purpose of questionnaire is to uncover the interconnectedness among the factors. (An Integrated Approach for Criteria Evaluation and Software Maintenance Process Management: Insights From Global Software Development Perspective, page 4) In the next step these factors are evaluated to extract their interrelationships, and also utilized in the proposed integrated approach of software maintenance process. (An Integrated Approach for Criteria Evaluation and Software Maintenance Process Management: Insights From Global Software Development Perspective, page 3) First, a list of factors is finalized for the decision making of software maintenance in the context of global software development.
+
+---
+
+## Sample 20
+
+- conversation_id: 13
+- user_chat_id: 631
+- bot_chat_id: 632
+
+### user_input
+
+Apa itu Agile software development?
+
+### retrieved_context
+
+1. Agile development methodologies are widely adopted nowadays by software development companies of every kind [37]. Industry surveys show that virtually all organisations use Agile methods to some extent, and over half of them have Agile as their usual approach to software development. 1 Practitioners report many benefits, ranging from reduced timeto-market, to increased customer satisfaction and reduced development costs, among others. 2 However, managing Agile projects may be challenging [10], especially in the case of Small and Medium Enterprises (SMEs). The challenge for the The associate editor coordinating the review of this manuscript and approving it for publication was Fabrizio Messina . 1 13th Annual State of Agile Report, 2019. https://www.stateofagile.com/#ufh-i-521251909-13th-annual-state-of-agile-report/473508 2 Hewlett-Packard Enterprise. Agile is the new normal, 2015. https://www.softwaretestinggenius.com/docs/4aa5-7619.pdf Product Owner and Scrum Master is at least twofold: to assure software product quality and to facilitate the effectiveness of the team and the process. (Measuring and Improving Agile Processes in a Small-Size Software Development Company, page 1)
+
+2. FIGURE 6. Frequency of adapted software development standard.
+
+Gambar ini menampilkan sebuah grafik batang yang berisi informasi tentang frekuensi penggunaan standar pengembangan perangkat lunak (software development standard) oleh para pengembang. Grafik tersebut membagi data menjadi beberapa kategori, masing-masing dengan warna yang berbeda.
+
+Grafik menunjukkan bahwa kategori dengan frekuensi tertinggi adalah "Agile" dengan warna hijau. Kemudian diikuti oleh "Waterfall" dengan warna biru, dan terakhir ada "Kanban" dengan warna kuning.
+
+Angka yang paling mencolok adalah 40% untuk kategori "Agile". Ini berarti bahwa 40% dari responden pengembang perangkat lunak menggunakan standar Agile dalam pengembangan proyek mereka. Angka ini mungkin menunjukkan bahwa banyak pengembang memilih untuk menggunakan metodologi Agile karena fleksibilitas dan kemampuannya untuk mendukung kerja sama tim.
+
+Makna singkat dari gambar ini adalah bahwa para pengembang perangkat lunak memiliki preferensi yang beragam dalam hal standar pengembangan. Namun, metodologi Agile terlihat menjadi pilihan populer karena ketersediaan dan keleluasaannya dalam menghadapi tantangan pengembangan perangkat lunak yang kompleks. (An Evaluation of Software Measurement Processes in Pakistani Software Industry, page 8)
+
+3. Keywords: Agile software development, software reuse, user stories, information retrieval, technology acceptance model (Enabling the Reuse of Software Development Assets Through a Taxonomy for User Stories, page 1)
+
+4. Two well-accepted strategies that software companies can implement to preserve their competitive advantage, reducing their time to market, are Agile Software Development (ASD) and Reuse-Driven Software Engineering (RDSE) [1]. While ASD achieves this by having short validation cycles, incremental delivery and minimizing activities not directly related to executable code, RDSE reduces the effort necessary to pro-The associate editor coordinating the review of this manuscript and approving it for publication was Adnan Abid. duce artifacts by reusing existent knowledge (i.e., artifacts) such as source code, requirements, and test cases. (Enabling the Reuse of Software Development Assets Through a Taxonomy for User Stories, page 1)
+
+5. [42] R Van Solingen, E Berghout. The Goal/Question/Metric Method: A Practical Guide for Quality Improvement of Software Development. (1999)
+
+[43] M Söylemez, A Tarhan. Challenges of software process and product quality improvement: Catalyzing defect root-cause investigation by process enactment data analysis. (2018-06)
+
+[44] M Staron, W Meding. Factors determining long-term success of a measurement program: An industrial case study. (2012-01)
+
+[45] M Sulayman, E Mendes. A systematic literature review of software process improvement in small and medium Web companies. (2009)
+
+[46] T Tahir, G Rasool, W Mehmood, C Gencel. An evaluation of software measurement processes in pakistani software industry. (2018)
+
+[47] B Tanveer, L Guzmán, UM Engel. Understanding and improving effort estimation in agile software development. (2016)
+
+[48] A Tarhan, SG Yilmaz. Systematic analyses and comparison of development performance and product quality of incremental process and agile process. (2014-05)
+
+[49] A Tosun, A Bener, B Turhan. Implementation of a software quality improvement project in an SME: A before and after comparison. (2009)
+
+[50] M Unterkalmsteiner, T Gorschek, AK M M Islam, CK Cheng, RB Permadi, R Feldt. Evaluation and measurement of software process Improvement-A systematic literature review. (2012-04) (Measuring and Improving Agile Processes in a Small-Size Software Development Company, page 1)
+
+6. Currently, in many software development companies, teams are using various specific tools (such as Jira, GitLab and SonarQube) in order to support the development process and the quality of the code and products. This is usually done in a regular retrospective meeting that involves all the team. As far as the code quality is concerned, those tools provide sufficient information for the Scrum Team. However, there is still a gap and the need for more solutions reflecting team effectiveness and process quality. It can be stated that, at present, process improvement activities are mainly based on developers' perceptions and little support is given to make process wise data-driven decisions. (Measuring and Improving Agile Processes in a Small-Size Software Development Company, page 1)
+
+7. Pellegrini et al. (P34) argue that many accessibility issues in software projects are due to (1) postponing the implementation of accessibility features by teams that adopt Agile methods (for example, because they adopt the Minimum Viable Product approach), and (2) a lack of knowledge on the implementation of accessibility. Pellegrini et al. (P34) define a set of new responsibilities for roles involved in software development to address this issue. For example, Product Owner should prioritize accessibility from the beginning of the project and produce user stories that take into account disabled people and their needs. Scrum Master should guarantee that the DONE definition covers accessibility. (Operationalizing Human Values in Software Engineering: A Survey, page 19)
+
+8. ASD relies on short feedback cycles as a way to provide flexibility and rapid adaptation to market fluctuations. In this context, decisions are also made more frequently. For instance, product releases and the related decisions take place in short intervals, instead of months/years as was the case with traditional software development approaches such as the waterfall model. Popular agile practices such as continuous integration [29] provide a tight connection to development to ensure errors are detected and fixed as soon as possible. The current tendency to shorten feedback cycles even further (e.g., continuously getting feedback from customers and being able to react on that) enhances the potential for software analytics. Continuous software engineering [30], which has its roots in ASD, represents a holistic approach to providing tight connections among all software development activities, including not only integration but also aspects such as business and development (BizDez) and development and operations (DevOps). (Continuously Assessing and Improving Software Quality With Software Analytics Tools: A Case Study, page 3)
+
+### response
+
+Agile Software Development (ASD) adalah strategi yang digunakan oleh perusahaan-perusahaan pengembangan perangkat lunak untuk mengurangi waktu ke pasar dan meningkatkan kualitas produk. ASD mencapai ini dengan memiliki siklus validasi pendek, pengiriman bertahap, dan mengurangi aktivitas yang tidak terkait langsung dengan kode eksekutif.
+
+### reference
+
+
+Makna singkat dari gambar ini adalah bahwa para pengembang perangkat lunak memiliki preferensi yang beragam dalam hal standar pengembangan. Namun, metodologi Agile terlihat menjadi pilihan populer karena ketersediaan dan keleluasaannya dalam menghadapi tantangan pengembangan perangkat lunak yang kompleks. (An Evaluation of Software Measurement Processes in Pakistani Software Industry, page 8) Ini berarti bahwa 40% dari responden pengembang perangkat lunak menggunakan standar Agile dalam pengembangan proyek mereka.

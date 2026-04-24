@@ -66,7 +66,7 @@ def parse_args() -> argparse.Namespace:
         default=(
             int(os.environ["SYNTRA_CONVERSATION_ID"])
             if os.getenv("SYNTRA_CONVERSATION_ID")
-            else None
+            else 13
         ),
         help="Existing conversation id. If omitted, first request creates one.",
     )

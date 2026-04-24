@@ -1,0 +1,312 @@
+# RAGAS Test Data
+
+File ini digenerate dari tabel `chats`, `chat_references`, dan `document_chunks`.
+`retrieved_context` memakai `document_chunks.content` jika tersedia, lalu fallback ke `chat_references.quote`.
+`reference` sengaja dikosongkan agar dapat diisi manual.
+
+## Sample 11
+
+- conversation_id: 13
+- user_chat_id: 609
+- bot_chat_id: 610
+
+### user_input
+
+Bagaimana Agile software development mempengaruhi software testing?
+
+### retrieved_context
+
+1. Agile development methodologies are widely adopted nowadays by software development companies of every kind [37]. Industry surveys show that virtually all organisations use Agile methods to some extent, and over half of them have Agile as their usual approach to software development. 1 Practitioners report many benefits, ranging from reduced timeto-market, to increased customer satisfaction and reduced development costs, among others. 2 However, managing Agile projects may be challenging [10], especially in the case of Small and Medium Enterprises (SMEs). The challenge for the The associate editor coordinating the review of this manuscript and approving it for publication was Fabrizio Messina . 1 13th Annual State of Agile Report, 2019. https://www.stateofagile.com/#ufh-i-521251909-13th-annual-state-of-agile-report/473508 2 Hewlett-Packard Enterprise. Agile is the new normal, 2015. https://www.softwaretestinggenius.com/docs/4aa5-7619.pdf Product Owner and Scrum Master is at least twofold: to assure software product quality and to facilitate the effectiveness of the team and the process. (Measuring and Improving Agile Processes in a Small-Size Software Development Company, page 1)
+
+2. Generally, many of the traditional SRGMs are based on similar assumptions [1], [8]. In some cases, faults detected during testing may not be corrected immediately. This delay in fault correction can be caused by various factors such as prioritization of tasks, availability of resources, or complexity of the fault. As a result, the software reliability growth process can be impacted, and traditional SRGMs may not accurately reflect the actual reliability of the software. To address this, some SRGMs have been developed to account for delayed fault correction and other factors that may affect the software reliability growth process [11], [12], [15]. Raymond and O'Reilly [6] noticed that beta testing plays a crucial role in the testing of OSS. Therefore, the test team for OSS is often separate from the development team. When a fault is detected in OSS, developers typically require additional time to communicate with testers and rectify the issue. This situation often leads to longer debugging times for OSS, and delays in the fault correction process are more likely to occur. (Using Modified Diffusion Models for Reliability Estimation of Open Source Software, page 3)
+
+3. Software testing covers several activities of the software development processes starting from the validation of initial requirements through to the acceptance of the end product by the customer [9]. Starting from the requirement specifications, the software testing tasks need to be planned and implemented in different stages of the software development process. Furthermore, software testing needs to be performed during different stages of the software development process for different purposes, such as the testing of the software product lines [10] and the graphical user interface [11]. (Evolution of Software Testing Strategies and Trends: Semantic Content Analysis of Software Research Corpus of the Last 40 Years, page 2)
+
+4. ASD relies on short feedback cycles as a way to provide flexibility and rapid adaptation to market fluctuations. In this context, decisions are also made more frequently. For instance, product releases and the related decisions take place in short intervals, instead of months/years as was the case with traditional software development approaches such as the waterfall model. Popular agile practices such as continuous integration [29] provide a tight connection to development to ensure errors are detected and fixed as soon as possible. The current tendency to shorten feedback cycles even further (e.g., continuously getting feedback from customers and being able to react on that) enhances the potential for software analytics. Continuous software engineering [30], which has its roots in ASD, represents a holistic approach to providing tight connections among all software development activities, including not only integration but also aspects such as business and development (BizDez) and development and operations (DevOps). (Continuously Assessing and Improving Software Quality With Software Analytics Tools: A Case Study, page 3)
+
+5. ASD relies on short feedback cycles as a way to provide flexibility and rapid adaptation to market fluctuations. In this context, decisions are also made more frequently. For instance, product releases and the related decisions take place in short intervals, instead of months/years as was the case with traditional software development approaches such as the waterfall model. Popular agile practices such as continuous integration [29] provide a tight connection to development to ensure errors are detected and fixed as soon as possible. The current tendency to shorten feedback cycles even further (e.g., continuously getting feedback from customers and being able to react on that) enhances the potential for software analytics. Continuous software engineering [30], which has its roots in ASD, represents a holistic approach to providing tight connections among all software development activities, including not only integration but also aspects such as business and development (BizDez) and development and operations (DevOps). (Continuously Assessing and Improving Software Quality With Software Analytics Tools: A Case Study, page 3)
+
+6. Worldwide software development expenditure, for year 2014, was 3.8 billion dollars which included 23% quality control and testing cost for business applications [4]. Early fault detection helps save costs, time, and reduce the complexity of the software because it is proportionate to the testing. It is a well known fact that extensive testing are impossible [5]. Testing cost sometimes amounts to over fifty percent of the The associate editor coordinating the review of this manuscript and approving it for publication was Claudio Agostino Ardagna . entire software development cost. It is for these reasons that it is more feasible to detect and test classes with faults to produce software with better quality. (Efficacy of Inheritance Aspect in Software Fault Prediction—A Survey Paper, page 1)
+
+7. The application of AI in automated code analysis has also led to significant advancements in early vulnerability detection, thereby strengthening security across SE workflows. In particular, [38] highlights the importance of machine learning (ML) and deep learning (DL) techniques in identifying security vulnerabilities and advocating for hybrid systems that enhance detection accuracy. Similarly, [39] emphasizes how Natural Language Processing (NLP) and DL can aid software vulnerability assessments, resulting in improved resource management and more informed risk evaluation decisions. AI has also revolutionized design and development tasks by automating complex processes. Reference [37] presents a deep learning-based technique for transforming graphical user interface (GUI) mock-ups into operational prototypes, thus simplifying the interface design process. In another example, [39] introduces FLASH, a model-based approach to optimize software configurations to enhance speed and resource efficiency. Furthermore, [40] employs the Non-dominated Sorting Genetic Algorithm III (NSGA-III) for software re-modularization, refining the software architecture, reducing code modifications, and improving overall consistency. (Impact of Artificial Intelligence on Software Engineering Phases and Activities (2013–2024): A Quantitative Analysis Using Zero- Truncated Poisson Model, page 3)
+
+8. An analysis of the whole software development process reveals that the testing stage has the longest duration and is the most expensive phase [17] involving labor-intensive tasks [18]. As the software testing process is usually performed with limited resources under time constraints, currently, several research studies are being conducted to improve software testing techniques in order to obtain higher-quality and more reliable software products [19]. (Evolution of Software Testing Strategies and Trends: Semantic Content Analysis of Software Research Corpus of the Last 40 Years, page 2)
+
+### response
+
+Agile software development dapat mempengaruhi software testing dengan cara:
+
+* Meningkatkan frekuensi perilisan produk sehingga software testing harus dilakukan lebih sering dan dalam waktu yang singkat.
+* Membutuhkan tight connection antara pengembangan dan integrasi untuk mendeteksi kesalahan secepat mungkin.
+* Menggunakan praktek-praktek agile seperti continuous integration untuk memastikan bahwa kesalahan dapat dikenali dan diperbaiki segera.
+
+Referensi: 
+- [Source: Continuously Assessing and Improving Software Quality With Software Analytics Tools: A Case Study]
+- [Source: Evolution of Software Testing Strategies and Trends: Semantic Content Analysis of Software Research Corpus of the Last 40 Years]
+
+### reference
+
+
+Furthermore, software testing needs to be performed during different stages of the software development process for different purposes, such as the testing of the software product lines [10] and the graphical user interface [11]. (Evolution of Software Testing Strategies and Trends: Semantic Content Analysis of Software Research Corpus of the Last 40 Years, page 2) Continuous software engineering [30], which has its roots in ASD, represents a holistic approach to providing tight connections among all software development activities, including not only integration but also aspects such as business and development (BizDez) and development and operations (DevOps). (Continuously Assessing and Improving Software Quality With Software Analytics Tools: A Case Study, page 3) As the software testing process is usually performed with limited resources under time constraints, currently, several research studies are being conducted to improve software testing techniques in order to obtain higher-quality and more reliable software products [19]. (Evolution of Software Testing Strategies and Trends: Semantic Content Analysis of Software Research Corpus of the Last 40 Years, page 2)
+
+---
+
+## Sample 12
+
+- conversation_id: 13
+- user_chat_id: 611
+- bot_chat_id: 612
+
+### user_input
+
+Bagaimana software testing dilakukan pada sistem machine learning?
+
+### retrieved_context
+
+1. Although there are many successful studies about the automated generation of test cases, determining whether a program has passed a given test remains largely manual. Langdon et al. [16] proposed the use of search-based learning from existing open-source test suites to automatically generate partially correct test oracles. They argued that mutation testing, n-version computing, and machine learning could be combined to allow automated output checking to catch up with progress on automated input generation.
+
+AI software testing differs from AI-based software testing in diverse views such as test objectives, test focuses, test scope, test coverage as well as test techniques and tools. For example, AI-based testing primarily aims to increase efficiency for a test process, reduce testing costs by reduce human operations, and increase bug detection effectiveness and speed. AI testing aims to provide on-demand testing services for AI software to support software validation and quality engineering process. AI-based testing majorly focuses on test selection, automatic test execution, bug detection and prediction based large-scale testing history data and AI techniques. In addition, AI testing needs innovative continuous, timeliness, and currency testing techniques. (Testing and Quality Validation for AI Software–Perspectives, Issues, and Practices, page 5)
+
+2. Software testing covers several activities of the software development processes starting from the validation of initial requirements through to the acceptance of the end product by the customer [9]. Starting from the requirement specifications, the software testing tasks need to be planned and implemented in different stages of the software development process. Furthermore, software testing needs to be performed during different stages of the software development process for different purposes, such as the testing of the software product lines [10] and the graphical user interface [11]. (Evolution of Software Testing Strategies and Trends: Semantic Content Analysis of Software Research Corpus of the Last 40 Years, page 2)
+
+3. AI software testing could be performed using the following approaches from different perspectives.
+
+-Classification-based AI software testing, in which classification models for test inputs, contexts, and outputs and events are set up to ensure the adequate testing coverage of diverse input data classes, classified contexts and conditions, and corresponding outputs and classes [20]- [24]. -Model-based AI software testing, in which selected intelligent learning models and data models are extended to be traceable and testable AI test models to facilitate AI software testing and operations in quality assessment of training data and test data. -Metamorphic (Non-Oracle) testing, in which a property-based software testing technique is used as an effective approach for addressing the test oracle problem and test case generation problem [25]- [28].
+
+The key element of metamorphic testing (MT) is a set of Metamorphic Relations (MRs), which are necessary features of the target function or algorithm in relation to multiple inputs and their expected outputs. -Learning-based AI software testing using the crowdsourced approach, in which selected machine learning models and approaches are used to learn from crowd-sources testers in a service platform [30]. -Rule-based AI software testing, in which pre-defined expert-based rules are established and used in AI test generation and validation [32], [34].
+
+Nevertheless, how to utilize the existing traditional or intelligent approaches to AI software testing is still a great challenge currently. (Testing and Quality Validation for AI Software–Perspectives, Issues, and Practices, page 6)
+
+4. Testing is defined as ''an activity in which a system is executed under specified conditions, the results are observed or recorded, and an evaluation is made of some aspect of the system'' (ISO/IEC 24765, 2006) [6]. In parallel to this definition of testing, a major task of the software development process, software testing is defined as the process of observing and demonstrating the behavior of a software system for compliance with its specifications [7]. As it requires several strategies and techniques with the involvement of several tools and resources, software testing is also considered as a complex task [8]. The background for this study is given below, summarizing the important role of software testing in the software development life cycle, potential impact of software testing strategies, and review studies conducted on software testing. (Evolution of Software Testing Strategies and Trends: Semantic Content Analysis of Software Research Corpus of the Last 40 Years, page 1)
+
+5. AI-based software testing refers to the leverage and applications of AI methods and solutions to automatically optimize a software testing process in test strategy selection, test generation, test selection and execution, bug detection and analysis, and quality prediction [39], [42], [47]. It includes different testing activities in AI-based software testing. Due to the complexity of AI software and applications, traditional methods and test tools cannot meet the demands of testing these AI systems. Given this, a more effective method to test AI systems is desirable. (Testing and Quality Validation for AI Software–Perspectives, Issues, and Practices, page 1)
+
+6. Some studies, e.g., [8], [10]- [12], have already analyzed the application of ML in SE in the past. Durelli et al. [8] conducts a systematic mapping study on the application of ML for software testing. The study highlights the use of ML techniques in various software testing activities such as testcase generation and oracle construction. Results of the study show that a vast majority of articles employ supervised learning, such as ANN and DT, to solve testing-related problems. Moreover, the key advantages and disadvantages of using ML for software testing are discussed. Mainly, the advantage of ML techniques is their scalability and efficient application to large-scale and complex software systems. The disadvantage, on the other hand, is the unavailability of data that fits well with the learning process. (A Literature Review of Using Machine Learning in Software Development Life Cycle Stages, page 1)
+
+7. Software testing is usually conducted in the three stages of creating, executing and evaluating the test cases [12], [13]; thus, the creation of appropriate test cases is critical [14], [15]. In other words, the appropriateness of test cases with software features, such as the technology used, the domain in which the software will be used, and the end-user skills is a critical factor in a successful testing process. Matalonga et al. defined the following seven elements to compose a test case: item (product/functionality under test), input (input variables that will stimulate the test item, output (response returned by the test item after receiving a test input), oracle (expected result, predicted behavior under specified conditions based on its specification or another source), result (comparison between the test output and the test oracle), environment (facilities, hardware, software, firmware, procedures, and documentation intended for or used to perform the software testing), and script (procedure specification for manual or automated testing) [16]. (Evolution of Software Testing Strategies and Trends: Semantic Content Analysis of Software Research Corpus of the Last 40 Years, page 2)
+
+8. TABLE 6. Experimental results.
+
+Penelitian ini menunjukkan bahwa metrik software baru yang disebut Error-Type dapat digunakan untuk memprediksi kegagalan sistem dengan lebih akurat. Dalam eksperimen ini, empat model belajar mesin (machine learning) dipadankan menggunakan dataset SoftWare Metrics dan Full Dataset.
+
+Dari hasil eksperimen, ditemukan bahwa ketika feature selection tidak diaplikasikan, performance model belajar mesin berkurang karena masalah multi-kolinieritas yang menyebabkan pengaruh negatif terhadap hasil akhir. Namun, setelah feature selection diterapkan, masalah ini dapat dihilangkan, sehingga penggunaan metrik ESM yang baru memberikan informasi lebih bermanfaat kepada model belajar mesin.
+
+Dengan demikian, penelitian ini berhasil menunjukkan bahwa penggunaan Error-Type sebagai metrik software baru dapat meningkatkan keakuratan prediksi kegagalan sistem dan meningkatkan performa model belajar mesin. (Error-Type—A Novel Set of Software Metrics for Software Fault Prediction, page 9)
+
+### response
+
+Pada konteks [Source: A Literature Review of Using Machine Learning in Software Development Life Cycle Stages], beberapa studi telah menganalisis aplikasi ML dalam SE, termasuk pada tahapan software testing. Durelli et al. [8] melakukan studimapping sistematis tentang penggunaan ML untuk testing software.
+
+ML digunakan dalam berbagai kegiatan testing software seperti testcase generation dan oracle construction. Hasil penelitian menunjukkan bahwa sebagian besar artikel menggunakan supervised learning, seperti ANN dan DT, untuk mengatasi masalah terkait testing. Manfaat utama penggunaan ML adalah skalabilitas dan efisiensi aplikasinya pada skala besar dan kompleks software.
+
+Namun, kekurangan penggunaan ML dalam testing software adalah ketidaktelitian data yang sesuai dengan proses pembelajaran.
+
+### reference
+
+
+Dengan demikian, penelitian ini berhasil menunjukkan bahwa penggunaan Error-Type sebagai metrik software baru dapat meningkatkan keakuratan prediksi kegagalan sistem dan meningkatkan performa model belajar mesin. (Error-Type—A Novel Set of Software Metrics for Software Fault Prediction, page 9) The disadvantage, on the other hand, is the unavailability of data that fits well with the learning process. (A Literature Review of Using Machine Learning in Software Development Life Cycle Stages, page 1) AI software testing could be performed using the following approaches from different perspectives. -Classification-based AI software testing, in which classification models for test inputs, contexts, and outputs and events are set up to ensure the adequate testing coverage of diverse input data classes, classified contexts and conditions, and corresponding outputs and classes [20]- [24]. -Model-based AI software testing, in which selected intelligent learning models and data models are extended to be traceable and testable AI test models to facilitate AI software testing and operations in quality assessment of training data and test data. -Metamorphic (Non-Oracle) testing, in which a property-based software testing technique is used as an effective approach for addressing the test oracle problem and test case generation problem [25]- [28].
+
+---
+
+## Sample 13
+
+- conversation_id: 13
+- user_chat_id: 613
+- bot_chat_id: 614
+
+### user_input
+
+Apa itu systematic literature review?
+
+### retrieved_context
+
+1. A systematic literature review (SLR) was selected as the research method for this study. ''An SLR is a type of secondary study in which primary studies are examined impartially and iteratively to define, interpret, and discuss evidence relevant to the research questions'' [49]. According to Kitchenham [49], [50], an SLR has three main phases: planning, conducting and reviewing the review, as shown in Table 1. Researchers have used the SLR process in several domains [2], [51]- [55].
+
+The authors of this work completed all three phases of the SLR. Inter-rate reliability analyses were undertaken during the initial and final selection phases of the SLR to reduce inter-person bias. The findings of the inter-rater reliability review are discussed in Section 3.2. We followed all of the processes in the three phases of the SLR, as stated in Table 1.
+
+TABLE 1. SLR phases. (Systematic Literature Review on Security Risks and its Practices in Secure Software Development, page 4)
+
+2. FIGURE 1. Steps of the systematic literature review process.
+
+Gambar ini merupakan sebuah diagram alur proses sistematis tinjauan literatur, dengan menggunakan jenis visual yang disebut flowchart. Elemen yang tampak dalam gambar tersebut adalah serangkaian simbol dan garis yang membentuk alur proses. Terdapat beberapa elemen kunci yang dapat dilihat, yaitu:
+
+* Simbol "1." pada bagian atas gambar yang menunjukkan tahap awal dari sistematis tinjauan literatur.
+* Garis horizontal yang menghubungkan simbol "1." dengan simbol berikutnya, menunjukkan bahwa tahap tersebut adalah langkah awal dalam proses sistematis tinjauan literatur.
+* Simbol lainnya seperti lingkaran dan persegi panjang yang menggambarkan tahapan-tahapan selanjutnya dalam proses tersebut.
+
+Meskipun tidak terdapat angka atau label penting secara eksplisit, namun dapat disimpulkan bahwa gambar ini menunjukkan bahwa sistematis tinjauan literatur dilakukan melalui beberapa tahap yang jelas dan sistematik. Maka dari itu, makna singkat yang dapat ditarik adalah bahwa proses sistematis tinjauan literatur merupakan suatu proses yang terstruktur dengan baik untuk mencari dan menganalisis informasi yang relevan. (Generative Artificial Intelligence for Software Development Using ISO/IEC 29110 Basic Profile: Gaps and Opportunities, page 5)
+
+3. FIGURE 1. Steps of the systematic literature review process.
+
+Gambar tersebut menampilkan langkah-langkah proses tinjauan literatur sistematis dalam format diagram alir. Diagram ini terdiri atas beberapa langkah yang disajikan secara linear, dengan koneksi antar langkah menggunakan garis berwarna biru.
+
+Pertama-tama, gambar menunjukkan langkah persiapan (Preparation), yang mencakup identifikasi topik penelitian dan perumusan pertanyaan penelitian. Langkah ini diikuti oleh langkah pencarian literatur, yaitu proses pengumpulan dan seleksi artikel yang relevan dengan topik penelitian.
+
+Selanjutnya, gambar menampilkan langkah analisis data, dimana hasil dari literatur yang dipilih akan dianalisis untuk mengidentifikasi temuan-temuan penting. Langkah ini diakhiri dengan konfirmasi keabsahan dan kualitas hasil penelitian, yang merupakan langkah yang sangat penting dalam proses tinjauan literatur sistematis.
+
+Terdapat beberapa elemen yang tampak pada gambar ini, seperti simbol-simbol yang merepresentasikan masing-masing langkah, serta garis-garis yang menghubungkan antar langkah. Namun, tidak terdapat angka atau label penting yang menonjol dalam diagram ini.
+
+Makna singkat dari gambar ini adalah sebagai peta proses tinjauan literatur sistematis, memberikan panduan langkah demi langkah untuk mengembangkan penelitian dan memastikan kualitas hasilnya. (Generative Artificial Intelligence for Software Development Using ISO/IEC 29110 Basic Profile: Gaps and Opportunities, page 5)
+
+4. To present a comprehensive picture of quality for AI-based software, we conducted a systematic literature analysis following the approach by Kitchenham [14]. Systematic literature studies in software engineering can include reviews and syntheses of prior work, enabling researchers to gain an understanding of the state of a particular research subject. The findings of this SLR research should provide a more comprehensive picture of the gaps and support for software quality in the context of AI-based software systems. The following sections conduct key processes such as literature selection, string searches, and data extraction techniques in accordance with the guidelines of Peterson [15]. (Taxonomy of Quality Assessment for Intelligent Software Systems: A Systematic Literature Review, page 2)
+
+5. The SLR was conducted to extract critical success factors, barriers, and implementation practices from the literature. Rockart [38] defined SLR as a method of systematically collecting, analyzing, and reporting data from the literature of a specific research area and questions of interest [38].
+
+The SLR technique was used to search for the most relevant literature by applying explicit inclusion and exclusion criteria for primary studies [38].
+
+We followed the guidelines provided by Rockart [38] to conduct our SLR study. The approach consists of three main phases: planning, conducting, and reporting the review. A thorough discussion of the SLR study conducted for this research project can be found in our previously published articles [25], [63], [64]. (SPIIMM: Toward a Model for Software Process Improvement Implementation and Management in Global Software Development, page 3)
+
+6. In this systematic literature review (SLR), we focused on examining the most reputable and reliable databases available to researchers, as previously mentioned. It is important to note that we allocated publications to specific databases based on the chronological order of the searches conducted, even though some papers might be present across multiple databases. (Taxonomy of Quality Assessment for Intelligent Software Systems: A Systematic Literature Review, page 5)
+
+7. This systematic review follows a structured approach aligned with prior systematic reviews on LLM-based agents in software engineering [1], [13]. The methodology ensures comprehensive coverage of relevant literature while maintaining rigor and transparency throughout the review process. (Methods and Techniques of Agentic Software Engineering: A Systematic Literature Review, page 3)
+
+8. Table 1. Researchers have used the SLR process in several domain sebagai dasar penelitian ini membagikan beberapa metode dan langkah dalam melakukan Systematic Literature Review (SLR). Secara singkat, SLR adalah metode penelitian yang kompleks, melibatkan tiga fase utama: perencanaan, pelaksanaan, dan tinjauan.
+
+Dalam fase perencanaan, para peneliti harus menentukan topik atau pertanyaan penelitian, serta mengidentifikasi sumber-sumber informasi yang relevan. Mereka juga harus menetapkan kriteria inklusi dan eksklusi untuk memilih artikel-artikel yang akan diintervensi.
+
+Fase pelaksanaan melibatkan proses mencari dan menganalisis artikel-artikel yang telah dipilih berdasarkan kriteria sebelumnya. Para peneliti harus mengidentifikasi informasi yang relevan, mengumpulkan data, serta melakukan analisis untuk mendapatkan hasil yang diinginkan.
+
+Fase tinjauan adalah tahap akhir dalam proses SLR. Pada fase ini, para peneliti akan meninjau dan menganalisis hasil-hasil dari fase sebelumnya. Mereka juga harus memastikan bahwa hasil penelitian mereka tidak memiliki bias atau kesalahan.
+
+Dalam beberapa domain yang telah diidentifikasi oleh peneliti, metode SLR digunakan untuk mengurangi ketidakakuratan dan kesalahan dalam penelitian. Penulis juga menggunakan teknik inter-rater reliability analisis untuk memastikan bahwa hasil-hasil dari fase tinjauan tidak memiliki bias.
+
+Dalam beberapa kasus, metode SLR digunakan dalam beberapa domain, seperti informasi keamanan (security), pengembangan perangkat lunak (software development) dan sebagainya. (Systematic Literature Review on Security Risks and its Practices in Secure Software Development, page 4)
+
+### response
+
+Systematic Literature Review adalah metode penelitian yang kompleks, melibatkan tiga fase utama: perencanaan, pelaksanaan, dan tinjauan. Fase perencanaan melibatkan menentukan topik atau pertanyaan penelitian, serta mengidentifikasi sumber-sumber informasi yang relevan. Fase pelaksanaan melibatkan mencari dan menganalisis artikel-artikel yang telah dipilih berdasarkan kriteria sebelumnya. Fase tinjauan adalah tahap akhir dalam proses SLR, di mana para peneliti akan meninjau dan menganalisis hasil-hasil dari fase sebelumnya.
+
+### reference
+
+
+Secara singkat, SLR adalah metode penelitian yang kompleks, melibatkan tiga fase utama: perencanaan, pelaksanaan, dan tinjauan. Fase pelaksanaan melibatkan proses mencari dan menganalisis artikel-artikel yang telah dipilih berdasarkan kriteria sebelumnya. Dalam fase perencanaan, para peneliti harus menentukan topik atau pertanyaan penelitian, serta mengidentifikasi sumber-sumber informasi yang relevan.
+
+---
+
+## Sample 14
+
+- conversation_id: 13
+- user_chat_id: 615
+- bot_chat_id: 616
+
+### user_input
+
+Mengapa systematic literature review penting?
+
+### retrieved_context
+
+1. A systematic literature review (SLR) was selected as the research method for this study. ''An SLR is a type of secondary study in which primary studies are examined impartially and iteratively to define, interpret, and discuss evidence relevant to the research questions'' [49]. According to Kitchenham [49], [50], an SLR has three main phases: planning, conducting and reviewing the review, as shown in Table 1. Researchers have used the SLR process in several domains [2], [51]- [55].
+
+The authors of this work completed all three phases of the SLR. Inter-rate reliability analyses were undertaken during the initial and final selection phases of the SLR to reduce inter-person bias. The findings of the inter-rater reliability review are discussed in Section 3.2. We followed all of the processes in the three phases of the SLR, as stated in Table 1.
+
+TABLE 1. SLR phases. (Systematic Literature Review on Security Risks and its Practices in Secure Software Development, page 4)
+
+2. The SLR was conducted to extract critical success factors, barriers, and implementation practices from the literature. Rockart [38] defined SLR as a method of systematically collecting, analyzing, and reporting data from the literature of a specific research area and questions of interest [38].
+
+The SLR technique was used to search for the most relevant literature by applying explicit inclusion and exclusion criteria for primary studies [38].
+
+We followed the guidelines provided by Rockart [38] to conduct our SLR study. The approach consists of three main phases: planning, conducting, and reporting the review. A thorough discussion of the SLR study conducted for this research project can be found in our previously published articles [25], [63], [64]. (SPIIMM: Toward a Model for Software Process Improvement Implementation and Management in Global Software Development, page 3)
+
+3. Table 1. Researchers have used the SLR process in several domain sebagai dasar penelitian ini membagikan beberapa metode dan langkah dalam melakukan Systematic Literature Review (SLR). Secara singkat, SLR adalah metode penelitian yang kompleks, melibatkan tiga fase utama: perencanaan, pelaksanaan, dan tinjauan.
+
+Dalam fase perencanaan, para peneliti harus menentukan topik atau pertanyaan penelitian, serta mengidentifikasi sumber-sumber informasi yang relevan. Mereka juga harus menetapkan kriteria inklusi dan eksklusi untuk memilih artikel-artikel yang akan diintervensi.
+
+Fase pelaksanaan melibatkan proses mencari dan menganalisis artikel-artikel yang telah dipilih berdasarkan kriteria sebelumnya. Para peneliti harus mengidentifikasi informasi yang relevan, mengumpulkan data, serta melakukan analisis untuk mendapatkan hasil yang diinginkan.
+
+Fase tinjauan adalah tahap akhir dalam proses SLR. Pada fase ini, para peneliti akan meninjau dan menganalisis hasil-hasil dari fase sebelumnya. Mereka juga harus memastikan bahwa hasil penelitian mereka tidak memiliki bias atau kesalahan.
+
+Dalam beberapa domain yang telah diidentifikasi oleh peneliti, metode SLR digunakan untuk mengurangi ketidakakuratan dan kesalahan dalam penelitian. Penulis juga menggunakan teknik inter-rater reliability analisis untuk memastikan bahwa hasil-hasil dari fase tinjauan tidak memiliki bias.
+
+Dalam beberapa kasus, metode SLR digunakan dalam beberapa domain, seperti informasi keamanan (security), pengembangan perangkat lunak (software development) dan sebagainya. (Systematic Literature Review on Security Risks and its Practices in Secure Software Development, page 4)
+
+4. FIGURE 1. Steps of the systematic literature review process.
+
+Gambar ini merupakan sebuah diagram alur proses sistematis tinjauan literatur, dengan menggunakan jenis visual yang disebut flowchart. Elemen yang tampak dalam gambar tersebut adalah serangkaian simbol dan garis yang membentuk alur proses. Terdapat beberapa elemen kunci yang dapat dilihat, yaitu:
+
+* Simbol "1." pada bagian atas gambar yang menunjukkan tahap awal dari sistematis tinjauan literatur.
+* Garis horizontal yang menghubungkan simbol "1." dengan simbol berikutnya, menunjukkan bahwa tahap tersebut adalah langkah awal dalam proses sistematis tinjauan literatur.
+* Simbol lainnya seperti lingkaran dan persegi panjang yang menggambarkan tahapan-tahapan selanjutnya dalam proses tersebut.
+
+Meskipun tidak terdapat angka atau label penting secara eksplisit, namun dapat disimpulkan bahwa gambar ini menunjukkan bahwa sistematis tinjauan literatur dilakukan melalui beberapa tahap yang jelas dan sistematik. Maka dari itu, makna singkat yang dapat ditarik adalah bahwa proses sistematis tinjauan literatur merupakan suatu proses yang terstruktur dengan baik untuk mencari dan menganalisis informasi yang relevan. (Generative Artificial Intelligence for Software Development Using ISO/IEC 29110 Basic Profile: Gaps and Opportunities, page 5)
+
+5. To present a comprehensive picture of quality for AI-based software, we conducted a systematic literature analysis following the approach by Kitchenham [14]. Systematic literature studies in software engineering can include reviews and syntheses of prior work, enabling researchers to gain an understanding of the state of a particular research subject. The findings of this SLR research should provide a more comprehensive picture of the gaps and support for software quality in the context of AI-based software systems. The following sections conduct key processes such as literature selection, string searches, and data extraction techniques in accordance with the guidelines of Peterson [15]. (Taxonomy of Quality Assessment for Intelligent Software Systems: A Systematic Literature Review, page 2)
+
+6. In this systematic literature review (SLR), we focused on examining the most reputable and reliable databases available to researchers, as previously mentioned. It is important to note that we allocated publications to specific databases based on the chronological order of the searches conducted, even though some papers might be present across multiple databases. (Taxonomy of Quality Assessment for Intelligent Software Systems: A Systematic Literature Review, page 5)
+
+7. FIGURE 1. Steps of the systematic literature review process.
+
+Gambar tersebut menampilkan langkah-langkah proses tinjauan literatur sistematis dalam format diagram alir. Diagram ini terdiri atas beberapa langkah yang disajikan secara linear, dengan koneksi antar langkah menggunakan garis berwarna biru.
+
+Pertama-tama, gambar menunjukkan langkah persiapan (Preparation), yang mencakup identifikasi topik penelitian dan perumusan pertanyaan penelitian. Langkah ini diikuti oleh langkah pencarian literatur, yaitu proses pengumpulan dan seleksi artikel yang relevan dengan topik penelitian.
+
+Selanjutnya, gambar menampilkan langkah analisis data, dimana hasil dari literatur yang dipilih akan dianalisis untuk mengidentifikasi temuan-temuan penting. Langkah ini diakhiri dengan konfirmasi keabsahan dan kualitas hasil penelitian, yang merupakan langkah yang sangat penting dalam proses tinjauan literatur sistematis.
+
+Terdapat beberapa elemen yang tampak pada gambar ini, seperti simbol-simbol yang merepresentasikan masing-masing langkah, serta garis-garis yang menghubungkan antar langkah. Namun, tidak terdapat angka atau label penting yang menonjol dalam diagram ini.
+
+Makna singkat dari gambar ini adalah sebagai peta proses tinjauan literatur sistematis, memberikan panduan langkah demi langkah untuk mengembangkan penelitian dan memastikan kualitas hasilnya. (Generative Artificial Intelligence for Software Development Using ISO/IEC 29110 Basic Profile: Gaps and Opportunities, page 5)
+
+8. This systematic review follows a structured approach aligned with prior systematic reviews on LLM-based agents in software engineering [1], [13]. The methodology ensures comprehensive coverage of relevant literature while maintaining rigor and transparency throughout the review process. (Methods and Techniques of Agentic Software Engineering: A Systematic Literature Review, page 3)
+
+### response
+
+Systematic Literature Review (SLR) penting karena dapat membantu peneliti untuk mendapatkan gambaran yang lebih komprehensif tentang suatu topik atau pertanyaan penelitian. Dengan menggunakan metode SLR, peneliti dapat mengidentifikasi informasi yang relevan, menganalisis data, dan menemukan temuan-temuan penting yang terkait dengan topik tersebut.
+
+SLR juga dapat membantu peneliti untuk:
+
+* Mengurangi ketidakakuratan dan kesalahan dalam penelitian
+* Meningkatkan kualitas hasil penelitian
+* Mendapatkan gambaran yang lebih lengkap tentang suatu topik atau pertanyaan penelitian
+
+Dalam beberapa domain, seperti informasi keamanan (security), pengembangan perangkat lunak (software development), dan sebagainya, metode SLR telah digunakan untuk mengidentifikasi kritikalitas faktor kesuksesan, hambatan, dan praktik implementasi.
+
+### reference
+
+
+Dalam beberapa domain yang telah diidentifikasi oleh peneliti, metode SLR digunakan untuk mengurangi ketidakakuratan dan kesalahan dalam penelitian. Dalam fase perencanaan, para peneliti harus menentukan topik atau pertanyaan penelitian, serta mengidentifikasi sumber-sumber informasi yang relevan. Dalam beberapa kasus, metode SLR digunakan dalam beberapa domain, seperti informasi keamanan (security), pengembangan perangkat lunak (software development) dan sebagainya. (Systematic Literature Review on Security Risks and its Practices in Secure Software Development, page 4)
+
+---
+
+## Sample 15
+
+- conversation_id: 13
+- user_chat_id: 617
+- bot_chat_id: 618
+
+### user_input
+
+Apa tujuan systematic literature review dalam penelitian software engineering?
+
+### retrieved_context
+
+1. To present a comprehensive picture of quality for AI-based software, we conducted a systematic literature analysis following the approach by Kitchenham [14]. Systematic literature studies in software engineering can include reviews and syntheses of prior work, enabling researchers to gain an understanding of the state of a particular research subject. The findings of this SLR research should provide a more comprehensive picture of the gaps and support for software quality in the context of AI-based software systems. The following sections conduct key processes such as literature selection, string searches, and data extraction techniques in accordance with the guidelines of Peterson [15]. (Taxonomy of Quality Assessment for Intelligent Software Systems: A Systematic Literature Review, page 2)
+
+2. This systematic review follows a structured approach aligned with prior systematic reviews on LLM-based agents in software engineering [1], [13]. The methodology ensures comprehensive coverage of relevant literature while maintaining rigor and transparency throughout the review process. (Methods and Techniques of Agentic Software Engineering: A Systematic Literature Review, page 3)
+
+3. Systematic mapping or scoping studies are conducted to provide an overview of a research domain through classification. These studies mainly explore the existing literature to investigate the coverage of multiple topics, the frequency of publications, the research trends, and the publication venues where relevant studies have been published [14]. The systematic mapping in the current study mainly follows the guidelines suggested by Petersen et al. [15]. According to the guidelines for systematic mapping studies in SE [15], the essential process steps of the current systematic mapping study were defining the research questions, searching for relevant papers, screening the papers, keywording the abstracts, extracting the data, and mapping, as shown in Fig. 1. Each process step has an outcome and the outcome of the complete process is the systematic map, which is explained as follows [15]: Definition of Research Questions (Research Scope) -The primary goal of a systematic mapping study is to provide an overview of a research area and identify the quantity and type of research and results available within this area. (Systematic Mapping: Artificial Intelligence Techniques in Software Engineering, page 1)
+
+4. Once the conducting process had been identified, the outcomes of a systematic review could be carried out adequately by extracting the appropriate data in line with the defined research questions. Then, the data were synthesized to identify the final view of the research and a conclusion was made on what revolves around the scope of this research in the current time and future research. (Software Architecture Degradation in Open Source Software: A Systematic Literature Review, page 1)
+
+5. The initial step in conducting a literature review is to identify a set of individual research questions. These questions guide the development of this work and inform the readers about the main focus of the study. To formulate the most appropriate research questions, we referred to the ''Goal Question Metric'' model developed by Caldiera et al. [16]. With this model, it is necessary to predetermine the analysis's objectives, target objects and issues, as well as the analytical vantage points. According to the model, we specified the purpose, target objectives, issues, and viewpoints of the analysis as follows: (Taxonomy of Quality Assessment for Intelligent Software Systems: A Systematic Literature Review, page 3)
+
+6. Although not explicitly studying SSCs, different researchers have expressed concern over the gaps in the literature on software development practice. For example, the different researchers in [2], [7], [40] explored the gaps in the literature using SMS to look at software engineering in start-ups, while others have explored gaps in software engineering in SSCs through Systematic Literature Reviews [1], [4] Studying these gaps helps researchers appreciate how research has transformed software engineering practices and is helpful to map existing studies. (Software Engineering in Small Software Companies: Consolidating and Integrating Empirical Literature Into a Process Tool Adoption Framework, page 3)
+
+7. The 3-point guideline set out statements on processes of writing the methodology, reporting the results, and writing the conclusions in a manuscript intentioned to determine a course of action while conducting research software engineering research. This guideline aims to streamline processes of writing to ensure quality of research.
+
+The guideline is important because it has been derived from evidence in empirical literature that highlights the areas in research writing which require attention [40], [2], [148]; it takes care of the parts which are most wanting and has a significant effect on the quality of research in software engineering. The guidelines cover only what has been identified as the areas that remain unclear in software engineering literature yet are important in reproducibility, generalisability and transferability.
+
+Akin to this, researchers are advised to make an effort to collaborate with industry to ensure transfer and widespread use of research results in industry. This will also ensure that research results are evidence-based. (Software Engineering in Small Software Companies: Consolidating and Integrating Empirical Literature Into a Process Tool Adoption Framework, page 17)
+
+8. Evidence-based software engineering prospects motivated the researchers to conduct a systematic literature review. However, the topic of EDI in software engineering is not studied in detail. Spichkova et al. [16] performed a literature review to investigate diversity in the software architecture field. Fazli and Bittner [17] also used the systematic literature review approach and studied the cultural factors of diversity and its impact on collaborative software development approaches. They analyzed 20 papers and highlighted the issues due to cultural diversity such as differences in communication, decision-making and interaction during collaboration. Menzez and Prikladnicki [18] performed a systematic literature review on team diversity in software engineering. They included only 11 papers in the study and conducted semi-structured interviews to observe the impact of diverse software development teams. They reported on the challenges and barriers faced by team members at the workplace. They concluded that the consideration of diversity and inclusion has a positive impact on software development. Traylor [19] conducted a meta-analytic investigation on the topic of team diversity-process relationships. (Practicing Equity Diversity Inclusion (EDI) in Software Development Teams: A Systematic Literature Survey, page 3)
+
+### response
+
+Menurut konteks, tujuan systematic literature review dalam penelitian software engineering adalah untuk:
+
+* Mempresentasikan gambaran yang komprehensif tentang kualitas AI-based software (Taxonomy of Quality Assessment for Intelligent Software Systems: A Systematic Literature Review)
+* Mengidentifikasi kesenjangan dan mendukung kualitas perangkat lunak dalam konteks sistem AI berbasis (Taxonomy of Quality Assessment for Intelligent Software Systems: A Systematic Literature Review)
+* Mencapai pemahaman yang lebih baik tentang keadaan suatu bidang penelitian tertentu (Systematic literature studies in software engineering dapat mencakup tinjauan dan sintesis dari karya-karya sebelumnya, sehingga para peneliti dapat memperoleh pemahaman tentang keadaan suatu bidang penelitian tertentu)
+
+### reference
+
+
+The following sections conduct key processes such as literature selection, string searches, and data extraction techniques in accordance with the guidelines of Peterson [15]. (Taxonomy of Quality Assessment for Intelligent Software Systems: A Systematic Literature Review, page 2) According to the model, we specified the purpose, target objectives, issues, and viewpoints of the analysis as follows: (Taxonomy of Quality Assessment for Intelligent Software Systems: A Systematic Literature Review, page 3) The findings of this SLR research should provide a more comprehensive picture of the gaps and support for software quality in the context of AI-based software systems.
