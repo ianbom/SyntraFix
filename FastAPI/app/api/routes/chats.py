@@ -1,5 +1,7 @@
+import csv
 import json
 import time
+from pathlib import Path
 from typing import List, Optional
 from functools import wraps
 from fastapi import APIRouter, Depends, HTTPException, Query
@@ -12,17 +14,46 @@ from app.models.user import User
 from app.api.deps import get_current_user
 from app.schemas.chat import ChatRequest, ChatResponse, ConversationResponse
 from app.services.chat import ChatService
-from app.services.chat_test_export import export_chat_test_markdown_for_bot_chat
 from app.services.ragas_export import export_ragas_markdown
 from app.config import get_settings
 
 router = APIRouter(prefix="/chats", tags=["Chats"])
 settings = get_settings()
+CHAT_TEST_DIR = Path(__file__).resolve().parents[2] / "chat_test"
+CHAT_API_TIMING_CSV = CHAT_TEST_DIR / "chat_api_execution_times.csv"
 
 
 def _print_timing(function_name: str, elapsed_seconds: float):
     """Print timing information for route-level instrumentation."""
     print(f"[CHAT API TIMING] {function_name}: {elapsed_seconds:.4f}s")
+
+
+def _get_next_chat_timing_row_number(csv_path: Path) -> int:
+    if not csv_path.exists():
+        return 1
+
+    with csv_path.open("r", encoding="utf-8", newline="") as csv_file:
+        row_count = sum(1 for _ in csv.reader(csv_file))
+
+    return max(row_count, 1)
+
+
+def _append_chat_api_timing_csv(
+    question: str,
+    answer: str,
+    elapsed_seconds: float,
+    csv_path: Path = CHAT_API_TIMING_CSV,
+):
+    """Append a successful chat API execution sample to chat_test CSV."""
+    csv_path.parent.mkdir(parents=True, exist_ok=True)
+    is_new_file = not csv_path.exists()
+    row_number = _get_next_chat_timing_row_number(csv_path)
+
+    with csv_path.open("a", encoding="utf-8", newline="") as csv_file:
+        writer = csv.writer(csv_file)
+        if is_new_file:
+            writer.writerow(["no", "pertanyaan", "jawaban", "total waktu"])
+        writer.writerow([row_number, question, answer, f"{elapsed_seconds:.4f}s"])
 
 
 def _timed_async_route(function_name: str):
@@ -41,7 +72,6 @@ def _timed_async_route(function_name: str):
     return decorator
 
 
-@_timed_async_route("chat_interaction")
 @router.post("/", response_model=ChatResponse)
 async def chat_interaction(
     request: ChatRequest,
@@ -55,19 +85,19 @@ async def chat_interaction(
     """
     total_started_at = time.perf_counter()
     chat_service = ChatService(db)
-    process_chat_started_at = time.perf_counter()
-    response = await chat_service.process_chat(current_user.id, request)
-    _print_timing("chat_interaction.process_chat", time.perf_counter() - process_chat_started_at)
     try:
-        export_started_at = time.perf_counter()
-        export_chat_test_markdown_for_bot_chat(db, response.id)
-        _print_timing(
-            "chat_interaction.export_chat_test_markdown_for_bot_chat",
-            time.perf_counter() - export_started_at,
-        )
+        response = await chat_service.process_chat(current_user.id, request)
+    except Exception:
+        _print_timing("chat_interaction.total", time.perf_counter() - total_started_at)
+        raise
+
+    total_elapsed = time.perf_counter() - total_started_at
+    _print_timing("chat_interaction.total", total_elapsed)
+    try:
+        _append_chat_api_timing_csv(request.message, response.message, total_elapsed)
     except Exception as error:
-        print(f"Warning: failed to export chat_test markdown for chat {response.id}: {error}")
-    _print_timing("chat_interaction.total", time.perf_counter() - total_started_at)
+        print(f"Warning: failed to append chat API timing CSV for chat {response.id}: {error}")
+
     return response
 
 
@@ -93,20 +123,6 @@ async def chat_interaction_stream(
                         "chat_interaction_stream.process_chat_stream",
                         time.perf_counter() - process_stream_started_at,
                     )
-                    chat_id = event.get("chat", {}).get("id")
-                    if chat_id is not None:
-                        try:
-                            export_started_at = time.perf_counter()
-                            export_chat_test_markdown_for_bot_chat(db, chat_id)
-                            _print_timing(
-                                "chat_interaction_stream.export_chat_test_markdown_for_bot_chat",
-                                time.perf_counter() - export_started_at,
-                            )
-                        except Exception as export_error:
-                            print(
-                                "Warning: failed to export chat_test markdown "
-                                f"for chat {chat_id}: {export_error}"
-                            )
                 yield json.dumps(event, ensure_ascii=False) + "\n"
         except Exception as error:
             yield json.dumps(

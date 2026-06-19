@@ -115,17 +115,20 @@ const Login = () => {
               </p>
             </div>
 
+            {/* 
             <div className="mt-6 rounded-lg bg-muted p-4 text-sm">
               <p className="font-semibold mb-2">Demo Accounts:</p>
               <div className="space-y-1">
                 <p className="text-muted-foreground">
-                  <span className="font-medium">Admin:</span> admin@syntra.com / admin123
+                  <span className="font-medium">Admin:</span> [EMAIL_ADDRESS] / admin123
                 </p>
                 <p className="text-muted-foreground">
-                  <span className="font-medium">User:</span> user@syntra.com / user123
+                  <span className="font-medium">User:</span> [EMAIL_ADDRESS] / user123
                 </p>
               </div>
             </div>
+             */}
+            
           </form>
         </CardContent>
       </Card>

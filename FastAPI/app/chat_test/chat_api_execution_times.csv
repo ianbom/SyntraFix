@@ -1,0 +1,159 @@
+1,Apa itu software engineer,Informasi tersebut tidak ditemukan pada dokumen yang tersedia.,17.9404s
+1,Apa itu software engineering?,"""Software engineering adalah disiplin ilmu yang terkait dengan berbagai tahap produksi perangkat lunak dari pengumpulan requirement awal hingga pemeliharaan sistem perangkat lunak."" (Sumber: Software Standards and Software Failures: A Review With the Perspective of Varying Situational Contexts)",26.7120s
+2,Mengapa software engineering penting?,"Berdasarkan konteks yang diberikan, software engineering penting karena:
+
+* Software engineering membantu memastikan keamanan data dan layanan dengan mengintegrasikan fitur keamanan ke dalam siklus hidup aplikasi (SDLC).
+* Software engineering membantu meningkatkan kualitas software dengan menggunakan teknik-artificial intelligence (AI) untuk mendeteksi potensi kerentanan dan memprioritaskan upaya perbaikan.
+* Software engineering membantu mengurangi risiko kegagalan proyek dengan menggunakan standar dan proses pengukuran yang efektif.
+* Software engineering membantu meningkatkan efisiensi dan produktivitas tim pengembang dengan menggunakan algoritma machine learning (ML) untuk membantu aktivitas pengembangan perangkat lunak.",33.9108s
+3,Apa tujuan utama software engineering?,Tujuan utama software engineering tidak ditemukan pada dokumen yang tersedia.,98.3592s
+4,Bagaimana software engineering membantu pengembangan perangkat lunak?,"Menurut konteks yang diberikan, software engineering dapat membantu pengembangan perangkat lunak dengan beberapa cara:
+
+* Meningkatkan kualitas perangkat lunak
+* Mempercepat produktivitas
+* Meningkatkan tingkat kesuksesan proyek
+
+Software engineering juga dapat menggunakan teknik-teknik AI untuk mendeteksi kelemahan dalam fase-fase pengembangan perangkat lunak dan memberikan rekomendasi tindakan.",23.2961s
+5,Apa hubungan software engineering dengan software quality?,"Software engineering memiliki hubungan yang erat dengan software quality. ASD dan continuous software engineering telah menciptakan banyak peluang untuk mengamati perilaku pengguna, memantau bagaimana sistem dan layanan digunakan, serta mengidentifikasi pola-pola tidak terduga dan masalah runtime. Software analytics berperan penting dalam proses ini, karena dapat memberikan pengetahuan aksiabel yang dapat digunakan untuk meningkatkan kualitas perangkat lunak.
+
+Dalam konteks software engineering, software quality merupakan faktor kesuksesan yang sangat penting. Proses pengembangan perangkat lunak yang efektif dan manajemen mutu yang baik diperlukan untuk mencapai tingkat kualitas perangkat lunak yang diinginkan.
+
+Selain itu, AI (Inteligensi Buatan) dapat membantu meningkatkan proses software engineering dengan mendeteksi bagian-bagian yang lebih mungkin mengandung kelemahan dan memberikan rekomendasi tindakan.",34.0297s
+6,Bagaimana software engineering membantu software maintenance?,"Software engineering membantu software maintenance dengan menggunakan Artificial Intelligence (AI) dan Machine Learning (ML) untuk mendeteksi masalah, meningkatkan kualitas kode, dan mengurangi biaya perawatan. AI dapat membantu dalam beberapa cara:
+
+* Mendeteksi potensi kerentanan dan memberikan saran kepada pengembang
+* Meningkatkan efisiensi perawatan dengan menggunakan teknologi seperti auto-fixing agents dan migration agents
+* Mengurangi biaya perawatan dengan memprediksi masalah sebelum mereka terjadi
+* Meningkatkan kualitas kode dengan mendeteksi ""code smells"" dan merekomendasikan desain yang lebih baik
+
+Dengan demikian, software engineering dapat membantu mengurangi biaya perawatan, meningkatkan kualitas software, dan memperbaiki keamanan software.",41.3718s
+7,Bagaimana software engineering mendukung software testing?,"Menurut konteks yang diberikan, software engineering mendukung software testing dengan beberapa cara:
+
+* Membuat perangkat lunak yang dapat diuji dan dites.
+* Menggunakan metode dan teknik pengujian yang efektif.
+* Melakukan analisis yang lebih dalam untuk menemukan kesalahan dan masalah.
+* Menggunakan alat bantu seperti sistem pengujian automatis.
+
+Namun, perlu diingat bahwa informasi ini hanya dapat ditemukan pada konteks yang diberikan dan tidak ada konklusi yang jelas tentang bagaimana software engineering mendukung software testing secara keseluruhan.",16.7889s
+8,Bagaimana software engineering menggunakan software metrics?,"Berikut adalah jawaban berdasarkan konteks:
+
+Software Engineering menggunakan software metrics untuk mengukur kompleksitas, kualitas perangkat lunak, dan biaya proyek dengan perkiraan upah. Metrik tradisional seperti fungsi titik dan kompleksitas siklostatik masih digunakan dalam paradigma bahasa prosedur. Namun, metrik-metrik tersebut tidak dapat hanya digunakan dalam konteks pemrograman berorientasi objek.
+
+Dalam konteks pemrograman berorientasi objek, metrik software digunakan untuk memahami bagaimana pewarisan, abstraksi, dan encapsulasi terkait antara satu sama lain.",21.5178s
+9,Apa itu software quality?,"Berikut adalah jawaban berdasarkan konteks:
+
+* Menurut ISO 8042 [18], software quality adalah ""totalitas dari karakteristik suatu entitas yang menentukan kemampuannya untuk memenuhi kebutuhan yang terungkap dan tidak terungkap"" (konsep ini diulang dalam beberapa konteks lain).
+* Dalam konteks AI-based video software, software quality didefinisikan sebagai kemampuan sistem untuk memenuhi kombinasi dari atribut kualitas yang diinginkan [6], [7]. Atribut tersebut meliputi kompleksitas, keandalan, skalaabilitas, fungsionalitas, efisiensi, portabelitas, usabilitas, dan maintainability.
+* Dalam konteks pengembangan perangkat lunak, software quality adalah total karakteristik suatu entitas yang tergantung pada kemampuannya untuk memenuhi kebutuhan yang eksplisit dan implisit [34]-[36].
+* Software quality juga dapat dihitung menggunakan formula: q = b / l, di mana q adalah kualitas perangkat lunak, b adalah bug terbuka, dan l adalah kode yang berubah total.",51.3746s
+10,Apa faktor yang mempengaruhi software quality?,"Berikut beberapa faktor yang mempengaruhi software quality:
+
+• Efektifitas koordinasi proses pengembangan perangkat lunak dan aktivitas manajemen kualitas (engineering)
+• Biaya dan batasan waktu [12], [13], [42], [43]
+• Kapital struktural dan kapital manusia
+• Modal intelektual 
+• Keterampilan pengguna, keandalan, skalabilitas, fungsi, efisiensi, portabelitas, kemanfaatan dan maintainability",30.1992s
+11,Bagaimana software quality diukur?,"Software quality dapat diukur dengan menggunakan berbagai metrik dan model. Beberapa contoh metrik yang digunakan untuk mengukur software quality adalah:
+
+* Fungsi Point Analysis
+* Cyclomatic Complexity Metric
+* Halstead Metrics
+* McCabe Metrics
+* ISO/IEC 25010 (8 atribut: performansi, keserbagunaan, keterandalan, keterjaminan, keamanan, kompatibilitas, kemudahan penggunaan, dan kemampuan perawatan)
+* ISO/IEC 9126 (6 karakteristik: keterjaminan, keterandalan, kemudahan penggunaan, kompatibilitas, keserbagunaan, dan kemampuan perawatan)
+
+Selain itu, software quality juga dapat diukur dengan menggunakan model-model seperti:
+
+* Model McCall
+* Model Boehm dan Dromey
+* Model ISO/IEC 25010
+* Model Quamoco
+* Model SQALE
+
+Perlu diingat bahwa tidak ada satu metrik atau model yang dapat mengukur software quality secara lengkap, karena setiap metrik memiliki kelebihan dan kekurangan masing-masing. Oleh karena itu, biasanya digunakan kombinasi dari beberapa metrik untuk mendapatkan gambaran yang lebih komprehensif tentang kualitas perangkat lunak.",38.0428s
+12,Apa hubungan software quality dengan software testing?,"Software quality dipengaruhi oleh hasil software testing. Selain itu, software testing juga dianggap sebagai salah satu kegiatan yang penting dalam Software Development Life Cycle (SDLC) untuk menjamin kualitas dan ketepatan sistem perangkat lunak.
+
+Sumber:
+- [Source: Error-Type—A Novel Set of Software Metrics for Software Fault Prediction]
+- [Source: How Software Quality Mediates the Impact of Intellectual Capital on Commercial Open-Source Software Company Success]",20.9288s
+13,Apa hubungan software quality dengan software metrics?,"Software quality dapat dipengaruhi oleh software metrics, yang digunakan untuk mengukur kompleksitas, kualitas perangkat lunak, dan biaya proyek bersamaan dengan perkiraan upaya. Software metrics seperti poin fungsi dan kompleksitas siklik tradisional telah digunakan dalam paradigma prosedural tetapi tidak hanya dapat digunakan dalam konteks berorientasi objek.
+
+Selain itu, penelitian terbaru menunjukkan bahwa ada hubungan positif signifikan antara kualitas perangkat lunak dan kesuksesan COSS (β = 0,581, T-value = 10,842, P-value = 0,000). Dalam beberapa kasus, mediasi efektif kapital manusia pada relasi tersebut terbukti signifikan.
+
+Dengan demikian, dapat disimpulkan bahwa kualitas perangkat lunak merupakan faktor penting dalam menengahi dampak modal intelektual (kapital struktural dan kapital manusia) terhadap kesuksesan COSS.",42.1553s
+14,Bagaimana software quality mempengaruhi software maintenance?,"Software quality memiliki dampak signifikan pada proses pemeliharaan perangkat lunak. Berdasarkan konteks, terdapat beberapa poin penting yang menunjukkan hubungan antara software quality dan software maintenance:
+
+* Software dengan kualitas rendah dapat mempengaruhi biaya penyimpanan (cost saving) dalam proses pemeliharaan perangkat lunak.
+* Kualitas software juga dipengaruhi oleh infrastruktur, pengetahuan domain, pengelolaan proyek, dan perubahan persyaratan.
+* Penggunaan metode MICMAC dapat membantu memahami hubungan antara faktor-faktor yang berpengaruh pada proses pemeliharaan perangkat lunak.
+
+Namun, harus diingat bahwa informasi tersebut didapatkan dari analisis tabel dan survei online terhadap 15 pakar dalam bidang pengembangan perangkat lunak.",32.9753s
+15,Bagaimana software engineering membantu meningkatkan software quality?,"Berdasarkan konteks yang diberikan, jawaban dari pertanyaan user adalah:
+
+- Membantu dalam mendeteksi potensi kerentanan dan mencegahnya.
+- Mendukung pengembangan proses software dengan menggunakan simulasi modeling.
+
+Namun, perlu diingat bahwa informasi tersebut tidak sepenuhnya menjawab pertanyaan user secara komprehensif.",40.5238s
+16,Bagaimana Agile software development mempengaruhi software quality?,"Agile software development dapat meningkatkan kualitas perangkat lunak dengan cara:
+
+* Mengurangi waktu pengembangan dan biaya
+* Meningkatkan kepuasan pelanggan
+* Mengoptimalkan proses pengembangan perangkat lunak
+* Meningkatkan kemampuan untuk mendeteksi dan memperbaiki kesalahan
+
+Namun, manajemen proyek Agile dapat menjadi tantangan, terutama dalam kasus perusahaan kecil dan menengah.",27.0299s
+17,Bagaimana machine learning dapat membantu evaluasi software quality?,"Machine learning dapat membantu evaluasi software quality dengan menggunakan teknik-teknik seperti:
+
+* Menggunakan algoritma seperti Support Vector Machines (SVM), Naive Bayes (NB), Decision Trees, dan Neural Networks untuk menganalisis data dan membuat prediksi tentang kualitas software.
+* Membuat model yang dapat memprediksi kegagalan (faults) pada software berdasarkan data historis dan karakteristik software.
+* Menggunakan metrik-metrik seperti complexity, reliability, scalability, functionality, efficiency, portabilitas, usability, dan maintainability untuk mengevaluasi kualitas software.
+
+Namun, informasi lebih lanjut tentang bagaimana machine learning dapat membantu evaluasi software quality tidak ditemukan pada dokumen yang tersedia.",36.7425s
+18,Apa itu machine learning?,"Machine learning adalah teknik pembelajaran mesin (ML) yang digunakan dalam pengembangan perangkat lunak. Dalam konteks ini, ML diartikan sebagai cara perangkat lunak belajar dari data dan mengembangkan kemampuan untuk membuat prediksi atau klasifikasi berdasarkan pengalaman tersebut.",28.0259s
+19,Mengapa machine learning digunakan?,Machine learning digunakan karena algoritmanya terbukti paling cocok untuk domain masalah yang bertujuan meniru perilaku manusia.,23.9121s
+20,Bagaimana machine learning bekerja secara sederhana?,"Machine learning bekerja dengan mempelajari pola dalam data untuk membuat prediksi atau keputusan. 
+
+Berikut adalah contoh bagaimana deep learning seperti Google's AlphaGo mengembangkan kemampuan bermain catur tanpa instruksi spesifik, tetapi melalui proses belajar dari pengalaman:
+
+* Deep Learning analisis data dengan struktur logika yang mirip dengan cara manusia mencapai kesimpulan.
+* Proses ini memerlukan banyak dataset untuk dimasukkan ke dalam algoritma agar mendapatkan hasil prediksi yang lebih akurat.
+
+Penggunaan teknik pembelajaran mesin (machine learning) dalam pengembangan perangkat lunak juga dapat membantu mendeteksi kesalahan atau kelemahan dalam kode program.",22.8434s
+21,Apa perbedaan machine learning dan deep learning?,Informasi tersebut tidak ditemukan pada dokumen yang tersedia.,21.8074s
+22,Apa hubungan machine learning dengan CNN?,"CNN (Convolutional Neural Network) adalah suatu jenis jaringan saraf tiruan yang dirancang khusus untuk memproses data citra. Machine Learning menggunakan algoritma seperti CNN untuk menerapkan pemahaman dari data dan membuat prediksi atau klasifikasi berdasarkan data tersebut.
+
+CNN digunakan dalam beberapa aplikasi, termasuk deteksi objek dan prediksi posisi bola pada robot penjaga gawang [4], [5], [25]. CNN juga dapat dipakai untuk mendeteksi dan memprediksi posisi objek di lingkungan tiga dimensi karena kemampuannya dalam mengekstrak fitur-fitur visual yang kompleks dari data citra.",28.4748s
+23,Bagaimana machine learning digunakan dalam software engineering?,"Berikut adalah jawaban berdasarkan konteks:
+
+Machine Learning (ML) telah digunakan secara luas dalam berbagai fase pengembangan perangkat lunak, termasuk fase analitik desain dan data persiapan. ML juga telah digunakan untuk melakukan automasi tes perangkat lunak, sehingga membantu meningkatkan efisiensi dalam pengembangan perangkat lunak.
+
+Dalam beberapa penelitian, ML digunakan untuk mendeteksi kelemahan atau kesalahan dalam kode program dengan menggunakan teknik supervised learning. Selain itu, ML juga telah digunakan untuk memprediksi perilaku pengguna dan kinerja sistem dengan menggunakan teknik klasifikasi.
+
+Tidak ada informasi yang jelas tentang bagaimana machine learning digunakan di fase lainnya seperti requirements gathering, planning, specification, architecture, design, dan documentation.",34.5221s
+24,Bagaimana machine learning membantu software testing?,"Machine learning membantu software testing dengan cara:
+
+* Menggunakan teknik supervised learning seperti ANN dan DT untuk menyelesaikan masalah pengujian terkait.
+* Meningkatkan efisiensi aplikasi pada skala besar dan kompleks sistem perangkat lunak.
+* Menemukan kode duplikat, lokasi spesifik kode di dalam software, refactoring kode, atau labeling kode dengan bantuan machine learning.
+
+Referensi:
+- Durelli et al. [8]
+- Alahmadi et al. [29]
+- Pecorelli et al. [30]",25.7910s
+25,Bagaimana machine learning dapat digunakan untuk software quality?,"Berikut adalah jawaban berdasarkan konteks yang diberikan:
+
+Machine learning dapat digunakan untuk meningkatkan kualitas perangkat lunak melalui beberapa cara, antara lain:
+
+* Membantu dalam deteksi bagian dari siklus pengembangan perangkat lunak yang lebih cenderung mengandung kelemahan dan memberikan peringatan tentang masalah tersebut.
+* Menggunakan algoritma untuk memprediksi atau mengevaluasi kualitas atribut tertentu, seperti performa, keandalan, atau kemudahan pemeliharaan.
+
+Jenis-jenis teknik machine learning yang digunakan untuk meningkatkan kualitas perangkat lunak antara lain:
+
+* Support Vector Machines (SVM)
+* Naive Bayes (NB)
+* Decision Trees
+* Neural Networks
+
+Dengan menggunakan metode ini, pengembang perangkat lunak dapat membuat model prediksi yang lebih akurat untuk meningkatkan kualitas perangkat lunak.",28.2366s
+,,,
+,,RERATA,32.59662308
