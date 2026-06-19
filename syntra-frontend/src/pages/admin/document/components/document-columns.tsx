@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 import type { DocumentListItem } from "../types"
 import { Link } from "react-router-dom"
+import { getDocumentDownloadUrl } from "../api"
 
 const formatDate = (dateStr: string | null): string => {
   if (!dateStr) return "-"
@@ -43,6 +44,29 @@ const getVisibilityBadge = (isPrivate: boolean) => (
     {isPrivate ? "Private" : "Public"}
   </Badge>
 )
+
+const openDocumentPreview = async (documentId: number) => {
+  const previewWindow = window.open("about:blank", "_blank")
+
+  if (!previewWindow) {
+    window.alert("Popup diblokir browser. Izinkan pop-up untuk membuka dokumen.")
+    return
+  }
+
+  try {
+    const { downloadUrl } = await getDocumentDownloadUrl({ documentId })
+
+    previewWindow.location.replace(downloadUrl)
+    previewWindow.opener = null
+    previewWindow.focus()
+  } catch (error: unknown) {
+    previewWindow.close()
+
+    window.alert(
+      error instanceof Error ? error.message : "Gagal membuka dokumen."
+    )
+  }
+}
 
 export const columns: ColumnDef<DocumentListItem>[] = [
   {
@@ -106,7 +130,7 @@ export const columns: ColumnDef<DocumentListItem>[] = [
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
-          <DropdownMenuItem onClick={() => console.log("View", row.original.id)}>
+          <DropdownMenuItem onClick={() => void openDocumentPreview(row.original.id)}>
             <IconEye className="size-4" />
             Lihat
           </DropdownMenuItem>

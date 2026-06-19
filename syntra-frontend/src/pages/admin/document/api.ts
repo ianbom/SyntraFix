@@ -10,6 +10,7 @@ import type {
   ProcessMonitorResponse,
 } from "./types"
 import type { ChunkType, DocumentChunk, DocumentDetail, JsonValue, ProcessingStatus } from "./edit-types"
+import { authService } from "@/lib/auth"
 
 const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL ?? "http://localhost:8000").replace(/\/$/, "")
 const DOCUMENT_TYPES: DocumentType[] = ["journal", "conference", "thesis", "report", "book"]
@@ -101,6 +102,21 @@ interface GetDocumentDetailParams {
   signal?: AbortSignal
 }
 
+interface GetDocumentDownloadUrlParams {
+  documentId: number
+  signal?: AbortSignal
+}
+
+interface DocumentDownloadApiResponse {
+  download_url: unknown
+  filename?: unknown
+}
+
+export interface DocumentDownloadResult {
+  downloadUrl: string
+  filename: string
+}
+
 interface ApiErrorPayload {
   detail?: unknown
   message?: unknown
@@ -134,6 +150,17 @@ const getErrorMessage = async (
 
   const text = await response.text()
   return text || fallbackMessage
+}
+
+const getAuthHeaders = (): HeadersInit => {
+  const accessToken = authService.getAccessToken()
+  if (!accessToken) {
+    throw new Error("Sesi login tidak ditemukan. Silakan login ulang.")
+  }
+
+  return {
+    Authorization: `Bearer ${accessToken}`,
+  }
 }
 
 const isDocumentType = (value: string | null | undefined): value is DocumentType => {
@@ -326,6 +353,35 @@ export const getDocumentDetail = async ({
   }
 
   return mapDocumentDetail(payload)
+}
+
+export const getDocumentDownloadUrl = async ({
+  documentId,
+  signal,
+}: GetDocumentDownloadUrlParams): Promise<DocumentDownloadResult> => {
+  const response = await fetch(`${API_BASE_URL}/documents/${documentId}/download`, {
+    method: "GET",
+    headers: getAuthHeaders(),
+    signal,
+  })
+
+  if (!response.ok) {
+    throw new Error(await getErrorMessage(response, "Gagal membuka dokumen."))
+  }
+
+  const payload = (await response.json()) as DocumentDownloadApiResponse
+
+  if (typeof payload.download_url !== "string" || payload.download_url.trim().length === 0) {
+    throw new Error("Download URL dokumen tidak valid.")
+  }
+
+  return {
+    downloadUrl: payload.download_url,
+    filename:
+      typeof payload.filename === "string" && payload.filename.trim().length > 0
+        ? payload.filename
+        : "Dokumen",
+  }
 }
 
 interface BulkUploadApiItemResult {

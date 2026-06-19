@@ -2,7 +2,13 @@ import Cookies from "js-cookie"
 import type { AuthToken, LoginCredentials, LoginResponse, User } from "./types"
 
 const AUTH_TOKEN_KEY = "auth_token"
+const AUTH_TOKEN_STORAGE_KEY = "syntra_auth_token"
 const AUTH_COOKIE_EXPIRES_DAYS = 7
+const AUTH_COOKIE_OPTIONS = {
+  expires: AUTH_COOKIE_EXPIRES_DAYS,
+  sameSite: "lax" as const,
+  path: "/",
+}
 const TOKEN_REFRESH_INTERVAL_MS = 5 * 60 * 1000
 const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL ?? "http://localhost:8000").replace(/\/$/, "")
 type AuthStateListener = () => void
@@ -15,6 +21,39 @@ const notifyAuthStateChange = () => {
   authStateListeners.forEach((listener) => {
     listener()
   })
+}
+
+const removeAuthTokenCookie = () => {
+  Cookies.remove(AUTH_TOKEN_KEY)
+  Cookies.remove(AUTH_TOKEN_KEY, { path: "/" })
+  Cookies.remove(AUTH_TOKEN_KEY, { path: "/login" })
+  Cookies.remove(AUTH_TOKEN_KEY, { path: "/admin" })
+  Cookies.remove(AUTH_TOKEN_KEY, { path: "/chat" })
+}
+
+const getStoredAuthTokenFromLocalStorage = (): string | null => {
+  try {
+    return window.localStorage.getItem(AUTH_TOKEN_STORAGE_KEY)
+  } catch (error) {
+    console.error("Failed to read auth token from local storage.", error)
+    return null
+  }
+}
+
+const setStoredAuthTokenInLocalStorage = (rawToken: string) => {
+  try {
+    window.localStorage.setItem(AUTH_TOKEN_STORAGE_KEY, rawToken)
+  } catch (error) {
+    console.error("Failed to store auth token in local storage.", error)
+  }
+}
+
+const removeStoredAuthTokenFromLocalStorage = () => {
+  try {
+    window.localStorage.removeItem(AUTH_TOKEN_STORAGE_KEY)
+  } catch (error) {
+    console.error("Failed to remove auth token from local storage.", error)
+  }
 }
 
 const isUser = (value: unknown): value is User => {
@@ -46,14 +85,12 @@ const parseAuthToken = (rawToken: string): AuthToken | null => {
       typeof parsed.token_type !== "string" ||
       !isUser(parsed.user)
     ) {
-      Cookies.remove(AUTH_TOKEN_KEY)
       return null
     }
 
     return parsed as AuthToken
   } catch (error) {
     console.error("Failed to parse auth token from cookie.", error)
-    Cookies.remove(AUTH_TOKEN_KEY)
     return null
   }
 }
@@ -71,7 +108,8 @@ const getErrorMessage = async (response: Response): Promise<string> => {
 }
 
 const clearStoredAuthToken = () => {
-  Cookies.remove(AUTH_TOKEN_KEY)
+  removeAuthTokenCookie()
+  removeStoredAuthTokenFromLocalStorage()
   cachedAuthToken = null
 }
 
@@ -80,25 +118,38 @@ const getStoredAuthToken = (): AuthToken | null => {
     return cachedAuthToken
   }
 
-  const rawToken = Cookies.get(AUTH_TOKEN_KEY)
-  if (!rawToken) {
-    return null
+  const rawCookieToken = Cookies.get(AUTH_TOKEN_KEY)
+  if (rawCookieToken) {
+    const parsedCookieToken = parseAuthToken(rawCookieToken)
+    if (parsedCookieToken) {
+      cachedAuthToken = parsedCookieToken
+      return cachedAuthToken
+    }
   }
 
-  const parsedToken = parseAuthToken(rawToken)
-  if (!parsedToken) {
-    return null
+  const rawLocalStorageToken = getStoredAuthTokenFromLocalStorage()
+  if (rawLocalStorageToken) {
+    const parsedLocalStorageToken = parseAuthToken(rawLocalStorageToken)
+    if (parsedLocalStorageToken) {
+      removeAuthTokenCookie()
+      Cookies.set(AUTH_TOKEN_KEY, rawLocalStorageToken, AUTH_COOKIE_OPTIONS)
+      cachedAuthToken = parsedLocalStorageToken
+      return cachedAuthToken
+    }
   }
 
-  cachedAuthToken = parsedToken
-  return cachedAuthToken
+  if (rawCookieToken || rawLocalStorageToken) {
+    clearStoredAuthToken()
+  }
+
+  return null
 }
 
 const setStoredAuthToken = (token: AuthToken) => {
-  Cookies.set(AUTH_TOKEN_KEY, JSON.stringify(token), {
-    expires: AUTH_COOKIE_EXPIRES_DAYS,
-    sameSite: "lax",
-  })
+  const rawToken = JSON.stringify(token)
+  removeAuthTokenCookie()
+  Cookies.set(AUTH_TOKEN_KEY, rawToken, AUTH_COOKIE_OPTIONS)
+  setStoredAuthTokenInLocalStorage(rawToken)
   cachedAuthToken = token
 }
 

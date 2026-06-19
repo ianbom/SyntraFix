@@ -3,7 +3,7 @@ from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
 from sqlalchemy.orm import Session
 from app.database import get_db
-from app.models.user import User
+from app.models.user import User, UserRole
 from app.utils.security import decode_token
 from app.services.user import get_user_by_id
 
@@ -53,6 +53,16 @@ async def get_current_user(
     return user
 
 
+def require_admin_user(current_user: Annotated[User, Depends(get_current_user)]) -> User:
+    if current_user.role != UserRole.admin:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Admin privileges required",
+        )
+    return current_user
+
 # Type alias for dependency injection
 CurrentUser = Annotated[User, Depends(get_current_user)]
+AdminUser = Annotated[User, Depends(require_admin_user)]
 DBSession = Annotated[Session, Depends(get_db)]
+
