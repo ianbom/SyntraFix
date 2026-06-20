@@ -7,7 +7,7 @@ settings = get_settings()
 celery_app = Celery(
     "syntra_worker",
     broker=settings.CELERY_BROKER_URL,
-    include=["app.tasks.document_tasks"]
+    include=["app.tasks.document_tasks", "app.tasks.rag_evaluation_tasks"]
 )
 
 # Celery configuration

@@ -1,3 +1,4 @@
+from dataclasses import dataclass
 from typing import AsyncGenerator, List, Optional, Dict, Any, Tuple
 from sqlalchemy.orm import Session
 from sqlalchemy import desc, func, extract, or_, case, literal
@@ -13,6 +14,14 @@ from app.services.embedding import generate_embedding
 from app.services.reranker import rerank_chunks
 from app.services import chat_query, rag_prompt, retrieval
 from app.models.document import Document, DocumentType
+
+
+@dataclass
+class RagPipelineResult:
+    response: str
+    retrieved_contexts: List[str]
+    references_metadata: List[Dict[str, Any]]
+    rag_duration_seconds: float
 
 class ChatService:
     def __init__(self, db: Session):
@@ -848,6 +857,52 @@ Pertanyaan asli: {query}"""
             }
             for reference in references
         ]
+
+    def _serialize_retrieved_chunks(self, chunks: List[DocumentChunk], similarities: List[float]) -> List[Dict[str, Any]]:
+        metadata = []
+        for index, chunk in enumerate(chunks):
+            document = getattr(chunk, "document", None)
+            metadata.append(
+                {
+                    "document_id": chunk.document_id,
+                    "chunk_id": chunk.id,
+                    "chunk_index": chunk.chunk_index,
+                    "document_title": getattr(document, "title", None),
+                    "page_number": chunk.page_number,
+                    "section_title": chunk.section_title,
+                    "chunk_type": self._chunk_type_value(chunk),
+                    "relevance_score": float(similarities[index]) if index < len(similarities) else None,
+                }
+            )
+        return metadata
+
+    async def run_rag_pipeline(self, question: str) -> RagPipelineResult:
+        """Run SyntraAI RAG without persisting conversation/chat rows."""
+        total_started_at = time.perf_counter()
+        query_info = self._process_query(question)
+        metadata_filters = self._build_metadata_filters(query_info["entities"])
+
+        expanded_queries = await self._expand_query(query_info["cleaned_query"])
+        query_embeddings = []
+        for query in expanded_queries:
+            embedding = generate_embedding(query)
+            if embedding is not None:
+                query_embeddings.append(embedding)
+
+        chunks, similarities = await self._retrieve_and_rerank_chunks(
+            query=query_info["cleaned_query"],
+            metadata_filters=metadata_filters,
+            query_embeddings=query_embeddings,
+        )
+        context_text = self._construct_context_text(chunks)
+        full_prompt = self._construct_rag_prompt(question, context_text)
+        answer = await generate_response(full_prompt)
+        return RagPipelineResult(
+            response=answer,
+            retrieved_contexts=[chunk.content for chunk in chunks],
+            references_metadata=self._serialize_retrieved_chunks(chunks, similarities),
+            rag_duration_seconds=time.perf_counter() - total_started_at,
+        )
 
     # =========================================================================
     # Main Chat Processing

@@ -1,5 +1,6 @@
 """RAGAS evaluation helpers for prompt search."""
 import math
+import sys
 from typing import Any, Dict, List, Optional
 
 from app.config import get_settings
@@ -66,7 +67,8 @@ def evaluate_iteration_with_ragas(
         from ragas.metrics import AnswerRelevancy, ContextPrecision, ContextRecall, Faithfulness
     except ImportError as error:
         raise RuntimeError(
-            "RAGAS dependencies are not installed in the FastAPI environment"
+            "RAGAS dependencies are not installed correctly in the FastAPI "
+            f"environment ({sys.executable}): {error}"
         ) from error
 
     settings = get_settings()
@@ -105,4 +107,3 @@ def evaluate_iteration_with_ragas(
     df = score.to_pandas()
     row = df.iloc[0].to_dict()
     return {key: _safe_float(row.get(key)) for key in METRIC_KEYS}
-
