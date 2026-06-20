@@ -1,4 +1,6 @@
 import uuid
+from urllib.parse import urlsplit, urlunsplit
+
 from minio import Minio
 from minio.error import S3Error
 from fastapi import UploadFile, HTTPException
@@ -19,6 +21,18 @@ def get_minio_client() -> Minio:
         secret_key=settings.MINIO_SECRET_KEY,
         secure=settings.MINIO_SECURE
     )
+
+def rewrite_minio_public_url(url: str) -> str:
+    """Rewrite internal MinIO presigned URLs to a browser-reachable endpoint."""
+    if not settings.MINIO_PUBLIC_ENDPOINT:
+        return url
+
+    source = urlsplit(url)
+    public_endpoint = settings.MINIO_PUBLIC_ENDPOINT.strip().rstrip("/")
+    if "://" not in public_endpoint:
+        public_endpoint = f"{'https' if settings.MINIO_SECURE else 'http'}://{public_endpoint}"
+    public = urlsplit(public_endpoint)
+    return urlunsplit((public.scheme, public.netloc, source.path, source.query, source.fragment))
 
 
 def ensure_bucket_exists(client: Minio) -> None:
@@ -107,7 +121,7 @@ def get_image_url(object_name: str) -> str:
             object_name,
             expires=timedelta(days=7)
         )
-        return url
+        return rewrite_minio_public_url(url)
     except S3Error as e:
         raise HTTPException(status_code=500, detail=f"Failed to get image URL: {str(e)}")
 

@@ -20,6 +20,7 @@ class Settings(BaseSettings):
     MINIO_SECRET_KEY: str
     MINIO_BUCKET: str = "syntra-minio"
     MINIO_DOCUMENTS_BUCKET: str = "documents"
+    MINIO_PUBLIC_ENDPOINT: str | None = None
     MINIO_SECURE: bool = False
     
     # GROBID

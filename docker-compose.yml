@@ -1,0 +1,159 @@
+x-fastapi-env: &fastapi-env
+  DATABASE_URL: postgresql://postgres:root@postgres:5432/syntra-bge
+  SECRET_KEY: secretkeyiniamanbangetlooo
+  ALGORITHM: HS256
+  ACCESS_TOKEN_EXPIRE_MINUTES: 180
+  REFRESH_TOKEN_EXPIRE_DAYS: 7
+  MINIO_ENDPOINT: minio:9000
+  MINIO_PUBLIC_ENDPOINT: localhost:9000
+  MINIO_ACCESS_KEY: admin
+  MINIO_SECRET_KEY: admin123
+  MINIO_BUCKET: syntra-minio
+  MINIO_DOCUMENTS_BUCKET: documents
+  MINIO_SECURE: "false"
+  GROBID_URL: http://grobid:8070
+  CELERY_BROKER_URL: amqp://guest:guest@rabbitmq:5672//
+  OLLAMA_BASE_URL: http://host.docker.internal:11435
+  OLLAMA_GENERATION_MODEL: llama3.1:8b-instruct-q8_0
+  OLLAMA_EMBEDDING_MODEL: bge-m3:567m
+  OLLAMA_EMBEDDING_DIMENSION: 1024
+  GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+  GOOGLE_API_KEY: ${GOOGLE_API_KEY:-}
+
+x-fastapi-service: &fastapi-service
+  image: syntrafix-backend:latest
+  build:
+    context: ./FastAPI
+  environment:
+    <<: *fastapi-env
+  depends_on:
+    postgres:
+      condition: service_healthy
+    rabbitmq:
+      condition: service_healthy
+    minio:
+      condition: service_started
+    minio-init:
+      condition: service_completed_successfully
+    grobid:
+      condition: service_started
+    grobid-ready:
+      condition: service_completed_successfully
+  extra_hosts:
+    - "host.docker.internal:host-gateway"
+  restart: unless-stopped
+
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_DB: syntra-bge
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d syntra-bge"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+
+  minio:
+    image: minio/minio:latest
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: admin
+      MINIO_ROOT_PASSWORD: admin123
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - minio_data:/data
+    restart: unless-stopped
+
+  minio-init:
+    image: minio/mc:latest
+    depends_on:
+      minio:
+        condition: service_started
+    entrypoint: >
+      /bin/sh -c "
+      until mc alias set local http://minio:9000 admin admin123; do sleep 2; done &&
+      mc mb --ignore-existing local/syntra-minio &&
+      mc mb --ignore-existing local/documents
+      "
+    restart: "no"
+
+  grobid:
+    image: lfoppiano/grobid:0.8.0
+    ports:
+      - "8070:8070"
+    restart: unless-stopped
+
+  grobid-ready:
+    image: curlimages/curl:8.11.1
+    depends_on:
+      grobid:
+        condition: service_started
+    command: >
+      sh -c "until curl -fsS http://grobid:8070/api/isalive; do sleep 5; done"
+    restart: "no"
+
+  backend:
+    <<: *fastapi-service
+    command: sh -c "alembic upgrade head && uvicorn app.main:app --host 0.0.0.0 --port 8000"
+    ports:
+      - "8000:8000"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 20s
+      timeout: 10s
+      retries: 10
+      start_period: 30s
+
+  worker-document:
+    <<: *fastapi-service
+    command: python -m celery -A app.celery_app.celery_app worker -Q celery --loglevel=info --pool=solo --hostname=document_worker@%h
+    depends_on:
+      backend:
+        condition: service_healthy
+
+  worker-ragas:
+    <<: *fastapi-service
+    command: python -m celery -A app.celery_app.celery_app worker -Q ragas_evaluation --loglevel=info --pool=solo --hostname=ragas_worker@%h
+    depends_on:
+      backend:
+        condition: service_healthy
+
+  frontend:
+    image: syntrafix-frontend:latest
+    build:
+      context: ./syntra-frontend
+    environment:
+      VITE_API_BASE_URL: http://localhost:8000
+      CHOKIDAR_USEPOLLING: "true"
+    ports:
+      - "5173:5173"
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+  minio_data:

@@ -6,7 +6,7 @@ from io import BytesIO
 from fastapi import HTTPException
 
 from app.config import get_settings
-from app.services.minio import get_minio_client
+from app.services.minio import get_minio_client, rewrite_minio_public_url
 
 settings = get_settings()
 
@@ -84,11 +84,12 @@ class MinIOStorage:
     def get_download_url(self, file_path: str, expires_hours: int = 1) -> str:
         """Get presigned download URL."""
         try:
-            return self.client.presigned_get_object(
+            url = self.client.presigned_get_object(
                 self.bucket,
                 file_path,
                 expires=timedelta(hours=expires_hours)
             )
+            return rewrite_minio_public_url(url)
         except Exception as e:
             raise HTTPException(status_code=500, detail=f"Failed to get download URL: {str(e)}")
     
