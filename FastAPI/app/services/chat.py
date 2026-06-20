@@ -656,6 +656,133 @@ Pertanyaan asli: {query}"""
     ) -> Tuple[List[DocumentChunk], List[float]]:
         return retrieval.candidate_dicts_to_chunks(candidates)
 
+    def _fetch_context_window_chunks(
+        self,
+        center_chunk: DocumentChunk,
+        window_size: int,
+    ) -> List[DocumentChunk]:
+        """Fetch neighbor chunks around a selected chunk within the same document."""
+        if self.db is None:
+            return []
+
+        document_id = getattr(center_chunk, "document_id", None)
+        chunk_index = getattr(center_chunk, "chunk_index", None)
+        if document_id is None or chunk_index is None:
+            return []
+
+        return (
+            self.db.query(DocumentChunk)
+            .filter(
+                DocumentChunk.document_id == document_id,
+                DocumentChunk.chunk_index >= chunk_index - window_size,
+                DocumentChunk.chunk_index <= chunk_index + window_size,
+                DocumentChunk.content.isnot(None),
+                DocumentChunk.content != "",
+            )
+            .order_by(DocumentChunk.chunk_index.asc(), DocumentChunk.id.asc())
+            .all()
+        )
+
+    def _build_context_window_candidate(
+        self,
+        parent_candidate: Dict[str, Any],
+        neighbor_chunk: DocumentChunk,
+        offset: int,
+    ) -> Dict[str, Any]:
+        """Create a scored candidate for a context-window neighbor."""
+        parent_score = float(
+            parent_candidate.get("final_score", parent_candidate.get("hybrid_score", 0.0))
+            or 0.0
+        )
+        neighbor_score = parent_score * 0.85
+
+        return {
+            **parent_candidate,
+            "chunk": neighbor_chunk,
+            "chunk_id": neighbor_chunk.id,
+            "document_id": neighbor_chunk.document_id,
+            "section_title": neighbor_chunk.section_title,
+            "page_number": neighbor_chunk.page_number,
+            "chunk_type": self._chunk_type_value(neighbor_chunk),
+            "content": neighbor_chunk.content,
+            "hybrid_score": neighbor_score,
+            "final_score": neighbor_score,
+            "context_window_neighbor": True,
+            "context_window_parent_chunk_id": parent_candidate.get("chunk_id"),
+            "context_window_offset": offset,
+        }
+
+    def _expand_context_window(
+        self,
+        reranked_candidates: List[Dict[str, Any]],
+        top_k: int = 5,
+        window_size: int = 1,
+    ) -> List[Dict[str, Any]]:
+        """Add previous/next chunks around top reranked chunks as context support."""
+        if not reranked_candidates:
+            return []
+
+        expanded: List[Dict[str, Any]] = []
+        seen_chunk_ids: set[int] = set()
+
+        try:
+            parent_candidates = reranked_candidates[:top_k]
+            remaining_candidates = reranked_candidates[top_k:]
+
+            for parent_candidate in parent_candidates:
+                parent_chunk = parent_candidate["chunk"]
+                parent_chunk_id = parent_candidate.get("chunk_id") or parent_chunk.id
+                parent_index = getattr(parent_chunk, "chunk_index", None)
+                window_chunks = self._fetch_context_window_chunks(parent_chunk, window_size)
+
+                if not window_chunks:
+                    window_chunks = [parent_chunk]
+
+                for window_chunk in sorted(window_chunks, key=lambda chunk: (chunk.chunk_index, chunk.id)):
+                    chunk_id = window_chunk.id
+                    if chunk_id in seen_chunk_ids:
+                        continue
+
+                    if self._is_noisy_visual_or_table_summary(
+                        {
+                            "chunk_type": self._chunk_type_value(window_chunk),
+                            "content": window_chunk.content,
+                        }
+                    ):
+                        continue
+
+                    if chunk_id == parent_chunk_id:
+                        expanded.append(parent_candidate)
+                    else:
+                        offset = 0
+                        if parent_index is not None and window_chunk.chunk_index is not None:
+                            offset = window_chunk.chunk_index - parent_index
+                        expanded.append(
+                            self._build_context_window_candidate(
+                                parent_candidate=parent_candidate,
+                                neighbor_chunk=window_chunk,
+                                offset=offset,
+                            )
+                        )
+                    seen_chunk_ids.add(chunk_id)
+
+            for candidate in remaining_candidates:
+                chunk_id = candidate.get("chunk_id") or candidate["chunk"].id
+                if chunk_id in seen_chunk_ids:
+                    continue
+                expanded.append(candidate)
+                seen_chunk_ids.add(chunk_id)
+
+            print(
+                f"  Context window expansion: "
+                f"{len(reranked_candidates)} -> {len(expanded)} chunks "
+                f"(top_k={top_k}, window_size={window_size})"
+            )
+            return expanded
+        except Exception as error:
+            print(f"  Context window expansion failed: {error}, using reranked chunks only")
+            return reranked_candidates
+
     async def _retrieve_and_rerank_chunks(
         self,
         query: str,
@@ -676,7 +803,8 @@ Pertanyaan asli: {query}"""
             threshold=threshold,
         )
         reranked_candidates = await rerank_chunks(query, selected_candidates, limit=limit)
-        return self._candidate_dicts_to_chunks(reranked_candidates)
+        expanded_candidates = self._expand_context_window(reranked_candidates)
+        return self._candidate_dicts_to_chunks(expanded_candidates)
 
     # =========================================================================
     # Context & Prompt Construction
