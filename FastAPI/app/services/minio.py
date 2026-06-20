@@ -1,4 +1,5 @@
 import uuid
+from datetime import timedelta
 from urllib.parse import urlsplit, urlunsplit
 
 from minio import Minio
@@ -20,6 +21,35 @@ def get_minio_client() -> Minio:
         access_key=settings.MINIO_ACCESS_KEY,
         secret_key=settings.MINIO_SECRET_KEY,
         secure=settings.MINIO_SECURE
+    )
+
+def _parse_minio_endpoint(endpoint: str) -> tuple[str, bool]:
+    """Return SDK endpoint and secure flag from host[:port] or URL."""
+    endpoint = endpoint.strip().rstrip("/")
+    if "://" not in endpoint:
+        return endpoint, settings.MINIO_SECURE
+
+    parsed = urlsplit(endpoint)
+    return parsed.netloc, parsed.scheme == "https"
+
+def get_public_minio_client() -> Minio:
+    """Get a MinIO client that signs URLs for the browser-reachable host."""
+    endpoint = settings.MINIO_PUBLIC_ENDPOINT or settings.MINIO_ENDPOINT
+    public_endpoint, secure = _parse_minio_endpoint(endpoint)
+    return Minio(
+        public_endpoint,
+        access_key=settings.MINIO_ACCESS_KEY,
+        secret_key=settings.MINIO_SECRET_KEY,
+        secure=secure,
+        region="us-east-1",
+    )
+
+def get_presigned_object_url(bucket_name: str, object_name: str, expires: timedelta) -> str:
+    """Generate a presigned URL whose signature matches the public URL host."""
+    return get_public_minio_client().presigned_get_object(
+        bucket_name,
+        object_name,
+        expires=expires,
     )
 
 def rewrite_minio_public_url(url: str) -> str:
@@ -111,17 +141,12 @@ def get_image_url(object_name: str) -> str:
     Generate URL for accessing the image.
     Returns a presigned URL or public URL based on configuration.
     """
-    client = get_minio_client()
-    
     try:
-        # Generate presigned URL (valid for 7 days)
-        from datetime import timedelta
-        url = client.presigned_get_object(
+        return get_presigned_object_url(
             settings.MINIO_BUCKET,
             object_name,
             expires=timedelta(days=7)
         )
-        return rewrite_minio_public_url(url)
     except S3Error as e:
         raise HTTPException(status_code=500, detail=f"Failed to get image URL: {str(e)}")
 
