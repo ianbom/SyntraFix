@@ -131,7 +131,7 @@ services:
 
   worker-document:
     <<: *fastapi-service
-    command: python -m celery -A app.celery_app.celery_app worker -Q celery --loglevel=info --pool=solo --hostname=document_worker@%h
+    command: python -m celery -A app.celery_app.celery_app worker -Q celery --loglevel=info --pool=prefork --concurrency=1 --hostname=document_worker@%h
     depends_on:
       backend:
         condition: service_healthy

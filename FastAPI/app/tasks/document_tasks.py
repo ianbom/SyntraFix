@@ -125,7 +125,30 @@ def process_document_task(self, document_id: int, file_path: str):
     storage = MinIOStorage()
     
     try:
-        # Update status to processing
+        document = db.query(Document).filter(Document.id == document_id).first()
+        if not document:
+            print(f"Document {document_id} not found")
+            return {"status": "error", "message": "Document not found"}
+
+        if document.processing_status == "completed":
+            existing_chunk_count = (
+                db.query(DocumentChunk)
+                .filter(DocumentChunk.document_id == document_id)
+                .count()
+            )
+            if existing_chunk_count > 0:
+                print(
+                    f"Document {document_id} already completed with "
+                    f"{existing_chunk_count} chunks; skipping duplicate task."
+                )
+                return {
+                    "status": "already_completed",
+                    "document_id": document_id,
+                    "chunk_count": existing_chunk_count,
+                    "title": (document.title or "")[:100],
+                }
+
+        # Update status to processing after duplicate-completed tasks are skipped.
         _update_processing_state(
             db,
             document_id,
@@ -133,10 +156,6 @@ def process_document_task(self, document_id: int, file_path: str):
             progress=0,
             clear_error=True,
         )
-        document = db.query(Document).filter(Document.id == document_id).first()
-        if not document:
-            print(f"Document {document_id} not found")
-            return {"status": "error", "message": "Document not found"}
         
         print(f"{'='*60}")
         print(f"CELERY TASK: Processing document {document_id} ({file_path})")
@@ -252,7 +271,11 @@ def process_document_task(self, document_id: int, file_path: str):
         _attach_context_metadata_to_chunks(chunks, metadata.get("title"))
 
         # Add visual chunks interpreted by LLM (table + image -> text)
+        if tables_data:
+            print(f"  Interpreting {len(tables_data)} tables with LLM...")
         table_chunks = _build_table_chunks(tables_data, metadata.get("title"))
+        if images_data:
+            print(f"  Interpreting {len(images_data)} images with LLM...")
         image_chunks = _build_image_chunks(images_data, metadata.get("title"))
         chunks.extend(table_chunks)
         chunks.extend(image_chunks)
@@ -302,6 +325,18 @@ def process_document_task(self, document_id: int, file_path: str):
         # Step 7: Persist chunks
         print("[7/7] Saving chunks to database...")
         total_chunks = len(chunks)
+
+        deleted_chunk_count = (
+            db.query(DocumentChunk)
+            .filter(DocumentChunk.document_id == document.id)
+            .delete(synchronize_session=False)
+        )
+        if deleted_chunk_count:
+            print(
+                f"  Removed {deleted_chunk_count} existing chunks for "
+                f"idempotent reprocessing"
+            )
+            db.commit()
 
         for i, chunk_data in enumerate(chunks):
             # Create chunk record

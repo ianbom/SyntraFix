@@ -22,6 +22,11 @@ celery_app.conf.update(
     # Worker settings
     worker_concurrency=2,
     worker_prefetch_multiplier=1,
+    broker_heartbeat=30,
+    broker_heartbeat_checkrate=2,
+    broker_connection_retry_on_startup=True,
+    broker_connection_retry=True,
+    worker_cancel_long_running_tasks_on_connection_loss=True,
     
     # Task execution settings
     task_acks_late=True,
