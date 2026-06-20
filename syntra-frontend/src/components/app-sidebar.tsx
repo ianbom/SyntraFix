@@ -10,6 +10,7 @@ import {
   IconMessageCircle,
   IconMessagePlus,
   IconChevronDown,
+  IconChartLine,
 } from "@tabler/icons-react"
 import { Link, useLocation } from "react-router-dom"
 
@@ -82,6 +83,18 @@ const data = {
           title: "User",
           url: "/admin/user",
           icon: IconUsers,
+        },
+      ],
+    },
+  ],
+  evaluationSections: [
+    {
+      label: "RAG Evaluation",
+      items: [
+        {
+          title: "Skor Evaluasi RAG",
+          url: "/admin/rag-evaluation",
+          icon: IconChartLine,
         },
       ],
     },
@@ -220,6 +233,36 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               </SidebarMenu>
             </SidebarGroupContent>
           </SidebarGroup>
+        ))}
+
+        {/* RAG Evaluation Section - Admin Only */}
+        {isAdmin && data.evaluationSections.map((section) => (
+          <React.Fragment key={section.label}>
+            <SidebarGroup>
+              <SidebarGroupLabel className="text-xs font-semibold uppercase text-muted-foreground">
+                {section.label}
+              </SidebarGroupLabel>
+              <SidebarGroupContent>
+                <SidebarMenu>
+                  {section.items.map((item) => (
+                    <SidebarMenuItem key={item.title}>
+                      <SidebarMenuButton
+                        asChild
+                        tooltip={item.title}
+                        isActive={location.pathname.startsWith(item.url)}
+                      >
+                        <Link to={item.url}>
+                          {item.icon && <item.icon />}
+                          <span>{item.title}</span>
+                        </Link>
+                      </SidebarMenuButton>
+                    </SidebarMenuItem>
+                  ))}
+                </SidebarMenu>
+              </SidebarGroupContent>
+            </SidebarGroup>
+            <SidebarSeparator />
+          </React.Fragment>
         ))}
          {/* Chat Section with Collapsible History */}
         <SidebarGroup>

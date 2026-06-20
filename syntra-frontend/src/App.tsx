@@ -9,6 +9,11 @@ import UserListPage from "./pages/admin/user/list-user"
 import CreateDocumentPage from "./pages/admin/document/create"
 import EditDocumentPage from "./pages/admin/document/edit-document"
 import ProcessDocumentPage from "./pages/admin/document/process-document"
+import RagEvaluationDashboard from "./pages/admin/rag-evaluation/dashboard"
+import RagEvaluationDatasetsPage from "./pages/admin/rag-evaluation/datasets"
+import RagEvaluationDatasetUploadPage from "./pages/admin/rag-evaluation/dataset-upload"
+import RagEvaluationDatasetDetailPage from "./pages/admin/rag-evaluation/dataset-detail"
+import RagEvaluationRunDetailPage from "./pages/admin/rag-evaluation/run-detail"
 import UnauthorizedPage from "./pages/unauthorized"
 import NewChatPage from "./pages/chat/new-chat"
 import DetailChatPage from "./pages/chat/detail-chat"
@@ -136,6 +141,46 @@ function App() {
             element={
               <AdminRoute>
                 <UserListPage />
+              </AdminRoute>
+            }
+          />
+          <Route
+            path="rag-evaluation"
+            element={
+              <AdminRoute>
+                <RagEvaluationDashboard />
+              </AdminRoute>
+            }
+          />
+          <Route
+            path="rag-evaluation/datasets"
+            element={
+              <AdminRoute>
+                <RagEvaluationDatasetsPage />
+              </AdminRoute>
+            }
+          />
+          <Route
+            path="rag-evaluation/datasets/upload"
+            element={
+              <AdminRoute>
+                <RagEvaluationDatasetUploadPage />
+              </AdminRoute>
+            }
+          />
+          <Route
+            path="rag-evaluation/datasets/:datasetId"
+            element={
+              <AdminRoute>
+                <RagEvaluationDatasetDetailPage />
+              </AdminRoute>
+            }
+          />
+          <Route
+            path="rag-evaluation/runs/:runId"
+            element={
+              <AdminRoute>
+                <RagEvaluationRunDetailPage />
               </AdminRoute>
             }
           />
