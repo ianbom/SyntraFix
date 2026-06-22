@@ -11,6 +11,7 @@ from app.services.documents.extraction import extract_raw_pdf_text, validate_met
 from app.services.documents.storage import MinIOStorage
 from app.services.documents.validation import FileValidator
 from app.services.embedding import generate_embedding
+from app.services.crossref import extract_preliminary_metadata, lookup_crossref_metadata
 from app.services.grobid import (
     extract_fulltext,
     extract_header,
@@ -153,7 +154,7 @@ class DocumentService:
         Steps:
         1. Validate PDF
         2. Upload to MinIO
-        3. Extract metadata via GROBID
+        3. Extract metadata via Crossref then GROBID fallback
         4. Create document record
         5. Create chunks with embeddings
         """
@@ -170,7 +171,7 @@ class DocumentService:
         try:
             # Step 3: Extract metadata
             if progress_callback:
-                await progress_callback(30, "Extracting metadata with GROBID...")
+                await progress_callback(30, "Extracting metadata with Crossref and GROBID...")
             
             metadata = await self._extract_metadata(file_content, progress_callback)
             
@@ -205,13 +206,22 @@ class DocumentService:
             raise HTTPException(status_code=500, detail=f"Document processing failed: {str(e)}")
     
     async def _extract_metadata(self, file_content: bytes, progress_callback: Optional[Callable] = None) -> Dict[str, Any]:
-        """Extract and format metadata from PDF using GROBID + LLM fallback."""
-        # Step 1: Extract with GROBID
+        """Extract and format metadata from PDF using Crossref, GROBID, and LLM fallback."""
+        # Step 1: Extract raw PDF text before GROBID for Crossref DOI/title lookup.
+        raw_pdf_text = self._extract_raw_pdf_text(file_content)
+        preliminary_metadata = extract_preliminary_metadata(raw_pdf_text)
+        crossref_metadata = lookup_crossref_metadata(preliminary_metadata)
+        if crossref_metadata:
+            print("Crossref metadata available for Dublin Core merge")
+        else:
+            print("Crossref metadata not found; continuing with GROBID")
+
+        # Step 2: Extract with GROBID
         header = await extract_header(file_content)
         references = extract_references(file_content)
         fulltext = extract_fulltext(file_content)
         
-        # Step 1b: Extract structured sections for smart chunking
+        # Step 2b: Extract structured sections for smart chunking
         structured_sections = []
         try:
             if progress_callback:
@@ -221,13 +231,15 @@ class DocumentService:
         except Exception as e:
             print(f"Structured extraction failed, will use legacy chunking: {e}")
         
-        metadata = format_for_database(header, references)
+        grobid_metadata = format_for_database(header, references)
+        metadata = (
+            merge_metadata(crossref_metadata, grobid_metadata)
+            if crossref_metadata
+            else grobid_metadata
+        )
         metadata["fulltext"] = fulltext or ""
         metadata["structured_sections"] = structured_sections
-        
-        # Step 2: Extract raw PDF text for LLM (includes title page)
-        raw_pdf_text = self._extract_raw_pdf_text(file_content)
-        
+
         # Step 3: Check if metadata is incomplete and use LLM fallback
         if is_metadata_incomplete(metadata):
             print("Metadata incomplete from GROBID, using LLM fallback...")

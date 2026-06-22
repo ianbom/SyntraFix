@@ -34,7 +34,11 @@ from app.services.document import (
 from app.websockets import manager
 from fastapi import WebSocket
 from app.services.grobid import extract_header, extract_fulltext, extract_references
-from app.tasks.document_tasks import generate_possibly_questions_task, process_document_task
+from app.tasks.document_tasks import (
+    generate_possibly_questions_task,
+    process_document_task,
+    regenerate_document_metadata_task,
+)
 
 router = APIRouter(prefix="/documents", tags=["Documents"])
 
@@ -66,6 +70,24 @@ def _get_possibly_question_counts(db: Session, document_id: int) -> dict:
         "possibly_question_missing_count": missing_count,
         "possibly_question_progress": progress,
     }
+
+def _get_regenerable_document(db: Session, document_id: int) -> Document:
+    """Return a document that can be queued for regeneration."""
+    document = db.query(Document).filter(Document.id == document_id).first()
+    if not document:
+        raise HTTPException(status_code=404, detail="Document not found")
+    if not document.file_path:
+        raise HTTPException(status_code=400, detail="Document file not found")
+    if document.processing_status == "processing":
+        raise HTTPException(status_code=409, detail="Document is still processing")
+    return document
+
+def _mark_document_regeneration_queued(db: Session, document: Document) -> None:
+    """Persist processing state before dispatching a background regeneration task."""
+    document.processing_status = "processing"
+    document.processing_progress = 0
+    document.processing_error = None
+    db.commit()
 
 
 @router.websocket("/ws/{client_id}")
@@ -197,6 +219,38 @@ async def generate_document_possibly_questions(
         "chunk_count": question_counts["chunk_count"],
         "possibly_question_count": question_counts["possibly_question_count"],
         "missing_possibly_question_count": question_counts["possibly_question_missing_count"],
+    }
+
+@router.post("/{document_id}/metadata/regenerate")
+async def regenerate_document_metadata(
+    document_id: int,
+    db: Session = Depends(get_db),
+):
+    """Queue metadata-only regeneration for one stored document."""
+    document = _get_regenerable_document(db, document_id)
+    _mark_document_regeneration_queued(db, document)
+    task = regenerate_document_metadata_task.delay(document.id)
+
+    return {
+        "document_id": document.id,
+        "task_id": task.id,
+        "status": "queued",
+    }
+
+@router.post("/{document_id}/regenerate")
+async def regenerate_document(
+    document_id: int,
+    db: Session = Depends(get_db),
+):
+    """Queue full document re-ingestion and chunk replacement."""
+    document = _get_regenerable_document(db, document_id)
+    _mark_document_regeneration_queued(db, document)
+    task = process_document_task.delay(document.id, document.file_path, True)
+
+    return {
+        "document_id": document.id,
+        "task_id": task.id,
+        "status": "queued",
     }
 
 

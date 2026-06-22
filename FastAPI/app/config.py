@@ -26,6 +26,11 @@ class Settings(BaseSettings):
     # GROBID
     GROBID_URL: str = "http://localhost:8070"
     
+    # Crossref
+    CROSSREF_BASE_URL: str = "https://api.crossref.org"
+    CROSSREF_MAILTO: str | None = None
+    CROSSREF_TIMEOUT_SECONDS: int = 10
+    
     # Celery + RabbitMQ
     CELERY_BROKER_URL: str = "amqp://guest:guest@localhost:5672//"
     
@@ -37,6 +42,12 @@ class Settings(BaseSettings):
     OLLAMA_EMBEDDING_MODEL: str = "bge-m3:567m"
     OLLAMA_GENERATION_MODEL: str = "llama3.1:8b-instruct-q8_0"
     OLLAMA_EMBEDDING_DIMENSION: int = 1024
+
+    # RAGAS evaluator
+    RAGAS_EVALUATOR_PROVIDER: str = "deepseek"
+    DEEPSEEK_API_KEY: str | None = None
+    DEEPSEEK_BASE_URL: str = "https://api.deepseek.com"
+    DEEPSEEK_MODEL: str = "deepseek-v4-flash"
 
     # Google Gemini
     GOOGLE_API_KEY: str | None = None

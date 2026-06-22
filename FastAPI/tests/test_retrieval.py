@@ -118,6 +118,24 @@ def test_paragraph_chunk_is_not_filtered_even_with_visual_phrase():
     assert ChatService._is_noisy_visual_or_table_summary(candidate) is False
 
 
+def test_no_answer_response_is_detected_from_standard_fallbacks():
+    assert ChatService._is_no_answer_response(
+        "Informasi tersebut tidak ditemukan pada dokumen yang tersedia."
+    ) is True
+    assert ChatService._is_no_answer_response(
+        "  Maaf, saya tidak menemukan informasi yang relevan dengan pertanyaan Anda dalam dokumen yang tersedia.  "
+    ) is True
+    assert ChatService._is_no_answer_response(
+        "Tidak ditemukan KONTEKS yang relevan untuk menjawab pertanyaan."
+    ) is True
+
+
+def test_normal_answer_is_not_treated_as_no_answer():
+    assert ChatService._is_no_answer_response(
+        "Berdasarkan dokumen, CNN digunakan untuk klasifikasi citra medis."
+    ) is False
+
+
 def test_context_window_expansion_adds_previous_and_next_chunk(monkeypatch):
     parent = make_chunk(10, document_id=1, chunk_index=5)
     previous = make_chunk(9, document_id=1, chunk_index=4)

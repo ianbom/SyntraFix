@@ -65,6 +65,27 @@ class ChatService:
         )
         return any(phrase in content for phrase in noisy_phrases)
 
+    @staticmethod
+    def _normalize_answer_text(answer: str) -> str:
+        return " ".join(str(answer or "").lower().split())
+
+    @classmethod
+    def _is_no_answer_response(cls, answer: str) -> bool:
+        normalized = cls._normalize_answer_text(answer)
+        if not normalized:
+            return True
+
+        no_answer_phrases = (
+            "informasi tersebut tidak ditemukan pada dokumen yang tersedia",
+            "maaf saya tidak menemukan informasi yang relevan",
+            "maaf, saya tidak menemukan informasi yang relevan",
+            "tidak ditemukan konteks yang relevan",
+            "tidak ditemukan pada dokumen yang tersedia",
+            "tidak ditemukan dokumen yang relevan",
+            "belum dapat menghasilkan jawaban",
+        )
+        return any(phrase in normalized for phrase in no_answer_phrases)
+
     def create_conversation(self, user_id: int, title: str) -> Conversation:
         conversation = Conversation(user_id=user_id, title=title)
         self.db.add(conversation)
@@ -997,7 +1018,10 @@ Pertanyaan asli: {query}"""
 
         # 9. Save References
         started_at = time.perf_counter()
-        self._save_rag_references(bot_chat.id, chunks, similarities)
+        references_payload = []
+        if chunks and not self._is_no_answer_response(answer):
+            self._save_rag_references(bot_chat.id, chunks, similarities)
+            references_payload = self._serialize_chat_references(bot_chat.id)
         self._print_timing("ChatService._save_rag_references", time.perf_counter() - started_at)
         self._print_timing("ChatService.process_chat.total", time.perf_counter() - total_started_at)
 
@@ -1007,13 +1031,22 @@ Pertanyaan asli: {query}"""
             role=bot_chat.role,
             message=bot_chat.message,
             created_at=bot_chat.created_at,
-            references=[]
+            references=references_payload
         )
 
     async def process_chat_stream(
         self, user_id: int, request: ChatRequest
     ) -> AsyncGenerator[Dict[str, Any], None]:
         total_started_at = time.perf_counter()
+
+        def status_event(step: str, label: str, status: str) -> Dict[str, Any]:
+            return {
+                "type": "status",
+                "step": step,
+                "label": label,
+                "status": status,
+            }
+
         # 1. Handle Conversation
         started_at = time.perf_counter()
         conversation = self._handle_conversation(user_id, request)
@@ -1026,26 +1059,34 @@ Pertanyaan asli: {query}"""
         yield {"type": "start", "conversation_id": conversation.id}
 
         # 3. Query Processing: clean + extract entities
+        yield status_event("query_processing", "Memahami pertanyaan", "running")
         started_at = time.perf_counter()
         query_info = self._process_query(request.message)
         self._print_timing("ChatService._process_query[stream]", time.perf_counter() - started_at)
         print("========== QUERY INFO ==========")
         print(query_info)
         print("============================================")
+        yield status_event("query_processing", "Memahami pertanyaan", "completed")
 
         # 4. Build metadata filters from extracted entities
+        yield status_event("metadata_filter", "Mengekstrak filter metadata", "running")
         started_at = time.perf_counter()
         metadata_filters = self._build_metadata_filters(query_info["entities"])
         self._print_timing("ChatService._build_metadata_filters[stream]", time.perf_counter() - started_at)
         print("========== METADATA FILTERS ==========")
         print(metadata_filters)
         print("============================================")
+        yield status_event("metadata_filter", "Mengekstrak filter metadata", "completed")
 
         # 5. Query Expansion — generate bilingual variations
+        yield status_event("query_expansion", "Memperkaya query", "running")
         print("========== QUERY EXPANSION ==========")
         expansion_started_at = time.perf_counter()
         expanded_queries = await self._expand_query(query_info["cleaned_query"])
         self._print_timing("ChatService._expand_query[stream]", time.perf_counter() - expansion_started_at)
+        yield status_event("query_expansion", "Memperkaya query", "completed")
+
+        yield status_event("embedding", "Membuat embedding", "running")
         query_embeddings = []
         embedding_batch_started_at = time.perf_counter()
         for q in expanded_queries:
@@ -1058,18 +1099,53 @@ Pertanyaan asli: {query}"""
         )
         print(f"  Generated {len(query_embeddings)} valid embeddings from {len(expanded_queries)} queries")
         print("============================================")
+        yield status_event("embedding", "Membuat embedding", "completed")
 
         # 6. RAG: Retrieve Context (multi-query + metadata filtering)
+        yield status_event("similarity_search", "Mencari similarity", "running")
         retrieval_started_at = time.perf_counter()
-        chunks, similarities = await self._retrieve_and_rerank_chunks(
+        candidates = self._retrieve_relevant_chunk_candidates(
             query=query_info["cleaned_query"],
             metadata_filters=metadata_filters,
             query_embeddings=query_embeddings,
+        )
+        selected_candidates = self._select_ranked_candidates(
+            candidates,
+            limit=32,
+            threshold=0.35,
+        )
+        self._print_timing(
+            "ChatService._retrieve_similarity_candidates[stream]",
+            time.perf_counter() - retrieval_started_at,
+        )
+        yield status_event("similarity_search", "Mencari similarity", "completed")
+
+        yield status_event("reranking", "Melakukan reranking", "running")
+        rerank_started_at = time.perf_counter()
+        reranked_candidates = await rerank_chunks(
+            query_info["cleaned_query"],
+            selected_candidates,
+            limit=8,
+        )
+        self._print_timing(
+            "ChatService.rerank_chunks[stream]",
+            time.perf_counter() - rerank_started_at,
+        )
+        yield status_event("reranking", "Melakukan reranking", "completed")
+
+        yield status_event("context_expansion", "Memperluas konteks", "running")
+        context_expansion_started_at = time.perf_counter()
+        expanded_candidates = self._expand_context_window(reranked_candidates)
+        chunks, similarities = self._candidate_dicts_to_chunks(expanded_candidates)
+        self._print_timing(
+            "ChatService._expand_context_window[stream]",
+            time.perf_counter() - context_expansion_started_at,
         )
         self._print_timing(
             "ChatService._retrieve_and_rerank_chunks[stream]",
             time.perf_counter() - retrieval_started_at,
         )
+        yield status_event("context_expansion", "Memperluas konteks", "completed")
         print("========== SIMILARITIES ==========")
         print(similarities)
         print("============================================")
@@ -1079,20 +1155,24 @@ Pertanyaan asli: {query}"""
         self._print_timing("ChatService._construct_context_text[stream]", time.perf_counter() - context_started_at)
 
         # 6. Construct Prompt
+        yield status_event("prompt", "Menyusun prompt", "running")
         prompt_started_at = time.perf_counter()
         full_prompt = self._construct_rag_prompt(request.message, context_text)
         self._print_timing("ChatService._construct_rag_prompt[stream]", time.perf_counter() - prompt_started_at)
         print("========== FULL PROMPT ==========")
         print(full_prompt[:2000])
         print("============================================")
+        yield status_event("prompt", "Menyusun prompt", "completed")
 
         # 7. Generate Streaming Response
+        yield status_event("generation", "Menulis jawaban", "running")
         answer_chunks: List[str] = []
         generation_started_at = time.perf_counter()
         async for chunk in generate_response_stream(full_prompt):
             answer_chunks.append(chunk)
             yield {"type": "chunk", "content": chunk}
         self._print_timing("ChatService.generate_response_stream", time.perf_counter() - generation_started_at)
+        yield status_event("generation", "Menulis jawaban", "completed")
 
         answer = "".join(answer_chunks).strip()
         if not answer:
@@ -1116,8 +1196,10 @@ Pertanyaan asli: {query}"""
 
         # 9. Save References
         started_at = time.perf_counter()
-        self._save_rag_references(bot_chat.id, chunks, similarities)
-        references_payload = self._serialize_chat_references(bot_chat.id)
+        references_payload = []
+        if chunks and not self._is_no_answer_response(answer):
+            self._save_rag_references(bot_chat.id, chunks, similarities)
+            references_payload = self._serialize_chat_references(bot_chat.id)
         self._print_timing("ChatService._save_rag_references[stream]", time.perf_counter() - started_at)
         self._print_timing("ChatService.process_chat_stream.total", time.perf_counter() - total_started_at)
 

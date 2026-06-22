@@ -3,6 +3,7 @@ import time
 from datetime import datetime, timezone
 
 from celery import shared_task
+from celery.utils.log import get_task_logger
 
 from app.database import SessionLocal
 from app.models.rag_evaluation import (
@@ -16,6 +17,8 @@ from app.services.chat import ChatService
 from app.services.prompt_search.ragas_evaluator import evaluate_iteration_with_ragas
 from app.services.rag_evaluation.aggregation_service import calculate_run_aggregate
 from app.services.rag_evaluation.artifact_service import persist_result_artifact
+
+logger = get_task_logger(__name__)
 
 
 def _run_async(coro):
@@ -67,6 +70,11 @@ def run_rag_evaluation_task(self, run_id: int):
             try:
                 _process_sample(db, run, sample, chat_service)
             except Exception as error:
+                logger.exception(
+                    "RAG evaluation sample failed run_id=%s sample_index=%s",
+                    run.id,
+                    sample.sample_index,
+                )
                 sample.status = RagSampleStatus.FAILED
                 sample.error_message = str(error)
                 sample.completed_at = datetime.now(timezone.utc)
@@ -74,7 +82,8 @@ def run_rag_evaluation_task(self, run_id: int):
             _update_progress(db, run.id)
 
         _finish_run(db, run.id)
-        return {"status": "completed", "run_id": run_id}
+        db.refresh(run)
+        return {"status": run.status.value, "run_id": run_id}
     except Exception as error:
         run = db.query(RagEvaluationRun).filter(RagEvaluationRun.id == run_id).first()
         if run:

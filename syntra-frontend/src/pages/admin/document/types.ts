@@ -76,6 +76,12 @@ export interface GeneratePossiblyQuestionsResponse {
   missingPossiblyQuestionCount: number
 }
 
+export interface QueuedDocumentTaskResponse {
+  documentId: number
+  taskId: string
+  status: "queued"
+}
+
 export interface ProcessMonitorSummary {
   total: number
   processing: number

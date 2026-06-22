@@ -52,13 +52,21 @@ import type { ProcessDocument } from "../types"
 interface ProcessTableProps {
   documents: ProcessDocument[]
   generatingDocumentId?: string | null
+  regeneratingMetadataDocumentId?: string | null
+  regeneratingDocumentId?: string | null
   onGenerateQuestions?: (document: ProcessDocument) => void
+  onRegenerateMetadata?: (document: ProcessDocument) => void
+  onRegenerateDocument?: (document: ProcessDocument) => void
 }
 
 export function ProcessTable({
   documents,
   generatingDocumentId = null,
+  regeneratingMetadataDocumentId = null,
+  regeneratingDocumentId = null,
   onGenerateQuestions,
+  onRegenerateMetadata,
+  onRegenerateDocument,
 }: ProcessTableProps) {
   const [sorting, setSorting] = useState<SortingState>([
     { id: "uploadedAt", desc: true }
@@ -76,9 +84,20 @@ export function ProcessTable({
     () =>
       createProcessColumns({
         generatingDocumentId,
+        regeneratingMetadataDocumentId,
+        regeneratingDocumentId,
         onGenerateQuestions,
+        onRegenerateMetadata,
+        onRegenerateDocument,
       }),
-    [generatingDocumentId, onGenerateQuestions]
+    [
+      generatingDocumentId,
+      regeneratingMetadataDocumentId,
+      regeneratingDocumentId,
+      onGenerateQuestions,
+      onRegenerateMetadata,
+      onRegenerateDocument,
+    ]
   )
 
   const table = useReactTable({
