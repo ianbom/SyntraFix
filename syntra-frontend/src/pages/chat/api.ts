@@ -48,6 +48,7 @@ interface PostChatParams {
 interface PostChatStreamParams extends PostChatParams {
   onStart?: (conversationId: number) => void
   onChunk?: (chunk: string) => void
+  onStatus?: (event: ChatStreamStatusEvent) => void
 }
 
 interface ListConversationsParams {
@@ -81,6 +82,13 @@ interface ChatStreamChunkEvent {
   content: string
 }
 
+export interface ChatStreamStatusEvent {
+  type: "status"
+  step: string
+  label: string
+  status: "running" | "completed"
+}
+
 interface ChatStreamDoneEvent {
   type: "done"
   chat: ChatApiResponse
@@ -93,6 +101,7 @@ interface ChatStreamErrorEvent {
 
 type ChatStreamEvent =
   | ChatStreamStartEvent
+  | ChatStreamStatusEvent
   | ChatStreamChunkEvent
   | ChatStreamDoneEvent
   | ChatStreamErrorEvent
@@ -270,6 +279,20 @@ const parseChatStreamEvent = (line: string): ChatStreamEvent => {
     }
   }
 
+  if (
+    payload.type === "status" &&
+    typeof payload.step === "string" &&
+    typeof payload.label === "string" &&
+    (payload.status === "running" || payload.status === "completed")
+  ) {
+    return {
+      type: "status",
+      step: payload.step,
+      label: payload.label,
+      status: payload.status,
+    }
+  }
+
   if (payload.type === "done" && typeof payload.chat === "object" && payload.chat) {
     return {
       type: "done",
@@ -293,6 +316,7 @@ export const postChatStream = async ({
   signal,
   onStart,
   onChunk,
+  onStatus,
 }: PostChatStreamParams): Promise<PostChatResult> => {
   const requestBody: PostChatRequestBody = { message }
   if (typeof conversationId === "number") {
@@ -333,6 +357,11 @@ export const postChatStream = async ({
 
     if (event.type === "chunk") {
       onChunk?.(event.content)
+      return
+    }
+
+    if (event.type === "status") {
+      onStatus?.(event)
       return
     }
 

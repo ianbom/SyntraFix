@@ -1,0 +1,27 @@
+E:\BismillahTa\SyntraFix\FastAPI\app\services\llm.py:6: FutureWarning: 
+
+All support for the `google.generativeai` package has ended. It will no longer be receiving 
+updates or bug fixes. Please switch to the `google.genai` package as soon as possible.
+See README for more details:
+
+https://github.com/google-gemini/deprecated-generative-ai-python/blob/main/README.md
+
+  import google.generativeai as genai
+[2026-06-22 16:35:53,775: INFO/MainProcess] Connected to amqp://guest:**@127.0.0.1:5672//
+[2026-06-22 16:35:53,782: INFO/MainProcess] mingle: searching for neighbors
+[2026-06-22 16:35:54,814: INFO/MainProcess] mingle: all alone
+[2026-06-22 16:35:54,848: INFO/MainProcess] document_syntrafix@DESKTOP-DM2TH7H ready.
+[2026-06-22 16:35:54,853: INFO/MainProcess] Task generate_possibly_questions_task[f62670d2-f5cb-4caa-8a68-ef8cd0ea0fe9] received
+[2026-06-22 16:35:54,980: WARNING/MainProcess] ============================================================
+[2026-06-22 16:35:54,980: WARNING/MainProcess] CELERY TASK: Generating possibly questions for document 134 (9/40 missing)
+[2026-06-22 16:35:54,980: WARNING/MainProcess] ============================================================
+[2026-06-22 16:35:55,299: WARNING/MainProcess] [SERVICE TIMING] generate_embedding: 0.3182s
+[2026-06-22 16:35:55,621: WARNING/MainProcess] [SERVICE TIMING] generate_embedding: 0.3208s
+[2026-06-22 16:35:55,916: WARNING/MainProcess] [SERVICE TIMING] generate_embedding: 0.2957s
+[2026-06-22 16:35:56,143: WARNING/MainProcess] \U0001f504 Calling Ollama with model: llama3.1:8b-instruct-q8_0
+[2026-06-22 16:36:03,894: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/generate "HTTP/1.1 200 OK"
+[2026-06-22 16:36:03,894: WARNING/MainProcess] \u2705 LLM response received successfully
+[2026-06-22 16:36:03,894: WARNING/MainProcess] [SERVICE TIMING] generate_response[llama3.1:8b-instruct-q8_0]: 7.9802s
+[2026-06-22 16:36:03,903: WARNING/MainProcess]   Generated 5 questions for chunk
+[2026-06-22 16:36:04,218: WARNING/MainProcess] [SERVICE TIMING] generate_embedding: 0.3219s
+[2026-06-22 16:36:04,425: WARNING/MainProcess] \U0001f504 Calling Ollama with model: llama3.1:8b-instruct-q8_0
