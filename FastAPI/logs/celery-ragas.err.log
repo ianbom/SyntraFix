@@ -1,304 +1,0 @@
-E:\BismillahTa\SyntraFix\FastAPI\app\services\llm.py:6: FutureWarning: 
-
-All support for the `google.generativeai` package has ended. It will no longer be receiving 
-updates or bug fixes. Please switch to the `google.genai` package as soon as possible.
-See README for more details:
-
-https://github.com/google-gemini/deprecated-generative-ai-python/blob/main/README.md
-
-  import google.generativeai as genai
-[2026-06-22 16:35:53,776: INFO/MainProcess] Connected to amqp://guest:**@127.0.0.1:5672//
-[2026-06-22 16:35:53,782: INFO/MainProcess] mingle: searching for neighbors
-[2026-06-22 16:35:54,814: INFO/MainProcess] mingle: all alone
-[2026-06-22 16:35:54,848: INFO/MainProcess] ragas_syntrafix@DESKTOP-DM2TH7H ready.
-[2026-06-22 16:38:18,156: INFO/MainProcess] Task run_rag_evaluation_task[0573e38c-2ba8-48a4-a479-c849a357c3e6] received
-[2026-06-22 16:38:24,851: INFO/MainProcess] missed heartbeat from document_syntrafix@DESKTOP-DM2TH7H
-[2026-06-22 16:38:26,428: WARNING/MainProcess] Evaluating:   0%|          | 0/4 [00:00<?, ?it/s]
-[2026-06-22 16:38:26,428: WARNING/MainProcess] Batch 1/4:   0%|          | 0/1 [00:00<?, ?it/s]
-[2026-06-22 16:38:26,428: WARNING/MainProcess] [A
-[2026-06-22 16:38:26,428: WARNING/MainProcess] Batch 1/4:   0%|          | 0/1 [00:00<?, ?it/s]
-[2026-06-22 16:38:26,428: WARNING/MainProcess] [A
-[2026-06-22 16:38:26,428: WARNING/MainProcess] Batch 1/4:   0%|          | 0/1 [00:00<?, ?it/s]
-[2026-06-22 16:38:26,428: WARNING/MainProcess] [A
-[2026-06-22 16:38:27,110: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:38:32,889: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:38:48,104: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:39:03,812: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:39:17,826: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:39:27,758: ERROR/MainProcess] Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
-[2026-06-22 16:39:27,764: ERROR/MainProcess] Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
-[2026-06-22 16:39:27,764: ERROR/MainProcess] Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
-[2026-06-22 16:39:27,764: ERROR/MainProcess] Prompt n_l_i_statement_prompt failed to parse output: The output parser failed to parse the output including retries.
-[2026-06-22 16:39:27,764: ERROR/MainProcess] Exception raised in Job[0]: RagasOutputParserException(The output parser failed to parse the output including retries.)
-[2026-06-22 16:39:27,764: WARNING/MainProcess] Batch 1/4: 100%|##########| 1/1 [01:01<00:00, 61.34s/it]
-[2026-06-22 16:39:27,764: WARNING/MainProcess] [A
-[2026-06-22 16:39:27,764: WARNING/MainProcess] Evaluating:  25%|##5       | 1/4 [01:01<03:04, 61.34s/it]
-[2026-06-22 16:39:27,764: WARNING/MainProcess] Batch 1/4:   0%|          | 0/1 [00:00<?, ?it/s]        
-[2026-06-22 16:39:27,764: WARNING/MainProcess] [A
-[2026-06-22 16:39:27,764: WARNING/MainProcess] Batch 2/4:   0%|          | 0/1 [00:00<?, ?it/s]
-[2026-06-22 16:39:27,764: WARNING/MainProcess] [A
-[2026-06-22 16:39:28,460: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:39:29,667: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:39:30,630: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:39:32,228: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/embed "HTTP/1.1 200 OK"
-[2026-06-22 16:39:32,538: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/embed "HTTP/1.1 200 OK"
-[2026-06-22 16:39:32,957: WARNING/MainProcess] Batch 2/4: 100%|##########| 1/1 [00:05<00:00,  5.19s/it]
-[2026-06-22 16:39:32,961: WARNING/MainProcess] [A
-[2026-06-22 16:39:32,961: WARNING/MainProcess] Evaluating:  50%|#####     | 2/4 [01:06<00:56, 28.31s/it]
-[2026-06-22 16:39:32,962: WARNING/MainProcess] Batch 2/4:   0%|          | 0/1 [00:00<?, ?it/s]        
-[2026-06-22 16:39:32,962: WARNING/MainProcess] [A
-[2026-06-22 16:39:32,962: WARNING/MainProcess] Batch 3/4:   0%|          | 0/1 [00:00<?, ?it/s]
-[2026-06-22 16:39:32,962: WARNING/MainProcess] [A
-[2026-06-22 16:39:34,243: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:39:36,397: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:39:40,326: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:39:42,824: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:39:56,239: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:39:58,478: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:40:02,562: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:40:05,665: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:40:09,129: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:40:11,379: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:40:13,734: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:40:16,224: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:40:20,250: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:40:22,890: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:40:35,147: WARNING/MainProcess] Batch 3/4: 100%|##########| 1/1 [01:02<00:00, 62.19s/it]
-[2026-06-22 16:40:35,147: WARNING/MainProcess] [A
-[2026-06-22 16:40:35,147: WARNING/MainProcess] Evaluating:  75%|#######5  | 3/4 [02:08<00:43, 43.78s/it]
-[2026-06-22 16:40:35,147: WARNING/MainProcess] Batch 3/4:   0%|          | 0/1 [00:00<?, ?it/s]        
-[2026-06-22 16:40:35,147: WARNING/MainProcess] [A
-[2026-06-22 16:40:35,147: WARNING/MainProcess] Batch 4/4:   0%|          | 0/1 [00:00<?, ?it/s]
-[2026-06-22 16:40:35,147: WARNING/MainProcess] [A
-[2026-06-22 16:40:39,792: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:40:50,536: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:41:01,906: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:41:23,548: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:41:33,173: ERROR/MainProcess] Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
-[2026-06-22 16:41:33,173: ERROR/MainProcess] Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
-[2026-06-22 16:41:33,173: ERROR/MainProcess] Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
-[2026-06-22 16:41:33,173: ERROR/MainProcess] Prompt context_recall_classification_prompt failed to parse output: The output parser failed to parse the output including retries.
-[2026-06-22 16:41:33,173: ERROR/MainProcess] Exception raised in Job[3]: RagasOutputParserException(The output parser failed to parse the output including retries.)
-[2026-06-22 16:41:33,173: WARNING/MainProcess] Batch 4/4: 100%|##########| 1/1 [00:58<00:00, 58.03s/it]
-[2026-06-22 16:41:33,173: WARNING/MainProcess] [A
-[2026-06-22 16:41:33,173: WARNING/MainProcess] Evaluating: 100%|##########| 4/4 [03:06<00:00, 49.40s/it]
-[2026-06-22 16:41:33,173: WARNING/MainProcess]                                                         
-[2026-06-22 16:41:33,173: WARNING/MainProcess] [A
-[2026-06-22 16:41:33,173: WARNING/MainProcess] Evaluating: 100%|##########| 4/4 [03:06<00:00, 46.69s/it]
-[2026-06-22 16:41:34,101: WARNING/MainProcess] Evaluating:   0%|          | 0/4 [00:00<?, ?it/s]
-[2026-06-22 16:41:34,101: WARNING/MainProcess] Batch 1/4:   0%|          | 0/1 [00:00<?, ?it/s]
-[2026-06-22 16:41:34,101: WARNING/MainProcess] [A
-[2026-06-22 16:41:34,101: WARNING/MainProcess] Batch 1/4:   0%|          | 0/1 [00:00<?, ?it/s]
-[2026-06-22 16:41:34,101: WARNING/MainProcess] [A
-[2026-06-22 16:41:34,101: WARNING/MainProcess] Batch 1/4:   0%|          | 0/1 [00:00<?, ?it/s]
-[2026-06-22 16:41:34,101: WARNING/MainProcess] [A
-[2026-06-22 16:41:34,750: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:41:42,884: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:42:03,800: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:42:38,147: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:42:52,684: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:43:00,981: ERROR/MainProcess] Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
-[2026-06-22 16:43:00,981: ERROR/MainProcess] Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
-[2026-06-22 16:43:00,981: ERROR/MainProcess] Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
-[2026-06-22 16:43:00,982: ERROR/MainProcess] Prompt n_l_i_statement_prompt failed to parse output: The output parser failed to parse the output including retries.
-[2026-06-22 16:43:00,982: ERROR/MainProcess] Exception raised in Job[0]: RagasOutputParserException(The output parser failed to parse the output including retries.)
-[2026-06-22 16:43:00,982: WARNING/MainProcess] Batch 1/4: 100%|##########| 1/1 [01:26<00:00, 86.88s/it]
-[2026-06-22 16:43:00,982: WARNING/MainProcess] [A
-[2026-06-22 16:43:00,983: WARNING/MainProcess] Evaluating:  25%|##5       | 1/4 [01:26<04:20, 86.88s/it]
-[2026-06-22 16:43:00,983: WARNING/MainProcess] Batch 1/4:   0%|          | 0/1 [00:00<?, ?it/s]        
-[2026-06-22 16:43:00,983: WARNING/MainProcess] [A
-[2026-06-22 16:43:00,983: WARNING/MainProcess] Batch 2/4:   0%|          | 0/1 [00:00<?, ?it/s]
-[2026-06-22 16:43:00,983: WARNING/MainProcess] [A
-[2026-06-22 16:43:01,633: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:43:02,821: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:43:03,972: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:43:05,376: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/embed "HTTP/1.1 200 OK"
-[2026-06-22 16:43:06,283: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/embed "HTTP/1.1 200 OK"
-[2026-06-22 16:43:06,315: WARNING/MainProcess] Batch 2/4: 100%|##########| 1/1 [00:05<00:00,  5.33s/it]
-[2026-06-22 16:43:06,315: WARNING/MainProcess] [A
-[2026-06-22 16:43:06,315: WARNING/MainProcess] Evaluating:  50%|#####     | 2/4 [01:32<01:17, 38.91s/it]
-[2026-06-22 16:43:06,315: WARNING/MainProcess] Batch 2/4:   0%|          | 0/1 [00:00<?, ?it/s]        
-[2026-06-22 16:43:06,315: WARNING/MainProcess] [A
-[2026-06-22 16:43:06,315: WARNING/MainProcess] Batch 3/4:   0%|          | 0/1 [00:00<?, ?it/s]
-[2026-06-22 16:43:06,315: WARNING/MainProcess] [A
-[2026-06-22 16:43:07,732: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:43:10,320: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:43:13,939: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:43:18,660: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:43:21,337: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:43:25,285: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:43:28,339: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:43:32,534: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:43:35,544: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:43:38,922: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:43:42,073: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:43:46,720: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:43:50,398: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:43:53,876: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:43:56,755: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:43:59,458: WARNING/MainProcess] Batch 3/4: 100%|##########| 1/1 [00:53<00:00, 53.14s/it]
-[2026-06-22 16:43:59,463: WARNING/MainProcess] [A
-[2026-06-22 16:43:59,463: WARNING/MainProcess] Evaluating:  75%|#######5  | 3/4 [02:25<00:45, 45.41s/it]
-[2026-06-22 16:43:59,463: WARNING/MainProcess] Batch 3/4:   0%|          | 0/1 [00:00<?, ?it/s]        
-[2026-06-22 16:43:59,463: WARNING/MainProcess] [A
-[2026-06-22 16:43:59,464: WARNING/MainProcess] Batch 4/4:   0%|          | 0/1 [00:00<?, ?it/s]
-[2026-06-22 16:43:59,464: WARNING/MainProcess] [A
-[2026-06-22 16:44:04,252: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:44:12,354: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:44:20,455: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:46:59,451: ERROR/MainProcess] Exception raised in Job[3]: TimeoutError()
-[2026-06-22 16:46:59,451: WARNING/MainProcess] Batch 4/4: 100%|##########| 1/1 [02:59<00:00, 179.99s/it]
-[2026-06-22 16:46:59,451: WARNING/MainProcess] [A
-[2026-06-22 16:46:59,451: WARNING/MainProcess] Evaluating: 100%|##########| 4/4 [05:25<00:00, 98.54s/it]
-[2026-06-22 16:46:59,451: WARNING/MainProcess]                                                          
-[2026-06-22 16:46:59,451: WARNING/MainProcess] [A
-[2026-06-22 16:46:59,451: WARNING/MainProcess] Evaluating: 100%|##########| 4/4 [05:25<00:00, 81.34s/it]
-[2026-06-22 16:47:01,252: WARNING/MainProcess] Evaluating:   0%|          | 0/4 [00:00<?, ?it/s]
-[2026-06-22 16:47:01,252: WARNING/MainProcess] Batch 1/4:   0%|          | 0/1 [00:00<?, ?it/s]
-[2026-06-22 16:47:01,252: WARNING/MainProcess] [A
-[2026-06-22 16:47:01,252: WARNING/MainProcess] Batch 1/4:   0%|          | 0/1 [00:00<?, ?it/s]
-[2026-06-22 16:47:01,252: WARNING/MainProcess] [A
-[2026-06-22 16:47:01,252: WARNING/MainProcess] Batch 1/4:   0%|          | 0/1 [00:00<?, ?it/s]
-[2026-06-22 16:47:01,252: WARNING/MainProcess] [A
-[2026-06-22 16:47:01,950: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:47:16,339: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:47:29,879: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:47:56,076: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:48:16,916: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:48:26,283: ERROR/MainProcess] Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
-[2026-06-22 16:48:26,283: ERROR/MainProcess] Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
-[2026-06-22 16:48:26,283: ERROR/MainProcess] Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
-[2026-06-22 16:48:26,283: ERROR/MainProcess] Prompt n_l_i_statement_prompt failed to parse output: The output parser failed to parse the output including retries.
-[2026-06-22 16:48:26,283: ERROR/MainProcess] Exception raised in Job[0]: RagasOutputParserException(The output parser failed to parse the output including retries.)
-[2026-06-22 16:48:26,283: WARNING/MainProcess] Batch 1/4: 100%|##########| 1/1 [01:25<00:00, 85.03s/it]
-[2026-06-22 16:48:26,283: WARNING/MainProcess] [A
-[2026-06-22 16:48:26,283: WARNING/MainProcess] Evaluating:  25%|##5       | 1/4 [01:25<04:15, 85.03s/it]
-[2026-06-22 16:48:26,283: WARNING/MainProcess] Batch 1/4:   0%|          | 0/1 [00:00<?, ?it/s]        
-[2026-06-22 16:48:26,283: WARNING/MainProcess] [A
-[2026-06-22 16:48:26,283: WARNING/MainProcess] Batch 2/4:   0%|          | 0/1 [00:00<?, ?it/s]
-[2026-06-22 16:48:26,283: WARNING/MainProcess] [A
-[2026-06-22 16:48:27,147: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:48:28,268: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:48:29,449: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:48:33,899: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/embed "HTTP/1.1 200 OK"
-[2026-06-22 16:48:34,465: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/embed "HTTP/1.1 200 OK"
-[2026-06-22 16:48:34,549: WARNING/MainProcess] Batch 2/4: 100%|##########| 1/1 [00:08<00:00,  8.27s/it]
-[2026-06-22 16:48:34,549: WARNING/MainProcess] [A
-[2026-06-22 16:48:34,549: WARNING/MainProcess] Evaluating:  50%|#####     | 2/4 [01:33<01:19, 39.88s/it]
-[2026-06-22 16:48:34,549: WARNING/MainProcess] Batch 2/4:   0%|          | 0/1 [00:00<?, ?it/s]        
-[2026-06-22 16:48:34,549: WARNING/MainProcess] [A
-[2026-06-22 16:48:34,549: WARNING/MainProcess] Batch 3/4:   0%|          | 0/1 [00:00<?, ?it/s]
-[2026-06-22 16:48:34,549: WARNING/MainProcess] [A
-[2026-06-22 16:48:35,992: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:48:39,013: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:48:42,025: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:48:46,203: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:48:48,602: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:48:52,066: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:48:56,693: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:49:00,458: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:49:03,888: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:49:06,421: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:49:10,008: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:49:13,074: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:49:16,430: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:49:21,297: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:49:24,459: WARNING/MainProcess] Batch 3/4: 100%|##########| 1/1 [00:49<00:00, 49.91s/it]
-[2026-06-22 16:49:24,459: WARNING/MainProcess] [A
-[2026-06-22 16:49:24,459: WARNING/MainProcess] Evaluating:  75%|#######5  | 3/4 [02:23<00:44, 44.46s/it]
-[2026-06-22 16:49:24,459: WARNING/MainProcess] Batch 3/4:   0%|          | 0/1 [00:00<?, ?it/s]        
-[2026-06-22 16:49:24,459: WARNING/MainProcess] [A
-[2026-06-22 16:49:24,464: WARNING/MainProcess] Batch 4/4:   0%|          | 0/1 [00:00<?, ?it/s]
-[2026-06-22 16:49:24,464: WARNING/MainProcess] [A
-[2026-06-22 16:49:29,211: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:49:43,958: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:49:59,895: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:50:10,532: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:50:15,793: ERROR/MainProcess] Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
-[2026-06-22 16:50:15,794: ERROR/MainProcess] Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
-[2026-06-22 16:50:15,795: ERROR/MainProcess] Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
-[2026-06-22 16:50:15,795: ERROR/MainProcess] Prompt context_recall_classification_prompt failed to parse output: The output parser failed to parse the output including retries.
-[2026-06-22 16:50:15,795: ERROR/MainProcess] Exception raised in Job[3]: RagasOutputParserException(The output parser failed to parse the output including retries.)
-[2026-06-22 16:50:15,795: WARNING/MainProcess] Batch 4/4: 100%|##########| 1/1 [00:51<00:00, 51.34s/it]
-[2026-06-22 16:50:15,796: WARNING/MainProcess] [A
-[2026-06-22 16:50:15,796: WARNING/MainProcess] Evaluating: 100%|##########| 4/4 [03:14<00:00, 47.17s/it]
-[2026-06-22 16:50:15,797: WARNING/MainProcess]                                                         
-[2026-06-22 16:50:15,797: WARNING/MainProcess] [A
-[2026-06-22 16:50:15,797: WARNING/MainProcess] Evaluating: 100%|##########| 4/4 [03:14<00:00, 48.64s/it]
-[2026-06-22 16:50:16,621: WARNING/MainProcess] Evaluating:   0%|          | 0/4 [00:00<?, ?it/s]
-[2026-06-22 16:50:16,621: WARNING/MainProcess] Batch 1/4:   0%|          | 0/1 [00:00<?, ?it/s]
-[2026-06-22 16:50:16,621: WARNING/MainProcess] [A
-[2026-06-22 16:50:16,621: WARNING/MainProcess] Batch 1/4:   0%|          | 0/1 [00:00<?, ?it/s]
-[2026-06-22 16:50:16,621: WARNING/MainProcess] [A
-[2026-06-22 16:50:16,621: WARNING/MainProcess] Batch 1/4:   0%|          | 0/1 [00:00<?, ?it/s]
-[2026-06-22 16:50:16,621: WARNING/MainProcess] [A
-[2026-06-22 16:50:17,526: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:50:33,497: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:50:51,471: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:51:04,341: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:51:20,824: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:51:24,891: ERROR/MainProcess] Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
-[2026-06-22 16:51:24,891: ERROR/MainProcess] Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
-[2026-06-22 16:51:24,891: ERROR/MainProcess] Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
-[2026-06-22 16:51:24,896: ERROR/MainProcess] Prompt n_l_i_statement_prompt failed to parse output: The output parser failed to parse the output including retries.
-[2026-06-22 16:51:24,897: ERROR/MainProcess] Exception raised in Job[0]: RagasOutputParserException(The output parser failed to parse the output including retries.)
-[2026-06-22 16:51:24,897: WARNING/MainProcess] Batch 1/4: 100%|##########| 1/1 [01:08<00:00, 68.28s/it]
-[2026-06-22 16:51:24,897: WARNING/MainProcess] [A
-[2026-06-22 16:51:24,897: WARNING/MainProcess] Evaluating:  25%|##5       | 1/4 [01:08<03:24, 68.28s/it]
-[2026-06-22 16:51:24,897: WARNING/MainProcess] Batch 1/4:   0%|          | 0/1 [00:00<?, ?it/s]        
-[2026-06-22 16:51:24,897: WARNING/MainProcess] [A
-[2026-06-22 16:51:24,897: WARNING/MainProcess] Batch 2/4:   0%|          | 0/1 [00:00<?, ?it/s]
-[2026-06-22 16:51:24,897: WARNING/MainProcess] [A
-[2026-06-22 16:51:25,911: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:51:26,993: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:51:28,108: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:51:30,154: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/embed "HTTP/1.1 200 OK"
-[2026-06-22 16:51:30,485: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/embed "HTTP/1.1 200 OK"
-[2026-06-22 16:51:30,541: WARNING/MainProcess] Batch 2/4: 100%|##########| 1/1 [00:05<00:00,  5.64s/it]
-[2026-06-22 16:51:30,543: WARNING/MainProcess] [A
-[2026-06-22 16:51:30,543: WARNING/MainProcess] Evaluating:  50%|#####     | 2/4 [01:13<01:02, 31.43s/it]
-[2026-06-22 16:51:30,543: WARNING/MainProcess] Batch 2/4:   0%|          | 0/1 [00:00<?, ?it/s]        
-[2026-06-22 16:51:30,543: WARNING/MainProcess] [A
-[2026-06-22 16:51:30,544: WARNING/MainProcess] Batch 3/4:   0%|          | 0/1 [00:00<?, ?it/s]
-[2026-06-22 16:51:30,544: WARNING/MainProcess] [A
-[2026-06-22 16:51:33,129: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:51:36,695: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:51:38,914: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:51:42,335: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:51:44,985: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:51:49,108: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:51:52,453: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:51:55,997: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:51:59,249: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:52:02,613: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:52:06,206: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:52:10,023: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:52:12,859: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:52:16,001: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:52:20,400: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:52:23,699: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:52:25,660: WARNING/MainProcess] Batch 3/4: 100%|##########| 1/1 [00:55<00:00, 55.12s/it]
-[2026-06-22 16:52:25,660: WARNING/MainProcess] [A
-[2026-06-22 16:52:25,660: WARNING/MainProcess] Evaluating:  75%|#######5  | 3/4 [02:09<00:42, 42.25s/it]
-[2026-06-22 16:52:25,660: WARNING/MainProcess] Batch 3/4:   0%|          | 0/1 [00:00<?, ?it/s]        
-[2026-06-22 16:52:25,660: WARNING/MainProcess] [A
-[2026-06-22 16:52:25,660: WARNING/MainProcess] Batch 4/4:   0%|          | 0/1 [00:00<?, ?it/s]
-[2026-06-22 16:52:25,660: WARNING/MainProcess] [A
-[2026-06-22 16:52:30,498: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:52:48,695: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:53:02,874: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:53:18,079: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/chat "HTTP/1.1 200 OK"
-[2026-06-22 16:53:25,993: ERROR/MainProcess] Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
-[2026-06-22 16:53:25,993: ERROR/MainProcess] Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
-[2026-06-22 16:53:25,993: ERROR/MainProcess] Prompt fix_output_format failed to parse output: The output parser failed to parse the output including retries.
-[2026-06-22 16:53:25,993: ERROR/MainProcess] Prompt context_recall_classification_prompt failed to parse output: The output parser failed to parse the output including retries.
-[2026-06-22 16:53:25,993: ERROR/MainProcess] Exception raised in Job[3]: RagasOutputParserException(The output parser failed to parse the output including retries.)
-[2026-06-22 16:53:25,993: WARNING/MainProcess] Batch 4/4: 100%|##########| 1/1 [01:00<00:00, 60.33s/it]
-[2026-06-22 16:53:25,993: WARNING/MainProcess] [A
-[2026-06-22 16:53:25,993: WARNING/MainProcess] Evaluating: 100%|##########| 4/4 [03:09<00:00, 49.39s/it]
-[2026-06-22 16:53:25,993: WARNING/MainProcess]                                                         
-[2026-06-22 16:53:26,000: WARNING/MainProcess] [A
-[2026-06-22 16:53:26,000: WARNING/MainProcess] Evaluating: 100%|##########| 4/4 [03:09<00:00, 47.34s/it]
-[2026-06-22 16:53:26,057: INFO/MainProcess] Task run_rag_evaluation_task[0573e38c-2ba8-48a4-a479-c849a357c3e6] succeeded in 907.906s: {'status': 'completed', 'run_id': 12}
-[2026-06-22 16:53:26,058: WARNING/MainProcess] Substantial drift from document_syntrafix@DESKTOP-DM2TH7H may mean clocks are out of sync.  Current drift is 908 seconds.  [orig: 2026-06-22 16:53:26.058604 recv: 2026-06-22 16:38:18.899516]
-[2026-06-22 16:53:26,073: INFO/MainProcess] sync with document_syntrafix@DESKTOP-DM2TH7H
