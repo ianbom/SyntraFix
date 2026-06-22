@@ -1,5 +1,10 @@
 import { IconFilePencil } from "@tabler/icons-react"
-import { keepPreviousData, useQuery } from "@tanstack/react-query"
+import {
+  keepPreviousData,
+  useMutation,
+  useQuery,
+  useQueryClient,
+} from "@tanstack/react-query"
 import { type CSSProperties, useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { AppSidebar } from "@/components/app-sidebar"
@@ -7,8 +12,8 @@ import { SiteHeader } from "@/components/site-header"
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
 import { Button } from "@/components/ui/button"
 import { DocumentStatistics, DocumentTable } from "./components"
-import { listDocuments } from "./api"
-import type { DocumentListResponse } from "./types"
+import { deleteDocument, listDocuments } from "./api"
+import type { DocumentListItem, DocumentListResponse } from "./types"
 
 const DEFAULT_PER_PAGE = 10
 const SEARCH_DEBOUNCE_MS = 400
@@ -24,6 +29,7 @@ const createEmptyDocumentsResponse = (perPage: number): DocumentListResponse => 
 })
 
 const DocumentListPage = () => {
+  const queryClient = useQueryClient()
   const [page, setPage] = useState(1)
   const [perPage, setPerPage] = useState(DEFAULT_PER_PAGE)
   const [searchInput, setSearchInput] = useState("")
@@ -54,6 +60,19 @@ const DocumentListPage = () => {
   const documentsData = documentsQuery.data ?? createEmptyDocumentsResponse(perPage)
   const pages = Math.max(documentsData.pages, 1)
 
+  const deleteDocumentMutation = useMutation({
+    mutationFn: (documentId: number) => deleteDocument({ documentId }),
+    onSuccess: async () => {
+      if (documentsData.documents.length <= 1 && page > 1) {
+        setPage((currentPage) => Math.max(currentPage - 1, 1))
+      }
+
+      await queryClient.invalidateQueries({
+        queryKey: ["documents", "list"],
+      })
+    },
+  })
+
   const handleSearchChange = (value: string) => {
     setSearchInput(value)
     setPage(1)
@@ -69,10 +88,27 @@ const DocumentListPage = () => {
     setPage(clampedPage)
   }
 
+  const handleDeleteDocument = (document: DocumentListItem) => {
+    const confirmed = window.confirm(
+      `Hapus dokumen "${document.title}"? Data chunk dan file dokumen juga akan dihapus.`
+    )
+
+    if (!confirmed) {
+      return
+    }
+
+    deleteDocumentMutation.mutate(document.id)
+  }
+
   const errorMessage =
     documentsQuery.error instanceof Error
       ? documentsQuery.error.message
       : "Gagal memuat daftar dokumen."
+
+  const deleteErrorMessage =
+    deleteDocumentMutation.error instanceof Error
+      ? deleteDocumentMutation.error.message
+      : "Gagal menghapus dokumen."
 
   return (
     <SidebarProvider
@@ -115,6 +151,14 @@ const DocumentListPage = () => {
                 </div>
               )}
 
+              {deleteDocumentMutation.isError && (
+                <div className="px-4 lg:px-6">
+                  <div className="rounded-md bg-destructive/10 p-3 text-sm text-destructive">
+                    {deleteErrorMessage}
+                  </div>
+                </div>
+              )}
+
               {/* Statistics Cards */}
               <DocumentStatistics
                 documents={documentsData.documents}
@@ -130,9 +174,15 @@ const DocumentListPage = () => {
                 perPage={documentsData.perPage}
                 total={documentsData.total}
                 isLoading={documentsQuery.isPending}
+                deletingDocumentId={
+                  deleteDocumentMutation.isPending
+                    ? deleteDocumentMutation.variables ?? null
+                    : null
+                }
                 onSearchChange={handleSearchChange}
                 onPageChange={handlePageChange}
                 onPerPageChange={handlePerPageChange}
+                onDeleteDocument={handleDeleteDocument}
               />
             </div>
           </div>

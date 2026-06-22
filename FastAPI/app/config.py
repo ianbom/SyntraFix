@@ -25,6 +25,11 @@ class Settings(BaseSettings):
     # GROBID
     GROBID_URL: str = "http://localhost:8070"
     
+    # Crossref
+    CROSSREF_BASE_URL: str = "https://api.crossref.org"
+    CROSSREF_MAILTO: str | None = None
+    CROSSREF_TIMEOUT_SECONDS: int = 10
+    
     # Celery + RabbitMQ
     CELERY_BROKER_URL: str = "amqp://guest:guest@localhost:5672//"
     

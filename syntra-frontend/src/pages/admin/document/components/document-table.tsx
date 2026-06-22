@@ -37,7 +37,7 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination"
-import { columns } from "./document-columns"
+import { createDocumentColumns } from "./document-columns"
 import type { DocumentListItem } from "../types"
 
 interface DocumentTableProps {
@@ -48,9 +48,11 @@ interface DocumentTableProps {
   perPage: number
   total: number
   isLoading: boolean
+  deletingDocumentId?: number | null
   onSearchChange: (value: string) => void
   onPageChange: (page: number) => void
   onPerPageChange: (perPage: number) => void
+  onDeleteDocument?: (document: DocumentListItem) => void
 }
 
 export function DocumentTable({
@@ -61,11 +63,21 @@ export function DocumentTable({
   perPage,
   total,
   isLoading,
+  deletingDocumentId = null,
   onSearchChange,
   onPageChange,
   onPerPageChange,
+  onDeleteDocument,
 }: DocumentTableProps) {
   const [sorting, setSorting] = useState<SortingState>([])
+  const columns = useMemo(
+    () =>
+      createDocumentColumns({
+        deletingDocumentId,
+        onDeleteDocument,
+      }),
+    [deletingDocumentId, onDeleteDocument]
+  )
 
   const table = useReactTable({
     data: documents,

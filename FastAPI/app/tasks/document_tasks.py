@@ -14,6 +14,7 @@ from app.services.grobid import (
 from app.services.embedding import generate_embedding
 from app.services.embedding_text import build_embedding_text
 from app.services.document_assets import _build_image_chunks, _build_table_chunks
+from app.services.crossref import extract_preliminary_metadata, lookup_crossref_metadata
 # from app.services.document_chunk_export import export_document_chunk_markdown_files
 from app.services.question_generator import _build_fallback_questions, generate_possibly_questions
 from app.services.metadata_extractor import (
@@ -107,19 +108,96 @@ def _attach_context_metadata_to_chunks(
         chunk_data["chunk_metadata"] = chunk_metadata
 
 
+def _extract_document_metadata(file_content: bytes) -> tuple[Dict[str, Any], str, List[Dict[str, Any]], list, list, list]:
+    """Extract metadata and reusable document assets from the PDF."""
+    print("[2/8] Preliminary extraction and Crossref lookup...")
+    raw_pdf_text, pages_data = extract_raw_pdf_text(file_content)
+    preliminary_metadata = extract_preliminary_metadata(raw_pdf_text)
+    crossref_metadata = lookup_crossref_metadata(preliminary_metadata)
+    print('====crossref_metadata====')
+    print(crossref_metadata)
+    if crossref_metadata:
+        print("  Crossref metadata available for Dublin Core merge")
+    else:
+        print("  Crossref metadata not found; continuing with GROBID")
+
+    print("[3/8] Extracting metadata and structure with GROBID...")
+    header = _run_async(extract_header(file_content))
+    references = extract_references(file_content)
+    fulltext = extract_fulltext(file_content)
+
+    structured_sections = []
+    try:
+        structured_sections = extract_structured_fulltext(file_content)
+        print(f"  Extracted {len(structured_sections)} structured sections")
+    except Exception as e:
+        print(f"  Structured extraction failed: {e}")
+
+    grobid_metadata = format_for_database(header, references)
+    metadata = (
+        merge_metadata(crossref_metadata, grobid_metadata)
+        if crossref_metadata
+        else grobid_metadata
+    )
+    metadata["fulltext"] = fulltext or ""
+    metadata["structured_sections"] = structured_sections
+
+    print("[4/8] Extracting tables and images with PyMuPDF...")
+    tables_data, images_data = extract_pdf_tables_and_images(file_content)
+    print(
+        f"  Extracted assets: tables={len(tables_data)}, "
+        f"images={len(images_data)}"
+    )
+
+    if is_metadata_incomplete(metadata):
+        print("[5/8] Metadata incomplete, using LLM fallback...")
+        llm_input_text = raw_pdf_text if raw_pdf_text else (fulltext or "")
+        try:
+            llm_metadata = _run_async(extract_metadata_with_llm(llm_input_text, metadata))
+            if llm_metadata:
+                metadata = merge_metadata(metadata, llm_metadata)
+                print("  LLM metadata merge complete")
+        except Exception as e:
+            print(f"  LLM metadata extraction failed: {e}")
+
+    metadata = validate_metadata(metadata, raw_pdf_text or fulltext or "")
+    return metadata, raw_pdf_text, pages_data, tables_data, images_data, structured_sections
+
+def _apply_metadata_to_document(document: Document, metadata: Dict[str, Any]) -> None:
+    """Update only document table metadata/status fields."""
+    document.title = metadata["title"]
+    document.creator = metadata.get("creator")
+    document.keywords = metadata.get("keywords")
+    document.description = metadata.get("description")
+    document.publisher = metadata.get("publisher")
+    document.contributor = metadata.get("contributor")
+    document.date = metadata.get("date")
+    document.format = metadata.get("format", "application/pdf")
+    document.identifier = metadata.get("identifier")
+    document.source = metadata.get("source")
+    document.language = metadata.get("language")
+    document.relation = metadata.get("relation")
+    document.coverage = metadata.get("coverage")
+    document.rights = metadata.get("rights")
+    document.doi = metadata.get("doi")
+    document.abstract = metadata.get("abstract")
+    document.citation_count = metadata.get("citation_count", 0)
+    document.is_metadata_complete = bool(metadata.get("title") and metadata.get("creator"))
+
 @shared_task(name="process_document_task", bind=True, max_retries=2)
-def process_document_task(self, document_id: int, file_path: str):
+def process_document_task(self, document_id: int, file_path: str, replace_existing_chunks: bool = False):
     """
     Background task pipeline for uploaded PDF documents.
 
     Pipeline stages:
     1. Download source PDF from MinIO
-    2. Extract metadata and structure with GROBID
-    3. Extract text, tables, and images with PyMuPDF
-    4. Merge/validate metadata and update document record
-    5. Build smart chunks (text + table + image + references) with context in metadata
-    6. Generate content embeddings
-    7. Persist chunks and mark document complete
+    2. Extract preliminary text and lookup metadata in Crossref
+    3. Extract metadata and structure with GROBID
+    4. Extract tables and images with PyMuPDF
+    5. Merge/validate metadata and update document record
+    6. Build smart chunks (text + table + image + references) with context in metadata
+    7. Generate content embeddings
+    8. Persist chunks and mark document complete
     """
     db = SessionLocal()
     storage = MinIOStorage()
@@ -148,75 +226,18 @@ def process_document_task(self, document_id: int, file_path: str):
         _update_processing_state(db, document_id, progress=10)
         print(f"  Downloaded {len(file_content)} bytes")
         
-        # Step 2: Extract metadata and structure via GROBID
-        print("[2/8] Extracting metadata and structure with GROBID...")
-        header = _run_async(extract_header(file_content))
-        references = extract_references(file_content)
-        fulltext = extract_fulltext(file_content)
-        
-        # Structured sections for smart chunking
-        structured_sections = []
-        try:
-            structured_sections = extract_structured_fulltext(file_content)
-            print(f"  Extracted {len(structured_sections)} structured sections")
-        except Exception as e:
-            print(f"  Structured extraction failed: {e}")
-        
-        metadata = format_for_database(header, references)
-        metadata["fulltext"] = fulltext or ""
-        metadata["structured_sections"] = structured_sections
+        metadata, _raw_pdf_text, pages_data, tables_data, images_data, structured_sections = _extract_document_metadata(file_content)
         _update_processing_state(db, document_id, progress=30)
-        
-        # Step 3: PyMuPDF extraction for text/table/image data
-        print("[3/8] Extracting text, tables, and images with PyMuPDF...")
-        raw_pdf_text, pages_data = extract_raw_pdf_text(file_content)
-        tables_data, images_data = extract_pdf_tables_and_images(file_content)
-        print(
-            f"  Extracted assets: tables={len(tables_data)}, "
-            f"images={len(images_data)}"
-        )
         _update_processing_state(db, document_id, progress=45)
         
-        # Step 4: LLM fallback if metadata incomplete + metadata validation
-        if is_metadata_incomplete(metadata):
-            print("[4/8] Metadata incomplete, using LLM fallback...")
-            llm_input_text = raw_pdf_text if raw_pdf_text else (fulltext or "")
-            try:
-                llm_metadata = _run_async(extract_metadata_with_llm(llm_input_text, metadata))
-                if llm_metadata:
-                    metadata = merge_metadata(metadata, llm_metadata)
-                    print("  LLM metadata merge complete")
-            except Exception as e:
-                print(f"  LLM metadata extraction failed: {e}")
-        
-        # Validate metadata
-        metadata = validate_metadata(metadata, raw_pdf_text or fulltext or "")
-        
         # Update document with extracted metadata
-        print("[4/8] Updating document metadata...")
-        document.title = metadata["title"]
-        document.creator = metadata.get("creator")
-        document.keywords = metadata.get("keywords")
-        document.description = metadata.get("description")
-        document.publisher = metadata.get("publisher")
-        document.contributor = metadata.get("contributor")
-        document.date = metadata.get("date")
-        document.format = metadata.get("format", "application/pdf")
-        document.identifier = metadata.get("identifier")
-        document.source = metadata.get("source")
-        document.language = metadata.get("language")
-        document.relation = metadata.get("relation")
-        document.coverage = metadata.get("coverage")
-        document.rights = metadata.get("rights")
-        document.doi = metadata.get("doi")
-        document.abstract = metadata.get("abstract")
-        document.citation_count = metadata.get("citation_count", 0)
-        document.is_metadata_complete = bool(metadata.get("title") and metadata.get("creator"))
+        print("[5/8] Updating document metadata...")
+        _apply_metadata_to_document(document, metadata)
         db.commit()
         _update_processing_state(db, document_id, progress=55)
         
-        # Step 5: Smart chunking + table/image chunks (all content as plain text)
-        print("[5/8] Building smart chunks...")
+        # Step 6: Smart chunking + table/image chunks (all content as plain text)
+        print("[6/8] Building smart chunks...")
         
         
         chunks = []
@@ -279,8 +300,8 @@ def process_document_task(self, document_id: int, file_path: str):
         # print(f"  Chunk content markdown exported to: {content_export_path}")
         # print(f"  RAGAS markdown exported to: {ragas_export_path}")
 
-        # Step 6: Generate content embeddings
-        print("[6/7] Generating content embeddings...")
+        # Step 7: Generate content embeddings
+        print("[7/8] Generating content embeddings...")
         for i, chunk_data in enumerate(chunks):
             try:
                 embedding_text = build_embedding_text(chunk_data)
@@ -299,9 +320,18 @@ def process_document_task(self, document_id: int, file_path: str):
         if total_chunks == 0:
             _update_processing_state(db, document_id, progress=90)
 
-        # Step 7: Persist chunks
-        print("[7/7] Saving chunks to database...")
+        # Step 8: Persist chunks
+        print("[8/8] Saving chunks to database...")
         total_chunks = len(chunks)
+
+        if replace_existing_chunks:
+            deleted_count = (
+                db.query(DocumentChunk)
+                .filter(DocumentChunk.document_id == document.id)
+                .delete(synchronize_session=False)
+            )
+            db.flush()
+            print(f"  Deleted {deleted_count} existing chunks before regenerate")
 
         for i, chunk_data in enumerate(chunks):
             # Create chunk record
@@ -361,6 +391,62 @@ def process_document_task(self, document_id: int, file_path: str):
         
         return {"status": "failed", "document_id": document_id, "error": error_msg}
     
+    finally:
+        db.close()
+
+
+@shared_task(name="regenerate_document_metadata_task", bind=True, max_retries=2)
+def regenerate_document_metadata_task(self, document_id: int):
+    """Regenerate only metadata fields in the documents table from the stored PDF."""
+    db = SessionLocal()
+    storage = MinIOStorage()
+
+    try:
+        _update_processing_state(
+            db,
+            document_id,
+            status="processing",
+            progress=0,
+            clear_error=True,
+        )
+        document = db.query(Document).filter(Document.id == document_id).first()
+        if not document:
+            print(f"Document {document_id} not found for metadata regeneration")
+            return {"status": "error", "document_id": document_id, "message": "Document not found"}
+        if not document.file_path:
+            raise ValueError("Document file_path is empty")
+
+        print(f"{'='*60}")
+        print(f"CELERY TASK: Regenerating metadata for document {document_id}")
+        print(f"{'='*60}")
+
+        file_content = storage.download_file(document.file_path)
+        _update_processing_state(db, document_id, progress=15)
+
+        metadata, *_unused = _extract_document_metadata(file_content)
+        _update_processing_state(db, document_id, progress=80)
+
+        _apply_metadata_to_document(document, metadata)
+        document.processing_status = "completed"
+        document.processing_progress = 100
+        document.processing_error = None
+        db.commit()
+
+        return {
+            "status": "completed",
+            "document_id": document_id,
+            "title": metadata.get("title", "")[:100],
+        }
+
+    except Exception as e:
+        db.rollback()
+        error_msg = f"{type(e).__name__}: {str(e)}"
+        print(f"METADATA REGENERATION FAILED: Document {document_id} - {error_msg}")
+        _update_processing_state(db, document_id, status="failed", error=error_msg)
+        if self.request.retries < self.max_retries:
+            raise self.retry(exc=e, countdown=30)
+        return {"status": "failed", "document_id": document_id, "error": error_msg}
+
     finally:
         db.close()
 

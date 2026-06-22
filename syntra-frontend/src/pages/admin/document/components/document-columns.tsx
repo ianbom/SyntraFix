@@ -18,6 +18,11 @@ import type { DocumentListItem } from "../types"
 import { Link } from "react-router-dom"
 import { getDocumentDownloadUrl } from "../api"
 
+interface DocumentColumnsOptions {
+  deletingDocumentId?: number | null
+  onDeleteDocument?: (document: DocumentListItem) => void
+}
+
 const formatDate = (dateStr: string | null): string => {
   if (!dateStr) return "-"
   return new Date(dateStr).toLocaleDateString("id-ID", {
@@ -68,7 +73,10 @@ const openDocumentPreview = async (documentId: number) => {
   }
 }
 
-export const columns: ColumnDef<DocumentListItem>[] = [
+export const createDocumentColumns = ({
+  deletingDocumentId = null,
+  onDeleteDocument,
+}: DocumentColumnsOptions = {}): ColumnDef<DocumentListItem>[] => [
   {
     accessorKey: "title",
     header: "Title",
@@ -121,36 +129,47 @@ export const columns: ColumnDef<DocumentListItem>[] = [
   {
     id: "actions",
     header: "Action",
-    cell: ({ row }) => (
-      <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Button variant="ghost" size="icon-sm">
-            <IconDotsVertical className="size-4" />
-            <span className="sr-only">Buka menu</span>
-          </Button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent align="end">
-          <DropdownMenuItem onClick={() => void openDocumentPreview(row.original.id)}>
-            <IconEye className="size-4" />
-            Lihat
-          </DropdownMenuItem>
-          <DropdownMenuItem asChild>
-            <Link to={`/admin/document/edit/${row.original.id}`}>
-              <IconEdit className="size-4 mr-2" />
-              <span>Edit</span>
-            </Link>
-          </DropdownMenuItem>
-          <DropdownMenuSeparator />
-          <DropdownMenuItem
-            variant="destructive"
-            onClick={() => console.log("Delete", row.original.id)}
-          >
-            <IconTrash className="size-4" />
-            Hapus
-          </DropdownMenuItem>
-        </DropdownMenuContent>
-      </DropdownMenu>
-    ),
+    cell: ({ row }) => {
+      const document = row.original
+      const isDeleting = deletingDocumentId === document.id
+
+      return (
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="ghost" size="icon-sm" disabled={isDeleting}>
+              <IconDotsVertical className="size-4" />
+              <span className="sr-only">Buka menu</span>
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end">
+            <DropdownMenuItem
+              disabled={isDeleting}
+              onClick={() => void openDocumentPreview(document.id)}
+            >
+              <IconEye className="size-4" />
+              Lihat
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild disabled={isDeleting}>
+              <Link to={`/admin/document/edit/${document.id}`}>
+                <IconEdit className="size-4 mr-2" />
+                <span>Edit</span>
+              </Link>
+            </DropdownMenuItem>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem
+              variant="destructive"
+              disabled={isDeleting || !onDeleteDocument}
+              onClick={() => onDeleteDocument?.(document)}
+            >
+              <IconTrash className="size-4" />
+              {isDeleting ? "Menghapus..." : "Hapus"}
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+      )
+    },
     enableSorting: false,
   },
 ]
+
+export const columns = createDocumentColumns()

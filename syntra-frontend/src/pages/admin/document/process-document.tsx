@@ -7,7 +7,12 @@ import { SiteHeader } from "@/components/site-header"
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
 import { Button } from "@/components/ui/button"
 import { ProcessStatistics, ProcessTable } from "./components"
-import { generatePossiblyQuestions, listProcessingDocuments } from "./api"
+import {
+  generatePossiblyQuestions,
+  listProcessingDocuments,
+  regenerateDocument,
+  regenerateDocumentMetadata,
+} from "./api"
 import type { ProcessDocument, ProcessMonitorResponse } from "./types"
 
 const PROCESS_MONITOR_REFETCH_INTERVAL_MS = 3000
@@ -47,12 +52,38 @@ const ProcessDocumentPage = () => {
     },
   })
 
+  const regenerateMetadataMutation = useMutation({
+    mutationFn: (documentId: number) => regenerateDocumentMetadata({ documentId }),
+    onSuccess: async () => {
+      await queryClient.invalidateQueries({
+        queryKey: ["documents", "processing-monitor"],
+      })
+    },
+  })
+
+  const regenerateDocumentMutation = useMutation({
+    mutationFn: (documentId: number) => regenerateDocument({ documentId }),
+    onSuccess: async () => {
+      await queryClient.invalidateQueries({
+        queryKey: ["documents", "processing-monitor"],
+      })
+    },
+  })
+
   const handleRefresh = () => {
     void processingDocumentsQuery.refetch()
   }
 
   const handleGenerateQuestions = (document: ProcessDocument) => {
     generateQuestionsMutation.mutate(Number(document.id))
+  }
+
+  const handleRegenerateMetadata = (document: ProcessDocument) => {
+    regenerateMetadataMutation.mutate(Number(document.id))
+  }
+
+  const handleRegenerateDocument = (document: ProcessDocument) => {
+    regenerateDocumentMutation.mutate(Number(document.id))
   }
 
   const errorMessage =
@@ -64,6 +95,16 @@ const ProcessDocumentPage = () => {
     generateQuestionsMutation.error instanceof Error
       ? generateQuestionsMutation.error.message
       : "Gagal menjalankan generate question."
+
+  const regenerateMetadataError =
+    regenerateMetadataMutation.error instanceof Error
+      ? regenerateMetadataMutation.error.message
+      : "Gagal menjalankan regenerate metadata."
+
+  const regenerateDocumentError =
+    regenerateDocumentMutation.error instanceof Error
+      ? regenerateDocumentMutation.error.message
+      : "Gagal menjalankan regenerate document."
 
   return (
     <SidebarProvider
@@ -127,6 +168,22 @@ const ProcessDocumentPage = () => {
                 </div>
               )}
 
+              {regenerateMetadataMutation.isError && (
+                <div className="px-4 lg:px-6">
+                  <div className="rounded-md bg-destructive/10 p-3 text-sm text-destructive">
+                    {regenerateMetadataError}
+                  </div>
+                </div>
+              )}
+
+              {regenerateDocumentMutation.isError && (
+                <div className="px-4 lg:px-6">
+                  <div className="rounded-md bg-destructive/10 p-3 text-sm text-destructive">
+                    {regenerateDocumentError}
+                  </div>
+                </div>
+              )}
+
               {/* Statistics Cards */}
               <ProcessStatistics documents={documents} />
 
@@ -138,7 +195,19 @@ const ProcessDocumentPage = () => {
                     ? String(generateQuestionsMutation.variables)
                     : null
                 }
+                regeneratingMetadataDocumentId={
+                  regenerateMetadataMutation.isPending
+                    ? String(regenerateMetadataMutation.variables)
+                    : null
+                }
+                regeneratingDocumentId={
+                  regenerateDocumentMutation.isPending
+                    ? String(regenerateDocumentMutation.variables)
+                    : null
+                }
                 onGenerateQuestions={handleGenerateQuestions}
+                onRegenerateMetadata={handleRegenerateMetadata}
+                onRegenerateDocument={handleRegenerateDocument}
               />
             </div>
           </div>

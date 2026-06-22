@@ -1,12 +1,29 @@
 import { type ColumnDef } from "@tanstack/react-table"
-import { IconArrowUp, IconArrowDown } from "@tabler/icons-react"
+import {
+  IconArrowUp,
+  IconArrowDown,
+  IconDotsVertical,
+  IconFileText,
+  IconRefresh,
+  IconQuestionMark,
+} from "@tabler/icons-react"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 import type { ProcessDocument } from "../types"
 
 interface ProcessColumnsOptions {
   generatingDocumentId?: string | null
+  regeneratingMetadataDocumentId?: string | null
+  regeneratingDocumentId?: string | null
   onGenerateQuestions?: (document: ProcessDocument) => void
+  onRegenerateMetadata?: (document: ProcessDocument) => void
+  onRegenerateDocument?: (document: ProcessDocument) => void
 }
 
 const formatDate = (dateStr: string): string => {
@@ -82,7 +99,11 @@ const PossiblyQuestionStatus = ({ document }: { document: ProcessDocument }) => 
 
 export const createProcessColumns = ({
   generatingDocumentId = null,
+  regeneratingMetadataDocumentId = null,
+  regeneratingDocumentId = null,
   onGenerateQuestions,
+  onRegenerateMetadata,
+  onRegenerateDocument,
 }: ProcessColumnsOptions = {}): ColumnDef<ProcessDocument>[] => [
   {
     accessorKey: "title",
@@ -199,20 +220,53 @@ export const createProcessColumns = ({
     cell: ({ row }) => {
       const document = row.original
       const isGenerating = generatingDocumentId === document.id
+      const isRegeneratingMetadata = regeneratingMetadataDocumentId === document.id
+      const isRegeneratingDocument = regeneratingDocumentId === document.id
+      const isActionPending =
+        isGenerating || isRegeneratingMetadata || isRegeneratingDocument
       const canGenerate =
         document.status === "completed" &&
         document.chunkCount > 0 &&
         document.possiblyQuestionCount < document.chunkCount
+      const canRegenerate = document.status !== "processing"
 
       return (
-        <Button
-          variant="outline"
-          size="sm"
-          disabled={!canGenerate || isGenerating || !onGenerateQuestions}
-          onClick={() => onGenerateQuestions?.(document)}
-        >
-          {isGenerating ? "Generating..." : "Generate Question"}
-        </Button>
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button
+              variant="outline"
+              size="sm"
+              disabled={isActionPending}
+              className="gap-1"
+            >
+              <IconDotsVertical className="size-4" />
+              Action
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end">
+            <DropdownMenuItem
+              disabled={!canGenerate || isGenerating || !onGenerateQuestions}
+              onClick={() => onGenerateQuestions?.(document)}
+            >
+              <IconQuestionMark className="size-4" />
+              {isGenerating ? "Generating..." : "Generate Question"}
+            </DropdownMenuItem>
+            <DropdownMenuItem
+              disabled={!canRegenerate || isRegeneratingMetadata || !onRegenerateMetadata}
+              onClick={() => onRegenerateMetadata?.(document)}
+            >
+              <IconRefresh className="size-4" />
+              {isRegeneratingMetadata ? "Regenerating metadata..." : "Regenerate Metadata"}
+            </DropdownMenuItem>
+            <DropdownMenuItem
+              disabled={!canRegenerate || isRegeneratingDocument || !onRegenerateDocument}
+              onClick={() => onRegenerateDocument?.(document)}
+            >
+              <IconFileText className="size-4" />
+              {isRegeneratingDocument ? "Regenerating document..." : "Regenerate Document"}
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
       )
     },
     enableSorting: false,
