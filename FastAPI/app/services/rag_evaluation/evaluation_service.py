@@ -35,8 +35,8 @@ def create_run(db: Session, dataset_id: int, created_by: int, name: str, descrip
     dataset = db.query(RagEvaluationDataset).filter(RagEvaluationDataset.id == dataset_id).first()
     if not dataset:
         raise HTTPException(status_code=404, detail="Dataset evaluasi tidak ditemukan")
-    if dataset.status != RagDatasetStatus.READY:
-        raise HTTPException(status_code=400, detail="Dataset harus berstatus ready sebelum evaluasi")
+    if dataset.status not in {RagDatasetStatus.READY, RagDatasetStatus.INVALID}:
+        raise HTTPException(status_code=400, detail="Dataset belum siap untuk evaluasi")
 
     mode = RagEvaluationMode(evaluation_mode) if evaluation_mode else dataset.evaluation_mode
     rows_count = db.query(RagEvaluationDatasetRow).filter(
@@ -120,13 +120,15 @@ def get_active_run(db: Session) -> RagEvaluationRun | None:
     ).order_by(desc(RagEvaluationRun.created_at), desc(RagEvaluationRun.id)).first()
 
 
-def list_samples(db: Session, run_id: int, page: int, per_page: int, status: str | None = None) -> tuple[list[RagEvaluationSample], int]:
+def list_samples(db: Session, run_id: int, page: int, per_page: int, status: str | None = None, all_rows: bool = False) -> tuple[list[RagEvaluationSample], int]:
     get_run_or_404(db, run_id)
     query = db.query(RagEvaluationSample).filter(RagEvaluationSample.run_id == run_id)
     if status:
         query = query.filter(RagEvaluationSample.status == status)
     query = query.order_by(RagEvaluationSample.sample_index.asc())
     total = query.count()
+    if all_rows:
+        return query.all(), total
     return query.offset((page - 1) * per_page).limit(per_page).all(), total
 
 

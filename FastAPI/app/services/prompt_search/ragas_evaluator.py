@@ -1,6 +1,8 @@
 """RAGAS evaluation helpers for prompt search."""
+import importlib.util
 import math
 import sys
+import types
 from typing import Any, Dict, List, Optional
 
 from app.config import get_settings
@@ -97,6 +99,7 @@ def get_ragas_evaluator_model_label(settings) -> str:
     return f"ollama:{settings.OLLAMA_GENERATION_MODEL}"
 
 def _build_ragas_metrics(settings):
+    _install_ragas_vertexai_import_shim()
     from ragas.metrics import AnswerRelevancy, ContextPrecision, ContextRecall, Faithfulness
 
     provider = (settings.RAGAS_EVALUATOR_PROVIDER or "ollama").strip().lower()
@@ -109,6 +112,24 @@ def _build_ragas_metrics(settings):
         ContextRecall(),
     ]
 
+def _install_ragas_vertexai_import_shim() -> None:
+    """Let RAGAS import when LangChain moved optional VertexAI integration out."""
+    module_name = "langchain_community.chat_models.vertexai"
+    if module_name in sys.modules or importlib.util.find_spec(module_name) is not None:
+        return
+
+    module = types.ModuleType(module_name)
+
+    class ChatVertexAI:
+        def __init__(self, *args, **kwargs):
+            raise ImportError(
+                "ChatVertexAI is not installed. Install LangChain VertexAI "
+                "dependencies before using the VertexAI evaluator."
+            )
+
+    module.ChatVertexAI = ChatVertexAI
+    sys.modules[module_name] = module
+
 def evaluate_iteration_with_ragas(
     question: str,
     contexts: List[str],
@@ -116,6 +137,7 @@ def evaluate_iteration_with_ragas(
     reference: str,
 ) -> Dict[str, Optional[float]]:
     """Evaluate one prompt-search sample with RAGAS."""
+    _install_ragas_vertexai_import_shim()
     try:
         from datasets import Dataset
         from ragas import evaluate

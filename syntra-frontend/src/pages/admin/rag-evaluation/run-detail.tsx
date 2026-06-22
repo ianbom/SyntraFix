@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-import { cancelRun, downloadFile, getRun, listSamples } from "./api"
+import { cancelRun, downloadFile, getRun, listAllSamples } from "./api"
 import { AdminShell } from "./dashboard"
 
 const fmtScore = (value: number | null | undefined) => value == null ? "-" : value.toFixed(3)
@@ -16,7 +16,7 @@ const RunDetailPage = () => {
   const queryClient = useQueryClient()
   const runId = Number(params.runId)
   const runQuery = useQuery({ queryKey: ["rag-evaluation", "run", runId], queryFn: () => getRun(runId), enabled: Number.isFinite(runId), refetchInterval: (query) => query.state.data && activeStatuses.has(query.state.data.status) ? 3000 : false })
-  const samplesQuery = useQuery({ queryKey: ["rag-evaluation", "run", runId, "samples"], queryFn: () => listSamples(runId, 1, 100), enabled: Number.isFinite(runId), refetchInterval: runQuery.data && activeStatuses.has(runQuery.data.status) ? 3000 : false })
+  const samplesQuery = useQuery({ queryKey: ["rag-evaluation", "run", runId, "samples", "all"], queryFn: () => listAllSamples(runId), enabled: Number.isFinite(runId), refetchInterval: runQuery.data && activeStatuses.has(runQuery.data.status) ? 3000 : false })
   const cancelMutation = useMutation({ mutationFn: () => cancelRun(runId), onSuccess: () => void queryClient.invalidateQueries({ queryKey: ["rag-evaluation", "run", runId] }), onError: (error) => toast.error((error as Error).message) })
   const run = runQuery.data
 

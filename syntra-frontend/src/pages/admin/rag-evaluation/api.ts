@@ -62,6 +62,10 @@ export const listDatasets = async (page = 1, perPage = 20): Promise<Paginated<Ra
 
 export const getDataset = async (id: number): Promise<RagDatasetDetail> => mapDatasetDetail(await requestJson<ApiDatasetDetail>(`/rag-evaluation/datasets/${id}`))
 
+export const deleteDatasetRow = async (datasetId: number, rowId: number): Promise<void> => {
+  await requestJson<{ message: string }>(`/rag-evaluation/datasets/${datasetId}/rows/${rowId}`, { method: "DELETE" }, "Gagal menghapus baris dataset.")
+}
+
 export const uploadDataset = async (params: { file: File; mode: EvaluationMode; name?: string; description?: string }): Promise<RagDatasetDetail> => {
   const form = new FormData()
   form.set("file", params.file)
@@ -83,6 +87,11 @@ export const getRun = async (id: number): Promise<RagRun> => mapRun(await reques
 
 export const listSamples = async (runId: number, page = 1, perPage = 50): Promise<Paginated<RagSample>> => {
   const payload = await requestJson<ApiSampleList>(`/rag-evaluation/runs/${runId}/samples?page=${page}&per_page=${perPage}`)
+  return { items: payload.samples.map(mapSample), total: payload.total, page: payload.page, perPage: payload.per_page, pages: payload.pages }
+}
+
+export const listAllSamples = async (runId: number): Promise<Paginated<RagSample>> => {
+  const payload = await requestJson<ApiSampleList>(`/rag-evaluation/runs/${runId}/samples?all=true`)
   return { items: payload.samples.map(mapSample), total: payload.total, page: payload.page, perPage: payload.per_page, pages: payload.pages }
 }
 

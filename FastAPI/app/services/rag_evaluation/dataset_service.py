@@ -11,6 +11,7 @@ from app.models.rag_evaluation import (
     RagEvaluationDataset,
     RagEvaluationDatasetRow,
     RagEvaluationMode,
+    RagEvaluationSample,
 )
 from app.services.rag_evaluation.artifact_service import save_bytes
 from app.services.rag_evaluation.csv_validator import read_csv_text, validate_csv_rows
@@ -147,6 +148,23 @@ def update_dataset_row(db: Session, dataset_id: int, row_id: int, values: dict[s
     db.refresh(row)
     return row
 
+
+def delete_dataset_row(db: Session, dataset_id: int, row_id: int) -> None:
+    row = db.query(RagEvaluationDatasetRow).filter(
+        RagEvaluationDatasetRow.dataset_id == dataset_id,
+        RagEvaluationDatasetRow.id == row_id,
+    ).first()
+    if not row:
+        raise HTTPException(status_code=404, detail="Baris dataset tidak ditemukan")
+
+    linked_samples = db.query(RagEvaluationSample).filter(RagEvaluationSample.dataset_row_id == row_id).count()
+    if linked_samples:
+        raise HTTPException(status_code=400, detail="Baris dataset sudah digunakan pada hasil evaluasi")
+
+    db.delete(row)
+    db.flush()
+    _refresh_dataset_counts(db, dataset_id)
+    db.commit()
 
 def delete_dataset(db: Session, dataset_id: int) -> None:
     dataset = get_dataset_or_404(db, dataset_id)
