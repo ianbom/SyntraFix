@@ -19,6 +19,7 @@ from app.models.rag_evaluation import (
     RagEvaluationSample,
     RagRunStatus,
 )
+from app.services.prompt_search.ragas_evaluator import get_ragas_evaluator_model_label
 from app.services.rag_evaluation.aggregation_service import score_distribution
 
 ACTIVE_STATUSES = {
@@ -46,10 +47,12 @@ def create_run(db: Session, dataset_id: int, created_by: int, name: str, descrip
         raise HTTPException(status_code=400, detail="Dataset tidak memiliki baris valid")
 
     settings = get_settings()
+    evaluator_model_label = evaluator_model or get_ragas_evaluator_model_label(settings)
     snapshot = {
         "generator_model": settings.OLLAMA_GENERATION_MODEL,
         "embedding_model": settings.OLLAMA_EMBEDDING_MODEL,
-        "evaluator_model": evaluator_model or settings.OLLAMA_GENERATION_MODEL,
+        "evaluator_provider": settings.RAGAS_EVALUATOR_PROVIDER,
+        "evaluator_model": evaluator_model_label,
         "ragas_version": _ragas_version(),
         **(config or {}),
     }

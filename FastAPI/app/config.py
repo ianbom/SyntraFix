@@ -42,6 +42,12 @@ class Settings(BaseSettings):
     OLLAMA_GENERATION_MODEL: str = "llama3.1:8b-instruct-q8_0"
     OLLAMA_EMBEDDING_DIMENSION: int = 1024
 
+    # RAGAS evaluator
+    RAGAS_EVALUATOR_PROVIDER: str = "deepseek"
+    DEEPSEEK_API_KEY: str | None = None
+    DEEPSEEK_BASE_URL: str = "https://api.deepseek.com"
+    DEEPSEEK_MODEL: str = "deepseek-v4-flash"
+
     # Google Gemini
     GOOGLE_API_KEY: str | None = None
     GEMINI_API_KEY: str | None = None

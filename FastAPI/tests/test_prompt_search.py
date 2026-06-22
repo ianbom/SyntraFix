@@ -1,4 +1,5 @@
 from pathlib import Path
+from types import SimpleNamespace
 
 import pytest
 
@@ -108,6 +109,95 @@ def test_select_best_iteration_ignores_null_scores():
 
     assert best["iteration"] == 3
 
+
+def test_build_ragas_llm_uses_ollama_provider():
+    calls = {}
+
+    class FakeChatOllama:
+        def __init__(self, **kwargs):
+            calls["ollama"] = kwargs
+
+    settings = SimpleNamespace(
+        RAGAS_EVALUATOR_PROVIDER="ollama",
+        OLLAMA_GENERATION_MODEL="llama3.1:8b-instruct-q8_0",
+        OLLAMA_BASE_URL="http://localhost:11435",
+        DEEPSEEK_API_KEY=None,
+        DEEPSEEK_BASE_URL="https://api.deepseek.com",
+        DEEPSEEK_MODEL="deepseek-v4-flash",
+    )
+
+    llm = ragas_evaluator._build_ragas_llm(settings, chat_ollama_cls=FakeChatOllama)
+
+    assert isinstance(llm, FakeChatOllama)
+    assert calls["ollama"]["model"] == "llama3.1:8b-instruct-q8_0"
+    assert calls["ollama"]["base_url"] == "http://localhost:11435"
+    assert calls["ollama"]["temperature"] == 0.1
+
+def test_build_ragas_llm_uses_deepseek_provider():
+    calls = {}
+
+    class FakeChatOpenAI:
+        def __init__(self, **kwargs):
+            calls["deepseek"] = kwargs
+
+    settings = SimpleNamespace(
+        RAGAS_EVALUATOR_PROVIDER="deepseek",
+        OLLAMA_GENERATION_MODEL="llama3.1:8b-instruct-q8_0",
+        OLLAMA_BASE_URL="http://localhost:11435",
+        DEEPSEEK_API_KEY="sk-test",
+        DEEPSEEK_BASE_URL="https://api.deepseek.com",
+        DEEPSEEK_MODEL="deepseek-v4-flash",
+    )
+
+    llm = ragas_evaluator._build_ragas_llm(settings, chat_openai_cls=FakeChatOpenAI)
+
+    assert isinstance(llm, FakeChatOpenAI)
+    assert calls["deepseek"]["model"] == "deepseek-v4-flash"
+    assert calls["deepseek"]["base_url"] == "https://api.deepseek.com"
+    assert calls["deepseek"]["api_key"] == "sk-test"
+    assert calls["deepseek"]["temperature"] == 0.1
+
+def test_build_ragas_llm_requires_deepseek_api_key():
+    settings = SimpleNamespace(
+        RAGAS_EVALUATOR_PROVIDER="deepseek",
+        OLLAMA_GENERATION_MODEL="llama3.1:8b-instruct-q8_0",
+        OLLAMA_BASE_URL="http://localhost:11435",
+        DEEPSEEK_API_KEY=None,
+        DEEPSEEK_BASE_URL="https://api.deepseek.com",
+        DEEPSEEK_MODEL="deepseek-v4-flash",
+    )
+
+    with pytest.raises(RuntimeError, match="DEEPSEEK_API_KEY"):
+        ragas_evaluator._build_ragas_llm(settings)
+
+def test_build_ragas_llm_rejects_unknown_provider():
+    settings = SimpleNamespace(
+        RAGAS_EVALUATOR_PROVIDER="unknown",
+        OLLAMA_GENERATION_MODEL="llama3.1:8b-instruct-q8_0",
+        OLLAMA_BASE_URL="http://localhost:11435",
+        DEEPSEEK_API_KEY=None,
+        DEEPSEEK_BASE_URL="https://api.deepseek.com",
+        DEEPSEEK_MODEL="deepseek-v4-flash",
+    )
+
+    with pytest.raises(ValueError, match="RAGAS_EVALUATOR_PROVIDER"):
+        ragas_evaluator._build_ragas_llm(settings)
+
+def test_build_ragas_metrics_uses_deepseek_safe_answer_relevancy_strictness():
+    settings = SimpleNamespace(RAGAS_EVALUATOR_PROVIDER="deepseek")
+
+    metrics = ragas_evaluator._build_ragas_metrics(settings)
+
+    answer_relevancy = next(metric for metric in metrics if metric.name == "answer_relevancy")
+    assert answer_relevancy.strictness == 1
+
+def test_build_ragas_metrics_keeps_default_answer_relevancy_strictness_for_ollama():
+    settings = SimpleNamespace(RAGAS_EVALUATOR_PROVIDER="ollama")
+
+    metrics = ragas_evaluator._build_ragas_metrics(settings)
+
+    answer_relevancy = next(metric for metric in metrics if metric.name == "answer_relevancy")
+    assert answer_relevancy.strictness == 3
 
 def test_save_prompt_search_result_writes_json(tmp_path: Path):
     result = {
