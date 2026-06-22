@@ -25,3 +25,48 @@ https://github.com/google-gemini/deprecated-generative-ai-python/blob/main/READM
 [2026-06-22 16:36:03,903: WARNING/MainProcess]   Generated 5 questions for chunk
 [2026-06-22 16:36:04,218: WARNING/MainProcess] [SERVICE TIMING] generate_embedding: 0.3219s
 [2026-06-22 16:36:04,425: WARNING/MainProcess] \U0001f504 Calling Ollama with model: llama3.1:8b-instruct-q8_0
+[2026-06-22 16:36:12,431: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/generate "HTTP/1.1 200 OK"
+[2026-06-22 16:36:12,433: WARNING/MainProcess] \u2705 LLM response received successfully
+[2026-06-22 16:36:12,433: WARNING/MainProcess] [SERVICE TIMING] generate_response[llama3.1:8b-instruct-q8_0]: 8.2056s
+[2026-06-22 16:36:12,435: WARNING/MainProcess]   Generated 5 questions for chunk
+[2026-06-22 16:36:12,776: WARNING/MainProcess] [SERVICE TIMING] generate_embedding: 0.3412s
+[2026-06-22 16:36:12,798: WARNING/MainProcess]   Processed possibly questions 5/9
+[2026-06-22 16:36:13,038: WARNING/MainProcess] \U0001f504 Calling Ollama with model: llama3.1:8b-instruct-q8_0
+[2026-06-22 16:36:19,602: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/generate "HTTP/1.1 200 OK"
+[2026-06-22 16:36:19,603: WARNING/MainProcess] \u2705 LLM response received successfully
+[2026-06-22 16:36:19,603: WARNING/MainProcess] [SERVICE TIMING] generate_response[llama3.1:8b-instruct-q8_0]: 6.7778s
+[2026-06-22 16:36:19,603: WARNING/MainProcess]   Generated 5 questions for chunk
+[2026-06-22 16:36:19,910: WARNING/MainProcess] [SERVICE TIMING] generate_embedding: 0.3054s
+[2026-06-22 16:36:20,125: WARNING/MainProcess] \U0001f504 Calling Ollama with model: llama3.1:8b-instruct-q8_0
+[2026-06-22 16:36:29,158: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/generate "HTTP/1.1 200 OK"
+[2026-06-22 16:36:29,168: WARNING/MainProcess] \u2705 LLM response received successfully
+[2026-06-22 16:36:29,168: WARNING/MainProcess] [SERVICE TIMING] generate_response[llama3.1:8b-instruct-q8_0]: 9.2356s
+[2026-06-22 16:36:29,168: WARNING/MainProcess]   Generated 5 questions for chunk
+[2026-06-22 16:36:29,461: WARNING/MainProcess] [SERVICE TIMING] generate_embedding: 0.2887s
+[2026-06-22 16:36:29,756: WARNING/MainProcess] \U0001f504 Calling Ollama with model: llama3.1:8b-instruct-q8_0
+[2026-06-22 16:36:36,197: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/generate "HTTP/1.1 200 OK"
+[2026-06-22 16:36:36,203: WARNING/MainProcess] \u2705 LLM response received successfully
+[2026-06-22 16:36:36,203: WARNING/MainProcess] [SERVICE TIMING] generate_response[llama3.1:8b-instruct-q8_0]: 6.7275s
+[2026-06-22 16:36:36,203: WARNING/MainProcess]   Generated 5 questions for chunk
+[2026-06-22 16:36:36,493: WARNING/MainProcess] [SERVICE TIMING] generate_embedding: 0.2865s
+[2026-06-22 16:36:36,724: WARNING/MainProcess] \U0001f504 Calling Ollama with model: llama3.1:8b-instruct-q8_0
+[2026-06-22 16:36:45,589: INFO/MainProcess] HTTP Request: POST http://localhost:11435/api/generate "HTTP/1.1 200 OK"
+[2026-06-22 16:36:45,591: WARNING/MainProcess] \u2705 LLM response received successfully
+[2026-06-22 16:36:45,591: WARNING/MainProcess] [SERVICE TIMING] generate_response[llama3.1:8b-instruct-q8_0]: 9.0947s
+[2026-06-22 16:36:45,592: WARNING/MainProcess]   Generated 5 questions for chunk
+[2026-06-22 16:36:45,890: WARNING/MainProcess] [SERVICE TIMING] generate_embedding: 0.2965s
+[2026-06-22 16:36:45,915: WARNING/MainProcess]   Processed possibly questions 9/9
+[2026-06-22 16:36:45,961: WARNING/MainProcess] ============================================================
+[2026-06-22 16:36:45,962: WARNING/MainProcess] CELERY TASK COMPLETE: Possibly questions for document 134 - 40/40 complete
+[2026-06-22 16:36:45,962: WARNING/MainProcess] ============================================================
+[2026-06-22 16:36:45,963: INFO/MainProcess] Task generate_possibly_questions_task[f62670d2-f5cb-4caa-8a68-ef8cd0ea0fe9] succeeded in 51.108999999999924s: {'status': 'completed', 'document_id': 134, 'updated_count': 9, 'chunk_count': 40, 'possibly_question_count': 40}
+[2026-06-22 16:36:45,963: INFO/MainProcess] Task generate_possibly_questions_task[f87c1998-8f7d-411b-bb97-fbc51d6192f9] received
+[2026-06-22 16:36:45,986: WARNING/MainProcess] ============================================================
+[2026-06-22 16:36:45,986: WARNING/MainProcess] CELERY TASK: Generating possibly questions for document 134 (0/40 missing)
+[2026-06-22 16:36:45,986: WARNING/MainProcess] ============================================================
+[2026-06-22 16:36:46,035: WARNING/MainProcess] ============================================================
+[2026-06-22 16:36:46,035: WARNING/MainProcess] CELERY TASK COMPLETE: Possibly questions for document 134 - 40/40 complete
+[2026-06-22 16:36:46,035: WARNING/MainProcess] ============================================================
+[2026-06-22 16:36:46,040: INFO/MainProcess] Task generate_possibly_questions_task[f87c1998-8f7d-411b-bb97-fbc51d6192f9] succeeded in 0.07900000000017826s: {'status': 'completed', 'document_id': 134, 'updated_count': 0, 'chunk_count': 40, 'possibly_question_count': 40}
+[2026-06-22 16:36:46,041: WARNING/MainProcess] Substantial drift from ragas_syntrafix@DESKTOP-DM2TH7H may mean clocks are out of sync.  Current drift is 52 seconds.  [orig: 2026-06-22 16:36:46.041035 recv: 2026-06-22 16:35:54.848157]
+[2026-06-22 16:41:50,043: INFO/MainProcess] sync with ragas_syntrafix@DESKTOP-DM2TH7H
