@@ -44,7 +44,7 @@ class Settings(BaseSettings):
     OLLAMA_EMBEDDING_DIMENSION: int = 1024
 
     # RAGAS evaluator
-    RAGAS_EVALUATOR_PROVIDER: str = "deepseek"
+    RAGAS_EVALUATOR_PROVIDER: str = "ollama"
     DEEPSEEK_API_KEY: str | None = None
     DEEPSEEK_BASE_URL: str = "https://api.deepseek.com"
     DEEPSEEK_MODEL: str = "deepseek-v4-flash"
