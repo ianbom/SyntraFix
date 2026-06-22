@@ -91,6 +91,11 @@ def update_dataset_row(dataset_id: int, row_id: int, request: UpdateDatasetRowRe
     return dataset_service.update_dataset_row(db, dataset_id, row_id, request.model_dump(exclude_unset=True))
 
 
+@router.delete("/datasets/{dataset_id}/rows/{row_id}")
+def delete_dataset_row(dataset_id: int, row_id: int, db: DBSession):
+    dataset_service.delete_dataset_row(db, dataset_id, row_id)
+    return {"message": "Baris dataset dihapus"}
+
 @router.delete("/datasets/{dataset_id}")
 def delete_dataset(dataset_id: int, db: DBSession):
     dataset_service.delete_dataset(db, dataset_id)
@@ -188,9 +193,11 @@ def get_run_samples(
     page: Annotated[int, Query(ge=1)] = 1,
     per_page: Annotated[int, Query(ge=1, le=200)] = 50,
     status: Annotated[str | None, Query()] = None,
+    all_rows: Annotated[bool, Query(alias="all")] = False,
 ):
-    samples, total = evaluation_service.list_samples(db, run_id=run_id, page=page, per_page=per_page, status=status)
-    return {"samples": samples, "total": total, "page": page, "per_page": per_page, "pages": evaluation_service.pages(total, per_page)}
+    samples, total = evaluation_service.list_samples(db, run_id=run_id, page=page, per_page=per_page, status=status, all_rows=all_rows)
+    response_per_page = total if all_rows and total else per_page
+    return {"samples": samples, "total": total, "page": page, "per_page": response_per_page, "pages": evaluation_service.pages(total, response_per_page)}
 
 
 @router.post("/runs/{run_id}/cancel", response_model=RagRunResponse)

@@ -42,7 +42,7 @@ const DatasetsPage = () => {
                   <TableCell className="text-right">
                     <Button asChild variant="ghost" size="sm"><Link to={`/admin/rag-evaluation/datasets/${dataset.id}`}>Preview</Link></Button>
                     <Button variant="ghost" size="sm" onClick={() => void downloadFile(`/rag-evaluation/datasets/${dataset.id}/download`, dataset.originalFilename ?? `dataset-${dataset.id}.csv`)}>Download</Button>
-                    <Button size="sm" disabled={dataset.status !== "ready" || runMutation.isPending} onClick={() => runMutation.mutate({ id: dataset.id, name: `${dataset.name} - Evaluation` })}>Start</Button>
+                    <Button size="sm" disabled={dataset.validRows <= 0 || runMutation.isPending} onClick={() => runMutation.mutate({ id: dataset.id, name: `${dataset.name} - Evaluation` })}>Start</Button>
                   </TableCell>
                 </TableRow>
               ))}

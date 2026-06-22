@@ -103,10 +103,30 @@ def test_rag_evaluation_route_is_registered_and_admin_protected():
     assert "/rag-evaluation/dashboard/summary" in paths
     assert "/rag-evaluation/datasets/upload" in paths
     assert "/rag-evaluation/runs" in paths
+    assert "/rag-evaluation/datasets/{dataset_id}/rows/{row_id}" in paths
+    row_route_methods = {
+        method
+        for route in app.routes
+        if route.path == "/rag-evaluation/datasets/{dataset_id}/rows/{row_id}"
+        for method in route.methods
+    }
+    assert "DELETE" in row_route_methods
 
     route = next(route for route in app.routes if route.path == "/rag-evaluation/dashboard/summary")
     dependency_calls = {dependency.call for dependency in route.dependant.dependencies}
     assert require_admin_user in dependency_calls
+
+def test_run_samples_route_supports_all_query_parameter():
+    from app.api.routes.rag_evaluations import get_run_samples
+
+    signature = inspect.signature(get_run_samples)
+
+    assert "all_rows" in signature.parameters
+
+def test_dataset_row_delete_service_exists():
+    from app.services.rag_evaluation import dataset_service
+
+    assert hasattr(dataset_service, "delete_dataset_row")
 
 def test_dataset_template_defaults_to_score_only_format():
     from app.api.routes.rag_evaluations import download_template
