@@ -7,10 +7,11 @@ import { SiteHeader } from "@/components/site-header"
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-import { ChatInput, MessageBubble } from "./components"
+import { ChatInput, MessageBubble, RagProcessIndicator } from "./components"
 import {
   getConversation,
   postChatStream,
+  type ChatStreamStatusEvent,
   type ConversationDetail,
   type PostChatResult,
 } from "./api"
@@ -32,6 +33,7 @@ const DetailChatPage = () => {
   const [sendErrorMessage, setSendErrorMessage] = useState<string | null>(null)
   const [pendingRouteOptimisticMessage, setPendingRouteOptimisticMessage] = useState<Message | null>(null)
   const [streamingAssistantMessage, setStreamingAssistantMessage] = useState<Message | null>(null)
+  const [ragProgressSteps, setRagProgressSteps] = useState<ChatStreamStatusEvent[]>([])
 
   const initialMessage = useMemo(() => {
     if (!location.state || typeof location.state !== "object") {
@@ -50,6 +52,24 @@ const DetailChatPage = () => {
     role: "user",
     timestamp: new Date(),
   })
+
+  const resetRagProgress = () => {
+    setRagProgressSteps([])
+  }
+
+  const handleRagStatus = (event: ChatStreamStatusEvent) => {
+    setRagProgressSteps((currentSteps) => {
+      const existingIndex = currentSteps.findIndex((step) => step.step === event.step)
+
+      if (existingIndex === -1) {
+        return [...currentSteps, event]
+      }
+
+      return currentSteps.map((step, index) =>
+        index === existingIndex ? event : step
+      )
+    })
+  }
 
   const isCreatingConversationRoute = id === PENDING_CHAT_ID
   const parsedConversationId = Number(id)
@@ -95,15 +115,9 @@ const DetailChatPage = () => {
       const assistantMessageId = `temp-assistant-${Date.now()}-${Math.random().toString(36).slice(2, 9)}`
       const assistantTimestamp = new Date()
 
-      setStreamingAssistantMessage({
-        id: assistantMessageId,
-        content: "",
-        role: "assistant",
-        timestamp: assistantTimestamp,
-      })
-
       return postChatStream({
         message,
+        onStatus: handleRagStatus,
         onChunk: (chunk) => {
           setStreamingAssistantMessage((currentMessage) => {
             if (!currentMessage || currentMessage.id !== assistantMessageId) {
@@ -124,6 +138,7 @@ const DetailChatPage = () => {
       })
     },
     onMutate: (message: string) => {
+      resetRagProgress()
       setPendingRouteOptimisticMessage(buildOptimisticUserMessage(message))
     },
     onSuccess: async (response) => {
@@ -140,10 +155,12 @@ const DetailChatPage = () => {
       ])
 
       setStreamingAssistantMessage(null)
+      resetRagProgress()
       navigate(`/chat/${response.conversationId}`, { replace: true })
     },
     onError: (error: unknown) => {
       setStreamingAssistantMessage(null)
+      resetRagProgress()
 
       if (error instanceof Error) {
         setSendErrorMessage(error.message)
@@ -193,16 +210,10 @@ const DetailChatPage = () => {
       const assistantMessageId = `temp-assistant-${Date.now()}-${Math.random().toString(36).slice(2, 9)}`
       const assistantTimestamp = new Date()
 
-      setStreamingAssistantMessage({
-        id: assistantMessageId,
-        content: "",
-        role: "assistant",
-        timestamp: assistantTimestamp,
-      })
-
       return postChatStream({
         message,
         conversationId,
+        onStatus: handleRagStatus,
         onChunk: (chunk) => {
           setStreamingAssistantMessage((currentMessage) => {
             if (!currentMessage || currentMessage.id !== assistantMessageId) {
@@ -223,6 +234,7 @@ const DetailChatPage = () => {
       })
     },
     onMutate: async (message: string) => {
+      resetRagProgress()
       if (!conversationId) {
         return { previousConversation: undefined as ConversationDetail | undefined }
       }
@@ -268,6 +280,7 @@ const DetailChatPage = () => {
       ])
 
       setStreamingAssistantMessage(null)
+      resetRagProgress()
     },
     onError: (error: unknown, _message, context) => {
       if (conversationId && context?.previousConversation) {
@@ -278,6 +291,7 @@ const DetailChatPage = () => {
       }
 
       setStreamingAssistantMessage(null)
+      resetRagProgress()
 
       if (error instanceof Error) {
         setSendErrorMessage(error.message)
@@ -325,6 +339,8 @@ const DetailChatPage = () => {
   const isBotTyping =
     (isCreatingConversationRoute && isCreatingConversation) || sendMessageMutation.isPending
   const isConversationLoading = isConversationIdValid && conversationQuery.isPending
+  const isWaitingForFirstAssistantChunk =
+    isBotTyping && !streamingAssistantMessage?.content
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
@@ -425,6 +441,10 @@ const DetailChatPage = () => {
                 {messages.map((message) => (
                   <MessageBubble key={message.id} message={message} />
                 ))}
+
+                {isWaitingForFirstAssistantChunk && (
+                  <RagProcessIndicator steps={ragProgressSteps} />
+                )}
 
                 {/* {isBotTyping && <TypingIndicator />} */}
 

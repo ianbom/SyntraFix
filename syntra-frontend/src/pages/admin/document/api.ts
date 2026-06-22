@@ -8,6 +8,7 @@ import type {
   ProcessDocument,
   ProcessDocumentStatus,
   ProcessMonitorResponse,
+  QueuedDocumentTaskResponse,
 } from "./types"
 import type { ChunkType, DocumentChunk, DocumentDetail, JsonValue, ProcessingStatus } from "./edit-types"
 import { authService } from "@/lib/auth"
@@ -103,6 +104,11 @@ interface GetDocumentDetailParams {
 }
 
 interface GetDocumentDownloadUrlParams {
+  documentId: number
+  signal?: AbortSignal
+}
+
+interface DeleteDocumentParams {
   documentId: number
   signal?: AbortSignal
 }
@@ -384,6 +390,21 @@ export const getDocumentDownloadUrl = async ({
   }
 }
 
+export const deleteDocument = async ({
+  documentId,
+  signal,
+}: DeleteDocumentParams): Promise<void> => {
+  const response = await fetch(`${API_BASE_URL}/documents/${documentId}`, {
+    method: "DELETE",
+    headers: getAuthHeaders(),
+    signal,
+  })
+
+  if (!response.ok) {
+    throw new Error(await getErrorMessage(response, "Gagal menghapus dokumen."))
+  }
+}
+
 interface BulkUploadApiItemResult {
   filename: string
   status: "pending" | "processing" | "error"
@@ -411,6 +432,11 @@ interface ListProcessingDocumentsParams {
 }
 
 interface GeneratePossiblyQuestionsParams {
+  documentId: number
+  signal?: AbortSignal
+}
+
+interface RegenerateDocumentTaskParams {
   documentId: number
   signal?: AbortSignal
 }
@@ -448,6 +474,12 @@ interface GeneratePossiblyQuestionsApiResponse {
   chunk_count: number
   possibly_question_count: number
   missing_possibly_question_count: number
+}
+
+interface QueuedDocumentTaskApiResponse {
+  document_id: number
+  task_id: string
+  status: "queued"
 }
 
 const mapBulkUploadResult = (item: BulkUploadApiItemResult): BulkUploadItemResult => ({
@@ -569,5 +601,55 @@ export const generatePossiblyQuestions = async ({
     chunkCount: payload.chunk_count,
     possiblyQuestionCount: payload.possibly_question_count,
     missingPossiblyQuestionCount: payload.missing_possibly_question_count,
+  }
+}
+
+export const regenerateDocumentMetadata = async ({
+  documentId,
+  signal,
+}: RegenerateDocumentTaskParams): Promise<QueuedDocumentTaskResponse> => {
+  const response = await fetch(
+    `${API_BASE_URL}/documents/${documentId}/metadata/regenerate`,
+    {
+      method: "POST",
+      signal,
+    }
+  )
+
+  if (!response.ok) {
+    throw new Error(await getErrorMessage(response, "Gagal menjalankan regenerate metadata."))
+  }
+
+  const payload = (await response.json()) as QueuedDocumentTaskApiResponse
+
+  return {
+    documentId: payload.document_id,
+    taskId: payload.task_id,
+    status: payload.status,
+  }
+}
+
+export const regenerateDocument = async ({
+  documentId,
+  signal,
+}: RegenerateDocumentTaskParams): Promise<QueuedDocumentTaskResponse> => {
+  const response = await fetch(
+    `${API_BASE_URL}/documents/${documentId}/regenerate`,
+    {
+      method: "POST",
+      signal,
+    }
+  )
+
+  if (!response.ok) {
+    throw new Error(await getErrorMessage(response, "Gagal menjalankan regenerate document."))
+  }
+
+  const payload = (await response.json()) as QueuedDocumentTaskApiResponse
+
+  return {
+    documentId: payload.document_id,
+    taskId: payload.task_id,
+    status: payload.status,
   }
 }
