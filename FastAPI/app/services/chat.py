@@ -65,6 +65,27 @@ class ChatService:
         )
         return any(phrase in content for phrase in noisy_phrases)
 
+    @staticmethod
+    def _normalize_answer_text(answer: str) -> str:
+        return " ".join(str(answer or "").lower().split())
+
+    @classmethod
+    def _is_no_answer_response(cls, answer: str) -> bool:
+        normalized = cls._normalize_answer_text(answer)
+        if not normalized:
+            return True
+
+        no_answer_phrases = (
+            "informasi tersebut tidak ditemukan pada dokumen yang tersedia",
+            "maaf saya tidak menemukan informasi yang relevan",
+            "maaf, saya tidak menemukan informasi yang relevan",
+            "tidak ditemukan konteks yang relevan",
+            "tidak ditemukan pada dokumen yang tersedia",
+            "tidak ditemukan dokumen yang relevan",
+            "belum dapat menghasilkan jawaban",
+        )
+        return any(phrase in normalized for phrase in no_answer_phrases)
+
     def create_conversation(self, user_id: int, title: str) -> Conversation:
         conversation = Conversation(user_id=user_id, title=title)
         self.db.add(conversation)
@@ -997,7 +1018,10 @@ Pertanyaan asli: {query}"""
 
         # 9. Save References
         started_at = time.perf_counter()
-        self._save_rag_references(bot_chat.id, chunks, similarities)
+        references_payload = []
+        if chunks and not self._is_no_answer_response(answer):
+            self._save_rag_references(bot_chat.id, chunks, similarities)
+            references_payload = self._serialize_chat_references(bot_chat.id)
         self._print_timing("ChatService._save_rag_references", time.perf_counter() - started_at)
         self._print_timing("ChatService.process_chat.total", time.perf_counter() - total_started_at)
 
@@ -1007,7 +1031,7 @@ Pertanyaan asli: {query}"""
             role=bot_chat.role,
             message=bot_chat.message,
             created_at=bot_chat.created_at,
-            references=[]
+            references=references_payload
         )
 
     async def process_chat_stream(
@@ -1172,8 +1196,10 @@ Pertanyaan asli: {query}"""
 
         # 9. Save References
         started_at = time.perf_counter()
-        self._save_rag_references(bot_chat.id, chunks, similarities)
-        references_payload = self._serialize_chat_references(bot_chat.id)
+        references_payload = []
+        if chunks and not self._is_no_answer_response(answer):
+            self._save_rag_references(bot_chat.id, chunks, similarities)
+            references_payload = self._serialize_chat_references(bot_chat.id)
         self._print_timing("ChatService._save_rag_references[stream]", time.perf_counter() - started_at)
         self._print_timing("ChatService.process_chat_stream.total", time.perf_counter() - total_started_at)
 

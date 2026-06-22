@@ -102,7 +102,7 @@ function GroupedReferenceCard({ title, references }: { title: string, references
 }
 
 function DocumentReferences({ references }: { references: DocumentReference[] }) {
-  const [isExpanded, setIsExpanded] = useState(true)
+  const [isExpanded, setIsExpanded] = useState(false)
 
   const groupedReferences = useMemo(() => {
     return references.reduce((acc, ref) => {
